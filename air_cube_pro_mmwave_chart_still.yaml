@@ -1,0 +1,84 @@
+type: custom:plotly-graph
+title: Still Energy
+refresh_interval: 1
+hours_to_show: current_day
+layout:
+  height: 350
+  margin:
+    l: 50
+    r: 50
+    t: 50
+    b: 50
+  showlegend: true
+  legend:
+    x: 0.3
+    'y': -0.3
+  xaxis:
+    dtick: 1
+    type: number
+    fixedrange: true
+    range:
+      - 0
+      - 8
+  yaxis:
+    dtick: 10
+    fixedrange: true
+    range:
+      - 0
+      - 100
+entities:
+  - entity: ''
+    name: Threshold
+    mode: lines
+    line:
+      shape: spline
+      width: 2
+      color: FB239F
+    x:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+    'y':
+      - $ex hass.states["number.air_cube_g0_still_threshold"].state
+      - $ex hass.states["number.air_cube_g1_still_threshold"].state
+      - $ex hass.states["number.air_cube_g2_still_threshold"].state
+      - $ex hass.states["number.air_cube_g3_still_threshold"].state
+      - $ex hass.states["number.air_cube_g4_still_threshold"].state
+      - $ex hass.states["number.air_cube_g5_still_threshold"].state
+      - $ex hass.states["number.air_cube_g6_still_threshold"].state
+      - $ex hass.states["number.air_cube_g7_still_threshold"].state
+      - $ex hass.states["number.air_cube_g8_still_threshold"].state
+  - entity: ''
+    name: Energy
+    mode: lines
+    line:
+      shape: spline
+      width: 2
+      color: 239FFB
+    x:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+    'y':
+      - $ex hass.states["sensor.air_cube_g0_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g1_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g2_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g3_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g4_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g5_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g6_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g7_still_energy"].state
+      - $ex hass.states["sensor.air_cube_g8_still_energy"].state
+raw_plotly_config: true
