@@ -1,0 +1,101 @@
+type: vertical-stack
+title: air_cube
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: switch.air_cube_engineering_mode
+            name: engineering mode
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: number.air_cube_timeout
+            name: timeout
+          - entity: select.air_cube_distance_resolution
+          - entity: number.air_cube_max_move_distance_gate
+            name: max move distance gate
+          - entity: number.air_cube_max_still_distance_gate
+            name: max still distance gate
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            entity: sensor.air_cube_detection_distance
+            name: distance
+          - type: entity
+            entity: sensor.air_cube_moving_distance
+            name: move
+          - type: entity
+            entity: sensor.air_cube_still_distance
+            name: still
+  - type: horizontal-stack
+    cards:
+      - type: entity
+        entity: sensor.air_cube_move_energy
+        name: move energy
+      - type: entity
+        entity: sensor.air_cube_still_energy
+        name: still energy
+  - type: horizontal-stack
+    cards:
+      - type: entity
+        entity: binary_sensor.air_cube_presence
+        name: presence
+        state_color: true
+      - type: entity
+        entity: binary_sensor.air_cube_still_target
+        name: still
+        state_color: true
+      - type: entity
+        entity: binary_sensor.air_cube_moving_target
+        name: movement
+        state_color: true
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_move_presets_1
+            name: Move Preset 1
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_move_presets_2
+            name: Move Preset 2
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_move_presets_3
+            name: Move Preset 3
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_still_presets_1
+            name: Still Preset 1
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_still_presets_2
+            name: Still Preset 2
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.air_cube_still_presets_3
+            name: Still Preset 3
