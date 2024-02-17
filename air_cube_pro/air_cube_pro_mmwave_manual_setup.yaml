@@ -1,0 +1,39 @@
+type: entities
+entities:
+  - entity: number.air_cube_g0_move_threshold
+    name: G0 move threshold
+  - entity: number.air_cube_g1_move_threshold
+    name: G1 move threshold
+  - entity: number.air_cube_g2_move_threshold
+    name: G2 move threshold
+  - entity: number.air_cube_g3_move_threshold
+    name: G3 move threshold
+  - entity: number.air_cube_g4_move_threshold
+    name: G4 move threshold
+  - entity: number.air_cube_g5_move_threshold
+    name: G5 move threshold
+  - entity: number.air_cube_g6_move_threshold
+    name: G6 move threshold
+  - entity: number.air_cube_g7_move_threshold
+    name: G7 move threshold
+  - entity: number.air_cube_g8_move_threshold
+    name: G8 move threshold
+  - entity: number.air_cube_g0_still_threshold
+    name: G0 still threshold
+  - entity: number.air_cube_g1_still_threshold
+    name: G1 still threshold
+  - entity: number.air_cube_g2_still_threshold
+    name: G2 still threshold
+  - entity: number.air_cube_g3_still_threshold
+    name: G3 still threshold
+  - entity: number.air_cube_g4_still_threshold
+    name: G4 still threshold
+  - entity: number.air_cube_g5_still_threshold
+    name: G5 still threshold
+  - entity: number.air_cube_g6_still_threshold
+    name: G6 still threshold
+  - entity: number.air_cube_g7_still_threshold
+    name: G7 still threshold
+  - entity: number.air_cube_g8_still_threshold
+    name: G8 still threshold
+title: Air Cube  Manual Setup
