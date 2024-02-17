@@ -13,3 +13,11 @@ air_cube_pro_mmwave_chart_still.yaml
 
 ![083817](/air_cube_pro/083817.png)
 ![081733](/air_cube_pro/081733.png)
+
+### HA面板說明 手動調整畫面
+
+air_cube_pro_mmwave_manual_setup.yaml
+
+
+
+
