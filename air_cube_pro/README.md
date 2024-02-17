@@ -7,6 +7,8 @@ air_cube_pro_mmwave_ui_basic.yaml
 
 ### HA面板說明 實時偵測數據回饋
 
-air_cube_pro_mmwave_chart_move.yaml , air_cube_pro_mmwave_chart_still.yaml
+air_cube_pro_mmwave_chart_move.yaml
+
+air_cube_pro_mmwave_chart_still.yaml
 
 ![081733](/air_cube_pro/081733.png)
