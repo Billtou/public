@@ -18,6 +18,6 @@ air_cube_pro_mmwave_chart_still.yaml
 
 air_cube_pro_mmwave_manual_setup.yaml
 
-
+![084944](/air_cube_pro/084944.png)
 
 
