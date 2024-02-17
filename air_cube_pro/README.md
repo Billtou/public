@@ -2,4 +2,4 @@
 請下載檔案在HA用新增面板方式把三個檔案分別做出三個面板，第一個是各項感應器的偵測數據，最後兩行是靈敏度調整，分別是靜態與動態各三個，1靈敏度最低3最高，可搭配第二個與第三的檔案，這兩個檔案是基於HASC Plotly Graph Card 插件，請先安裝此插件再新增面板。https://github.com/dbuezas/lovelace-plotly-graph-card
 ### HA面板說明
 air_cube_pro_mmwave_ui_basic.yaml
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/081733.png)
+/public/air_cube_pro/081733.png
