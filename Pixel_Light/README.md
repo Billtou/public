@@ -58,7 +58,7 @@ HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix We
 
 ![Mosquitto_broker](/Pixel_Light/image/webservice.png)
 
-
+![Mosquitto_broker](/Pixel_Light/image/files.png)
 
 ### 開始設置氣象預報顯示功能
 
