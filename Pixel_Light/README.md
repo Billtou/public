@@ -64,7 +64,7 @@ HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix We
 
 HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入Awtrix Displays(awtrix_xxxxxx), Toggle Helper(input_boolean.awtrix_weather_app_trigger), Sensor(weather.my_weather_station), Show Weather Text(打開), Show temperature Show Wind Speed Show Humidity 依自己需要打開 Push Icon 任選 > 存檔。
 
-一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他
+一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他像素燈就會開始輪播資訊了。
 
 
 
