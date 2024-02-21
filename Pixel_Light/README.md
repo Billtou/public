@@ -6,7 +6,7 @@
 
 HA>設定>人員>使用者>新增使用者 mqtt-user，密碼我慣用mqtt-pass > 新增。
 
-![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
+![Mosquitto_broker](/Pixel_Light/image/mqtt-user.png)
 
 HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
