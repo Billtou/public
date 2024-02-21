@@ -16,7 +16,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 填寫完成按 Save configuration 後再按 Restart ESP ，正常的話HA等會就會在HA裡面的裝置與服務 > MQTT > awtrix_xxxxxx 發現了。
  
-###準備工作 - 必須先安裝HA插件 OpenCWB 與 Samba share
+### 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
 請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 取得當地天氣預報的實體 sensor.opencwb_forecast，接著在HA裡面新增一個天氣的實體，例如範例中我把預估天氣狀態放在 condition_template: ， 溫/濕度用自家戶外溫度計sensor，預估風速我用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體備用。
 
