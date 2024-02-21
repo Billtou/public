@@ -37,14 +37,15 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 
 
+![Mosquitto_broker](/Pixel_Light/image/samba.png)
+
+在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
+(HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
+
 ### 建立一個開關助手"
 在HA裡面新增一個天氣的實體，condition_template: 瑱入OpenCWB相對應的ID， 溫/濕度用自家sensor ID，預估風速用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體後續備用。
 
-
-
-![Mosquitto_broker](/Pixel_Light/image/samba.png)
-
-在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。(HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
+![Mosquitto_broker](/Pixel_Light/image/weather.png)
 
 ### 製作相對功能的觸發 "開關助手"
 
