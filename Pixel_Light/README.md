@@ -15,19 +15,22 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 ### 像素燈上電連上自家wifi
 
-像素燈上電 像素燈出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點，指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出現使用的IP位置。
+像素燈上電面板出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點，指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出現使用的IP位置。
 
-瀏覽器打入ip位置會出現 Awtrix Light Web Service，選擇選單中的MQTT把相關欄位填入(Broker欄位就是你HA的IP，Prefix欄位就是該設備在HA顯示的名稱)，並打開Homeassistant Discovery 讓HA能發現。
+瀏覽器打入ip位置會出現 Web Service，選單MQTT填入(Broker欄位就是你HA的IP，Prefix欄位就是該設備在HA顯示的名稱)，並打開Homeassistant Discovery 讓HA能發現。
 
 ![Mosquitto_broker](/Pixel_Light/image/mqtt-login.png)
 
-選單選擇 TIME NTP Server 填入 time.stdtime.gov.tw，Timezone填入 CST-8
+選單 TIME NTP Server 填入 time.stdtime.gov.tw，Timezone填入 CST-8
 
 ![Mosquitto_broker](/Pixel_Light/image/timezone_1.png)
 
-填寫完成按 Save configuration 後再按 Restart ESP ，正常的話HA等會就會在HA裡面的裝置與服務 > MQTT > awtrix_xxxxxx 發現了。
+完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
+
  
-### 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
+### 安裝氣象預報跑馬燈示範 
+
+## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
 ![Mosquitto_broker](/Pixel_Light/image/cwba.png)
 
@@ -35,7 +38,9 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 
 
 ### 建立一個開關助手"
-取得當地天氣預報的實體 sensor.opencwb_forecast，接著在HA裡面新增一個天氣的實體，例如範例中我把預估天氣狀態放在 condition_template: ， 溫/濕度用自家戶外溫度計sensor，預估風速我用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體備用。
+在HA裡面新增一個天氣的實體，condition_template: 瑱入OpenCWB相對應的ID， 溫/濕度用自家sensor ID，預估風速用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體後續備用。
+
+
 
 ![Mosquitto_broker](/Pixel_Light/image/samba.png)
 
