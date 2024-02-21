@@ -1,8 +1,8 @@
-### 推薦像素燈安裝分享 
+# 推薦像素燈安裝分享 
 
 ## 像素燈接入Home Assostant
 
-建立mqtt user (原已建立者可略)
+### 建立mqtt user (原已建立者可略)
 
 HA>設定>人員>使用者>新增使用者 mqtt-user 密碼我慣用mqtt-pass > 新增。
 
