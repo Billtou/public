@@ -7,6 +7,7 @@
 HA>設定>人員>使用者>新增使用者 mqtt-user，密碼我慣用mqtt-pass > 新增。
 
 HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
+
 ![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
 
 像素燈上電 像素燈出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點，指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出現使用的IP位置。
