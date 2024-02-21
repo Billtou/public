@@ -39,15 +39,32 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 ![Mosquitto_broker](/Pixel_Light/image/samba.png)
 
-在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
+在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將sd卡blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
 (HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
 
-### 建立一個開關助手"
-在HA裡面新增一個天氣的實體，condition_template: 瑱入OpenCWB相對應的ID， 溫/濕度用自家sensor ID，預估風速用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體後續備用。
+### 建立一個天氣的實體"
+在HA裡面新增一個天氣的實體 "請參考檔案 weather.yaml"，entity瑱入OpenCWB相對應的ID， 溫/濕度用自家sensor，預估風速用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體後續備用。
 
 ![Mosquitto_broker](/Pixel_Light/image/weather.png)
 
 ### 製作相對功能的觸發 "開關助手"
+
+HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix Weather APP Trigger
+
+### 下載所需icon
+
+瀏覽器輸入AWTRIX Light IP進入 web service
+點選單 'files' > 選擇檔案 > 選取sd卡 Weather icons 資料夾中的 icon檔案依序放到\ICONS\裡面
+
+
+
+
+### 開始設置氣象預報顯示功能
+
+HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入Awtrix Displays(awtrix_xxxxxx), Toggle Helper(input_boolean.awtrix_weather_app_trigger), Sensor(weather.my_weather_station), Show Weather Text(打開), Show temperature Show Wind Speed Show Humidity 依自己需要打開 Push Icon 任選 > 存檔。
+
+一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他
+
 
 
 
