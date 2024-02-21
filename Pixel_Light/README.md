@@ -1,11 +1,23 @@
 # 推薦像素燈安裝分享 
 
-###必須先安裝HA插件
+0. 像素燈接入Home Assostant
+
+建立mqtt user (原已建立者可略)
+
+HA>設定>人員>使用者>新增使用者 mqtt-user 密碼我慣用mqtt-pass >新增。
+
+HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
+
+
+
+
+
+2. 準備工作 - 必須先安裝HA插件 OpenCWB 與 Samba share
 
 請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 取得當地天氣預報的實體 sensor.opencwb_forecast，接著在HA裡面新增一個天氣的實體，例如範例中我把預估天氣狀態放在 condition_template: ， 溫/濕度用自家戶外溫度計sensor，預估風速我用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體備用。
 
 在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。(HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
 
-
+2.
 
 
