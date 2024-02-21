@@ -1,0 +1,9 @@
+weather:
+  - platform: template
+    name: "My Weather Station"
+    condition_template: "{{ states('sensor.opencwb_forecast') }}"
+    temperature_template: "{{ states('sensor.outside_temperature') | int }}"
+    temperature_unit: "°C"
+    humidity_template: "{{ states('sensor.outside_humidity') | int }}"
+    wind_speed_template: "{{ states('sensor.opencwb_forecast_7') | int }}"
+    wind_speed_unit: "m/s
