@@ -71,9 +71,11 @@ HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入A
 到這個網站挑選喜歡的icon, 記住icon id 號碼。
 https://developer.lametric.com/icons
 
+![Mosquitto_broker](/Pixel_Light/image/webicon.png)
+
 到web service 輸入該號碼按"Preview" 喜歡就"dwonload"，會自動存在\ICONS\資料夾中備用。
 
-
+![Mosquitto_broker](/Pixel_Light/image/downmloadicon.png)
 
 
 
