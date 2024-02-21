@@ -12,6 +12,8 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 ![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
 
+### 像素燈上電連上自家wifi
+
 像素燈上電 像素燈出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點，指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出現使用的IP位置。
 
 瀏覽器打入ip位置會出現 Awtrix Light Web Service，選擇選單中的MQTT把相關欄位填入(Broker欄位就是你HA的IP，Prefix欄位就是該設備在HA顯示的名稱)，並打開Homeassistant Discovery 讓HA能發現。
