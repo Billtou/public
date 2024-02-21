@@ -22,7 +22,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 選單選擇 TIME NTP Server 填入 time.stdtime.gov.tw，Timezone填入 CST-8
 
-![Mosquitto_broker](/Pixel_Light/image/timezone.png)
+![Mosquitto_broker](/Pixel_Light/image/timezone_1.png)
 
 填寫完成按 Save configuration 後再按 Restart ESP ，正常的話HA等會就會在HA裡面的裝置與服務 > MQTT > awtrix_xxxxxx 發現了。
  
