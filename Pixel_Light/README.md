@@ -56,6 +56,7 @@ HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix We
 瀏覽器輸入AWTRIX Light IP進入 web service
 點選單 'files' > 選擇檔案 > 選取sd卡 Weather icons 資料夾中的 icon檔案依序放到\ICONS\裡面
 
+![Mosquitto_broker](/Pixel_Light/image/webservice.png)
 
 
 
