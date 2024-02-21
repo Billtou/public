@@ -1,6 +1,6 @@
-###推薦像素燈安裝分享 
+### 推薦像素燈安裝分享 
 
-##像素燈接入Home Assostant
+## 像素燈接入Home Assostant
 
 建立mqtt user (原已建立者可略)
 
