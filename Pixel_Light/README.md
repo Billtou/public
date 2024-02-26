@@ -39,7 +39,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 ![Mosquitto_broker](/Pixel_Light/image/samba.png)
 
-在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將sd卡blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
+在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
 (HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
 
 ### 建立一個天氣的實體"
@@ -54,7 +54,7 @@ HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix We
 ### 下載所需icon
 
 瀏覽器輸入AWTRIX Light IP進入 web service
-點選單 'files' > 選擇檔案 > 選取sd卡 Weather icons 資料夾中的 icon檔案依序放到\ICONS\裡面
+點選單 'files' > 選擇檔案 > 購買下載的檔案裏面 Weather icons 資料夾中的 icon檔案依序放到\ICONS\裡面
 
 ![Mosquitto_broker](/Pixel_Light/image/webservice.png)
 
