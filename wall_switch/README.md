@@ -15,13 +15,14 @@
 6.畫面右上 "SAVE" > "INSTALL"
 7.沒意外燒寫完成顯示on-line了可以開始編譯程序碼了，目前堤供1~3鍵標準版以及解偶後想把案鍵變成多功能點動開關。
 
-wall-switch-1-xxxx.yaml
+wall-switch-1-xxxx.yaml (一路開關)
 
-wall-switch-2-xxxx.yaml
+wall-switch-2-xxxx.yaml (二路開關)
 
-wall-switch-3-xxxx.yaml
+wall-switch-3-xxxx.yaml (三路開關)
 
-wall-switch-3-xxxx-multi_click.yaml
+wall-switch-3-xxxx-multi_click.yaml (一路點動開關)
+
 
 
 這是一路開關標準版ESPHome yaml檔，須注意
