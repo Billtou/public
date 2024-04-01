@@ -16,7 +16,9 @@
 7.沒意外燒寫完成顯示on-line了可以開始編譯程序碼了，目前堤供1~3鍵標準版以及解偶後想把案鍵變成多功能點動開關。
 
 wall-switch-1-xxxx.yaml
+
 wall-switch-2-xxxx.yaml
+
 wall-switch-3-xxxx.yaml
 
 wall-switch-3-xxxx-multi_click.yaml
