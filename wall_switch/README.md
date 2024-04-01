@@ -21,7 +21,8 @@ wall-switch-2-xxxx.yaml (二路開關)
 
 wall-switch-3-xxxx.yaml (三路開關)
 
-wall-switch-3-xxxx-multi_click.yaml (一路點動開關)
+wall-switch-1-xxxx-multi_click.yaml (一路點動開關 模擬作為雙開的第二個開關運用)
+
 
 
 
