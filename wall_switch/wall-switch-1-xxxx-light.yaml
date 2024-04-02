@@ -2,7 +2,7 @@
 
 esphome:
   name: "wall-switch-1-xxxx"  # 每個開關
-  friendly_name: "Livingroom Wall Swaitc"  # 可改為有意義的名稱 **不可用中文**
+  friendly_name: "Livingroom Wall Swaitch"  # 可改為有意義的名稱 **不可用中文**
 
 bk72xx:
   board: generic-bk7231n-qfn32-tuya
