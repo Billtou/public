@@ -61,12 +61,12 @@ binary_sensor:
             condition:    
               lambda: 'return !id(decouple_1).state;'
             then: 
-              - light.toggle: bathroom_light
+              - light.toggle: livingroom_light
 light:
   - platform: binary
-    name: "Bathroom Ceiling Light"
+    name: "Livingroom Ceiling Light"
     output: switch_1
-    id: bathroom_light
+    id: livingroom_light
 
 output:
   - platform: gpio
