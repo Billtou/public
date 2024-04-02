@@ -61,12 +61,6 @@ binary_sensor:
               lambda: 'return !id(decouple_1).state;'
             then: 
               - fan.toggle: bedroom_fan
-light:
-  - platform: binary
-    name: "Bathroom Fan"
-    output: switch_1
-    id: bathroom_light
-
 fan:
   - platform: binary
     name: "Bedroom Fan"
