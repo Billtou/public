@@ -64,7 +64,7 @@ binary_sensor:
               - light.toggle: bathroom_light
 light:
   - platform: binary
-    name: "Bathroom Ceiling Lights"
+    name: "Bathroom Ceiling Light"
     output: switch_1
     id: bathroom_light
 
