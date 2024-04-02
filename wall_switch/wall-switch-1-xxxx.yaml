@@ -31,13 +31,6 @@ debug:
   update_interval: 30s
 
 text_sensor:
-  - platform: debug
-    reset_reason:
-      name: Reset Reason
-  # - platform: libretiny
-  #   version:
-  #     name: LibreTiny Version
-
   - platform: wifi_info
     ip_address:
       name: "IP"      
@@ -49,8 +42,6 @@ text_sensor:
       name: SSID      
 
 sensor:
-  - platform: uptime
-    name: Uptime
   - platform: wifi_signal
     name: Wifi Signal
     update_interval: 600s    
@@ -61,7 +52,7 @@ binary_sensor:
     name: Binary Sensor_1
     pin:
       number: P28
-      # inverted: true
+      inverted: true
       mode: INPUT_PULLUP
     on_press:
       then:
@@ -70,7 +61,6 @@ binary_sensor:
               lambda: 'return !id(decouple_1).state;'
             then: 
               - switch.toggle: switch_1
-
 switch:
   - platform: gpio
     id: switch_1
