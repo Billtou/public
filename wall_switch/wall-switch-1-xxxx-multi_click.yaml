@@ -1,1 +1,132 @@
 
+esphome:
+  name: "wall-switch-1-xxxx"  # "xxxx" 每個開關不同
+  friendly_name: "Livingroom Wall Swaitc"  # 可改為有意義的名稱例如 "Livingroom Wall Switch" **不可用中文**
+
+bk72xx:
+  board: generic-bk7231n-qfn32-tuya
+
+logger:
+
+web_server:
+
+captive_portal:
+
+mdns:
+
+api:
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+
+button:
+  - platform: restart
+    name: Restart
+
+debug:
+  update_interval: 30s
+
+text_sensor:
+  - platform: debug
+    reset_reason:
+      name: Reset Reason
+
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+    ssid:
+      name: SSID      
+
+sensor:
+  - platform: uptime
+    name: Uptime
+  - platform: wifi_signal
+    name: Wifi Signal
+    update_interval: 600s    
+
+binary_sensor:
+  - platform: gpio
+    id: binary_switch_1
+    name: Binary Sensor_1
+    pin:
+      number: P28
+      # inverted: true
+      mode: INPUT_PULLUP
+    on_multi_click:
+      - timing:
+          - ON for 40ms to 400ms
+          - OFF for at least 400ms
+        then:
+          - if:
+              condition:    
+                lambda: 'return id(decouple_1).state;'
+              then: 
+                - switch.toggle: single_switc
+      - timing:
+          - ON for 40ms to 400ms
+          - OFF for 40ms to 400ms
+          - ON for 40ms to 400ms
+          - OFF for at least 400ms
+        then:
+          - if:
+              condition:    
+                lambda: 'return id(decouple_1).state;'
+              then: 
+                - switch.toggle: double_switch
+      - timing:
+          - ON for at least 500ms
+          - OFF for at least 40ms
+        then:
+          - if:
+              condition:    
+                lambda: 'return id(decouple_1).state;'
+              then: 
+                - switch.toggle: double_switch
+      then:
+        - if:
+            condition:    
+              lambda: 'return !id(decouple_1).state;'
+            then: 
+              - switch.toggle: hold_switch
+switch:
+  - platform: gpio
+    id: switch_1
+    name: Relay 1
+    pin: P16
+   
+  - platform: template
+    name: "decouple relay_1"
+    id: decouple_1
+    icon: mdi:link-variant
+    optimistic: true
+    entity_category: config
+    on_turn_on:
+      then:
+      - switch.turn_on: decouple_1
+    on_turn_off:
+      then:
+      - switch.turn_off: decouple_1  
+
+# multi_click use 
+  - platform: template
+    name: "Single"
+    id: "single_switch"
+    optimistic: true
+
+  - platform: template
+    name: "Double"
+    id: "double_switch"
+    optimistic: true
+
+  - platform: template
+    name: "Hold"
+    id: "hold_switch"
+    optimistic: true      
