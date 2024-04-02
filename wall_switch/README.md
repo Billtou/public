@@ -1,4 +1,4 @@
-### 一定要注意須按順序修改否則會死，須回廠上機器重燒
+### 一定要注意須按順序修改否則會死機，須回廠上機器重燒
 
 0.先進入"裝置" > "裝置與服務" > "ESPHome" > 找到 "wall-switch-x-xxx"  把正確的設備名稱copy到剪貼簿備用。(x-xxx)每個開關都有不同編號。
 0.下載相對應的yaml 文件
@@ -21,7 +21,7 @@ wall-switch-2-xxxx.yaml (二路開關)
 
 wall-switch-3-xxxx.yaml (三路開關)
 
-wall-switch-1-xxxx-multi_click.yaml (一路點動開關 模擬作為雙開的第二個開關運用)
+wall-switch-1-xxxx-multi_click.yaml (解偶自製點動三模式)
 
 
 
