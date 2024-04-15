@@ -1,0 +1,6 @@
+template:
+  - sensor:
+      - name: ikea_air_purifier_XXXX_pm25 # XXXX 請見esphome內序號
+        unique_id: c8535a37-7e83-41e5-bece-9f32c750ad49  # 這是隨機的號碼，自己也可以差不多打一個或小改幾個字元即可
+        state: >
+          {{states('sensor.MY_PM25_SENSOR')}}  ## MY_PM25_SENSOR 請改為自家的PM2.5 sensor entity 即可
