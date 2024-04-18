@@ -73,6 +73,7 @@ awtrix_XXXXXX/notify
 ![Mosquitto_broker](/Pixel_Light/image/175912.png)
 
 # 測試發文字+mp3 (以腳本示範)
+
 *** 附贈sd卡(已經格式化fat32，裡面mp3資料夾有一個mp3示範檔) ***
 
 sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則無法撥放。
@@ -85,9 +86,9 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> { "sound":"0001","text":"Good morning get up!","rainbow":true,"duration":25 } > Qos >1
 
-執行看看應該會發出我兒子的起床聲音。
+執行看看應該會發出我兒子的起床聲音。 **mp3檔名前面一率用數字取名子空格 - 空格後可以取容易辨識的英文稱，播放時指定前面數字即可正常撥放。
 
-
+![Mosquitto_broker](/Pixel_Light/image/213415.png)
 
 
 
