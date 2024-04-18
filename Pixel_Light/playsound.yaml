@@ -1,0 +1,11 @@
+alias: playsound
+sequence:
+  - service: mqtt.publish
+    metadata: {}
+    data:
+      qos: "1"
+      topic: awtrix_93ef30/notify
+      payload: >-
+        { "sound":"0001","text":"Good morning get
+        up!","rainbow":true,"duration":25 }
+mode: single
