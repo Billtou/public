@@ -14,7 +14,7 @@
  
  menu
  
-  -BRIGHT
+  -BRIGHT (亮度調節/auto)
   
   -COLOR (默認時間顯示顏色)
   
