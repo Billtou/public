@@ -98,8 +98,9 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 將blueprints 的 yaml檔案copy到\CONFIG\blueprints\automation\awtrix 內。 把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
 
+![Mosquitto_broker](/Pixel_Light/image/215806.png)
 
-
+![Mosquitto_broker](/Pixel_Light/image/215806.png)
 
 
 ### 安裝氣象預報跑馬燈示範 
