@@ -124,7 +124,7 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 ## 附錄安裝氣象預報跑馬燈示範(用氣象局的資訊比較準確) 
 
-## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
+必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
 ![Mosquitto_broker](/Pixel_Light/image/cwba.png)
 
