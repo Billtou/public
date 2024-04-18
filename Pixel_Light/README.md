@@ -1,6 +1,34 @@
 
 # 推薦像素燈安裝分享 
 
+**SD卡插在底部**
+
+產品上蓋三個按鍵分別是(左)、(下)、(右)。
+(下)長按進入menu，再長按來開menu。
+
+示範修改亮度:
+(下)長按出現BRIGHT，(下)短按出現x%，再按一次(下)出現AUTO。
+在x%畫面按(左)減少 (右) 增加，確定設定值長按(下)回到MENU，再長按(下) 離開。
+
+常用選單說明
+menu
+  -BRIGHT
+  -COLOR (默認時間顯示顏色)
+  -SWITCH
+  -T-SPEED
+  -APPTIME
+  -TIME
+  -DATE
+  -WEEKDAY (設定一周第一天)
+  -TEMP (不含溫溼度)
+  -APPS (顯示內建輪播)打開時間日期即可。
+  -SOUNS (喇叭on/off)
+  -VOLUME (喇吧大小聲)
+  -UPDATE
+
+其他沒事別亂調~
+
+
 ## 像素燈接入Home Assostant
 
 ### 建立mqtt user (原已建立者可略)
@@ -28,8 +56,17 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
 
 # 測試
+HA>設定>裝置與服務>MQTT>設定，輸入以下內容(XXXXXX 請改為自己的序號)按發布(要等10-15秒左右)看到像素燈顯示彩虹字就OK了。
 
 
+主題
+awtrix_XXXXXX/notify
+
+{
+  "text": "Hello, AWTRIX Light!",
+  "rainbow": true,
+  "duration": 20
+}
 
 
 # 推薦像素燈安裝分享 
