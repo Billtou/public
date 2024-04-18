@@ -62,11 +62,11 @@ HA>設定>裝置與服務>MQTT>設定，輸入以下內容(XXXXXX 請改為自�
 
 awtrix_XXXXXX/notify
 
-{
-  "text": "Hello, AWTRIX Light!",
-  "rainbow": true,
-  "duration": 20
-}
+  {
+    "text": "Hello, AWTRIX Light!",
+    "rainbow": true,
+    "duration": 20
+  }
 
 ![Mosquitto_broker](/Pixel_Light/image/175836.png)
 
