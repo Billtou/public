@@ -27,6 +27,25 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
 
+
+
+
+# 推薦像素燈安裝分享 
+測試
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 ### 安裝氣象預報跑馬燈示範 
 
