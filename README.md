@@ -15,3 +15,11 @@
 ### ikea_air_purifier
 
 IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供機器自帶自動化運行所需
+
+### area_master
+
+空間大師...開發中
+
+### hollow clock 
+
+空心鐘4代簡易對時方案
