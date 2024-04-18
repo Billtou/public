@@ -55,7 +55,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
 
-# 測試
+# 測試發文字
 HA>設定>裝置與服務>MQTT>設定，輸入以下內容(XXXXXX 請改為自己的序號)按發布(要等10-15秒左右)看到像素燈顯示彩虹字就OK了。
 
 主題
@@ -70,9 +70,27 @@ awtrix_XXXXXX/notify
 
 ![Mosquitto_broker](/Pixel_Light/image/175836.png)
 
-
-
 ![Mosquitto_broker](/Pixel_Light/image/175912.png)
+
+# 測試發文字+mp3 (以腳本示範)
+*** 附贈sd卡(已經格式化fat32，裡面mp3資料夾有一個mp3示範檔) ***
+
+sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則無法撥放。
+
+0001 - XXXX.mp3 (XXXX可英文名稱字)
+
+0002 - XXXX.mp3
+
+...
+
+設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> { "sound":"0001","text":"Good morning get up!","rainbow":true,"duration":25 } > Qos >1
+
+執行看看應該會發出我兒子的起床聲音。
+
+
+
+
+
 
 
 # 推薦像素燈安裝分享 
