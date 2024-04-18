@@ -96,14 +96,21 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 # 推薦像素燈購買國外小哥blueprints安裝分享 
 
-將blueprints 的 yaml檔案copy到\CONFIG\blueprints\automation\awtrix 內。 把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
+在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案放到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
+(HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
+
+把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
 
 ![Mosquitto_broker](/Pixel_Light/image/215806.png)
 
-![Mosquitto_broker](/Pixel_Light/image/215806.png)
+![Mosquitto_broker](/Pixel_Light/image/220018.png)
+
+就可以使用自動化輪播像素燈了
 
 
-### 安裝氣象預報跑馬燈示範 
+
+
+### 附錄安裝氣象預報跑馬燈示範 
 
 ## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
@@ -114,8 +121,6 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 ![Mosquitto_broker](/Pixel_Light/image/samba.png)
 
-在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案copy到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
-(HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
 
 ### 建立一個天氣的實體"
 在HA裡面新增一個天氣的實體 "請參考檔案 weather.yaml"，entity瑱入OpenCWB相對應的ID， 溫/濕度用自家sensor，預估風速用opencwb的 sensor.opencwb_forecast_7,完成重啟HA會出現 weather.my_weather_station 的實體後續備用。
@@ -126,23 +131,13 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 HA>設定>裝置與服務>助手>新增助手>開關> 名稱自取 ex: Awtrix Weather APP Trigger
 
-### 下載所需icon
-
-瀏覽器輸入AWTRIX Light IP進入 web service
-點選單 'files' > 選擇檔案 > 購買下載的檔案裏面 Weather icons 資料夾中的 icon檔案依序放到\ICONS\裡面
-
-![Mosquitto_broker](/Pixel_Light/image/webservice.png)
-
-![Mosquitto_broker](/Pixel_Light/image/files.png)
-
 ### 開始設置氣象預報顯示功能
 
 HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入Awtrix Displays(awtrix_xxxxxx), Toggle Helper(input_boolean.awtrix_weather_app_trigger), Sensor(weather.my_weather_station), Show Weather Text(打開), Show temperature Show Wind Speed Show Humidity 依自己需要打開 Push Icon 任選 > 存檔。
 
 一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他像素燈就會開始輪播資訊了。
 
-
-**附錄 自行下載icon使用 **
+**自行下載icon使用 **
 到這個網站挑選喜歡的icon, 記住icon id 號碼。
 https://developer.lametric.com/icons
 
