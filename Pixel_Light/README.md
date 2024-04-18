@@ -41,7 +41,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 ![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
 
-### 像素燈上電連上自家wifi
+## 像素燈上電連上自家wifi
 
 像素燈上電面板出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點密碼是 12345678 再指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出在畫面出現使用的IP位置。
 
@@ -55,18 +55,18 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
 完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
 
-# 測試發送文字
+## 測試發送文字
 HA>設定>裝置與服務>MQTT>設定，輸入以下內容(XXXXXX 請改為自己的序號)按發布(要等10-15秒左右)看到像素燈顯示彩虹字就OK了。
 
 主題
 
 awtrix_XXXXXX/notify
 
-{
-  "text": "Hello, AWTRIX Light!",
-  "rainbow": true,
-  "duration": 20
-}
+  {
+    "text": "Hello, AWTRIX Light!",
+    "rainbow": true,
+    "duration": 20
+  }
 
 ![Mosquitto_broker](/Pixel_Light/image/175836.png)
 
