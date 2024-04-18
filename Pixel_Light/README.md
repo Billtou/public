@@ -94,23 +94,14 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 
 
-# 推薦像素燈安裝分享 
+# 推薦像素燈購買國外小哥blueprints安裝分享 
+
+將blueprints 的 yaml檔案copy到\CONFIG\blueprints\automation\awtrix 內。 把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
- 
 ### 安裝氣象預報跑馬燈示範 
 
 ## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
