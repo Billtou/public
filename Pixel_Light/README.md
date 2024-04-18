@@ -59,7 +59,7 @@ HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 HA>設定>裝置與服務>MQTT>設定，輸入以下內容(XXXXXX 請改為自己的序號)按發布(要等10-15秒左右)看到像素燈顯示彩虹字就OK了。
 
 
-![Mosquitto_broker](/Pixel_Light/image/螢幕擷取畫面 2024-04-18 175836.png)
+![Mosquitto_broker](/Pixel_Light/image/175836.png)
 
 主題
 awtrix_XXXXXX/notify
@@ -70,7 +70,7 @@ awtrix_XXXXXX/notify
   "duration": 20
 }
 
-
+![Mosquitto_broker](/Pixel_Light/image/175912.png)
 
 
 # 推薦像素燈安裝分享 
