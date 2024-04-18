@@ -109,7 +109,9 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 
 ## 推薦像素燈購買國外小哥blueprints安裝分享 
+
 https://youtu.be/N0NKPJzGHuA?si=Qu2s4GEHaSAnrwz3
+
 https://ko-fi.com/s/0d1e4419bd
 
 在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案放到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
