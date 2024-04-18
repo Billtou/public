@@ -119,12 +119,10 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 ![Mosquitto_broker](/Pixel_Light/image/220018.png)
 
-就可以使用自動化輪播像素燈了
+就可以使用blueprints自動化輪播像素燈了
 
 
-
-
-## 附錄安裝氣象預報跑馬燈示範 
+## 附錄安裝氣象預報跑馬燈示範(用氣象局的資訊比較準確) 
 
 ## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
