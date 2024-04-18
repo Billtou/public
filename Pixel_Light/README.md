@@ -94,7 +94,7 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 
 
-# 推薦像素燈購買國外小哥blueprints安裝分享 
+## 推薦像素燈購買國外小哥blueprints安裝分享 
 
 在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案放到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
 (HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
@@ -110,7 +110,7 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 
 
-### 附錄安裝氣象預報跑馬燈示範 
+## 附錄安裝氣象預報跑馬燈示範 
 
 ## 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
