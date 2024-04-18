@@ -149,7 +149,7 @@ HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入A
 
 一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他像素燈就會開始輪播資訊了。
 
-**自行下載icon使用 **
+## 自行下載icon使用
 到這個網站挑選喜歡的icon, 記住icon id 號碼。
 https://developer.lametric.com/icons
 
