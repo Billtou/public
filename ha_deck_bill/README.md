@@ -32,7 +32,7 @@
 
         - type: button #元件類別 
           position: 126, 8  #定位點  1-2 
-          dimensions: 228x96  #指定元件大小(兩個默認大小的參數) 位置涵蓋1-2~1-3
+          dimensions: 228x96  #指定元件大小(兩個默認大小的參數) 位置涵蓋1-2~1-3 (刪掉這行變常規正方形大小)
           text: "Livingroom"  #顯示文字(只能用英文)
           icon: 󰀛   # 只能用HA自帶，稍後說明
           # toggle: true  #是否要觸發
