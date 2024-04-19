@@ -43,6 +43,17 @@
             
 ![Mosquitto_broker](/ha_deck_bill/image/152844.png)
 
+解析一下整個畫面說明。
+    substitutions:
+      SCREEN_MAIN: main
+      SCREEN_ROOMS: rooms
+      SCREEN_KITCHEN: kitchen
+      SCREEN_LED: led
+      SCREEN_MEDIA: media
+      SCREEN_LIVCLIMATE: livclimate
+指定頁面名稱，一個SCREEN一個參數，例如要增加一格臥室頁面如下。
+    SCREEN_BEDROOM: bedroom
+
 
 
 
