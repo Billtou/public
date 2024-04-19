@@ -198,8 +198,14 @@ UI主程序60秒自動回主畫面並黑屏
         entity_id: sensor.opencwb_forecast_condition 
 
 
+支援ICON 網站 (先到這個網站找尋喜歡的)
+
+https://pictogrammers.com/docs/library/mdi/guides/home-assistant/
 
 
+抓取ICON 網站 用這個網站搜尋同一個icon，點選紅圈圈copy icon 再貼到esphome裡面即可。
+
+![Mosquitto_broker](/ha_deck_bill/image/163739.png)
 
 參考網站
 
