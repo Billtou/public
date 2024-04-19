@@ -1,6 +1,7 @@
 這裡著重如何自己規劃撰寫專屬的操作頁面。
-基本規格:
-螢幕解析度480*480
+
+##螢幕解析度480*480
+
 先說一下自帶的按鈕定位點，以正方形畫面區分16區
 ![Mosquitto_broker](/ha_deck_bill/image/143924.png)
 
@@ -27,9 +28,20 @@
     4-3定位點:244,365
     4-4定位點:362,365
 
+指定"button"定位點後若沒特別參數，自帶默認大小，若加上dimensions參數，可以自訂button大小。
 
-
-
+        - type: button #元件類別 
+          position: 126, 8  #定位點  1-2 
+          dimensions: 228x96  #指定元件大小(兩個默認大小的參數) 位置涵蓋1-2~1-3
+          text: "Livingroom"  #顯示文字(只能用英文)
+          icon: 󰀛   # 只能用HA自帶，稍後說明
+          # toggle: true  #是否要觸發
+          enabled: return true;  #狀態顏色是否顯示
+          checked: |-  #狀態判斷程序碼
+            if(id(climate_state).state != "off") { return 1; }
+            else { return 0; }
+            
+![Mosquitto_broker](/ha_deck_bill/image/152844.png)
 
 
 
