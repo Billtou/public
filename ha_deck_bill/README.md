@@ -51,7 +51,9 @@
       SCREEN_LED: led
       SCREEN_MEDIA: media
       SCREEN_LIVCLIMATE: livclimate
+      
 指定頁面名稱，一個SCREEN一個參數，例如要增加一格臥室頁面如下。
+
     SCREEN_BEDROOM: bedroom
 
 
