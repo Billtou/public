@@ -168,7 +168,7 @@ UI主程序60秒自動回主畫面並黑屏
           enabled: return true;
           value: |-
             char buff[10] = "-";
-            sprintf(buff, "%.1f", id(living_temperature).state);   #living_temperature這個ID來自以下 sensor: 自訂義，抓取HA的entity同步。
+            sprintf(buff, "%.1f", id(living_temperature).state);   #這個ID來自以下 sensor: 自訂義，抓取HA的entity同步。
             return std::string(buff);  
 
         - type: value-card  #1-3 (天氣預報)
@@ -180,7 +180,7 @@ UI主程序60秒自動回主畫面並黑屏
           # unit: °C
           enabled: return true;
           value: |-
-             return id(weather_state).state;  # weather_state個ID來自以下 text_sensor: 自訂義，抓取HA的entity同步。
+             return id(weather_state).state;  # 個ID來自以下 text_sensor: 自訂義，抓取HA的entity同步。
           on_click:
             lambda: |-
                 id(deck).switch_screen("$SCREEN_ROOMS");   #按下後跳到SCREEN_ROOMS 這個頁面
