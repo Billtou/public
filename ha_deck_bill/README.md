@@ -57,6 +57,144 @@
 
     SCREEN_BEDROOM: bedroom
 
+指定esp32芯片參數。需下載.csv檔案，放在HA裡面esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡)
+
+    esphome:
+      name: "ha-deck-3d68"
+      friendly_name: "HA Deck 3d68"
+      platformio_options:
+        board_upload.maximum_ram_size: 327680
+        board_upload.maximum_size: 16777216
+        board_build.partitions: "/config/esphome/custom_partitions_8128.csv"  # "/config/esphome/custom_partitions_3584.csv" #
+        board_build.arduino.memory_type: qio_opi
+
+指定 external
+
+    external_components:
+      - source:
+          type: git
+          url: https://github.com/strange-v/ha_deck
+          ref: main
+        components: [ hd_device_wt32s3_86s, ha_deck ]
+
+做個台灣的時間id
+
+    time:
+      - platform: sntp  #定義時間參數
+        id: sntp_time
+        timezone: Asia/Taipei
+        on_time:
+          - cron: '* * * * * *'
+            then:
+              lambda: |-
+                char buff[10] = "-";
+                auto time = id(sntp_time).now();
+                if (time.is_valid())
+                  sprintf(buff, "%02d:%02d:%02d", time.hour, time.minute, time.second);
+                id(local_time).set_value(std::string(buff));
+
+做兩個調整畫面亮度的entity
+                
+    number:
+      - platform: template   # 定義螢幕亮度參數
+        id: screen_brightness
+        # name: Active screen brightness
+        min_value: 0
+        max_value: 100
+        step: 5
+        initial_value: 75   # 活躍中默認亮度75
+        restore_value: true
+        set_action:
+          - lambda: |-
+              if (!id(deck).get_inactivity())
+                id(device).set_brightness(x);
+    
+      - platform: template  # 定義螢幕亮度參數
+        id: inactive_screen_brightness
+        # name: Inactive screen brightness
+        min_value: 0
+        max_value: 100
+        step: 5
+        initial_value: 20  # "非" 活躍中默認亮度20
+        restore_value: true
+        set_action:
+          - lambda: |-
+              if (id(deck).get_inactivity())
+                id(device).set_brightness(x);
+
+照抄
+
+    output:
+      - platform: ledc  
+        pin: 10
+        id: out_10
+        
+    hd_device_wt32s3_86s:
+      id: device
+      brightness: 75            
+
+UI主程序60秒自動回主畫面並黑屏
+
+    ha_deck:
+      id: deck
+      main_screen: ${SCREEN_MAIN}  # 設備參數
+      inactivity:
+        period: 60 # seconds 60秒回主畫面
+        blank_screen: true  #休眠黑畫面有效
+      on_inactivity_change:
+        lambda:  |-
+          if (x) {
+            id(device).set_brightness(id(inactive_screen_brightness).state);
+          } else {
+            id(device).set_brightness(id(screen_brightness).state);
+          }
+
+首頁兩個元件示範
+    
+    - name: ${SCREEN_MAIN} 
+      widgets:
+        - type: value-card #  1-1 (時鐘)
+          id: local_time
+          position: 8, 8
+          text: "Taiwan"
+          enabled: return true;
+
+        - type: value-card  #1-2 (溫度)
+          id: livingroom_temperature
+          position: 126, 8  
+          text: "°C"
+          icon: 󰔏
+          # unit: °C
+          enabled: return true;
+          value: |-
+            char buff[10] = "-";
+            sprintf(buff, "%.1f", id(living_temperature).state);   #living_temperature這個ID來自以下 sensor: 自訂義，抓取HA的entity同步。
+            return std::string(buff);  
+
+        - type: value-card  #1-3 (天氣預報)
+          id: livingroom_humidity
+          position:  244, 8
+          dimensions: 228x96          
+          text: "Weather Forecast"
+          # icon: 󰖎
+          # unit: °C
+          enabled: return true;
+          value: |-
+             return id(weather_state).state;  # weather_state個ID來自以下 text_sensor: 自訂義，抓取HA的entity同步。
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_ROOMS");   #按下後跳到SCREEN_ROOMS 這個頁面
+                    
+
+    sensor:
+      - platform: homeassistant #同步抓取HA客廳溫度數值
+        id: living_temperature
+        entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
+
+    text_sensor:
+      - platform: homeassistant #同步抓取HA中央氣象局天氣預報文字
+        id: weather_state
+        entity_id: sensor.opencwb_forecast_condition 
 
 
 
