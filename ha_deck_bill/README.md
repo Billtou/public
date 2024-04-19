@@ -184,7 +184,8 @@ UI主程序60秒自動回主畫面並黑屏
           on_click:
             lambda: |-
                 id(deck).switch_screen("$SCREEN_ROOMS");   #按下後跳到SCREEN_ROOMS 這個頁面
-                    
+
+抓取HA的entity使用                    
 
     sensor:
       - platform: homeassistant #同步抓取HA客廳溫度數值
