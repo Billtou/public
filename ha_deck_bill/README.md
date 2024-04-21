@@ -1,5 +1,12 @@
 無法支持中文，無法改變文字大小，無法放大icon，能接受再往下看。
 
+## 檔案介紹
+default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
+SCREEN_CURTAIN.yaml  窗簾控制畫面示範 
+SCREEN_LIVCLIMATE.yaml 冷氣控制畫面示範
+SCREEN_MEDIA.yaml 媒體播放控制畫面示範
+SCREEN_SETUP.yaml 參數設置畫面示範
+full_complete_sample.yaml  全功能範例
 
 ## 認識畫面
 這裡著重如何自己規劃撰寫專屬的操作頁面。 #聲明這不是我原創的，文章最後有相關介紹，這裡只分享我使用心得。
