@@ -6,7 +6,7 @@
 
 ## 進入ESPHome開發模式開始編譯dashboard-one
 
-HA附加元件安裝ESPHome，把custom_partitions_3584.csv 複製到 HA的 config\esphome\ 裡面，否則編譯時會報錯。
+HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 複製到 HA的 config\esphome\ 裡面，否則編譯時會報錯。
 
 進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX請替換你的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。
 
