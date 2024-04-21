@@ -21,7 +21,7 @@ HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選�
 
 ![Mosquitto_broker](/dashboard_one/image/165348.png)
 
-有足夠幸運的話應該會點亮螢幕了~~
+停止呼吸，若有足夠幸運應該會點亮螢幕的~~
 
 ## 檔案介紹
 
