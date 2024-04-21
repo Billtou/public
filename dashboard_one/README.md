@@ -19,7 +19,7 @@ HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選�
 
 *** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
-
+![Mosquitto_broker](/dashboard_one/image/165348.png)
 
 ## 檔案介紹
 
