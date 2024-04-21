@@ -21,7 +21,7 @@ full_complete_sample.yaml  全功能範例
 ##螢幕解析度480*480
 
 先說一下自帶的按鈕定位點，以正方形畫面區分16區
-![Mosquitto_broker](/ha_deck_bill/image/143924.png)
+![Mosquitto_broker](/dashboard_one/image/143924.png)
 
 
     1-1  1-2  1-3  1-4
@@ -59,7 +59,7 @@ full_complete_sample.yaml  全功能範例
             if(id(climate_state).state != "off") { return 1; }
             else { return 0; }
             
-![Mosquitto_broker](/ha_deck_bill/image/152844.png)
+![Mosquitto_broker](/dashboard_one/image/152844.png)
 
 ## 解析一下整個重要程序碼
 
@@ -276,6 +276,6 @@ https://pictogrammers.com/docs/library/mdi/guides/home-assistant/
 
 https://pictogrammers.com/library/mdi/
 
-![Mosquitto_broker](/ha_deck_bill/image/163739.png)
+![Mosquitto_broker](/dashboard_one/image/163739.png)
 
 參考網站
