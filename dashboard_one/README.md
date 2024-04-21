@@ -28,7 +28,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 ![Mosquitto_broker](/dashboard_one/image/165348.png)
 
-停止呼吸，若有足夠幸運應該會點亮螢幕 或連繫我回廠重灌~~
+停止呼吸，若有足夠的幸運應該會點亮螢幕 或連繫我回廠重灌~~
 
 # 檔案介紹
 
