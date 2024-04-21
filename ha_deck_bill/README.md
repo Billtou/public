@@ -1,6 +1,7 @@
 無法支持中文，無法改變文字大小，無法放大icon，能接受再往下看。
 
 ## 檔案介紹
+
 default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
 SCREEN_CURTAIN.yaml  窗簾控制畫面示範 
 SCREEN_LIVCLIMATE.yaml 冷氣控制畫面示範
