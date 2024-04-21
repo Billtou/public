@@ -6,7 +6,7 @@
 
 ## 進入ESPHome開發模式開始編譯dashboard_one
 
-HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX是你的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。
+HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX請替換你的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。
 
 ![Mosquitto_broker](/dashboard_one/image/163202.png)
 
