@@ -1,22 +1,22 @@
 無法支持中文顯示，無法改變字體大小，無法放大icon，能接受再往下看。
 
-## 接入HA
+# 接入HA
 
 上電(請用單獨豆腐頭給電，不足瓦的供電會出錯)，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
 
-## 進入ESPHome開發模式開始編譯dashboard-one
+# 進入ESPHome開發模式開始編譯dashboard-one
 
-# 步驟 0
+## 步驟 0
 
 HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 複製到 HA的 config\esphome\ 裡面，否則編譯時會報錯。
 
-# 步驟 1
+## 步驟 1
 
 進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX請替換你的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。
 
 ![Mosquitto_broker](/dashboard_one/image/163202.png)
 
-# 步驟 2
+## 步驟 2
 
 點選 "EDIT" 進入編輯頁面把自帶的程式碼刪除，替換成 default_sample.yaml 的內容
 
@@ -30,7 +30,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 停止呼吸，若有足夠幸運應該會點亮螢幕的~~
 
-## 檔案介紹
+# 檔案介紹
 
 default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
 
@@ -45,7 +45,7 @@ SCREEN_SETUP.yaml 參數設置畫面範例
 full_complete_sample.yaml  全功能範例
 
 
-## 認識畫面
+# 認識畫面
 這裡著重如何自己規劃撰寫專屬的操作頁面。 #聲明這不是我原創的，文章最後有相關介紹，這裡只分享我使用心得。
 
 ##螢幕解析度480*480
