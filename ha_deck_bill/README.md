@@ -150,7 +150,7 @@ UI主程序60秒自動回主畫面並黑屏
             id(device).set_brightness(id(screen_brightness).state);
           }
 
-首頁兩4個元件示範
+首頁4個元件示範
     
     - name: ${SCREEN_MAIN} #主畫面
       widgets:  # 定義該畫面小部件
