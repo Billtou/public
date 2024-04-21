@@ -2,7 +2,7 @@
 
 ## 接入HA
 
-上電，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
+上電(請用單獨豆腐頭給電，不足瓦的供電會出錯)，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
 
 ## 進入ESPHome開發模式開始編譯dashboard_one
 
@@ -20,6 +20,8 @@ HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選�
 *** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
 ![Mosquitto_broker](/dashboard_one/image/165348.png)
+
+有足夠幸運的話應該會點亮螢幕了~~
 
 ## 檔案介紹
 
