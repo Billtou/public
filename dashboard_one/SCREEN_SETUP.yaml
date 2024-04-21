@@ -1,0 +1,110 @@
+    - name: ${SCREEN_SETUP}  #調整參數畫面
+      widgets:
+        - type: button   #返回主畫面
+          position: 0, 0
+          dimensions: 48x460     
+          icon: 󰅁
+          enabled: return true;
+          on_click:
+            - lambda: id(deck).switch_screen("$SCREEN_MAIN");
+
+        #################################
+        #   設備畫面亮度設定
+        #################################
+        - type: slider
+          position: 80, 8
+          dimensions: 60x370
+          text: Screen
+          min: 0
+          max: 100
+          enabled: return true;
+          value: return id(device).get_brightness();
+          on_change:
+            lambda: id(device).set_brightness(x);
+
+        #################################
+        #   客廳電燈亮度設定
+        #################################            
+        - type: slider
+          position: 155, 8
+          dimensions: 60x315
+          #text: "Livingroom Light"
+          min: 0
+          max: 255
+          enabled: return true;
+          value: |-
+            if(id(liv_light_brightness).state <= 255) { return id(liv_light_brightness).state; }
+            else { return 0; }
+          on_change:
+            - homeassistant.service:
+                service: light.turn_on
+                data:
+                  entity_id: light.wled
+                  brightness: !lambda return x;
+        - type: button
+          position: 155, 320
+          dimensions: 60x50
+          text: "LivLight"
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(liv_light_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_on
+                data:
+                  entity_id: light.wled
+          on_turn_off:
+            - switch.turn_off:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_off
+                data:
+                  entity_id: light.wled
+
+        #################################
+        #   臥室風扇強度設定
+        #################################   
+        - type: slider
+          position: 230, 8
+          dimensions: 60x315
+          #text: "Bed Fan"
+          min: 10
+          max: 100
+          enabled: return true;
+          value: |-
+            if(id( bed_fan_percentage).state <= 100) { return id( bed_fan_percentage).state; }
+            else { return 10; }
+          on_change:
+            - homeassistant.service:
+                service: fan.turn_on
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+                  percentage: !lambda return x;
+
+        - type: button
+          position: 230, 320
+          dimensions: 60x50
+          text: "BedFan"
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(bed_fan_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_on
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+          on_turn_off:
+            - switch.turn_off:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_off
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan        

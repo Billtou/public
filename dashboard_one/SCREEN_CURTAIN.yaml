@@ -1,0 +1,70 @@
+    - name: ${SCREEN_CURTAIN}
+      widgets:
+        - type: button
+          position: 8, 8     #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button
+          position: 126, 8   #1-2-3 (窗簾狀態)       
+          dimensions: 228x96 
+          text: "Livingroom Curtain"
+          icon: 󰒹
+          enabled: |-
+            return true;
+
+        - type: value-card 
+          position: 362, 8    #1-4 (窗簾狀態) 
+          enabled: return true;
+          text: "State"
+          value: |-
+             return id(livingroom_curtain_state).state; 
+
+        - type: button 
+          position: 126, 127  #2-2 (開)           
+          text: "Open"
+          icon: 󱡆
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(livingroom_curtain_state).state == "open") { return 1; }
+            else { return 0; }            
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.open_cover
+                data: 
+                  entity_id: cover.curtain   
+
+        - type: button 
+          position: 244, 127  #2-3 (停止)        
+          text: "Stop"
+          icon: 󰓛
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.stop_cover
+                data: 
+                  entity_id: cover.curtain            
+        - type: button 
+          position: 362, 127   #2-4 (關)       
+          text: "Closed"
+          icon: 󱡇
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(livingroom_curtain_state).state == "closed") { return 1; }
+            else { return 0; }             
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.close_cover
+                data: 
+                  entity_id: cover.curtain   
