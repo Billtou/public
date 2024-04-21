@@ -245,7 +245,7 @@ UI主程序60秒自動回主畫面並黑屏
 https://pictogrammers.com/docs/library/mdi/guides/home-assistant/
 
 
-抓取ICON 網站 用這個網站搜尋同一個icon，點選紅圈圈copy icon 再貼到esphome裡面即可。
+抓取ICON 網站 用這個網站搜尋同一個icon，點選紅圈圈copy icon 再貼到程序碼正確位置即可。
 
 https://pictogrammers.com/library/mdi/
 
