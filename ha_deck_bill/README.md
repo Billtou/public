@@ -4,13 +4,13 @@
 
 default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
 
-SCREEN_CURTAIN.yaml  窗簾控制畫面示範 
+SCREEN_CURTAIN.yaml  窗簾控制畫面範例
 
-SCREEN_LIVCLIMATE.yaml 冷氣控制畫面示範
+SCREEN_LIVCLIMATE.yaml 冷氣控制畫面範例
 
-SCREEN_MEDIA.yaml 媒體播放控制畫面示範
+SCREEN_MEDIA.yaml 媒體播放控制畫面範例
 
-SCREEN_SETUP.yaml 參數設置畫面示範
+SCREEN_SETUP.yaml 參數設置畫面範例
 
 full_complete_sample.yaml  全功能範例
 
