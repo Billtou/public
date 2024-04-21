@@ -1,4 +1,4 @@
-這裡著重如何自己規劃撰寫專屬的操作頁面。
+這裡著重如何自己規劃撰寫專屬的操作頁面。 #聲明這不是我原創的，文章最後有相關介紹，這裡只分享我使用心得。
 
 ##螢幕解析度480*480
 
@@ -36,8 +36,8 @@
           text: "Livingroom"  #顯示文字(只能用英文)
           icon: 󰀛   # 只能用HA自帶，稍後說明
           # toggle: true  #是否要觸發
-          enabled: return true;  #狀態顏色是否顯示
-          checked: |-  #狀態判斷程序碼
+          enabled: return true;  #反饋選項
+          checked: |-  #狀態反饋程序碼
             if(id(climate_state).state != "off") { return 1; }
             else { return 0; }
             
