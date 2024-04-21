@@ -1,4 +1,15 @@
-無法支持中文，無法改變文字大小，無法放大icon，能接受再往下看。
+無法支持中文顯示，無法改變字體大小，無法放大icon，能接受再往下看。
+
+## 接入HA
+
+上電，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
+
+## 進入ESPHome開發模式開始編譯dashboard_one
+
+HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX是你的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。
+
+點選 "EDIT" 進入編輯頁面
+
 
 ## 檔案介紹
 
