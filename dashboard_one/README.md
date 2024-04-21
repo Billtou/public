@@ -10,7 +10,14 @@ HA附加元件安裝ESPHome(已安裝者略過)，進入ESPHome UI介面點選�
 ![Mosquitto_broker](/dashboard_one/image/163202.png)
 
 
-點選 "EDIT" 進入編輯頁面
+點選 "EDIT" 進入編輯頁面把自帶的程式碼刪除，替換為 default_sample.yaml 的內容
+
+*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+
+*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+
+*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+
 
 
 ## 檔案介紹
