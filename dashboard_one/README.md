@@ -15,11 +15,11 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 點選 "EDIT" 進入編輯頁面把自帶的程式碼刪除，替換成 default_sample.yaml 的內容
 
-*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+*** 然後注意注意 一定要替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
-*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+*** 然後注意注意 一定要替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
-*** 然後注意注意 XXXX 替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
+*** 然後注意注意 一定要替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
 ![Mosquitto_broker](/dashboard_one/image/165348.png)
 
