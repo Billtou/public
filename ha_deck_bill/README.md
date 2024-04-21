@@ -44,7 +44,7 @@
             
 ![Mosquitto_broker](/ha_deck_bill/image/152844.png)
 
-解析一下整個畫面說明。
+## 解析一下整個重要程序碼
 
     substitutions:
       SCREEN_MAIN: main
@@ -208,7 +208,7 @@ UI主程序60秒自動回主畫面並黑屏
                   entity_id: switch.hp_print_relay_device_relay
              
 
-調用HA的entity使用                    
+## 調用HA的entity使用                    
 
     sensor:
       - platform: homeassistant #取得HA客廳溫度 "數值" 類用 sensor
@@ -238,7 +238,7 @@ UI主程序60秒自動回主畫面並黑屏
 
 基於以上的範例就可以自組一個專屬的控制面板，有任何疏漏或錯誤煩請告知謝謝。
 
-
+## 附錄
 
 支援ICON 網站 (先到這個網站找尋喜歡的)
 
