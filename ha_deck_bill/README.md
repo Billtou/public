@@ -167,7 +167,7 @@ UI主程序60秒自動回主畫面並黑屏
             id(device).set_brightness(id(screen_brightness).state);
           }
 
-首頁4個元件示範
+首頁4個元件示範 (基本上就是在主頁透過button 跳到另一個頁面，另一個頁面透過button跳回來)
     
     - name: ${SCREEN_MAIN} #主畫面
       widgets:  # 定義該畫面小部件
@@ -191,14 +191,24 @@ UI主程序60秒自動回主畫面並黑屏
 
         - type: value-card  #1-3 (天氣預報)
           id: livingroom_humidity
-          position:  244, 8
+          position:  244, 8   
           dimensions: 228x96   #指定兩個小部件大小
           text: "Weather Forecast"
           # icon: 󰖎
           enabled: return true;
           value: |-
              return id(weather_state).state;  
-
+             
+        - type: button
+          id: floors
+          position: 126, 127 # 2-1 (進入房間頁面)
+          text: "Rooms"
+          icon: 󰠡
+          enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_ROOMS");
+                
         - type: button
           id: study
           position: 244, 127  #2-2 (一般Relay)
@@ -225,7 +235,7 @@ UI主程序60秒自動回主畫面並黑屏
                   entity_id: switch.hp_print_relay_device_relay
              
 
-## 調用HA的entity使用                    
+## 調用HA的entity方法                    
 
     sensor:
       - platform: homeassistant #取得HA客廳溫度 "數值" 類用 sensor
@@ -239,7 +249,7 @@ UI主程序60秒自動回主畫面並黑屏
         unit_of_measurement: "°C"        
 
     text_sensor:
-      - platform: homeassistant #取得HA中央氣象局天氣預報 "文字" 類用text_sensor
+      - platform: homeassistant #取得HA中央氣象局天氣預報 "文字" 類用text_sensor 開關的on/off 也算是
         id: weather_state
         entity_id: sensor.opencwb_forecast_condition 
         
@@ -248,7 +258,7 @@ UI主程序60秒自動回主畫面並黑屏
         entity_id: switch.hp_print_relay_device_relay
     
     switch:
-      - platform: template  #書房插頭虛擬開關 同步畫面用
+      - platform: template  #書房插頭虛擬 開關 同步畫面用
         # name: "Study Relay"  
         id: study_relay
         optimistic: true 
@@ -257,7 +267,7 @@ UI主程序60秒自動回主畫面並黑屏
 
 ## 附錄
 
-支援ICON 網站 (先到這個網站找尋喜歡的)
+支援ICON 網站 (先到這個網站找尋喜歡的，沒錯就這麼多)
 
 https://pictogrammers.com/docs/library/mdi/guides/home-assistant/
 
