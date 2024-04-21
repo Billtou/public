@@ -49,15 +49,15 @@
       SCREEN_MAIN: main
       SCREEN_ROOMS: rooms
       SCREEN_KITCHEN: kitchen
-      SCREEN_LED: led
+      SCREEN_SETUP: setup
       SCREEN_MEDIA: media
       SCREEN_LIVCLIMATE: livclimate
-      
-指定頁面名稱，一個SCREEN一個參數，例如要增加一格臥室頁面如下。
+            
+指定頁面名稱，一個SCREEN一個參數，例如要增加一個臥室頁面如下。
 
     SCREEN_BEDROOM: bedroom
 
-指定esp32芯片參數。需下載.csv檔案，放在HA裡面esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡)
+指定esp32芯片參數。需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋給我差異點)
 
     esphome:
       name: "ha-deck-3d68"
@@ -65,10 +65,10 @@
       platformio_options:
         board_upload.maximum_ram_size: 327680
         board_upload.maximum_size: 16777216
-        board_build.partitions: "/config/esphome/custom_partitions_8128.csv"  # "/config/esphome/custom_partitions_3584.csv" #
+        board_build.partitions: "/config/esphome/custom_partitions_3584.csv"  # "/config/esphome/custom_partitions_8128.csv" #
         board_build.arduino.memory_type: qio_opi
 
-指定 external
+指定 external (打包畫面全局使用參數，方便簡易，缺點是使用者修改門檻高，建議忽略缺點享受優點)
 
     external_components:
       - source:
@@ -149,53 +149,94 @@ UI主程序60秒自動回主畫面並黑屏
             id(device).set_brightness(id(screen_brightness).state);
           }
 
-首頁兩個元件示範
+首頁兩4個元件示範
     
-    - name: ${SCREEN_MAIN} 
-      widgets:
+    - name: ${SCREEN_MAIN} #主畫面
+      widgets:  # 定義該畫面小部件
         - type: value-card #  1-1 (時鐘)
-          id: local_time
-          position: 8, 8
+          id: local_time #把上面建立的Asia/Taipei id抓過來用
+          position: 8, 8 #小部件落點座標
           text: "Taiwan"
           enabled: return true;
 
-        - type: value-card  #1-2 (溫度)
+        - type: value-card  #1-2 (調用HA裡的溫度entity)
           id: livingroom_temperature
-          position: 126, 8  
+          position: 126, 8 
           text: "°C"
-          icon: 󰔏
-          # unit: °C
+          icon: 󰔏  #如何置換icon見文章附錄說明
+          # unit: °C # 目前沒用到
           enabled: return true;
           value: |-
             char buff[10] = "-";
-            sprintf(buff, "%.1f", id(living_temperature).state);   #這個ID來自以下 sensor: 自訂義，抓取HA的entity同步。
+            sprintf(buff, "%.1f", id(living_temperature).state);   #這個ID調用HA的entity見下方範例。
             return std::string(buff);  
 
         - type: value-card  #1-3 (天氣預報)
           id: livingroom_humidity
           position:  244, 8
-          dimensions: 228x96          
+          dimensions: 228x96   #指定兩個小部件大小
           text: "Weather Forecast"
           # icon: 󰖎
-          # unit: °C
           enabled: return true;
           value: |-
-             return id(weather_state).state;  # 個ID來自以下 text_sensor: 自訂義，抓取HA的entity同步。
-          on_click:
-            lambda: |-
-                id(deck).switch_screen("$SCREEN_ROOMS");   #按下後跳到SCREEN_ROOMS 這個頁面
+             return id(weather_state).state;  
 
-抓取HA的entity使用                    
+        - type: button
+          id: study
+          position: 244, 127  #2-2 (一般Relay)
+          text: "Study"
+          icon: 󰟩
+          toggle: true  #小部件觸發反饋
+          enabled: return true;
+          checked: |-
+            if(id(study_relay_state).state == "on") { return 1; }  #同步study_relay_state 小部件背景反饋狀態
+            else { return 0; }
+          on_turn_on:  #處理按下後ON的動作
+            - switch.turn_on:
+                id: study_relay
+            - homeassistant.service:  #直接控制HA裡面的entity
+                service: switch.turn_on
+                data:
+                  entity_id: switch.hp_print_relay_device_relay #這是HA的entity
+          on_turn_off: #處理按下後OFF的動作
+            - switch.turn_off:
+                id: study_relay
+            - homeassistant.service:
+                service: switch.turn_off
+                data:
+                  entity_id: switch.hp_print_relay_device_relay
+             
+
+調用HA的entity使用                    
 
     sensor:
-      - platform: homeassistant #同步抓取HA客廳溫度數值
+      - platform: homeassistant #取得HA客廳溫度 "數值" 類用 sensor
         id: living_temperature
         entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
+        
+      - platform: homeassistant #取得HA客廳冷氣目前溫度濕度數值
+        id: climate_current
+        entity_id: climate.livingroom
+        attribute: current_temperature
+        unit_of_measurement: "°C"        
 
     text_sensor:
-      - platform: homeassistant #同步抓取HA中央氣象局天氣預報文字
+      - platform: homeassistant #取得HA中央氣象局天氣預報 "文字" 類用text_sensor
         id: weather_state
         entity_id: sensor.opencwb_forecast_condition 
+        
+      - platform: homeassistant #取得HA書房插頭狀態
+        id: study_relay_state
+        entity_id: switch.hp_print_relay_device_relay
+    
+    switch:
+      - platform: template  #書房插頭虛擬開關 同步畫面用
+        # name: "Study Relay"  
+        id: study_relay
+        optimistic: true 
+
+基於以上的範例就可以自組一個專屬的控制面板，有任何疏漏或錯誤煩請告知謝謝。
+
 
 
 支援ICON 網站 (先到這個網站找尋喜歡的)
