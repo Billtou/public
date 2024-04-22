@@ -103,10 +103,10 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
                 | - type: button
                 | - type: slider
 
-    value-card (only 數據或文字顯示) 
-    button (按鈕，按下後需要執行命令使用)
-    slider (滑快， 調整指數用例如電燈亮度)
-           
+                value-card (only 數據或文字顯示) 
+                button (按鈕，按下後需要執行命令使用)
+                slider (滑快， 調整指數用例如電燈亮度)
+                           
 # 解析一下整個default_sample.yaml重要程序碼(有錯煩請指正)
 
     substitutions:
@@ -123,9 +123,9 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
     SCREEN_BEDROOM: bedroom
 
-### 指定esp32芯片參數
+### 指定esphome參數
 
-需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋給我差異點)
+需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
 
     esphome:
       name: "ha-deck-3d68"
@@ -138,7 +138,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 ###　指定 external 
 
-打包畫面全局使用參數，方便簡易，缺點是使用者修改門檻高，建議別糾結在缺點上而是盡量享受優點
+打包畫面全局使用參數，方便簡易，缺點是使用者想自訂修改門檻高，建議別糾結在缺點上而是盡量享受優點
 
     external_components:
       - source:
@@ -166,26 +166,26 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 ### 做兩個調整畫面亮度的entity
                 
     number:
-      - platform: template   # 定義螢幕亮度參數
+      - platform: template   # 定義活躍的entity螢幕亮度參數
         id: screen_brightness
-        # name: Active screen brightness
+        name: Active screen brightness
         min_value: 0
         max_value: 100
         step: 5
-        initial_value: 75   # 活躍中默認亮度75
+        initial_value: 75
         restore_value: true
         set_action:
           - lambda: |-
               if (!id(deck).get_inactivity())
                 id(device).set_brightness(x);
     
-      - platform: template  # 定義螢幕亮度參數
+      - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)
         id: inactive_screen_brightness
-        # name: Inactive screen brightness
+        name: Inactive screen brightness
         min_value: 0
         max_value: 100
         step: 5
-        initial_value: 20  # "非" 活躍中默認亮度20
+        initial_value: 20
         restore_value: true
         set_action:
           - lambda: |-
@@ -295,19 +295,19 @@ slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開�
 
 ## 調用HA的entity方法                    
 
-    sensor:
-      - platform: homeassistant #取得HA客廳溫度 "數值" 類用 sensor
+    sensor:  #"數值" 類用 sensor
+      - platform: homeassistant #取得HA客廳溫度 
         id: living_temperature
         entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
         
-      - platform: homeassistant #取得HA客廳冷氣目前溫度濕度數值
+      - platform: homeassistant #取得HA客廳冷氣目前溫度屬性數值
         id: climate_current
         entity_id: climate.livingroom
         attribute: current_temperature
         unit_of_measurement: "°C"        
 
-    text_sensor:
-      - platform: homeassistant #取得HA中央氣象局天氣預報 "文字" 類用text_sensor 開關的on/off 也算是
+    text_sensor:   #"文字" 類用text_sensor 開關的on/off 也算是
+      - platform: homeassistant #取得HA中央氣象局天氣預報 
         id: weather_state
         entity_id: sensor.opencwb_forecast_condition 
         
@@ -315,9 +315,8 @@ slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開�
         id: study_relay_state
         entity_id: switch.hp_print_relay_device_relay
     
-    switch:
-      - platform: template  #書房插頭虛擬 開關 同步畫面用
-        # name: "Study Relay"  
+    switch: #開關 同步畫面用
+      - platform: template  #書房插頭虛擬 
         id: study_relay
         optimistic: true 
 
