@@ -61,6 +61,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 ![Mosquitto_broker](/dashboard_one/image/143924_1.png)
 
 ## 畫面座標代號
+![Mosquitto_broker](/dashboard_one/image/113553.png)
 
     1-1  1-2  1-3  1-4
     2-1  2-2  2-3  2-4
