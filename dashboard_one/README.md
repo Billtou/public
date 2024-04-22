@@ -58,7 +58,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 ## 螢幕解析度480*480
 
 先說一下自帶的按鈕定位點，以正方形畫面區分16區
-![Mosquitto_broker](/dashboard_one/image/143924.png)
+![Mosquitto_broker](/dashboard_one/image/143924_1.png)
 
 ## 畫面座標代號
 
