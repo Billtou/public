@@ -1,1 +1,1041 @@
 
+substitutions:
+  SCREEN_MAIN: main
+  SCREEN_ROOMS: rooms
+  SCREEN_KITCHEN: kitchen
+  SCREEN_FAVORITE: favorite
+  SCREEN_MEDIA: media
+  SCREEN_LIVCLIMATE: livclimate
+  SCREEN_CURTAIN: curtain
+
+
+esphome:
+  name: "dashboard-one-3d68"
+  friendly_name: "dashboard-one-3d68"
+  platformio_options:
+    board_upload.maximum_ram_size: 327680
+    board_upload.maximum_size: 16777216
+    board_build.partitions: "/config/esphome/custom_partitions_3584.csv" #"/config/esphome/custom_partitions_8128.csv"  #
+    board_build.arduino.memory_type: qio_opi
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+  flash_size: 16MB
+
+logger:
+
+api:
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/strange-v/ha_deck
+      ref: main
+    components: [ hd_device_wt32s3_86s, ha_deck ]
+
+web_server:
+  port: 80
+
+
+time:
+  - platform: sntp  #定義時間參數
+    id: sntp_time
+    timezone: Asia/Taipei
+    on_time:
+      - cron: '* * * * * *'
+        then:
+          lambda: |-
+            char buff[10] = "-";
+            auto time = id(sntp_time).now();
+            if (time.is_valid())
+              sprintf(buff, "%02d:%02d:%02d", time.hour, time.minute, time.second);
+            id(local_time).set_value(std::string(buff));
+
+number:
+  - platform: template   # 定義活躍的entity螢幕亮度參數
+    id: screen_brightness
+    name: Active screen brightness
+    min_value: 0
+    max_value: 100
+    step: 5
+    initial_value: 75
+    restore_value: true
+    set_action:
+      - lambda: |-
+          if (!id(deck).get_inactivity())
+            id(device).set_brightness(x);
+
+  - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)
+    id: inactive_screen_brightness
+    name: Inactive screen brightness
+    min_value: 0
+    max_value: 100
+    step: 5
+    initial_value: 20
+    restore_value: true
+    set_action:
+      - lambda: |-
+          if (id(deck).get_inactivity())
+            id(device).set_brightness(x);
+
+output:
+  - platform: ledc  
+    pin: 10
+    id: out_10
+
+light:  
+  - platform: monochromatic
+    id: dummy_light
+    name: Dummy
+    output: out_10
+    
+hd_device_wt32s3_86s:
+  id: device
+  brightness: 75
+
+ha_deck:
+  id: deck
+  main_screen: ${SCREEN_MAIN}  # 設備參數
+  inactivity:
+    period: 60 # seconds 60秒回主畫面
+    blank_screen: true  #休眠黑畫面有效(建置期可以 ctrl + / 標註起來)
+  on_inactivity_change:
+    lambda:  |-
+      if (x) {
+        id(device).set_brightness(id(inactive_screen_brightness).state);
+      } else {
+        id(device).set_brightness(id(screen_brightness).state);
+      }
+  screens:
+    ##########################################
+    #
+    #     主畫面 
+    #
+    #########################################
+    - name: ${SCREEN_MAIN} 
+      widgets:
+        - type: value-card  #  1-1 (時鐘)
+          id: local_time
+          position: 8, 8
+          text: "Taiwan"
+          enabled: return true;
+
+        - type: value-card  # 1-2 (溫度)
+          # id: livingroom_temperature
+          position: 126, 8  
+          text: "°C"
+          icon: 󰔏
+          enabled: return true;
+          # 把客廳的溫度轉為數字形式顯示出來
+          value: |-
+            char buff[10] = "-";
+            sprintf(buff, "%.1f", id(living_temperature).state);
+            return std::string(buff);
+
+        - type: value-card  # 1-3+1-4 (天氣預報)
+          # id: weather_forecast
+          position:  244, 8
+          dimensions: 228x96          
+          text: "Weather Forecast"
+          enabled: return true;
+          # 把天氣預報的文字顯示出來
+          value: |-
+             return id(weather_state).state;  
+
+        - type: button
+          # id: favorite
+          position: 8, 127 # 2-1 (參數調整)
+          text: "Favorite"
+          icon: 󰋑
+          enabled: return true;
+          on_click:
+            lambda: id(deck).switch_screen("$SCREEN_FAVORITE");  # 按下按鈕跳到favorite頁面
+
+        - type: button
+          # id: floors
+          position: 126, 127 # 2-2 (進入房間主頁)
+          text: "Rooms"
+          icon: 󰠡
+          enabled: return true;
+          on_click:
+            lambda: id(deck).switch_screen("$SCREEN_ROOMS");
+
+        - type: button
+          # id: study
+          position: 244, 127  #2-3 (一般開關)
+          text: "Study"
+          icon: 󰟩
+          toggle: true  #打開反饋按鈕亮琥珀色底
+          enabled: return true;
+          # 反饋的依據參考 study_relay_state 這個id的狀態
+          checked: |-
+            if(id(study_relay_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:  # ESHPhome 的打開 switch 指令
+                id: study_relay # 被打開的id (虛擬開關，用來同步觸控板反饋用)
+            - homeassistant.service:  # 執行HA的 Service
+                service: switch.turn_on  # SWITCH Service 
+                data:
+                  entity_id: switch.hp_print_relay_device_relay # HA裡面的entity
+          on_turn_off:
+            - switch.turn_off:
+                id: study_relay
+            - homeassistant.service:
+                service: switch.turn_off
+                data:
+                  entity_id: switch.hp_print_relay_device_relay
+
+        - type: button
+          # id: livingroom_light
+          position:  362, 127 # 2-3 (可調光電燈ON/OFF)
+          text: Livingroom
+          icon: 󱁑
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(liv_light_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_on
+                data:
+                  entity_id: light.wled
+          on_turn_off:
+            - switch.turn_off:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_off
+                data:
+                  entity_id: light.wled
+
+        - type: button
+          # id: bedroom_fan
+          position: 8, 246  #2-4 (可調速風扇ON/OFF)
+          text: "Bedroom"
+          icon: 󰈐
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(bed_fan_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_on
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+          on_turn_off:
+            - switch.turn_off:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_off
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+
+        - type: button
+          # id: media_play
+          position: 126, 246  #3-1 (Media Play)
+          text: "MediaPlay"
+          icon: 󰄙
+          enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_MEDIA");
+
+        - type: button
+          # id: livingroom_ac
+          position: 244, 246  #3-2 (A/C 空調)
+          text: "Livingroom"
+          icon: 󰀛
+          enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_LIVCLIMATE");
+
+        - type: button
+          # id: livingroom_curtains
+          position: 362, 246  #3-3 (curtains 窗簾)
+          text: "Livingroom"
+          icon: 󱡆
+          enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_CURTAIN");
+
+        - type: button
+          # id: sleep_mode
+          position: 8, 365  #3-4 (睡覺場景)
+          text: "Sleep Mode"
+          icon: 󰋣
+          toggle: true
+          enabled: return true;
+
+        - type: button
+          # id: wakeup_mode
+          position: 126, 365  #3-5 (起床腳本)
+          text: "Wake Up"
+          icon: 󰀠
+          toggle: true
+          enabled: return true;
+
+    #################################################
+    #
+    #     房間畫面有全部(16個)按鍵座標參數
+    #
+    #################################################
+    - name: ${SCREEN_ROOMS} #房間畫面
+      widgets:
+        - type: button
+          position: 8, 8  #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button
+          position: 126, 8  #1-2座標
+          text: "LivingRoom"
+          icon: 󰒹
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 244, 8  #1-3座標
+          text: "MainRoom"
+          icon: 󰿒
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 362, 8  #1-4座標
+          text: "KidsRoom"
+          icon: 󰢠
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 8, 127   #2-1座標
+          text: "Kitchen"
+          icon: 󰩰
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_KITCHEN");
+
+        - type: button
+          position: 126, 127  #2-2座標
+          text: "Bathroom"
+          icon: 󱠘
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 244, 127  #2-3座標
+          text: "Toilet"
+          icon: 󰦫
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 362, 127  #2-4座標
+          text: "Garage"
+          icon: 󱟼
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 8, 246  #3-1座標
+          text: "Vacuum"
+          icon: 󰤈
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 126, 246 #3-2座標
+          text: "Garden"
+          icon: 󱙰
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 244, 246 #3-3座標
+          text: "GreenHouse"
+          icon: 󰀭
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 362, 246 #3-4座標
+          text: "Laundry"
+          icon: 󰜪
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 8, 365 #4-1座標
+          text: "GameRoom"
+          icon: 󰐔
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 126, 365 #4-2座標
+          text: "Cinema"
+          icon: 󰐮
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 244, 365 #4-3座標
+          text: "Pool"
+          icon: 󰘆
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 362, 365 #4-4座標
+          text: "OutDoor"
+          icon: 󱁔
+          enabled: |-
+            return true;
+
+    ################################################
+    #
+    #     KITCHEN 設備畫面
+    #
+    ###############################################     
+    - name: ${SCREEN_KITCHEN} #房間畫面
+      widgets:
+        - type: button
+          position: 8, 8  #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_ROOMS"); 
+
+        - type: button
+          position: 126, 8  #1-2 咖啡機
+          text: "Coffee"
+          icon: 󱂟
+          enabled: |-
+            return true;
+
+        - type: button
+          position: 244, 8  #1-3熱水瓶
+          text: "Kettle"
+          icon: 󰗺
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(Kettle_relay_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: Kettle_relay
+            - homeassistant.service:
+                service: switch.turn_on
+                data:
+                  entity_id: switch.kiechen_electrical_socket_electrical_socket
+          on_turn_off:
+            - switch.turn_off:
+                id: Kettle_relay
+            - homeassistant.service:
+                service: switch.turn_off
+                data:
+                  entity_id: switch.kiechen_electrical_socket_electrical_socket
+
+        - type: button
+          position: 362, 8  #1-4微波爐
+          text: "Microwave"
+          icon: 󰲙
+          enabled: |-
+            return true;
+
+    ###############################################
+    #
+    #     MEDIA PLAYER
+    #
+    ###############################################
+    - name: ${SCREEN_MEDIA}
+      widgets:
+        - type: button
+          position: 8, 8  #1-1 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button
+          position: 362, 8  #1-4 聲音大
+          icon: 󰝝
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.volume_up  #提高音量
+                  data:
+                    entity_id: media_player.ke_ting                
+
+        - type: button
+          position: 126, 127  #2-2 暫停
+          icon: 󰏤
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.media_pause #暫停播放
+                  data:
+                    entity_id: media_player.ke_ting    
+
+        - type: button
+          position: 244, 127  #2-3 播放
+          icon: 󰐊
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.play_media  #繼續播放
+                  data:
+                    entity_id: media_player.ke_ting    
+
+        - type: button
+          position: 362, 127  #2-4 靜音
+          icon: 󰖁
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.volume_set #音量=0 靜音
+                  data:
+                    volume_level: "0"
+                    entity_id: media_player.ke_ting 
+
+        - type: button
+          position: 8, 246  #3-1 關機
+          icon: 󰐥
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.turn_off  #關閉播放器
+                  data:
+                    entity_id: media_player.ke_ting 
+
+        - type: button
+          position: 362, 246 #3-4 聲音小
+          icon: 󰝞
+          enabled: |-
+            return true;
+          on_click:
+            then:
+              - homeassistant.service:
+                  service: media_player.volume_down  
+                  data:
+                    entity_id: media_player.ke_ting  #降低音量
+
+    ##########################################
+    #
+    #    CURTAIN
+    #
+    #########################################
+    - name: ${SCREEN_CURTAIN}
+      widgets:
+        - type: button
+          position: 8, 8     #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button
+          position: 126, 8   #1-2+1-3 (窗簾狀態)       
+          dimensions: 228x96 
+          text: "Livingroom Curtain"
+          icon: 󰒹
+          enabled: |-
+            return true;
+
+        - type: value-card 
+          position: 362, 8    #1-4 (窗簾狀態) 
+          enabled: return true;
+          text: "State"
+          value: |-
+             return id(livingroom_curtain_state).state; 
+
+        - type: button 
+          position: 126, 127  #2-2 (開)           
+          text: "Open"
+          icon: 󱡆
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(livingroom_curtain_state).state == "open") { return 1; }
+            else { return 0; }            
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.open_cover # 打開窗簾
+                data: 
+                  entity_id: cover.curtain   
+
+        - type: button 
+          position: 244, 127  #2-3 (停止)        
+          text: "Stop"
+          icon: 󰓛
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.stop_cover # 停止
+                data: 
+                  entity_id: cover.curtain            
+        - type: button 
+          position: 362, 127   #2-4 (關)       
+          text: "Closed"
+          icon: 󱡇
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(livingroom_curtain_state).state == "closed") { return 1; }
+            else { return 0; }             
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: cover.close_cover # 關閉窗簾
+                data: 
+                  entity_id: cover.curtain                
+    ##########################################
+    #
+    #     CLIMATE
+    #
+    #########################################
+    - name: ${SCREEN_LIVCLIMATE}  # 各家空調功能不一，詳見HA裡面entity自帶的屬性內容
+      widgets:
+        - type: button
+          position: 8, 8     #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button   #照理說是要用value-card，為了有開機狀態底色，所以用 button來處理，並取消觸發功能。
+          position: 126, 8   #1-2-3 (冷氣狀態)       
+          dimensions: 228x96  
+          text: "Livingroom"
+          icon: 󰀛
+          # toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(climate_state).state != "off") { return 1; }
+            else { return 0; }
+
+        - type: value-card 
+          position: 362, 8    #1-4 (冷氣狀態) 
+          enabled: return true;
+          text: "State"
+          value: |-
+             return id(climate_state).state;  
+
+        - type: button 
+          position: 126, 127  #2-2 (冷氣)           
+          text: "Cool"
+          icon: 󰾥
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_state).state == "cool") { return 1; }
+            else { return 0; }            
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_hvac_mode #把空調模式設置為冷氣
+                data: 
+                  hvac_mode: "cool"
+                  entity_id: climate.livingroom          
+
+        - type: button 
+          position: 244, 127  #2-3 (除溼)        
+          text: "Dry"
+          icon: 󰖎
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_state).state == "dry") { return 1; }
+            else { return 0; }             
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_hvac_mode #把空調模式設置為除溼
+                data: 
+                  hvac_mode: "dry"
+                  entity_id: climate.livingroom            
+
+        - type: button 
+          position: 362, 127   #2-4 (送風)       
+          text: "Fan Only"
+          icon: 󰈐
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_state).state == "fan_only") { return 1; }
+            else { return 0; }             
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_hvac_mode #把空調模式設置為送風
+                data: 
+                  hvac_mode: "fan_only"
+                  entity_id: climate.livingroom       
+
+        - type: button 
+          position: 126, 246  #3-2 (auto模式)           
+          text: "Auto"
+          icon: 󰵢
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_fan_modes_state).state == "auto" && id(climate_state).state != "off") { return 1; }
+            else { return 0; }            
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_fan_mode #把空調風力設置為自動
+                data: 
+                  fan_mode: "auto"
+                  entity_id: climate.livingroom          
+
+        - type: button 
+          position: 244, 246  #3-3 (Breeze模式)        
+          text: "Breeze"
+          icon: 󰵢
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_fan_modes_state).state == "breeze" && id(climate_state).state != "off") { return 1; }
+            else { return 0; }                 
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_fan_mode #把空調風力設置為微風
+                data: 
+                  fan_mode: "breeze"
+                  entity_id: climate.livingroom            
+
+        - type: button 
+          position: 362, 246   #3-4 (Powerful模式)       
+          text: "Powerful"
+          icon: 󰵢
+          enabled: |-
+            return true;
+          checked: |-
+            if(id(climate_fan_modes_state).state == "powerful" && id(climate_state).state != "off") { return 1; }
+            else { return 0; }             
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_fan_mode #把空調風力設置為強力運轉
+                data: 
+                  fan_mode: "powerful"
+                  entity_id: climate.livingroom      
+
+        - type: button
+          position: 8, 365  #4-1 關機
+          icon: 󰐥
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - homeassistant.service: 
+                service: climate.set_hvac_mode #關機
+                data: 
+                  hvac_mode: "off"
+                  entity_id: climate.livingroom
+
+        - type: button
+          position: 126, 365 #4-2 溫度下降
+          icon: 󰁅
+          enabled: return true;
+          on_click:
+            - homeassistant.service:
+                service: climate.set_temperature # 調整溫度降溫
+                data:
+                  entity_id: climate.livingroom 
+                data_template:
+                  temperature: '{{ my_variable }}'
+                variables:
+                  my_variable: |-
+                    return id(climate_set).state - 1;
+
+        - type: value-card
+          position: 244, 365 #4-3 顯示目前設定溫度
+          id: thermostat_infos
+          value: |-
+            char buff[10] = "-";
+            sprintf(buff, "%.1f", id(climate_set).state);
+            return std::string(buff);
+          text: Set
+          icon: 󰔏
+          enabled: return true;
+
+        - type: button
+          position: 362, 365 #4-4 溫度上升
+          icon: 󰁝
+          enabled: return true;
+          on_click:
+            - homeassistant.service:
+                service: climate.set_temperature # 調整溫度升溫
+                data:
+                  entity_id: climate.livingroom
+                data_template:
+                  temperature: '{{ my_variable }}'
+                variables:
+                  my_variable: |-
+                    return id(climate_set).state + 1;
+
+    ##########################################
+    #
+    #     設定參數畫面
+    #
+    #########################################                                
+    - name: ${SCREEN_FAVORITE}  #調整參數畫面
+      widgets:
+        - type: button   #返回主畫面
+          position: 0, 0
+          dimensions: 48x460     
+          icon: 󰅁
+          enabled: return true;
+          on_click:
+            - lambda: id(deck).switch_screen("$SCREEN_MAIN");
+
+        #################################
+        #   設備畫面亮度設定
+        #################################
+        - type: slider #滑桿元件
+          position: 80, 8
+          dimensions: 60x315
+          min: 0
+          max: 255
+          enabled: return true;
+          value: return id(device).get_brightness();
+          on_change:
+            lambda: id(device).set_brightness(x);
+            
+        - type: button
+          position: 80, 320
+          dimensions: 60x50
+          text: "Screen"
+          enabled: return true;
+
+        #################################
+        #   客廳電燈亮度設定
+        #################################            
+        - type: slider
+          position: 155, 8
+          dimensions: 60x315  # WLED亮度調整參數是0-255步，所以滑桿元件的大小 315-60=255 吻合
+          min: 0
+          max: 255
+          enabled: return true;
+          value: |-
+            if(id(liv_light_brightness).state <= 255) { return id(liv_light_brightness).state; }
+            else { return 0; }
+          on_change:
+            - homeassistant.service:
+                service: light.turn_on
+                data:
+                  entity_id: light.wled
+                  brightness: !lambda return x;
+        - type: button
+          position: 155, 320
+          dimensions: 60x50
+          text: "LivLight"
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(liv_light_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_on
+                data:
+                  entity_id: light.wled
+          on_turn_off:
+            - switch.turn_off:
+                id: liv_light
+            - homeassistant.service:
+                service: light.turn_off
+                data:
+                  entity_id: light.wled
+
+        #################################
+        #   臥室風扇強度設定
+        #################################   
+        - type: slider
+          position: 230, 125
+          dimensions: 60x160
+          min: 0
+          max: 100
+          enabled: return true;
+          value: |-
+            if(id( bed_fan_percentage).state <= 100) { return id( bed_fan_percentage).state; }
+            else { return 10; }
+          on_change:
+            - homeassistant.service:
+                service: fan.turn_on
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+                  percentage: !lambda return x;
+
+        - type: button
+          position: 230, 320
+          dimensions: 60x50
+          text: "BedFan"
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(bed_fan_state).state == "on") { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_on
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan
+          on_turn_off:
+            - switch.turn_off:
+                id: bed_fan
+            - homeassistant.service:
+                service: fan.turn_off
+                data:
+                  entity_id: fan.zhimi_fa1_b621_fan           
+
+######################################
+#
+#   用於虛擬switch，以及與HA同步的相關entity id
+# 
+#####################################
+text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"     
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"    
+  - platform: homeassistant #取得HA書房一般電燈狀態
+    id: study_relay_state
+    entity_id: switch.hp_print_relay_device_relay   
+
+  - platform: homeassistant #取得廚房熱水瓶插頭
+    id: Kettle_relay_state
+    entity_id: switch.kiechen_electrical_socket_electrical_socket
+
+  - platform: homeassistant #取得客廳電燈WLED
+    id: liv_light_state
+    entity_id: light.wled        
+
+  - platform: homeassistant #取得臥室風扇狀態
+    id: bed_fan_state
+    entity_id: fan.zhimi_fa1_b621_fan    
+
+  - platform: homeassistant  #取得天氣預報狀態
+    id: weather_state
+    entity_id: sensor.opencwb_forecast_condition
+
+  - platform: homeassistant  #取得客廳冷氣狀態
+    id: climate_state
+    entity_id: climate.livingroom   
+
+  - platform: homeassistant   #取得客廳冷氣狀態
+    id: climate_fan_modes_state
+    entity_id: climate.livingroom   
+    attribute: fan_mode
+
+  - platform: homeassistant   #取得客廳窗簾狀態
+    id: livingroom_curtain_state
+    entity_id: cover.curtain   
+
+
+    
+sensor:  #"數值" 類用 sensor
+  - platform: homeassistant #取得livingroom 亮度數值
+    id: liv_light_brightness
+    entity_id: light.wled
+    attribute: brightness
+
+  - platform: homeassistant #取得風扇強度百分比
+    id: bed_fan_percentage
+    entity_id: fan.zhimi_fa1_b621_fan
+    attribute: percentage
+
+  - platform: homeassistant #取得客廳溫度數值
+    id: living_temperature
+    entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
+
+  - platform: homeassistant #取得客廳冷氣目前溫度濕度數值
+    id: climate_current
+    entity_id: climate.livingroom
+    attribute: current_temperature
+    unit_of_measurement: "°C"
+
+  - platform: homeassistant #取得客廳冷氣目標溫度濕度數值
+    id: climate_set
+    entity_id: climate.livingroom
+    attribute: temperature
+    unit_of_measurement: "°C"   
+
+switch: #開關 同步畫面用
+  - platform: template  #書房電燈虛擬開關
+    id: study_relay
+    optimistic: true    
+
+  - platform: template #客廳電燈虛擬開關
+    id: liv_light
+    optimistic: true        
+
+  - platform: template #客廳風扇虛擬開關
+    id: bed_fan
+    optimistic: true      
+
+  - platform: template #客廳風扇虛擬開關
+    id: Kettle_relay
+    optimistic: true        
+            
+        
