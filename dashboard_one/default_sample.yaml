@@ -3,6 +3,9 @@ substitutions:
   SCREEN_ROOMS: rooms
   SCREEN_KITCHEN: kitchen
   SCREEN_FAVORITE: favorite
+  SCREEN_MEDIA: media
+  SCREEN_LIVCLIMATE: livclimate
+  SCREEN_CURTAIN: curtain
   
 esphome:
   name: "dashboard-one-3d68"
