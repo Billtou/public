@@ -394,7 +394,7 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     
   - platform: homeassistant  #取得天氣預報狀態
     id: weather_state
-    entity_id: sensor.opencwb_forecast_condition
+    entity_id: weather.opencwb
     
 sensor:  #"數值" 類用 sensor
   - platform: homeassistant #取得livingroom 亮度數值
