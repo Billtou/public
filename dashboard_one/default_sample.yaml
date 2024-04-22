@@ -388,13 +388,10 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     mac_address:
       name: "MAC"
       icon: "mdi:lan"    
+      
   - platform: homeassistant #取得HA書房一般電燈狀態
     id: study_relay_state
     entity_id: switch.hp_print_relay_device_relay   
-
-  # - platform: homeassistant #取得廚房熱水瓶插頭
-  #   id: Kettle_relay_state
-  #   entity_id: switch.kiechen_electrical_socket_electrical_socket
 
   - platform: homeassistant #取得客廳電燈WLED
     id: liv_light_state
@@ -408,47 +405,11 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     id: weather_state
     entity_id: sensor.opencwb_forecast_condition
 
-  # - platform: homeassistant  #取得客廳冷氣狀態
-  #   id: climate_state
-  #   entity_id: climate.livingroom   
-
-  # - platform: homeassistant   #取得客廳冷氣狀態
-  #   id: climate_fan_modes_state
-  #   entity_id: climate.livingroom   
-  #   attribute: fan_mode
-
-  # - platform: homeassistant   #取得客廳窗簾狀態
-  #   id: livingroom_curtain_state
-  #   entity_id: cover.curtain   
-
-
-    
+   
 sensor:  #"數值" 類用 sensor
-  # - platform: homeassistant #取得livingroom 亮度數值
-  #   id: liv_light_brightness
-  #   entity_id: light.wled
-  #   attribute: brightness
-
-  # - platform: homeassistant #取得風扇強度百分比
-  #   id: bed_fan_percentage
-  #   entity_id: fan.zhimi_fa1_b621_fan
-  #   attribute: percentage
-
   - platform: homeassistant #取得客廳溫度數值
     id: living_temperature
     entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
-
-  # - platform: homeassistant #取得客廳冷氣目前溫度濕度數值
-  #   id: climate_current
-  #   entity_id: climate.livingroom
-  #   attribute: current_temperature
-  #   unit_of_measurement: "°C"
-
-  # - platform: homeassistant #取得客廳冷氣目標溫度濕度數值
-  #   id: climate_set
-  #   entity_id: climate.livingroom
-  #   attribute: temperature
-  #   unit_of_measurement: "°C"   
 
 switch: #開關 同步畫面用
   - platform: template  #書房電燈虛擬開關
