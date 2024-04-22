@@ -1,5 +1,22 @@
 無法支持中文顯示，無法改變字體大小，無法放大icon，要更換底圖有問原創還沒回答我，能接受再往下看。
 
+# 檔案介紹
+
+default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
+
+full_complete_sample.yaml  全功能範例
+
+SCREEN_CURTAIN.yaml  窗簾控制畫面範例
+
+SCREEN_LIVCLIMATE.yaml 冷氣控制畫面範例
+
+SCREEN_MEDIA.yaml 媒體播放控制畫面範例
+
+SCREEN_SETUP.yaml 參數設置畫面範例
+
+
+
+
 # 接入HA 並打開 "允許裝置呼叫HA服務"
 
 上電(請用單獨豆腐頭給電，不足瓦的供電會出錯)，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
@@ -30,21 +47,9 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 ![Mosquitto_broker](/dashboard_one/image/165348.png)
 
-停止呼吸，若有足夠的幸運應該會點亮螢幕 或連繫我回廠重灌~~
+停止呼吸，若有足夠的幸運應該會點亮螢幕成功，或連繫我回廠重灌~~
 
-# 檔案介紹
 
-default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
-
-SCREEN_CURTAIN.yaml  窗簾控制畫面範例
-
-SCREEN_LIVCLIMATE.yaml 冷氣控制畫面範例
-
-SCREEN_MEDIA.yaml 媒體播放控制畫面範例
-
-SCREEN_SETUP.yaml 參數設置畫面範例
-
-full_complete_sample.yaml  全功能範例
 
 
 # 認識畫面
