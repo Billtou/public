@@ -97,7 +97,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
         |
         | screens: (頁面,可以很多頁)
             |
-            | widgets: (小部件, 有三類一頁建議最多16個)
+            | widgets: (小部件, 有三類可運用，一頁建議最多16個)
                 |
                 | - type: value-card
                 | - type: button
