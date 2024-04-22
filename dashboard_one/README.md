@@ -89,8 +89,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
     
 ##  默認小部件大小 VS 自定義大小
 
-
-
+![Mosquitto_broker](/dashboard_one/image/113854.png)
 
 # 畫面的組成階層
 
