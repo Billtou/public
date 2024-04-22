@@ -1,4 +1,3 @@
-
 substitutions:
   SCREEN_MAIN: main
   SCREEN_ROOMS: rooms
@@ -129,7 +128,6 @@ ha_deck:
           enabled: return true;
 
         - type: value-card  # 1-2 (溫度)
-          # id: livingroom_temperature
           position: 126, 8  
           text: "°C"
           icon: 󰔏
@@ -141,7 +139,6 @@ ha_deck:
             return std::string(buff);
 
         - type: value-card  # 1-3+1-4 (天氣預報)
-          # id: weather_forecast
           position:  244, 8
           dimensions: 228x96          
           text: "Weather Forecast"
@@ -151,7 +148,6 @@ ha_deck:
              return id(weather_state).state;  
 
         - type: button
-          # id: favorite
           position: 8, 127 # 2-1 (參數調整)
           text: "Favorite"
           icon: 󰋑
@@ -169,7 +165,6 @@ ha_deck:
             lambda: id(deck).switch_screen("$SCREEN_ROOMS");
 
         - type: button
-          # id: study
           position: 244, 127  #2-3 (一般開關)
           text: "Study"
           icon: 󰟩
@@ -195,7 +190,6 @@ ha_deck:
                   entity_id: switch.hp_print_relay_device_relay
 
         - type: button
-          # id: livingroom_light
           position:  362, 127 # 2-3 (可調光電燈ON/OFF)
           text: Livingroom
           icon: 󱁑
@@ -220,7 +214,6 @@ ha_deck:
                   entity_id: light.wled
 
         - type: button
-          # id: bedroom_fan
           position: 8, 246  #2-4 (可調速風扇ON/OFF)
           text: "Bedroom"
           icon: 󰈐
@@ -245,7 +238,6 @@ ha_deck:
                   entity_id: fan.zhimi_fa1_b621_fan
 
         - type: button
-          # id: media_play
           position: 126, 246  #3-1 (Media Play)
           text: "MediaPlay"
           icon: 󰄙
@@ -255,7 +247,6 @@ ha_deck:
                 id(deck).switch_screen("$SCREEN_MEDIA");
 
         - type: button
-          # id: livingroom_ac
           position: 244, 246  #3-2 (A/C 空調)
           text: "Livingroom"
           icon: 󰀛
@@ -265,7 +256,6 @@ ha_deck:
                 id(deck).switch_screen("$SCREEN_LIVCLIMATE");
 
         - type: button
-          # id: livingroom_curtains
           position: 362, 246  #3-3 (curtains 窗簾)
           text: "Livingroom"
           icon: 󱡆
@@ -275,7 +265,6 @@ ha_deck:
                 id(deck).switch_screen("$SCREEN_CURTAIN");
 
         - type: button
-          # id: sleep_mode
           position: 8, 365  #3-4 (睡覺場景)
           text: "Sleep Mode"
           icon: 󰋣
@@ -283,7 +272,6 @@ ha_deck:
           enabled: return true;
 
         - type: button
-          # id: wakeup_mode
           position: 126, 365  #3-5 (起床腳本)
           text: "Wake Up"
           icon: 󰀠
