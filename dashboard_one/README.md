@@ -55,45 +55,58 @@ full_complete_sample.yaml  全功能範例
 先說一下自帶的按鈕定位點，以正方形畫面區分16區
 ![Mosquitto_broker](/dashboard_one/image/143924.png)
 
+## 畫面座標代號
 
     1-1  1-2  1-3  1-4
     2-1  2-2  2-3  2-4
     3-1  3-2  3-3  3-4
     4-1  4-2  4-3  4-4
 
-    1-1定位點:8,8
-    1-2定位點:126,8
-    1-3定位點:244,8
-    1-4定位點:362,8
-    2-1定位點:8,127
-    2-2定位點:126,127
-    2-3定位點:244,127
-    2-4定位點:362,127
-    3-1定位點:8,246
-    3-2定位點:126,246
-    3-3定位點:244,246
-    3-4定位點:362,246
-    4-1定位點:8,365
-    4-2定位點:126,365
-    4-3定位點:244,365
-    4-4定位點:362,365
+##  座標代號 VS 像素落點位置 
 
-指定"button"定位點後若沒特別參數，自帶默認大小，若加上dimensions參數，可以自訂button大小。
+    座標 1-1 : 落點 8,8
+    座標 1-2 : 落點 126,8
+    座標 1-3 : 落點 244,8
+    座標 1-4 : 落點 362,8
+    座標 2-1 : 落點 8,128
+    座標 2-2 : 落點 126,128
+    座標 2-3 : 落點 244,128
+    座標 2-4 : 落點 362,128
+    座標 3-1 : 落點 8,248
+    座標 3-2 : 落點 126,248
+    座標 3-3 : 落點 244,248
+    座標 3-4 : 落點 362,248
+    座標 4-1 : 落點 8,368
+    座標 4-2 : 落點 126,368
+    座標 4-3 : 落點 244,368
+    座標 4-4 : 落點 362,368
+    
+##  默認小部件大小 VS 自定義大小
 
-        - type: button #元件類別 
-          position: 126, 8  #定位點  1-2 
-          dimensions: 228x96  #指定元件大小(兩個默認大小的參數) 位置涵蓋1-2~1-3 (刪掉這行變常規正方形大小)
-          text: "Livingroom"  #顯示文字(只能用英文)
-          icon: 󰀛   # 只能用HA自帶，稍後說明
-          # toggle: true  #是否要觸發
-          enabled: return true;  #反饋選項
-          checked: |-  #狀態反饋程序碼
-            if(id(climate_state).state != "off") { return 1; }
-            else { return 0; }
+
+
+
+# 畫面的組成階層
+
+    ha_deck: (總屏幕,只能一個480*480解析度)
+        |
+        | screens: (頁面,可以很多頁)
+            |
+            | widgets: (小部件, 有三類一頁建議最多16個)
+                |
+                | - type: value-card
+                | - type: button
+                | - type: slider
+
+    value-card (only 數據或文字顯示) 
+    button (按鈕，按下後需要執行命令使用)
+    slider (滑快， 調整指數用例如電燈亮度)
+           
+
             
 ![Mosquitto_broker](/dashboard_one/image/152844.png)
 
-## 解析一下整個重要程序碼
+# 解析一下整個default_sample.yaml重要程序碼(有錯煩請指正)
 
     substitutions:
       SCREEN_MAIN: main
@@ -103,11 +116,15 @@ full_complete_sample.yaml  全功能範例
       SCREEN_MEDIA: media
       SCREEN_LIVCLIMATE: livclimate
             
-指定頁面名稱，一個SCREEN一個參數，例如要增加一個臥室頁面如下。
+### 指定頁面名稱
+
+要增加一個臥室頁面方式如下。
 
     SCREEN_BEDROOM: bedroom
 
-指定esp32芯片參數。需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋給我差異點)
+### 指定esp32芯片參數
+
+需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋給我差異點)
 
     esphome:
       name: "ha-deck-3d68"
@@ -118,7 +135,9 @@ full_complete_sample.yaml  全功能範例
         board_build.partitions: "/config/esphome/custom_partitions_3584.csv"  # "/config/esphome/custom_partitions_8128.csv" #
         board_build.arduino.memory_type: qio_opi
 
-指定 external (打包畫面全局使用參數，方便簡易，缺點是使用者修改門檻高，建議忽略缺點享受優點)
+###　指定 external 
+
+打包畫面全局使用參數，方便簡易，缺點是使用者修改門檻高，建議別糾結在缺點上而是盡量享受優點
 
     external_components:
       - source:
@@ -127,7 +146,7 @@ full_complete_sample.yaml  全功能範例
           ref: main
         components: [ hd_device_wt32s3_86s, ha_deck ]
 
-做個台灣的時間id
+### 做個台灣的時間id
 
     time:
       - platform: sntp  #定義時間參數
@@ -143,7 +162,7 @@ full_complete_sample.yaml  全功能範例
                   sprintf(buff, "%02d:%02d:%02d", time.hour, time.minute, time.second);
                 id(local_time).set_value(std::string(buff));
 
-做兩個調整畫面亮度的entity
+### 做兩個調整畫面亮度的entity
                 
     number:
       - platform: template   # 定義螢幕亮度參數
@@ -172,7 +191,7 @@ full_complete_sample.yaml  全功能範例
               if (id(deck).get_inactivity())
                 id(device).set_brightness(x);
 
-照抄
+### 照抄
 
     output:
       - platform: ledc  
@@ -183,7 +202,7 @@ full_complete_sample.yaml  全功能範例
       id: device
       brightness: 75            
 
-UI主程序60秒自動回主畫面並黑屏
+### UI主程序60秒自動回主畫面並黑屏
 
     ha_deck:
       id: deck
@@ -199,17 +218,23 @@ UI主程序60秒自動回主畫面並黑屏
             id(device).set_brightness(id(screen_brightness).state);
           }
 
-首頁4個元件示範 (基本上就是在主頁透過button 跳到另一個頁面，另一個頁面透過button跳回來)
-    
+## 重點小部件運用示範
+
+value-card 只要顯示文字或數字可使用，舉凡entity的state都適用。
+
+button 按下後可以指定執行命令，也可以有反饋狀態的顏色呈現，例如主畫面用button跳到另一個頁面，另一個頁面透過button跳回來。
+
+slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開的百分比。
+
     - name: ${SCREEN_MAIN} #主畫面
       widgets:  # 定義該畫面小部件
-        - type: value-card #  1-1 (時鐘)
+        - type: value-card #  1-1 ( value-card 時鐘)
           id: local_time #把上面建立的Asia/Taipei id抓過來用
           position: 8, 8 #小部件落點座標
           text: "Taiwan"
           enabled: return true;
 
-        - type: value-card  #1-2 (調用HA裡的溫度entity)
+        - type: value-card  #1-2 (value-card 調用HA裡的溫度entity)
           id: livingroom_temperature
           position: 126, 8 
           text: "°C"
