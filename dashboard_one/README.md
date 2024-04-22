@@ -107,10 +107,6 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
     button (按鈕，按下後需要執行命令使用)
     slider (滑快， 調整指數用例如電燈亮度)
            
-
-            
-![Mosquitto_broker](/dashboard_one/image/152844.png)
-
 # 解析一下整個default_sample.yaml重要程序碼(有錯煩請指正)
 
     substitutions:
