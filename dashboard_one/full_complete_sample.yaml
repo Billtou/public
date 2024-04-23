@@ -93,7 +93,7 @@ output:
 light:  
   - platform: monochromatic
     id: dummy_light
-    name: Dummy
+    # name: Dummy
     output: out_10
     
 hd_device_wt32s3_86s:
