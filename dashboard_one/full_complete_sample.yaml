@@ -132,7 +132,7 @@ ha_deck:
           text: "°C"
           icon: 󰔏
           enabled: return true;
-          # 把客廳的溫度轉為數字形式顯示出來
+          # 調用客廳的溫度轉為數字形式顯示出來
           value: |-
             char buff[10] = "-";
             sprintf(buff, "%.1f", id(living_temperature).state);
@@ -143,7 +143,7 @@ ha_deck:
           dimensions: 228x96          
           text: "Weather Forecast"
           enabled: return true;
-          # 把天氣預報的文字顯示出來
+          # 調用天氣預報的文字顯示出來
           value: |-
              return id(weather_state).state;  
 
@@ -980,8 +980,6 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     id: livingroom_curtain_state
     entity_id: cover.curtain   
 
-
-    
 sensor:  #"數值" 類用 sensor
   - platform: homeassistant #取得livingroom 亮度數值
     id: liv_light_brightness
