@@ -25,7 +25,7 @@ SCREEN_FAVORITE.yaml 參數設置畫面範例
 
 ## 步驟 0
 
-HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 複製到 HA的 config\esphome\ 裡面，否則編譯時會報錯。
+HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 複製到 HA的 \config\esphome 裡面，否則編譯時會報錯。
 
 ## 步驟 1
 
