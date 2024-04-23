@@ -161,7 +161,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
                   sprintf(buff, "%02d:%02d:%02d", time.hour, time.minute, time.second);
                 id(local_time).set_value(std::string(buff));
 
-### 做兩個調整畫面icon亮度的entity
+### 做兩個調整亮度的entity
                 
     number:
       - platform: template   # 定義活躍的entity螢幕亮度參數
