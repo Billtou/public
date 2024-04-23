@@ -14,7 +14,7 @@ esphome:
   platformio_options:
     board_upload.maximum_ram_size: 327680
     board_upload.maximum_size: 16777216
-    board_build.partitions: "/config/esphome/custom_partitions_3584.csv" #"/config/esphome/custom_partitions_8128.csv"  #
+    board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
     board_build.arduino.memory_type: qio_opi
 
 esp32:
