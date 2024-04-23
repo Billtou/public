@@ -133,7 +133,7 @@ ha_deck:
           text: "°C"
           icon: 󰔏
           enabled: return true;
-          # 把客廳的溫度轉為數字形式顯示出來
+          # 調用客廳的溫度轉為數字形式顯示出來
           value: |-
             char buff[10] = "-";
             sprintf(buff, "%.1f", id(living_temperature).state);
@@ -144,7 +144,7 @@ ha_deck:
           dimensions: 228x96          
           text: "Weather Forecast"
           enabled: return true;
-          # 把天氣預報的文字顯示出來
+          # 調用天氣預報的文字顯示出來
           value: |-
              return id(weather_state).state;  
 
