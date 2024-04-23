@@ -1,4 +1,5 @@
 substitutions:
+  #################################################### 定義頁面名稱，義下可修改增減
   SCREEN_MAIN: main
   SCREEN_ROOMS: rooms
   SCREEN_KITCHEN: kitchen
@@ -6,44 +7,41 @@ substitutions:
   SCREEN_MEDIA: media
   SCREEN_LIVCLIMATE: livclimate
   SCREEN_CURTAIN: curtain
+###################################################### 定義頁面名稱，以上可修改增減
   
 esphome:
-  name: "dashboard-one-3d68"
-  friendly_name: "dashboard-one-3d68"
+  name: "dashboard-one-3d68"  # 亂改會死機
+  friendly_name: "dashboard-one-3d68"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
   platformio_options:
     board_upload.maximum_ram_size: 327680
     board_upload.maximum_size: 16777216
-    board_build.partitions: "/config/esphome/custom_partitions_3584.csv"
-    board_build.arduino.memory_type: qio_opi  
+    board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
+    board_build.arduino.memory_type: qio_opi
     
-esp32:
-  board: esp32-s3-devkitc-1
-  framework:
-    type: arduino
-  flash_size: 16MB    
-
-
-logger:
-
-api:
-
-ota:
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
 external_components:
   - source:
       type: git
       url: https://github.com/strange-v/ha_deck
       ref: main
     components: [ hd_device_wt32s3_86s, ha_deck ]
+    
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+  flash_size: 16MB 
+  
+logger:
+api:
+ota:
 
 web_server:
   port: 80
-
-
+  
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  
 time:
   - platform: sntp  #定義時間參數
     id: sntp_time
@@ -59,7 +57,7 @@ time:
             id(local_time).set_value(std::string(buff));
 
 number:
-  - platform: template   # 定義活躍的entity螢幕亮度參數
+  - platform: template   # 定義活躍的entity螢幕亮度參數，**沒事別動**
     id: screen_brightness
     name: Active screen brightness
     min_value: 0
@@ -72,7 +70,7 @@ number:
           if (!id(deck).get_inactivity())
             id(device).set_brightness(x);
 
-  - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)
+  - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)，**沒事別動**
     id: inactive_screen_brightness
     name: Inactive screen brightness
     min_value: 0
@@ -84,22 +82,15 @@ number:
       - lambda: |-
           if (id(deck).get_inactivity())
             id(device).set_brightness(x);
-
-output:
-  - platform: ledc  
-    pin: 10
-    id: out_10
-
-light:  
-  - platform: monochromatic
-    id: dummy_light
-    name: Dummy
-    output: out_10
-    
+   
 hd_device_wt32s3_86s:
   id: device
   brightness: 75
 
+############################################
+# 以下為畫面程式碼
+#
+############################################
 ha_deck:
   id: deck
   main_screen: ${SCREEN_MAIN}  # 設備參數
@@ -133,7 +124,7 @@ ha_deck:
           text: "°C"
           icon: 󰔏
           enabled: return true;
-          # 調用客廳的溫度轉為數字形式顯示出來
+          # 把客廳的溫度轉為數字形式顯示出來
           value: |-
             char buff[10] = "-";
             sprintf(buff, "%.1f", id(living_temperature).state);
@@ -144,7 +135,7 @@ ha_deck:
           dimensions: 228x96          
           text: "Weather Forecast"
           enabled: return true;
-          # 調用天氣預報的文字顯示出來
+          # 把天氣預報的文字顯示出來
           value: |-
              return id(weather_state).state;  
 
