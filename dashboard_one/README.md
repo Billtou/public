@@ -12,9 +12,7 @@ SCREEN_LIVCLIMATE.yaml 冷氣控制畫面範例
 
 SCREEN_MEDIA.yaml 媒體播放控制畫面範例
 
-SCREEN_SETUP.yaml 參數設置畫面範例
-
-
+SCREEN_FAVORITE.yaml 參數設置畫面範例
 
 
 # 第一步接入HA 並打開 "允許裝置呼叫HA服務"
