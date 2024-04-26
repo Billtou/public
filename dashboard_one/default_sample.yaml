@@ -8,7 +8,7 @@ substitutions:
   SCREEN_LIVCLIMATE: livclimate
   SCREEN_CURTAIN: curtain
 ###################################################### 定義頁面名稱，以上可修改增減
-  
+
 esphome:
   name: "dashboard-one-3d68"  # 亂改會死機
   friendly_name: "dashboard-one-3d68"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
@@ -17,33 +17,33 @@ esphome:
     board_upload.maximum_size: 16777216
     board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
     board_build.arduino.memory_type: qio_opi
-    
-external_components:
-  - source:
-      type: git
-      url: https://github.com/strange-v/ha_deck
-      ref: main
-    components: [ hd_device_wt32s3_86s, ha_deck ]
-    
+
 esp32:
   board: esp32-s3-devkitc-1
   framework:
     type: arduino
-  flash_size: 16MB 
-  
+  flash_size: 16MB
+
 logger:
+
 api:
+
 ota:
 
-web_server:
-  port: 80
-  
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-  
+
+external_components:
+  - source:
+      type: local
+      path: my_components
+
+web_server:
+  port: 80
+
 time:
-  - platform: sntp  #定義時間參數
+  - platform: sntp  
     id: sntp_time
     timezone: Asia/Taipei
     on_time:
@@ -57,7 +57,7 @@ time:
             id(local_time).set_value(std::string(buff));
 
 number:
-  - platform: template   # 定義活躍的entity螢幕亮度參數，**沒事別動**
+  - platform: template   # 定義活躍的entity螢幕亮度參數，與 enabled: return true; 搭配使用
     id: screen_brightness
     name: Active screen brightness
     min_value: 0
@@ -70,7 +70,7 @@ number:
           if (!id(deck).get_inactivity())
             id(device).set_brightness(x);
 
-  - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)，**沒事別動**
+  - platform: template ## 定義不活躍的entity螢幕亮度參數，見 (不活躍的小部件)
     id: inactive_screen_brightness
     name: Inactive screen brightness
     min_value: 0
@@ -82,21 +82,17 @@ number:
       - lambda: |-
           if (id(deck).get_inactivity())
             id(device).set_brightness(x);
-   
+    
 hd_device_wt32s3_86s:
   id: device
-  brightness: 75
+  brightness: 75  #默認螢幕亮度
 
-############################################
-# 以下為畫面程式碼
-#
-############################################
 ha_deck:
   id: deck
-  main_screen: ${SCREEN_MAIN}  # 設備參數
+  main_screen: ${SCREEN_MAIN}  # 設備參數，**沒事別動**
   inactivity:
     period: 60 # seconds 60秒回主畫面
-    blank_screen: true  #休眠黑畫面有效(建置期可以 ctrl + / 標註起來)
+    blank_screen: true  #休眠黑畫面有效
   on_inactivity_change:
     lambda:  |-
       if (x) {
@@ -104,9 +100,8 @@ ha_deck:
       } else {
         id(device).set_brightness(id(screen_brightness).state);
       }
-
   screens:
-    ##########################################
+    ########################################## 以下可修改增減
     #
     #     主畫面 
     #
@@ -132,7 +127,7 @@ ha_deck:
 
         - type: value-card  # 1-3+1-4 (天氣預報)
           position:  244, 8
-          dimensions: 228x96          
+          dimensions: 228x110          
           text: "Weather Forecast"
           enabled: return true;
           # 把天氣預報的文字顯示出來
@@ -145,7 +140,7 @@ ha_deck:
           icon: 󰋑
           enabled: return true;
           on_click:
-            lambda: id(deck).switch_screen("$SCREEN_FAVORITE");  # 按下按鈕跳到favorite頁面
+            lambda: id(deck).switch_screen("$SCREEN_FAVORITE");  # 按下跳到favorite頁面
 
         - type: button
           # id: floors
@@ -167,15 +162,11 @@ ha_deck:
             if(id(study_relay_state).state == "on") { return 1; }
             else { return 0; }
           on_turn_on:
-            - switch.turn_on:  # ESHPhome 的打開 switch 指令
-                id: study_relay # 被打開的id (虛擬開關，用來同步觸控板反饋用)
             - homeassistant.service:  # 執行HA的 Service
                 service: switch.turn_on  # SWITCH Service 
                 data:
                   entity_id: switch.hp_print_relay_device_relay # HA裡面的entity
           on_turn_off:
-            - switch.turn_off:
-                id: study_relay
             - homeassistant.service:
                 service: switch.turn_off
                 data:
@@ -191,15 +182,11 @@ ha_deck:
             if(id(liv_light_state).state == "on") { return 1; }
             else { return 0; }
           on_turn_on:
-            - switch.turn_on:
-                id: liv_light
             - homeassistant.service:
                 service: light.turn_on
                 data:
                   entity_id: light.wled
           on_turn_off:
-            - switch.turn_off:
-                id: liv_light
             - homeassistant.service:
                 service: light.turn_off
                 data:
@@ -215,15 +202,11 @@ ha_deck:
             if(id(bed_fan_state).state == "on") { return 1; }
             else { return 0; }
           on_turn_on:
-            - switch.turn_on:
-                id: bed_fan
             - homeassistant.service:
                 service: fan.turn_on
                 data:
                   entity_id: fan.zhimi_fa1_b621_fan
           on_turn_off:
-            - switch.turn_off:
-                id: bed_fan
             - homeassistant.service:
                 service: fan.turn_off
                 data:
@@ -231,34 +214,72 @@ ha_deck:
 
         - type: button
           position: 126, 246  #3-1 (Media Play)
-          text: "MediaPlay"
+          text: "Media Play"
           icon: 󰄙
           enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_MEDIA");
 
         - type: button
           position: 244, 246  #3-2 (A/C 空調)
           text: "Livingroom"
           icon: 󰀛
           enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_LIVCLIMATE");
 
         - type: button
           position: 362, 246  #3-3 (curtains 窗簾)
           text: "Livingroom"
           icon: 󱡆
           enabled: return true;
+          on_click:
+            lambda: |-
+                id(deck).switch_screen("$SCREEN_CURTAIN");
 
         - type: button
-          position: 8, 365  #3-4 (睡覺場景)
+          position: 8, 365  #4-1 (觸發睡覺場景)
           text: "Sleep Mode"
           icon: 󰋣
           enabled: return true;
+          on_click:
+            - homeassistant.service:
+                service: scene.turn_on
+                data:
+                  entity_id: scene.sleep_mode
 
         - type: button
-          position: 126, 365  #3-5 (起床腳本)
+          position: 126, 365  #4-2 (觸發起床腳本)
           text: "Wake Up"
           icon: 󰀠
           enabled: return true;
-          
+          on_click:
+            - homeassistant.service:
+                service: script.toggle
+                data:
+                  entity_id: script.unknown
+
+        - type: button
+          position: 244, 365  #4-3 (不活躍的小部件)
+          text: "Wish"
+          icon: 󰐔
+          # enabled: return true;
+
+        - type: button
+          position: 362, 365 #4-4座標(one touch)
+          text: "One Touch"
+          icon: 󰹯
+          toggle: true
+          enabled: return true;
+          checked: |-
+            if(id(livingroom_one_touch).state == true ) { return 1; }
+            else { return 0; }
+          on_turn_on:
+            - switch.turn_on: livingroom_one_touch
+          on_turn_off:
+            - switch.turn_off: livingroom_one_touch
     #################################################
     #
     #     房間畫面有全部(16個)按鍵座標參數
@@ -280,22 +301,19 @@ ha_deck:
           position: 126, 8  #1-2座標
           text: "LivingRoom"
           icon: 󰒹
-          enabled: |-
-            return true;
+          # enabled: return true;
 
         - type: button
           position: 244, 8  #1-3座標
           text: "MainRoom"
           icon: 󰿒
-          enabled: |-
-            return true;
+          # enabled: return true;
 
         - type: button
           position: 362, 8  #1-4座標
           text: "KidsRoom"
           icon: 󰢠
-          enabled: |-
-            return true;
+          # enabled: return true;
 
         - type: button
           position: 8, 127   #2-1座標
@@ -329,43 +347,23 @@ ha_deck:
           position: 126, 8  #1-2 咖啡機
           text: "Coffee"
           icon: 󱂟
-          enabled: |-
-            return true;        
+          # enabled: return true;
 
     ##########################################
     #
-    #     設定參數畫面
+    #     設定默認畫面
     #
     #########################################                                
     - name: ${SCREEN_FAVORITE}  #調整參數畫面
       widgets:
         - type: button   #返回主畫面
           position: 0, 0
-          dimensions: 48x460     
+          dimensions: 48x480     
           icon: 󰅁
           enabled: return true;
           on_click:
-            - lambda: id(deck).switch_screen("$SCREEN_MAIN");
+            - lambda: id(deck).switch_screen("$SCREEN_MAIN");        
 
-        #################################
-        #   設備畫面亮度設定
-        #################################
-        - type: slider #滑桿元件 調整螢幕亮度
-          position: 80, 8
-          dimensions: 60x315
-          min: 0
-          max: 255
-          enabled: return true;
-          value: return id(device).get_brightness();
-          on_change:
-            lambda: id(device).set_brightness(x);
-            
-        - type: button
-          position: 80, 320
-          dimensions: 60x50
-          text: "Screen"
-          enabled: return true;   
-  
 ######################################
 #
 #   用於虛擬switch，以及與HA同步的相關entity id
@@ -379,7 +377,7 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     mac_address:
       name: "MAC"
       icon: "mdi:lan"    
-      
+
   - platform: homeassistant #取得HA書房一般電燈狀態
     id: study_relay_state
     entity_id: switch.hp_print_relay_device_relay   
@@ -396,27 +394,14 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
     id: weather_state
     entity_id: sensor.opencwb_forecast_condition
 
-   
 sensor:  #"數值" 類用 sensor
   - platform: homeassistant #取得客廳溫度數值
     id: living_temperature
     entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
 
-switch: #開關 同步畫面用
-  - platform: template  #書房電燈虛擬開關
-    id: study_relay
-    optimistic: true    
-
-  - platform: template #客廳電燈虛擬開關
-    id: liv_light
-    optimistic: true        
-
-  - platform: template #客廳風扇虛擬開關
-    id: bed_fan
-    optimistic: true      
-
-  - platform: template #客廳風扇虛擬開關
-    id: Kettle_relay
-    optimistic: true        
-            
-        
+switch: #開關 暴露在HA後期作自動化用
+  - platform: template #one_touch
+    name: "livingroom_one_touch"
+    id: livingroom_one_touch
+    optimistic: true  
+  
