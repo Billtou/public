@@ -1,7 +1,12 @@
+    ###############################################
+    #
+    #     MEDIA PLAYER
+    #
+    ###############################################
     - name: ${SCREEN_MEDIA}
       widgets:
         - type: button
-          position: 8, 8  #1-1 座標 返回主畫面
+          position: 8, 8  #1-1 返回主畫面
           icon: 󰁍
           enabled: |-
             return true;
@@ -17,10 +22,10 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.volume_up
-                data:
-                  entity_id: media_player.ke_ting                
+              - homeassistant.service:
+                  service: media_player.volume_up  #提高音量
+                  data:
+                    entity_id: media_player.ke_ting                
 
         - type: button
           position: 126, 127  #2-2 暫停
@@ -29,10 +34,10 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.media_pause
-                data:
-                  entity_id: media_player.ke_ting    
+              - homeassistant.service:
+                  service: media_player.media_pause #暫停播放
+                  data:
+                    entity_id: media_player.ke_ting    
 
         - type: button
           position: 244, 127  #2-3 播放
@@ -41,10 +46,10 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.play_media
-                data:
-                  entity_id: media_player.ke_ting    
+              - homeassistant.service:
+                  service: media_player.play_media  #繼續播放
+                  data:
+                    entity_id: media_player.ke_ting    
 
         - type: button
           position: 362, 127  #2-4 靜音
@@ -53,11 +58,11 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.volume_set
-                data:
-                  volume_level: "0"
-                  entity_id: media_player.ke_ting 
+              - homeassistant.service:
+                  service: media_player.volume_set #音量=0 靜音
+                  data:
+                    volume_level: "0"
+                    entity_id: media_player.ke_ting 
 
         - type: button
           position: 8, 246  #3-1 關機
@@ -66,10 +71,10 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.turn_off
-                data:
-                  entity_id: media_player.ke_ting 
+              - homeassistant.service:
+                  service: media_player.turn_off  #關閉播放器
+                  data:
+                    entity_id: media_player.ke_ting 
 
         - type: button
           position: 362, 246 #3-4 聲音小
@@ -78,7 +83,7 @@
             return true;
           on_click:
             then:
-            - homeassistant.service:
-                service: media_player.volume_down
-                data:
-                  entity_id: media_player.ke_ting 
+              - homeassistant.service:
+                  service: media_player.volume_down  
+                  data:
+                    entity_id: media_player.ke_ting  #降低音量
