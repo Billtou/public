@@ -129,6 +129,7 @@ ha_deck:
           position:  244, 8
           dimensions: 228x110          
           text: "Weather Forecast"
+          icon: 󰖨
           enabled: return true;
           # 把天氣預報的文字顯示出來
           value: |-
