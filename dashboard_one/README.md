@@ -1,4 +1,5 @@
 目前為止無法支持中文顯示，無法改變字體大小，無法放大icon，無法更換底圖，有問題都可發問，能接受再往下看。
+本人不是原創，頁底有原創網頁連結，覺得有幫助可以贊助他喝一下咖啡一下。
 
 # 認識sample yaml檔案
 
@@ -111,9 +112,10 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
       SCREEN_MAIN: main
       SCREEN_ROOMS: rooms
       SCREEN_KITCHEN: kitchen
-      SCREEN_SETUP: setup
+      SCREEN_FAVORITE: favorite
       SCREEN_MEDIA: media
       SCREEN_LIVCLIMATE: livclimate
+      SCREEN_CURTAIN: curtain
             
 ### 指定頁面名稱
 
@@ -126,12 +128,12 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
 
     esphome:
-      name: "ha-deck-3d68"
-      friendly_name: "HA Deck 3d68"
+      name: "dashboard-one-3d68"  # 亂改會死機
+      friendly_name: "dashboard-one-3d68"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
       platformio_options:
         board_upload.maximum_ram_size: 327680
         board_upload.maximum_size: 16777216
-        board_build.partitions: "/config/esphome/custom_partitions_3584.csv"  # "/config/esphome/custom_partitions_8128.csv" #
+        board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
         board_build.arduino.memory_type: qio_opi
 
 ###　指定 external 
@@ -145,7 +147,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
           ref: main
         components: [ hd_device_wt32s3_86s, ha_deck ]
 
-### 做個台灣的時間id
+### 做個台灣的時間id sntp_time
 
     time:
       - platform: sntp  #定義時間參數
@@ -164,7 +166,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 ### 做兩個調整亮度的entity
                 
     number:
-      - platform: template   # 定義活躍的entity螢幕亮度參數
+      - platform: template   # 定義活躍的entity螢幕亮度參數，與 enabled: return true; 搭配使用
         id: screen_brightness
         name: Active screen brightness
         min_value: 0
@@ -177,7 +179,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
               if (!id(deck).get_inactivity())
                 id(device).set_brightness(x);
     
-      - platform: template ## 定義不活躍的entity螢幕亮度參數(失聯或斷網)
+      - platform: template ## 定義不活躍的entity螢幕亮度參數，見 (不活躍的小部件)
         id: inactive_screen_brightness
         name: Inactive screen brightness
         min_value: 0
@@ -190,13 +192,8 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
               if (id(deck).get_inactivity())
                 id(device).set_brightness(x);
 
-### 照抄
+### 默認螢幕亮度 75
 
-    output:
-      - platform: ledc  
-        pin: 10
-        id: out_10
-        
     hd_device_wt32s3_86s:
       id: device
       brightness: 75            
@@ -205,7 +202,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
     ha_deck:
       id: deck
-      main_screen: ${SCREEN_MAIN}  # 設備參數
+      main_screen: ${SCREEN_MAIN}  # 設備參數，**沒事別動**
       inactivity:
         period: 60 # seconds 60秒回主畫面
         blank_screen: true  #休眠黑畫面有效
@@ -240,51 +237,45 @@ slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開�
           icon: 󰔏  #如何置換icon見文章附錄說明
           # unit: °C # 目前沒用到
           enabled: return true;
+           #這個ID調用HA的entity見下方範例。
           value: |-
             char buff[10] = "-";
-            sprintf(buff, "%.1f", id(living_temperature).state);   #這個ID調用HA的entity見下方範例。
+            sprintf(buff, "%.1f", id(living_temperature).state);  
             return std::string(buff);  
 
-        - type: value-card  #1-3 (天氣預報)
-          id: livingroom_humidity
-          position:  244, 8   
-          dimensions: 228x96   #指定兩個小部件大小
+        - type: value-card  # 1-3+1-4 (天氣預報)
+          position:  244, 8
+          dimensions: 228x110  #指定兩個小部件大小        
           text: "Weather Forecast"
-          # icon: 󰖎
           enabled: return true;
+          # 把天氣預報的文字顯示出來
           value: |-
              return id(weather_state).state;  
              
         - type: button
-          id: floors
-          position: 126, 127 # 2-1 (進入房間頁面)
-          text: "Rooms"
-          icon: 󰠡
+          position: 8, 127 # 2-1 (進入favorite頁面)
+          text: "Favorite"
+          icon: 󰋑
           enabled: return true;
           on_click:
-            lambda: |-
-                id(deck).switch_screen("$SCREEN_ROOMS");
+            lambda: id(deck).switch_screen("$SCREEN_FAVORITE");  # 按下跳到favorite頁面
                 
         - type: button
-          id: study
-          position: 244, 127  #2-2 (一般Relay)
+          position: 244, 127  #2-3 (一般開關)
           text: "Study"
           icon: 󰟩
-          toggle: true  #小部件觸發反饋
+          toggle: true  #打開反饋按鈕亮琥珀色底
           enabled: return true;
+          # 反饋的依據參考 study_relay_state 這個id的狀態
           checked: |-
-            if(id(study_relay_state).state == "on") { return 1; }  #同步study_relay_state 小部件背景反饋狀態
+            if(id(study_relay_state).state == "on") { return 1; }
             else { return 0; }
-          on_turn_on:  #處理按下後ON的動作
-            - switch.turn_on:
-                id: study_relay
-            - homeassistant.service:  #直接控制HA裡面的entity
-                service: switch.turn_on
+          on_turn_on:
+            - homeassistant.service:  # 執行HA的 Service
+                service: switch.turn_on  # SWITCH Service 
                 data:
-                  entity_id: switch.hp_print_relay_device_relay #這是HA的entity
-          on_turn_off: #處理按下後OFF的動作
-            - switch.turn_off:
-                id: study_relay
+                  entity_id: switch.hp_print_relay_device_relay # HA裡面的entity
+          on_turn_off:
             - homeassistant.service:
                 service: switch.turn_off
                 data:
