@@ -7,6 +7,8 @@ default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
 
 full_complete_sample.yaml  全功能範例
 
+widgets_user_manual.pdf 小部件(widgets)詳細使用手冊
+
 SCREEN_CURTAIN.yaml  窗簾控制畫面範例
 
 SCREEN_LIVCLIMATE.yaml 冷氣控制畫面範例
