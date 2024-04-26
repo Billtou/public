@@ -378,30 +378,29 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
       name: "MAC"
       icon: "mdi:lan"    
 
-  - platform: homeassistant #取得HA書房一般電燈狀態
+  - platform: homeassistant #取得HA書房一般插頭 state
     id: study_relay_state
     entity_id: switch.hp_print_relay_device_relay   
 
-  - platform: homeassistant #取得客廳電燈WLED
+  - platform: homeassistant #取得客廳電燈state
     id: liv_light_state
     entity_id: light.wled        
 
-  - platform: homeassistant #取得臥室風扇狀態
+  - platform: homeassistant #取得臥室風扇state
     id: bed_fan_state
     entity_id: fan.zhimi_fa1_b621_fan    
 
-  - platform: homeassistant  #取得天氣預報狀態
+  - platform: homeassistant  #取得天氣預報state
     id: weather_state
     entity_id: sensor.opencwb_forecast_condition
 
 sensor:  #"數值" 類用 sensor
-  - platform: homeassistant #取得客廳溫度數值
+  - platform: homeassistant #取得客廳溫度state
     id: living_temperature
     entity_id: sensor.livingroom_ikea_air_quality_livingroom_temperatur
 
-switch: #開關 暴露在HA後期作自動化用
+switch: #開關 one_touch 按鈕在HA暴露，後期作自動化用
   - platform: template #one_touch
     name: "livingroom_one_touch"
     id: livingroom_one_touch
-    optimistic: true  
-  
+    optimistic: true
