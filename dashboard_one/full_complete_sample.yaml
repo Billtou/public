@@ -271,7 +271,7 @@ ha_deck:
         - type: button
           position: 362, 365 #4-4座標(one touch)
           text: "One Touch"
-          icon: 󰹯
+          icon: 󰄰
           toggle: true
           enabled: return true;
           checked: |-
@@ -815,13 +815,13 @@ ha_deck:
         - type: slider #滑桿元件
           position: 80, 40
           dimensions: 60x255  # 滑桿大小，寬60 高255 畫面亮度調整255步，所以 max:255
-          min: 0   
+          min: 1
           max: 255  
           enabled: return true;
           value: return id(device).get_brightness();
           on_change:
             lambda: id(device).set_brightness(x);
-            
+
         - type: button
           position: 80, 320
           dimensions: 60x50
