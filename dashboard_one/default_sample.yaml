@@ -270,7 +270,7 @@ ha_deck:
         - type: button
           position: 362, 365 #4-4座標(one touch)
           text: "One Touch"
-          icon: 󰹯
+          icon: 󰄰
           toggle: true
           enabled: return true;
           checked: |-
