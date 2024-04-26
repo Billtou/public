@@ -1,0 +1,108 @@
+    #################################################
+    #
+    #     房間畫面有全部(16個)按鍵座標參數
+    #
+    #################################################
+    - name: ${SCREEN_ROOMS} #房間畫面
+      widgets:
+        - type: button
+          position: 8, 8  #1-1 座標 返回主畫面
+          icon: 󰁍
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_MAIN");
+
+        - type: button
+          position: 126, 8  #1-2座標
+          text: "LivingRoom"
+          icon: 󰒹
+          # enabled: return true;
+
+        - type: button
+          position: 244, 8  #1-3座標
+          text: "MainRoom"
+          icon: 󰿒
+          # enabled: return true;
+
+        - type: button
+          position: 362, 8  #1-4座標
+          text: "KidsRoom"
+          icon: 󰢠
+          # enabled: return true;
+
+        - type: button
+          position: 8, 127   #2-1座標
+          text: "Kitchen"
+          icon: 󰩰
+          enabled: |-
+            return true;
+          on_click:
+            then:
+            - lambda: |-
+                id(deck).switch_screen("$SCREEN_KITCHEN");
+
+        - type: button
+          position: 126, 127  #2-2座標
+          text: "Bathroom"
+          icon: 󱠘
+          # enabled: return true;
+
+        - type: button
+          position: 244, 127  #2-3座標
+          text: "Toilet"
+          icon: 󰦫
+          # enabled: return true;
+        - type: button
+          position: 362, 127  #2-4座標
+          text: "Garage"
+          icon: 󱟼
+          # enabled: return true;
+
+        - type: button
+          position: 8, 246  #3-1座標
+          text: "Vacuum"
+          icon: 󰤈
+          # enabled: return true;
+
+        - type: button
+          position: 126, 246 #3-2座標
+          text: "Garden"
+          icon: 󱙰
+          # enabled: return true;
+
+        - type: button
+          position: 244, 246 #3-3座標
+          text: "GreenHouse"
+          icon: 󰀭
+          # enabled: return true;
+        - type: button
+          position: 362, 246 #3-4座標
+          text: "Laundry"
+          icon: 󰜪
+          # enabled: return true;
+
+        - type: button
+          position: 8, 365 #4-1座標
+          text: "GameRoom"
+          icon: 󰐔
+          # enabled: return true;
+
+        - type: button
+          position: 126, 365 #4-2座標
+          text: "Cinema"
+          icon: 󰐮
+          # enabled: return true;
+        - type: button
+          position: 244, 365 #4-3座標
+          text: "Pool"
+          icon: 󰘆
+          # enabled: return true;
+
+        - type: button
+          position: 362, 365 #4-4座標
+          text: "OutDoor"
+          icon: 󱁔
+          # enabled: return true;
