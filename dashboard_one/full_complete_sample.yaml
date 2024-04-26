@@ -15,7 +15,7 @@ esphome:
   platformio_options:
     board_upload.maximum_ram_size: 327680
     board_upload.maximum_size: 16777216
-    board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
+    board_build.partitions: "/config/esphome/custom_partitions_8128.csv" 
     board_build.arduino.memory_type: qio_opi
 
 esp32:
@@ -34,10 +34,16 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
+# external_components:
+#   - source:
+#       type: local
+
 external_components:
   - source:
-      type: local
-      path: my_components
+      type: git
+      url: https://github.com/strange-v/ha_deck
+      ref: main
+    components: [ hd_device_wt32s3_86s, ha_deck ]
 
 web_server:
   port: 80
@@ -60,11 +66,15 @@ number:
   - platform: template   # 定義活躍的entity螢幕亮度參數，與 enabled: return true; 搭配使用
     id: screen_brightness
     name: Active screen brightness
-    min_value: 0
-    max_value: 100
-    step: 5
-    initial_value: 75
+    entity_category: config
+    min_value: 1
+    max_value: 255
+    step: 1
+    # 若要固定可設定initial_value 亮度數字
+    initial_value: 50      
+    optimistic: true
     restore_value: true
+    mode: slider
     set_action:
       - lambda: |-
           if (!id(deck).get_inactivity())
@@ -73,19 +83,26 @@ number:
   - platform: template ## 定義不活躍的entity螢幕亮度參數，見 (不活躍的小部件)
     id: inactive_screen_brightness
     name: Inactive screen brightness
-    min_value: 0
-    max_value: 100
-    step: 5
+    entity_category: config
+    min_value: 1
+    max_value: 255
+    step: 1
     initial_value: 20
+    optimistic: true
     restore_value: true
+    mode: slider
     set_action:
       - lambda: |-
           if (id(deck).get_inactivity())
             id(device).set_brightness(x);
-    
+output:
+  - platform: ledc
+    pin: 10
+    id: out_10
+
 hd_device_wt32s3_86s:
   id: device
-  brightness: 75  #默認螢幕亮度
+  brightness: 50  #默認螢幕亮度
 
 ha_deck:
   id: deck
@@ -304,19 +321,19 @@ ha_deck:
           position: 126, 8  #1-2座標
           text: "LivingRoom"
           icon: 󰒹
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 244, 8  #1-3座標
           text: "MainRoom"
           icon: 󰿒
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 362, 8  #1-4座標
           text: "KidsRoom"
           icon: 󰢠
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 8, 127   #2-1座標
@@ -333,64 +350,64 @@ ha_deck:
           position: 126, 127  #2-2座標
           text: "Bathroom"
           icon: 󱠘
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 244, 127  #2-3座標
           text: "Toilet"
           icon: 󰦫
-          # enabled: return true;
+          enabled: return true;
         - type: button
           position: 362, 127  #2-4座標
           text: "Garage"
           icon: 󱟼
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 8, 246  #3-1座標
           text: "Vacuum"
           icon: 󰤈
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 126, 246 #3-2座標
           text: "Garden"
           icon: 󱙰
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 244, 246 #3-3座標
           text: "GreenHouse"
           icon: 󰀭
-          # enabled: return true;
+          enabled: return true;
         - type: button
           position: 362, 246 #3-4座標
           text: "Laundry"
           icon: 󰜪
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 8, 365 #4-1座標
           text: "GameRoom"
           icon: 󰐔
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 126, 365 #4-2座標
           text: "Cinema"
           icon: 󰐮
-          # enabled: return true;
+          enabled: return true;
         - type: button
           position: 244, 365 #4-3座標
           text: "Pool"
           icon: 󰘆
-          # enabled: return true;
+          enabled: return true;
 
         - type: button
           position: 362, 365 #4-4座標
           text: "OutDoor"
           icon: 󱁔
-          # enabled: return true;
+          enabled: return true;
 
     ################################################
     #
