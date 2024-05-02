@@ -6,9 +6,13 @@
 
 0.必須安裝附加元件ESPHome
 
+
 1.進入ESPHome 右下 "+ NEW DEVICE"。
+
 2.選擇 "CONTINUE"。
+
 3.把剪貼簿的名稱貼上後 > "NEXT" > "ESP32" > SKIP。 出現就正確 "ONLINE"
+
 
 
 4.會出現一個設備 > "EDIT" 進入編輯模式。
