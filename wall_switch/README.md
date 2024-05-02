@@ -8,6 +8,7 @@
 
 0.必須安裝附加元件ESPHome
 
+## 建立ESPHome開發環境
 
 1.進入ESPHome 右下 "+ NEW DEVICE"。
 
@@ -15,12 +16,16 @@
 
 3.把剪貼簿的名稱貼上後 > "NEXT" > "ESP32" > SKIP。 出現就正確 "ONLINE"
 
-
+## 編輯yaml程式碼
 
 4.會出現一個設備 > "EDIT" 進入編輯模式。
+
 5.依據下圖替換正確的yaml程序碼。
 
+## 進行程式碼編譯
+
 6.畫面右上 "SAVE" > "INSTALL"
+
 7.沒意外燒寫完成顯示on-line了可以開始編譯程序碼了，目前堤供1~3鍵標準版以及解偶後想把案鍵變成多功能點動開關。
 
 wall-switch-1-xxxx.yaml (一路開關)
