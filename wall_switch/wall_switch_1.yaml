@@ -1,6 +1,7 @@
 esphome:
-  name: wall-switch-1-ba31
-  friendly_name: wall-switch-1-ba31
+  name: wall-switch-1
+  friendly_name: Wall Switch 1
+  name_add_mac_suffix: True
 
 bk72xx:
   board: cbu
@@ -14,8 +15,10 @@ captive_portal:
 mdns:
 
 api:
+  password: ""
 
 ota:
+  password: ""
 
 wifi:
   ssid: !secret wifi_ssid
