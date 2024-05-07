@@ -34,9 +34,11 @@
   
   wall-switch-3-cbu-xxxxxx.yaml (三路開關)
   
-  wall-switch-1-xxxx-light.yaml (在ESPHome裡面轉成原生電燈sample)
+  light.yaml (在ESPHome裡面轉成原生電燈sample)
   
-  wall-switch-1-xxxx-fan.yaml (在ESPHome裡面轉成原生風扇sample)
+  fan.yaml (在ESPHome裡面轉成原生風扇sample)
+
+  greenled.yaml (默認OFF亮綠燈，若想OFF不亮燈可以參考)
   
   
-  ** 原本預計寫個解耦候透過偵測按壓模式不同分出三個虛擬開關single、double、hold但試不出來，我感覺是硬體上設計過濾按壓頻率，所以宣布放棄。 或許有大神破解再請告知小弟 **
+  ** 原本預計寫個解耦候透過偵測按壓模式不同分出三個虛擬開關single、double、hold但試不出來，我感覺是硬體上設計過濾按壓頻率，或是我間隔微秒沒抓好暫時宣布放棄。 或許有大神破解再請告知小弟 **
