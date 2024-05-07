@@ -28,15 +28,15 @@
   
   7.沒意外燒寫完成顯示on-line了可以開始編譯程序碼了，目前堤供1~3鍵標準版以及解偶後想把案鍵變成多功能點動開關。
 
-  wall-switch-1-xxxx.yaml (一路開關)
+  wall-switch-1-cbu-xxxxxx.yaml (一路開關)
   
-  wall-switch-2-xxxx.yaml (二路開關)
+  wall-switch-2-cbu-xxxxxx.yaml (二路開關)
   
-  wall-switch-3-xxxx.yaml (三路開關)
+  wall-switch-3-cbu-xxxxxx.yaml (三路開關)
   
-  wall-switch-1-xxxx-light.yaml (在ESPHome裡面轉成原生電燈)
+  wall-switch-1-xxxx-light.yaml (在ESPHome裡面轉成原生電燈sample)
   
-  wall-switch-1-xxxx-fan.yaml (在ESPHome裡面轉成原生風扇)
+  wall-switch-1-xxxx-fan.yaml (在ESPHome裡面轉成原生風扇sample)
   
   
   ** 原本預計寫個解耦候透過偵測按壓模式不同分出三個虛擬開關single、double、hold但試不出來，我感覺是硬體上設計過濾按壓頻率，所以宣布放棄。 或許有大神破解再請告知小弟 **
