@@ -1,6 +1,4 @@
 substitutions:
-  name: "dashboard-one-e73d68" # 亂改會死機
-  friendly_name: "dashboard-one-e73d68"  # 可改，例如 "Livingroom Dashboard"
   #################################################### 定義頁面名稱，義下可修改增減
   SCREEN_MAIN: main
   SCREEN_ROOMS: rooms
@@ -12,9 +10,8 @@ substitutions:
 ###################################################### 定義頁面名稱，以上可修改增減
 
 esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
-  # name_add_mac_suffix: false
+  name: "dashboard-one-XXXXXX"  # 亂改會死機
+  friendly_name: "dashboard-one-XXXXXX"  # 可改，例如 "Livingroom Dashboard"
   platformio_options:
     board_upload.maximum_ram_size: 327680
     board_upload.maximum_size: 16777216
@@ -36,23 +33,35 @@ api:
 # Allow Over-The-Air updates
 ota:
 
-# Allow provisioning Wi-Fi via serial
-improv_serial:
-
 wifi:
-  # Set up a wifi access point
-  ap: {}
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+###########################################################################################
+# 若有能力開發或修改畫面參數，
+# 可將原創github網站中/ha_desk/components/ha_deck & hd_device_wt32s3_86s 
+# 兩個資料夾copy到自家/config/esphome/my_components 裡面
+# 激活下列的程序碼，取代原先的程序碼即可。
 
-# In combination with the `ap` this allows the user
-# to provision wifi credentials to the device via WiFi AP.
-# captive_portal:
+# external_components:
+#   - source:
+#       type: local
+#       path: my_components
 
+# 以下示範如何更改button與slider更改背景顏色如下
+# 找到hd_button.cpp檔案的第72行，(0xffe082) 替換成(0x3182b7) 這樣就把橙黃替換成淺藍色
+# 找到hd_slider.cpp檔案的第68、72、76行，(0xffe082) 替換成(0x3182b7) 這樣就把橙黃替換成淺藍色
+# P.S修改後需要重新編譯才會生效
+##############################################################################################
+
+#畫面布局與參數取自於原創github網站，若原創有更新功能，重新編譯後會得到update
 external_components:
   - source:
-      type: local
-      path: my_components
+      type: git
+      url: https://github.com/strange-v/ha_deck
+      ref: main
+    components: [ hd_device_wt32s3_86s, ha_deck ]
 
-# To have a "next url" for improv serial
 web_server:
   port: 80
 
@@ -70,12 +79,11 @@ time:
               sprintf(buff, "%02d:%02d:%02d", time.hour, time.minute, time.second);
             id(local_time).set_value(std::string(buff));
 
-
 number:
   - platform: template   # 使用中的畫面亮度，
     id: screen_brightness
     name: Active screen brightness
-    min_value: 0
+    min_value: 1
     max_value: 255
     step: 1
     initial_value: 75
@@ -88,9 +96,9 @@ number:
 
   - platform: template  # 休眠時畫面亮度
     id: inactive_screen_brightness
-    # name: Inactive screen brightness
+    name: Inactive screen brightness
     min_value: 0
-    max_value: 100
+    max_value: 255
     step: 1
     initial_value: 1
     restore_value: true
