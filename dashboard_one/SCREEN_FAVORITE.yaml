@@ -1,6 +1,6 @@
     ##########################################
     #
-    #     默認設定參數畫面
+    #     設定參數畫面
     #
     #########################################                                
     - name: ${SCREEN_FAVORITE}  #調整參數畫面
@@ -20,17 +20,21 @@
           position: 80, 40
           dimensions: 60x255  # 滑桿大小，寬60 高255 畫面亮度調整255步，所以 max:255
           min: 1
-          max: 255  
+          max: 255
+          text: "Screen"
           enabled: return true;
           value: return id(device).get_brightness();
           on_change:
             lambda: id(device).set_brightness(x);
-
-        - type: button
-          position: 80, 320
+              id(screen_brightness).publish_state(x);
+        - type: value-card
+          position: 80, 310
           dimensions: 60x50
-          text: "Screen"
           enabled: return true;
+          value: |-
+            char buff[10] = "-";
+            sprintf(buff, "%.0f", id(screen_brightness).state); // Use "%.0f" to remove decimal points
+            return std::string(buff);  
 
         #################################
         #   客廳電燈亮度設定
@@ -88,7 +92,6 @@
                 data:
                   entity_id: fan.zhimi_fa1_b621_fan
                   percentage: !lambda return x;
-
         - type: button
           position: 230, 320
           dimensions: 60x50
@@ -107,4 +110,4 @@
             - homeassistant.service:
                 service: fan.turn_off
                 data:
-                  entity_id: fan.zhimi_fa1_b621_fan      
+                  entity_id: fan.zhimi_fa1_b621_fan    
