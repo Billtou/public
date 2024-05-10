@@ -335,4 +335,5 @@ https://pictogrammers.com/library/mdi/
 
 ![Mosquitto_broker](/dashboard_one/image/163739.png)
 
-參考網站
+參考原創網站
+https://github.com/strange-v/ha_deck
