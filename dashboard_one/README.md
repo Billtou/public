@@ -17,6 +17,9 @@ SCREEN_FAVORITE.yaml 參數設置畫面範例
 
 SCREEN_ROOMS.yaml 各房間畫面範例
 
+dashboard_one_客製化畫面說明.pdf  若沒空自建畫面可參考客製化方案
+
+dashboard_one_客製化畫面說明_PTT.pptx 看完說明填寫ptt內容與作者溝通即可遠端完成客製化方案
 
 # 第一步接入HA 並打開 "允許裝置呼叫HA服務"
 
