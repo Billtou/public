@@ -180,9 +180,9 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
       - platform: template   # 定義活躍的entity螢幕亮度參數，與 enabled: return true; 搭配使用
         id: screen_brightness
         name: Active screen brightness
-        min_value: 0
-        max_value: 100
-        step: 5
+        min_value: 1
+        max_value: 255
+        step: 1
         initial_value: 75
         restore_value: true
         set_action:
@@ -194,9 +194,9 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
         id: inactive_screen_brightness
         name: Inactive screen brightness
         min_value: 0
-        max_value: 100
-        step: 5
-        initial_value: 20
+        max_value: 255
+        step: 1
+        initial_value: 0
         restore_value: true
         set_action:
           - lambda: |-
