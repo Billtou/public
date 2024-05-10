@@ -151,6 +151,13 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
           ref: main
         components: [ hd_device_wt32s3_86s, ha_deck ]
 
+若要自行建構畫面參數，可以參考以下方案，把原先的external_components: 全部註解，到原PO github 網頁下載 ha_deck 以及hd_device_wt32s3_86s兩個資料夾檔案到自家自家/config/esphome/my_components 裡面並增加以下程序碼，即可。
+
+     external_components:
+       - source:
+           type: local
+           path: my_components
+
 ### 做個台灣的時間id sntp_time
 
     time:
