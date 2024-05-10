@@ -2,11 +2,11 @@
 
 ## 必要環境
 
-  0.先進入"裝置" > "裝置與服務" > "ESPHome" > 找到 "wall-switch-X-cbu-XXXXXX"  把正確的設備名稱copy到剪貼簿備用。(X-cbu-XXXXXX)每個開關都有不同編號須注意。
-  
-  0.下載相對應的yaml 文件
-  
-  0.必須安裝附加元件ESPHome
+    0.先進入"裝置" > "裝置與服務" > "ESPHome" > 找到 "wall-switch-X-cbu-XXXXXX"  把正確的設備名稱copy到剪貼簿備用。(X-cbu-XXXXXX)每個開關都有不同編號須注意。
+    
+    0.下載相對應的yaml 文件
+    
+    0.必須安裝附加元件ESPHome
 
 ## 建立ESPHome開發環境
 
