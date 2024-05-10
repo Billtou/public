@@ -1,6 +1,6 @@
 esphome:
-  name: wall-switch-2-cbu-xxxxxx
-  friendly_name: wall-switch-2-cbu-xxxxxx
+  name: "wall-switch-1-cbu-XXXXXX" # 後6碼一定要跟自家的設備後碼一致
+  friendly_name: wall-switch-1-cbu-XXXXXX  # 可自定辨識度高的英文
   
 bk72xx:
   board: cbu
