@@ -3,9 +3,7 @@
 
 # 認識sample yaml檔案
 
-default_sample.yaml  出廠默認基本畫面(建議重這裡開始學習)
-
-full_complete_sample.yaml  全功能範例
+full_complete_sample.yaml  全功能範例-出廠默認
 
 widgets_user_manual.pdf 小部件(widgets)詳細使用手冊
 
