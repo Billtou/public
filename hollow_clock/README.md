@@ -11,4 +11,4 @@
   
 https://www.visnos.com/demos/clock
 
-![Mosquitto_broker](/hollow_clock/image/2DDA1AE4D405.jpg)
+![Mosquitto_broker](/hollow_clock/image/131424.png)
