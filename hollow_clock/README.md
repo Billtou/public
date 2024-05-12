@@ -1,9 +1,7 @@
-### 自動校正版的 hollow clock 4
-接入自家wifi
-## 接入自家wifi
+# 自動校正版的 hollow clock 4
+##接入自家wifi
   設備上電手機搜尋設備發出的wifi AP(熱點) Auto自家2.4G wifi
 
-  
 ### HA面板說明 感應器的偵測數據
 air_cube_pro_mmwave_ui_basic.yaml
 
