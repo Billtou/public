@@ -1,27 +1,13 @@
 # 自動校正版的 hollow clock 4
-##接入自家wifi
-  設備上電手機搜尋設備發出的wifi AP(熱點) Auto自家2.4G wifi
+## 接入自家wifi
+  設備上電手機搜尋設備發出的wifi AP(熱點) "AutoConnectAP" 並指定自家2.4G wifi 與密碼。
 
-### HA面板說明 感應器的偵測數據
-air_cube_pro_mmwave_ui_basic.yaml
-
-![080744](/air_cube_pro/080744.png)
-
-
-### HA面板說明 實時偵測數據回饋
-
-air_cube_pro_mmwave_chart_move.yaml
-
-air_cube_pro_mmwave_chart_still.yaml
-
-![083817](/air_cube_pro/083817.png)
-![081733](/air_cube_pro/081733.png)
-
-
-### HA面板說明 手動調整畫面
-
-air_cube_pro_mmwave_manual_setup.yaml
-
-![084944](/air_cube_pro/084944.png)
+## 自動校正
+  手機瀏覽器輸入 http://wifi-clock.local/  就會跳出自動校正頁面，若家裡有兩台以上，可以透過路由器Router的管理頁面找到接入的IP位置(Active Host Name 應該是 "ESP-XXXXXX")，於瀏覽器輸入該IP即可進入。P.S 實測每天只能自動校正一次，若測試階段當天已用完額度，參考下列手動對時方法。
+  
+## 手動校正
+  進入下列網站，點選Real Time按鍵出現現在時間的方位，將空心鐘放在螢幕上對準中心點，再調整時針與分針的角度(調整底部齒輪改變指針角度)，簡單粗暴。
+  
+https://www.visnos.com/demos/clock
 
 
