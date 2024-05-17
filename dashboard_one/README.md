@@ -35,7 +35,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 ## 步驟 1
 
-進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXX (XXXX請替換自己的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。(沒出現ONLINE很大的可能是沒弄對自已的設備編號，刪掉重來)
+進入ESPHome UI介面點選右下角 "+ NEW DEVICE"  選 "CONTINUE" 輸入 dashboard-one-XXXXXX (XXXXXX請替換自己的設備編號)  選"NEXT"，選esp32 選 SKIP，如果ESPHome顯示ONLINE代表成功一半了，接下來一定要注意，操作錯誤就會死機。(沒出現ONLINE很大的可能是沒弄對自已的設備編號，刪掉重來)
 
 ![Mosquitto_broker](/dashboard_one/image/163202_1.png)
 
@@ -133,8 +133,8 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
 
     esphome:
-      name: "dashboard-one-3d68"  # 亂改會死機
-      friendly_name: "dashboard-one-3d68"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
+      name: "dashboard-one-XXXXXX"  # 亂改會死機
+      friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
       platformio_options:
         board_upload.maximum_ram_size: 327680
         board_upload.maximum_size: 16777216
