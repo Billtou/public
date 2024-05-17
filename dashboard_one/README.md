@@ -336,3 +336,8 @@ https://pictogrammers.com/library/mdi/
 
 參考原創網站
 https://github.com/strange-v/ha_deck
+
+備註: 第一次進入休眠畫面(黑畫面)會有點亮，這是請進入esphome裡面調整一下未觸發亮度就可以了，建議調整到1或0都可以。
+
+![Mosquitto_broker](/dashboard_one/image/194122.png)
+
