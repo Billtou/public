@@ -49,11 +49,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 *** 然後注意注意 一定要替換成自己的設備號碼 才能按右上 "SACVE" and "INSTALL" ***
 
-![Mosquitto_broker](/dashboard_one/image/165348.png)
-
 停止呼吸，若有足夠的幸運應該會點亮螢幕成功，或連繫我回廠重灌~~
-
-
 
 
 # 認識畫面
