@@ -23,7 +23,7 @@ dashboard_one_客製化畫面說明_PTT.pptx 看完說明填寫ptt內容與作�
 
 # 第一步接入HA 並打開 "允許裝置呼叫HA服務"
 
-上電(請用獨立豆腐頭供電，若不足瓦的供電會出錯)，手機搜尋設備熱點(需稍等片刻請耐心等候) 指定自家wifi與密碼，HA應該就會辨識到了，導入HA記住設備默認名稱。dashboard-one-XXXX
+上電(請用獨立豆腐頭供電，若不足瓦的供電會出錯)，因為預置自家wifi與密碼，HA應該會自己辨識到，導入HA記住設備默認名稱。dashboard-one-XXXXXX
 
 ![Mosquitto_broker](/dashboard_one/image/174818.png)
 
