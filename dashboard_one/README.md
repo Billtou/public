@@ -231,7 +231,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
             id(device).set_brightness(id(screen_brightness).state);
           }
 
-## 重點小部件運用示範
+## 3類小部件type運用示範
 
 value-card 只要顯示文字或數字可使用，舉凡entity的state都適用。
 
