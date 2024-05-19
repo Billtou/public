@@ -181,7 +181,7 @@ ha_deck:
                   entity_id: switch.hp_print_relay_device_relay
 
         - type: button
-          position:  362, 127 # 2-3 (可調光電燈ON/OFF)
+          position:  362, 127 # 2-4 (可調光電燈ON/OFF)
           text: Livingroom
           icon: 󱁑
           toggle: true
@@ -201,7 +201,7 @@ ha_deck:
                   entity_id: light.wled
 
         - type: button
-          position: 8, 246  #2-4 (可調速風扇ON/OFF)
+          position: 8, 246  #3-1 (可調速風扇ON/OFF)
           text: "Bedroom"
           icon: 󰈐
           toggle: true
@@ -221,7 +221,7 @@ ha_deck:
                   entity_id: fan.zhimi_fa1_b621_fan
 
         - type: button
-          position: 126, 246  #3-1 (Media Play)
+          position: 126, 246  #3-2 (Media Play)
           text: "Media Play"
           icon: 󰄙
           enabled: return true;
@@ -230,7 +230,7 @@ ha_deck:
                 id(deck).switch_screen("$SCREEN_MEDIA");
 
         - type: button
-          position: 244, 246  #3-2 (A/C 空調)
+          position: 244, 246  #3-3 (A/C 空調)
           text: "Livingroom"
           icon: 󰀛
           enabled: return true;
@@ -239,7 +239,7 @@ ha_deck:
                 id(deck).switch_screen("$SCREEN_LIVCLIMATE");
 
         - type: button
-          position: 362, 246  #3-3 (curtains 窗簾)
+          position: 362, 246  #3-4 (curtains 窗簾)
           text: "Livingroom"
           icon: 󱡆
           enabled: return true;
