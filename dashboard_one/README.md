@@ -123,7 +123,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 需下載custom_partitions_3584.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
 
     esphome:
-      name: "dashboard-one-XXXXXX"  # 亂改會死機
+      name: "dashboard-one-XXXXXX"  # 要修改成自己的號碼亂改會死機
       friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
       platformio_options:
         board_upload.maximum_ram_size: 327680
