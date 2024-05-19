@@ -48,7 +48,6 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 ### 修改產品序號取代XXXXXX內容 
 
 ### 修改產品序號取代XXXXXX內容 
-
 ![Mosquitto_broker](/dashboard_one/image/200656.png)
 
 ***  才能按右上 "SACVE" and "INSTALL" ***
