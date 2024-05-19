@@ -160,7 +160,6 @@ WIFI 參數宣告，為了避免每次燒寫後wifi需要重新綁定，可指�
 
     captive_portal:
 
-
 ### 指定頁面名稱(以下修改有錯不會死機)
     substitutions:
       SCREEN_MAIN: main
