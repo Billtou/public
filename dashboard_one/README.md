@@ -47,8 +47,13 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
 ### 點選 "EDIT" 進入編輯頁面把我給的yaml檔內容全數覆蓋原來的程式碼
 
-
 ***  才能按右上 "SACVE" and "INSTALL" ***
+
+![Mosquitto_broker](/dashboard_one/image/103407.png)
+
+![Mosquitto_broker](/dashboard_one/image/102021.png)
+
+![Mosquitto_broker](/dashboard_one/image/103339.png)
 
 
 停止呼吸，若有足夠的幸運應該會點亮螢幕成功，或連繫我回廠重灌~~
