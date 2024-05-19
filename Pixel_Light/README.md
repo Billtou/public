@@ -104,15 +104,6 @@ sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則
 
 ![Mosquitto_broker](/Pixel_Light/image/213415.png)
 
-# 測試發文字+mp3 (以MQTT發布封包測試示範)
-
-設定>裝置與服務>MQTT>設定
-
-P.S 請確定SD卡確實裝好(要小按壓一下會卡住的感覺才正確)
-
-![Mosquitto_broker](/Pixel_Light/image/144934.png)
-
-
 ## 推薦像素燈購買國外小哥blueprints安裝分享 
 
 https://youtu.be/N0NKPJzGHuA?si=Qu2s4GEHaSAnrwz3
