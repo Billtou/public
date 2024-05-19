@@ -22,8 +22,9 @@ ota:
 web_server:
 
 wifi:
-  ssid: "XXXXXXXXX"   # 確定自家wifi
-  password: "XXXXXXX" # 確定自家密碼
+  ap: {}
+
+captive_portal:
 
 substitutions:
   #################################################### 定義頁面名稱，義下可修改增減
