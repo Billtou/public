@@ -116,7 +116,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
                 button (按鈕，按下後需要執行命令使用)
                 slider (滑快， 調整指數用例如電燈亮度)
                            
-# 解析一下整個sample.yaml重要程序碼(有錯煩請指正)
+# 解析一下整個full_complete_sample.yaml重要程序碼(有錯煩請指正)
 
     substitutions:
       SCREEN_MAIN: main
@@ -237,16 +237,11 @@ value-card 只要顯示文字或數字可使用，舉凡entity的state都適用�
 
 button 按下後可以指定執行命令，也可以有反饋狀態的顏色呈現，例如主畫面用button跳到另一個頁面，另一個頁面透過button跳回來。
 
-slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開的百分比。
+slider 調整參數用滑快，例如調整電燈亮度數值。
 
-    - name: ${SCREEN_MAIN} #主畫面
-      widgets:  # 定義該畫面小部件
-        - type: value-card #  1-1 ( value-card 時鐘)
-          id: local_time #把上面建立的Asia/Taipei id抓過來用
-          position: 8, 8 #小部件落點座標
-          text: "Taiwan"
-          enabled: return true;
-
+        ...
+        ...
+        
         - type: value-card  #1-2 (value-card 調用HA裡的溫度entity)
           id: livingroom_temperature
           position: 126, 8 
@@ -260,15 +255,9 @@ slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開�
             sprintf(buff, "%.1f", id(living_temperature).state);  
             return std::string(buff);  
 
-        - type: value-card  # 1-3+1-4 (天氣預報)
-          position:  244, 8
-          dimensions: 228x110  #指定兩個小部件大小        
-          text: "Weather Forecast"
-          enabled: return true;
-          # 把天氣預報的文字顯示出來
-          value: |-
-             return id(weather_state).state;  
-             
+        ...
+        ...
+            
         - type: button
           position: 8, 127 # 2-1 (進入favorite頁面)
           text: "Favorite"
@@ -276,27 +265,26 @@ slider 調整參數用滑快，例如調整螢幕亮度數值，或窗簾打開�
           enabled: return true;
           on_click:
             lambda: id(deck).switch_screen("$SCREEN_FAVORITE");  # 按下跳到favorite頁面
-                
-        - type: button
-          position: 244, 127  #2-3 (一般開關)
-          text: "Study"
-          icon: 󰟩
-          toggle: true  #打開反饋按鈕亮琥珀色底
+
+
+        ...
+        ...
+        
+        - type: slider
+          position: 155, 40
+          dimensions: 60x255  # WLED亮度調整參數是0-255步，所以滑桿元件的大小 255 吻合
+          min: 0
+          max: 255
           enabled: return true;
-          # 反饋的依據參考 study_relay_state 這個id的狀態
-          checked: |-
-            if(id(study_relay_state).state == "on") { return 1; }
+          value: |-
+            if(id(liv_light_brightness).state <= 255) { return id(liv_light_brightness).state; }
             else { return 0; }
-          on_turn_on:
-            - homeassistant.service:  # 執行HA的 Service
-                service: switch.turn_on  # SWITCH Service 
-                data:
-                  entity_id: switch.hp_print_relay_device_relay # HA裡面的entity
-          on_turn_off:
+          on_change:
             - homeassistant.service:
-                service: switch.turn_off
+                service: light.turn_on
                 data:
-                  entity_id: switch.hp_print_relay_device_relay
+                  entity_id: light.wled
+                  brightness: !lambda return x;
              
 
 ## 調用HA的entity方法                    
