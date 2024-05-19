@@ -118,13 +118,13 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
                            
 # 解析一下整個full_complete_sample.yaml重要程序碼(有錯煩請指正)
 
-### 指定esphome參數
+### 指定esphome參數(以下若修改錯誤容易死機)
 
 需下載custom_partitions_3584.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
 
     esphome:
       name: "dashboard-one-XXXXXX"  # 要修改成自己的號碼亂改會死機
-      friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
+      friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改，例如 "Livingroom Dashboard"
       platformio_options:
         board_upload.maximum_ram_size: 327680
         board_upload.maximum_size: 16777216
@@ -152,11 +152,12 @@ WIFI 參數宣告，為了避免每次燒寫後wifi需要重新綁定，可指�
       password: !secret wifi_password
       ap: {}
 
-WIFI 參數宣告，為了避免每次燒寫過後wifi需要重新綁定，    
+找不到綁定的wifi時會跳出重新指定wifi的參數
 
     captive_portal:
 
 
+### 指定頁面名稱(以下修改有錯不會死機)
     substitutions:
       SCREEN_MAIN: main
       SCREEN_ROOMS: rooms
@@ -166,17 +167,13 @@ WIFI 參數宣告，為了避免每次燒寫過後wifi需要重新綁定，
       SCREEN_LIVCLIMATE: livclimate
       SCREEN_CURTAIN: curtain
             
-### 指定頁面名稱
-
 要增加一個臥室頁面方式如下。
 
     SCREEN_BEDROOM: bedroom
 
-
-
 ###　指定 external 
 
-打包畫面全局使用參數，方便簡易，缺點是使用者想自訂修改門檻高，建議別糾結在缺點上而是盡量享受優點
+打包畫面全局使參數，方便簡易，缺點是使用者想自訂修改門檻高，建議別糾結在缺點上而是盡量享受優點
 
     external_components:
       - source:
