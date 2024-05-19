@@ -118,6 +118,45 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
                            
 # 解析一下整個full_complete_sample.yaml重要程序碼(有錯煩請指正)
 
+### 指定esphome參數
+
+需下載custom_partitions_3584.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
+
+    esphome:
+      name: "dashboard-one-XXXXXX"  # 亂改會死機
+      friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
+      platformio_options:
+        board_upload.maximum_ram_size: 327680
+        board_upload.maximum_size: 16777216
+        board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
+        board_build.arduino.memory_type: qio_opi
+        
+esp32版本宣告以及必要參數
+
+    esp32:
+      board: esp32-s3-devkitc-1
+      framework:
+        type: arduino
+      flash_size: 16MB
+    logger:  
+    api:
+    ota:    
+    web_server:
+    
+WIFI 參數宣告，為了避免每次燒寫後wifi需要重新綁定，可指定自家的wifi帳號與密碼，以下的程序碼是去參照secret檔案的內容，但須前置作業如下圖，方可正常運作。
+
+![Mosquitto_broker](/dashboard_one/image/195334.png)
+
+    wifi:
+      ssid: !secret wifi_ssid
+      password: !secret wifi_password
+      ap: {}
+
+WIFI 參數宣告，為了避免每次燒寫過後wifi需要重新綁定，    
+
+    captive_portal:
+
+
     substitutions:
       SCREEN_MAIN: main
       SCREEN_ROOMS: rooms
@@ -133,18 +172,7 @@ HA附加元件安裝ESPHome(已安裝略)，然後把custom_partitions_3584.csv 
 
     SCREEN_BEDROOM: bedroom
 
-### 指定esphome參數
 
-需下載.csv檔案，放在HA的esphome資料夾中。(原創有兩個檔案，試過都能用也不清楚實際差在哪裡，有高手可反饋差異點)
-
-    esphome:
-      name: "dashboard-one-XXXXXX"  # 亂改會死機
-      friendly_name: "dashboard-one-XXXXXX"  # ""內的文字可以改成，例如 "Livingroom Dashboard"
-      platformio_options:
-        board_upload.maximum_ram_size: 327680
-        board_upload.maximum_size: 16777216
-        board_build.partitions: "/config/esphome/custom_partitions_3584.csv" 
-        board_build.arduino.memory_type: qio_opi
 
 ###　指定 external 
 
