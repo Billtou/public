@@ -35,6 +35,8 @@ HA附加元件安裝ESPHome(已安裝略，本篇以沒有安裝為例)
 
 設定 > 附加元件 > 附加元件商店 > ESPHome > 安裝(稍待片刻) > 開啟WEB UI > 選右上角 "SECRETS" > 填入自家wifi SSID與密碼 > SAVE 。
 
+![Mosquitto_broker](/dashboard_one/image/133935.png)
+
 然後把custom_partitions_3584.csv 複製到 HA的 \config\esphome 裡面，否則編譯時會報錯(有些環境是\homeassistant\esphome 確定一下是哪個)。
 
 ## 步驟 1
