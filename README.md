@@ -23,3 +23,7 @@ IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供�
 ### hollow clock 
 
 空心鐘4代簡易對時方案
+
+### dashboard_one
+
+86規格HA可編程觸控螢幕
