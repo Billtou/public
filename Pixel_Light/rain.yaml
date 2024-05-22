@@ -1,0 +1,23 @@
+alias: 像素燈下雨預報自動開關
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.opencwb_forecast_3  #安裝cwb插件降雨量預報
+condition: []
+action:
+  - if:
+      - condition: numeric_state
+        entity_id: sensor.opencwb_forecast_3
+        above: 0  #觸發條件  
+    then: 
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.awtrix_create_sensor_rain  #打開輪播下雨助手
+        data: {}
+    else:
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.awtrix_create_sensor_rain #關閉播下雨助手
+        data: {}
+mode: single
