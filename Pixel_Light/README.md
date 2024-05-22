@@ -149,17 +149,6 @@ HA>設定>自動化與場景>Blueprint > 找到 awtrix_weather_app 依序填入A
 
 一切順利的話，叫出input_boolean.awtrix_weather_app_trigger 打開他像素燈就會開始輪播資訊了。
 
-2024/05/20 update
-
-國外小哥新版藍圖已經取消awtrix_weather_app 改由 Pixel Light App 這個藍圖取代了
-
-2424/05/22 新增rain.yaml 自動化方案，方法如下
-
-1.網頁開啟像素燈IP，把2284的icon下載到像素燈內備用
-
-2.透過國外小哥藍圖 Awtrix Create Sensor App 指定必要的id與2284 icon 號碼 > 存檔。
-
-3.建立條件化自動化參考rain.yaml內容改一下自家的ID即可。 當下雨高於0%就會跑出提醒下雨的輪播了
 
 ## 自行下載icon使用
 到這個網站挑選喜歡的icon, 記住icon id 號碼。
@@ -176,3 +165,14 @@ icon自動放在像素燈內存，mp3音樂放在sd卡內(sd轉usb自備)
 
 
 
+## 2024/05/20 update
+
+國外小哥新版藍圖已經取消awtrix_weather_app 改由 Pixel Light App 這個藍圖取代了
+
+## 2424/05/22 新增rain.yaml 自動化方案，方法如下
+
+1.網頁開啟像素燈IP，把2284的icon下載到像素燈內備用
+
+2.透過國外小哥藍圖 Awtrix Create Sensor App 指定必要的id與2284 icon 號碼 > 存檔。
+
+3.建立條件化自動化參考rain.yaml內容改一下自家的ID即可。 當下雨高於0%就會跑出提醒下雨的輪播了
