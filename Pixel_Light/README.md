@@ -176,3 +176,8 @@ icon自動放在像素燈內存，mp3音樂放在sd卡內(sd轉usb自備)
 2.透過國外小哥藍圖 Awtrix Create Sensor App 指定必要的id與2284 icon 號碼 > 存檔。
 
 3.建立條件化自動化參考rain.yaml內容改一下自家的ID即可。 當下雨高於0%就會跑出提醒下雨的輪播了
+
+
+## 2024/05/22 update
+
+有買國外小哥的藍圖，但藍圖選單上無法找到像素燈實體的朋友請注意，因為像素燈新版0.96把廠牌改成AWTRIX 3，但藍圖是基於0.94版建立的，建議降級到0.94版，上面有old_awtrix2_conversion_0.94.bin檔案，下載後網頁進入像素燈IP，選file > Firmware: 指定檔案 > 再點 Update Firmware 即可。
