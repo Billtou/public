@@ -27,3 +27,7 @@ IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供�
 ### dashboard_one
 
 86規格HA可編程觸控螢幕
+
+### switch_module
+
+具耗電計量的1、2路開關模組
