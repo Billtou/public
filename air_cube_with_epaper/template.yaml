@@ -31,11 +31,13 @@ template:
           precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
           forecast: "{{ hourly['weather.opencwb'].forecast }}"
 
+          # binary_sensor.eink_refresh_time
+
   - binary_sensor:
       - name: eink_refresh_time
         unique_id: 839e4616-1079-4a9e-ad1b-d0f9d37839df
         state: >
-          "on"
+          {{"on"}}
 
   - sensor:
       - name: "eink_sensors"
@@ -72,4 +74,17 @@ template:
             {{ state_attr('sensor.weather_hourly', 'forecast')[3].condition }}
           forecast_temperature_4: >
             {{ state_attr('sensor.weather_hourly', 'forecast')[3].temperature | round }}°
+  - sensor:
+      - platform: time_date
+        display_options:
+          - 'time'
+          - 'date'
+          - 'date_time'
+          - 'date_time_utc'
+          - 'date_time_iso'
+          - 'time_date'
+          - 'time_utc'
+          - 'beat'
+          - 'time_utc'
+          - 'beat'            
 
