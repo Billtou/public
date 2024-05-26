@@ -1,0 +1,75 @@
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+        # minutes: 1
+      - platform: homeassistant
+        event: start
+    action:
+      - service: weather.get_forecasts
+        data:
+          type: hourly
+        target:
+          entity_id: weather.opencwb
+        response_variable: hourly
+    sensor:
+      - name: Weather Hourly
+        unique_id: 39f7ed85-ffd5-4d2a-8492-142cb81193a6
+        state: "{{ states('weather.opencwb') }}"
+        attributes:
+          temperature: "{{ state_attr('weather.opencwb', 'temperature') }}"
+          dew_point: "{{ state_attr('weather.opencwb', 'dew_point') }}"
+          temperature_unit: "{{ state_attr('weather.opencwb', 'temperature_unit') }}"
+          humidity: "{{ state_attr('weather.opencwb', 'humidity') }}"
+          cloud_coverage: "{{ state_attr('weather.opencwb', 'cloud_coverage') }}"
+          pressure: "{{ state_attr('weather.opencwb', 'pressure') }}"
+          pressure_unit: "{{ state_attr('weather.opencwb', 'pressure_unit') }}"
+          wind_bearing: "{{ state_attr('weather.opencwb', 'wind_bearing') }}"
+          wind_speed: "{{ state_attr('weather.opencwb', 'wind_speed') }}"
+          wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
+          visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
+          precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
+          forecast: "{{ hourly['weather.opencwb'].forecast }}"
+
+  - binary_sensor:
+      - name: eink_refresh_time
+        unique_id: 839e4616-1079-4a9e-ad1b-d0f9d37839df
+        state: >
+          "on"
+
+  - sensor:
+      - name: "eink_sensors"
+        unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
+        state: >
+          {{ states('weather.opencwb') }}
+        attributes:
+          today_temperature: >
+            {{ state_attr('weather.opencwb', 'temperature') | round }}°C
+          forecast_weekday_1: >
+            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[0].datetime) | timestamp_custom('%I%p') }}
+          forecast_condition_1: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[0].condition }}
+          forecast_temperature_1: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[0].temperature | round }}°
+
+          forecast_weekday_2: >
+            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[1].datetime) | timestamp_custom('%I%p') }}
+          forecast_condition_2: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[1].condition }}
+          forecast_temperature_2: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[1].temperature | round }}°
+
+          forecast_weekday_3: >
+            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[2].datetime) | timestamp_custom('%I%p') }}
+          forecast_condition_3: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[2].condition }}
+          forecast_temperature_3: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[2].temperature | round }}°
+
+          forecast_weekday_4: >
+            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%I%p') }}
+          forecast_condition_4: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[3].condition }}
+          forecast_temperature_4: >
+            {{ state_attr('sensor.weather_hourly', 'forecast')[3].temperature | round }}°
+
