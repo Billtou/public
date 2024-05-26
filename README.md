@@ -4,7 +4,7 @@
 
 ** 注意範例檔案中的entity id必須替換為自己的entity id 才能正常顯示 **
 
-### AQI with e-paper
+### Air Cube with e-paper
 
 空氣品質AQI 具7.5寸電子紙
 
