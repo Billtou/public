@@ -4,6 +4,10 @@
 
 ** 注意範例檔案中的entity id必須替換為自己的entity id 才能正常顯示 **
 
+### AQI with e-paper
+
+空氣品質AQI 具7.5寸電子紙
+
 ### Pixel_Light
 
 像素燈顯示天氣預報HA模板yaml檔案
@@ -31,3 +35,4 @@ IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供�
 ### switch_module
 
 具耗電計量的1、2路開關模組
+
