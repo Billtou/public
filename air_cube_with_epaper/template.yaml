@@ -8,16 +8,18 @@ template:
     action:
       - service: weather.get_forecasts
         data:
-          type: hourly
+          type: daily
         target:
           entity_id: weather.opencwb
-        response_variable: hourly
+        response_variable: daily
+
     sensor:
-      - name: Weather Hourly
-        unique_id: 39f7ed85-ffd5-4d2a-8492-142cb81193a6
+      - name: Weather Interval
+        unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
         state: "{{ states('weather.opencwb') }}"
         attributes:
           temperature: "{{ state_attr('weather.opencwb', 'temperature') }}"
+          templow: "{{state_attr('weather.opencwb', 'templow')}}"
           dew_point: "{{ state_attr('weather.opencwb', 'dew_point') }}"
           temperature_unit: "{{ state_attr('weather.opencwb', 'temperature_unit') }}"
           humidity: "{{ state_attr('weather.opencwb', 'humidity') }}"
@@ -29,57 +31,199 @@ template:
           wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
           visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
           precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
-          forecast: "{{ hourly['weather.opencwb'].forecast }}"
-
-  - binary_sensor:
-      - name: eink_refresh_time
-        unique_id: 839e4616-1079-4a9e-ad1b-d0f9d37839df
-        state: >
-          {{"on"}}
+          forecast: "{{ daily['weather.opencwb'].forecast }}"
 
   - sensor:
       - name: "eink_sensors"
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
+
         state: >
           {{ states('weather.opencwb') }}
         attributes:
           today_temperature: >
-            {{ state_attr('weather.opencwb', 'temperature') | round }}°C
+            {{ states('sensor.opencwb_temperature') | round }}°C
+          today_humidity: >
+            {{ states('sensor.opencwb_humidity')}}
+          today_feel_like: >
+            {{ states('sensor.opencwb_feels_like_temperature') | round }}°
+          today_uv_index: >
+            {{states('sensor.opencwb_uv_index')| round }}
+          forecast_rain_precipitation: >
+            {{states('sensor.opencwb_forecast_precipitation_probability')| round() }}
+          forecast_rain_probability: >
+            {{states('sensor.opencwb_forecast_precipitation')| round() }}
+          today_wind_speed: >
+            {{states('sensor.opencwb_wind_speed')| round() }}
           forecast_weekday_1: >
-            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[0].datetime) | timestamp_custom('%I%p') }}
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%a') }}
           forecast_condition_1: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[0].condition }}
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].condition }}
           forecast_temperature_1: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[0].temperature | round }}°
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].temperature | round }}°
+          forecast_templow_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].templow | round }}°
+          forecast_precipitation_probability_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].precipitation_probability | round }}%
+
           forecast_weekday_2: >
-            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[1].datetime) | timestamp_custom('%I%p') }}
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[3].datetime) | timestamp_custom('%a') }}
           forecast_condition_2: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[1].condition }}
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].condition }}
           forecast_temperature_2: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[1].temperature | round }}°
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].temperature | round }}°
+          forecast_templow_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].templow | round }}°
+          forecast_precipitation_probability_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].precipitation_probability | round }}%
+
           forecast_weekday_3: >
-            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[2].datetime) | timestamp_custom('%I%p') }}
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[5].datetime) | timestamp_custom('%a') }}
           forecast_condition_3: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[2].condition }}
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].condition }}
           forecast_temperature_3: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[2].temperature | round }}°
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].temperature | round }}°
+          forecast_templow_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].templow | round }}°
+          forecast_precipitation_probability_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].precipitation_probability | round }}%
+
           forecast_weekday_4: >
-            {{as_timestamp(state_attr('sensor.weather_hourly', 'forecast')[3].datetime) | timestamp_custom('%I%p') }}
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[7].datetime) | timestamp_custom('%a') }}
           forecast_condition_4: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[3].condition }}
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].condition }}
           forecast_temperature_4: >
-            {{ state_attr('sensor.weather_hourly', 'forecast')[3].temperature | round }}°
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].temperature | round }}°
+          forecast_templow_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].templow | round }}°
+          forecast_precipitation_probability_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].precipitation_probability | round }}%
+
+          forecast_weekday_5: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[9].datetime) | timestamp_custom('%a') }}
+          forecast_condition_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].condition }}
+          forecast_temperature_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].temperature | round }}°
+          forecast_templow_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].templow | round }}°
+          forecast_precipitation_probability_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].precipitation_probability | round }}%
+
+          forecast_weekday_6: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%a') }}
+          forecast_condition_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].condition }}
+          forecast_temperature_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].temperature | round }}°
+          forecast_templow_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].templow | round }}°
+          forecast_precipitation_probability_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].precipitation_probability | round }}%
+
+      - name: eink_next_rising
+        unique_id: 404907c7-4326-4583-967b-dea7d88a1607
+        state: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom ("%H:%M") }}
+
+      - name: eink_next_sunset
+        unique_id: 3ecf6a10-c665-46bb-9f53-55fe18752e64
+        state: >
+          {{ as_timestamp(states.sun.sun.attributes.next_dawn) | timestamp_custom ("%H:%M") }}
+
+      - name: eink_moon_phase
+        unique_id: c4253e80-fbfc-4875-b35d-9487e1c212c3
+        state: >
+          {{states('sensor.moon_phase')}}
+
+      - name: eink_sidebar_temperature
+        unique_id: c03e5c28-fa12-4e7f-bcf8-e1ff49776b04
+        state: >
+          {{states('sensor.livingroom_ikea_air_quality_livingroom_temperatur') | round }}
+
+      # - name: eink_sidebar_humidity
+      #   unique_id: fdc7fca6-6e3b-420f-837c-091339a39913
+      #   state: >
+      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_humidity') | round }}
+
+      # - name: eink_sidebar_pm25
+      #   unique_id: 4c362075-9959-4a95-a33e-dbfacb8ab9c5
+      #   state: >
+      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_particulate_matter_2_5_m') | round }}
+
+      # - name: eink_sidebar_co2
+      #   unique_id: 52ebda00-7a29-41f2-b9ca-257e6958af7c
+      #   state: >
+      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_senseair_co2_value') | round }}
+
+      # - name: eink_sidebar_tvoc
+      #   unique_id: 977f871c-5bd5-403a-8284-d40b5b38bd94
+      #   state: >
+      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_senseair_tvoc_value') | round }}
+
+
+
   - sensor:
       - platform: time_date
         display_options:
-          - 'time'
-          - 'date'
-          - 'date_time'
-          - 'date_time_utc'
-          - 'date_time_iso'
-          - 'time_date'
-          - 'time_utc'
-          - 'beat'
-          - 'time_utc'
-          - 'beat'            
+          - "time"
+          - "date"
+          - "date_time"
+          - "date_time_utc"
+          - "date_time_iso"
+          - "time_date"
+          - "time_utc"
 
+input_boolean:
+  eink_refresh_time:
+    name: "Eink Refresh Time"
+
+input_datetime:
+  eink_on_time:
+    name: eink_on_time
+    has_date: false
+    has_time: true
+    icon: mdi:timer-check-outline
+    initial: "06:00"
+  eink_off_time:
+    name: eink_off_time
+    has_date: false
+    has_time: true
+    icon: mdi:timer-cancel-outline
+    initial: "22:00"
+
+automation:
+  - alias: auto_time_on_off_e_paper
+    id: 4343a0ec-0b29-4d44-ab4d-7c7b81954a73
+    description: ""
+    trigger:
+      - platform: time
+        at: input_datetime.eink_on_time
+        id: on_eink
+      - platform: time
+        at: input_datetime.eink_off_time
+        id: off_eink
+    condition: []
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id:
+                  - on_eink
+            sequence:
+              - service: input_boolean.turn_on
+                metadata: {}
+                data: {}
+                target:
+                  entity_id: input_boolean.eink_refresh_time
+      - choose:
+          - conditions:
+              - condition: trigger
+                id:
+                  - off_eink
+            sequence:
+              - service: input_boolean.turn_off
+                metadata: {}
+                data: {}
+                target:
+                  entity_id: input_boolean.eink_refresh_time
+    mode: single
