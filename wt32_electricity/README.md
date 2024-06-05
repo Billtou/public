@@ -30,7 +30,7 @@
 ![Mosquitto_broker](/wt32_electricity/112914.png)
 ![Mosquitto_broker](/wt32_electricity/113034.png)
 
-### 計費週期歸零
+## 計費週期歸零
 
 可自行在HA裡面的自動化指定特定時間按下這兩個button做週期開始的歸零動作，方法有很多種可網路搜尋參考。
 ![Mosquitto_broker](/wt32_electricity/115409.png)
