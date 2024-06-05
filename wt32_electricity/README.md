@@ -45,5 +45,11 @@
 
 ![Mosquitto_broker](/wt32_electricity/114753.png)
 
+## 附錄，做一個可以計算每小時電費的sensor
 
-
+    template:
+      - sensor:
+          - name: hour_power_cost
+            unique_id: 1f3bfe9e-8042-46a5-9ce5-f1a9fd197ec4
+            state: "{{((states.sensor.wt32_electricity_2_way_power.state|float)/1000 *(states.sensor.sensor_wt32_electricity_2_way_energy_kwh_cost.state|float))|round(1)}}"
+            unit_of_measurement: "$"
