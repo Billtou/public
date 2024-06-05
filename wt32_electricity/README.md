@@ -21,4 +21,4 @@
 
 進入TaiPower Bimonthly Energy Cost 插件會有2個實體，建議改成"電費單價" 以及 "累計費用" 方便辨識。
 
-![Mosquitto_broker](/wt32_electricity/111141.png)
+![Mosquitto_broker](/wt32_electricity/112313.png)
