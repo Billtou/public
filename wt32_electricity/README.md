@@ -35,7 +35,7 @@
 可自行在HA裡面的自動化指定特定時間按下這兩個button做週期開始的歸零動作，方法有很多種可網路搜尋參考。
 ![Mosquitto_broker](/wt32_electricity/115409.png)
 
-## 設備自帶自動化計費週期歸零
+## 設備自帶自動化計費週期歸零 (bate)
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 
 ![Mosquitto_broker](/wt32_electricity/68D1224C2C0A.jpg)
