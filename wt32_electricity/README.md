@@ -12,7 +12,13 @@
 ### 接入HA
 網路線若是通的HA會自行發現，設定 >  裝置與服務  >  會自動出現一個WT32 Electricity ESPHome接入點，按下設定指定空間位置即可接入HA。
 
-### 接入HA 能源面板
+### 安裝 計算電費整合插件
 前置作業，先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定  > 裝置與服務  > 新增整合  >   搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
+
+![Mosquitto_broker](/wt32_electricity/111141.png)
+
+### 修改entity 名稱 (改名稱就好不須改實體ID)
+
+進入TaiPower Bimonthly Energy Cost 插件會有2個實體，建議改成"電費單價" 以及 "累計費用" 方便辨識。
 
 ![Mosquitto_broker](/wt32_electricity/111141.png)
