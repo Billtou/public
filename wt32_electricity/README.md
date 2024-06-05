@@ -15,4 +15,4 @@
 ### 接入HA 能源面板
 前置作業，先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定  > 裝置與服務  > 新增整合  >   搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
 
-![Mosquitto_broker](/wt32_electricity/103927.png)
+![Mosquitto_broker](/wt32_electricity/111141.png)
