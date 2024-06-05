@@ -39,3 +39,7 @@ IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供�
 ### e-ink_display 
 
 7.5寸三色電子紙天氣預報面板
+
+## wt32_electricity
+
+網線版2路入戶總電力偵測設備
