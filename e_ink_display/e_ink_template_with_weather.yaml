@@ -41,11 +41,14 @@ template:
           {{ states('weather.opencwb') }}
         attributes:
           today_temperature: >
-            {{ states('sensor.opencwb_temperature') | round }}°C
+            {{ states('sensor.opencwb_temperature') | round }}°C   
+          # {{states('sensor.outside_multi_sensor_bme280_temperature') | round }}°C    
           today_humidity: >
-            {{ states('sensor.opencwb_humidity')}}
+            {{ states('sensor.opencwb_humidity')}}            
+          # {{states('sensor.outside_multi_sensor_bme280_humidity')| round}}
           today_feel_like: >
-            {{ states('sensor.opencwb_feels_like_temperature') | round }}°
+            {{ states('sensor.opencwb_feels_like_temperature') | round }}°  
+          # {{states('sensor.my_feels_like')| round}}°          
           today_uv_index: >
             {{states('sensor.opencwb_uv_index')| round }}
           forecast_rain_precipitation: >
@@ -135,31 +138,27 @@ template:
         state: >
           {{states('sensor.moon_phase')}}
 
-      - name: eink_sidebar_temperature
-        unique_id: c03e5c28-fa12-4e7f-bcf8-e1ff49776b04
-        state: >
-          {{states('sensor.livingroom_ikea_air_quality_livingroom_temperatur') | round }}
-
-      # - name: eink_sidebar_humidity
-      #   unique_id: fdc7fca6-6e3b-420f-837c-091339a39913
+      # - name: my_feels_like  #自製體感溫度sensor
+      #   unique_id: 5e0e6fc9-d463-4f5e-9cac-1e9f0a57ee8d
       #   state: >
-      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_humidity') | round }}
-
-      # - name: eink_sidebar_pm25
-      #   unique_id: 4c362075-9959-4a95-a33e-dbfacb8ab9c5
-      #   state: >
-      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_particulate_matter_2_5_m') | round }}
-
-      # - name: eink_sidebar_co2
-      #   unique_id: 52ebda00-7a29-41f2-b9ca-257e6958af7c
-      #   state: >
-      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_senseair_co2_value') | round }}
-
-      # - name: eink_sidebar_tvoc
-      #   unique_id: 977f871c-5bd5-403a-8284-d40b5b38bd94
-      #   state: >
-      #     {{states('sensor.livingroom_ikea_air_quality_livingroom_senseair_tvoc_value') | round }}
-
+      #     {% set T = ((states.sensor.outside_multi_sensor_bme280_temperature.state|float)*1.8)+32 %}
+      #     {% set RH = states.sensor.outside_multi_sensor_bme280_humidity.state|float %}
+      #     {% set STEADMAN_HI = 0.5 * (T + 61.0 + ((T-68.0)*1.2) + (RH*0.094)) %}
+      #     {% if STEADMAN_HI >= 80 %}
+      #       {% set ROTHFUSZ_HI = -42.379 + 2.04901523*T + 10.14333127*RH - 0.22475541*T*RH - 0.00683783*T*T - 0.05481717*RH*RH + 0.00122874*T*T*RH + 0.00085282*T*RH*RH - 0.00000199*T*T*RH*RH %}
+      #       {% set HI = ROTHFUSZ_HI %}
+      #       {% if RH < 13 and 80 < T < 112 %}
+      #         {% set ADJUSTMENT = ((13-RH)/4)*((17-(T-95)|abs)/17)**0.5 %}
+      #         {% set HI = HI - ADJUSTMENT %}
+      #       {% elif RH > 85 and 80 < T < 87 %}
+      #         {% set ADJUSTMENT = ((RH-85)/10) * ((87-T)/5) %}
+      #         {% set HI = HI + ADJUSTMENT %}
+      #       {% endif %}
+      #     {% else %}
+      #       {% set HI = STEADMAN_HI %}
+      #     {% endif %}
+      #     {% set HI_C = (HI-32)/1.8 %}
+      #     {{- HI_C|round(1) -}}
 
 ## time sensor 若系統已有設置可省略
   - sensor:
