@@ -33,14 +33,14 @@
 ## 計費週期歸零
 
 可自行在HA裡面的自動化指定特定時間按下這兩個button做週期開始的歸零動作，方法有很多種可網路搜尋參考。
-![Mosquitto_broker](/wt32_electricity/115409.png)
+![Mosquitto_broker](/wt32_electricity/110341.png)
 
 ## 設備自帶自動化計費週期歸零 (bate)
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 
 ![Mosquitto_broker](/wt32_electricity/68D1224C2C0A.jpg)
 
-可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇單雙月以及日期即可。
+可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
 ** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
 
 ![Mosquitto_broker](/wt32_electricity/114753.png)
