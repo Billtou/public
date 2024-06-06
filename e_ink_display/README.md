@@ -82,15 +82,9 @@ Manual Refresh
 
 Options Windows
 
-|
-
 |  sun_and_moon  (日出日落時間以及月像)
 
-|
-
 |  half_hour (改每半小時更新一次並顯示更新時間)
-
-|
 
 |  nothing (不顯示額外訊息) **默認**
 
