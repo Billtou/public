@@ -73,8 +73,7 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 ## HA的ESPHome entity選項說明
 ![Mosquitto_broker](/e_ink_display/133557.png)
 
-默認更新時間為一小時，會在整點偏移2分鐘更新氣象數據(預計氣象局會整點更新，自製模板會偏移一分鐘擷取氣象局資訊，所以面板更新設定偏移2分鐘update)
-
+默認一小時更新一次，會在整點偏移2分鐘更新(預計氣象局會整點更新，自製模板會偏移一分鐘擷取氣象局資訊，所以面板更新設定偏移2分鐘update)
 
 Manual Refresh
     立即手動更新按紐
@@ -86,12 +85,12 @@ Options Windows
     |
     +  half_hour (改每半小時更新一次並顯示更新時間)
     |
-    +  nothing (默認 不顯示額外訊息) 
+    +  nothing (不顯示額外訊息) **默認**
 
 
 Weekly Forcast Mode
     |
-    +  high_low (當日最高、低溫預測)
+    +  high_low (當日最高、低溫預測) **默認**
     |
     +  high_rain (當日最高溫以及下雨機率)
     |
