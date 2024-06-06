@@ -84,28 +84,29 @@ Options Windows
 
 |
 
-+  sun_and_moon  (日出日落時間以及月像)
+|  sun_and_moon  (日出日落時間以及月像)
 
 |
 
-+  half_hour (改每半小時更新一次並顯示更新時間)
+|  half_hour (改每半小時更新一次並顯示更新時間)
 
 |
 
-+  nothing (不顯示額外訊息) **默認**
+|  nothing (不顯示額外訊息) **默認**
+
 
 
 Weekly Forcast Mode
 
 |
 
-+  high_low (當日最高、低溫預測) **默認**
+|  high_low (當日最高、低溫預測) **默認**
 
 |
 
-+  high_rain (當日最高溫以及下雨機率)
+|  high_rain (當日最高溫以及下雨機率)
 
 |
 
-+  low_rain (當日最低溫以及下雨機率)
+|  low_rain (當日最低溫以及下雨機率)
 
