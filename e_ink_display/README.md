@@ -70,3 +70,8 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
           #     {% set HI_C = (HI-32)/1.8 %}
           #     {{- HI_C|round(1) -}}
           
+## HA的ESPHome entity選項說明
+![Mosquitto_broker](/e_ink_display/133557.png)
+
+默認更新時間為一小時，會在整點偏移2分鐘開始更新氣象數據(預計氣象局會整點更新，自製模板會偏移一分鐘擷取資訊，所以面板更新設定偏移2分鐘update)
+
