@@ -91,3 +91,6 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
         |  high_rain (當日最高溫以及下雨機率)
         |  low_rain (當日最低溫以及下雨機率)
 
+    show last updated
+        打開後下次更新時會在右上角顯示最近的更新時間。
+
