@@ -45,7 +45,7 @@
 
 ![Mosquitto_broker](/wt32_electricity/114753.png)
 
-## 附錄，做一個可以計算每小時電費的sensor
+## 附錄，做一個可以即時計算每小時電費的sensor
 
     template:
       - sensor:
