@@ -11,4 +11,4 @@
 
 ## HA entity 功能說明(以1路為例)
 
-![Mosquitto_broker](/module_switch/image/214413.png)
+![Mosquitto_broker](/module_switch/image/092704.png)
