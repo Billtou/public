@@ -12,3 +12,8 @@
 ## HA entity 功能說明(以1路為例)
 
 ![Mosquitto_broker](/module_switch/image/092704.png)
+
+
+## 自動化提醒
+
+若模組接智能燈需解藕，後期透過HA自動化，當
