@@ -21,4 +21,4 @@
 
 ![Mosquitto_broker](/module_switch/image/222200.png)
 
-![Mosquitto_broker](/module_switch/image/222200.png)
+![Mosquitto_broker](/module_switch/image/222650.png)
