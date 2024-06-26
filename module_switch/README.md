@@ -19,4 +19,6 @@
 若模組接智能燈需解藕，後期透過HA自動化，注意觸發條件要選正確的觸發條件如下圖。
 
 
-![Mosquitto_broker](/module_switch/image/092704.png)
+![Mosquitto_broker](/module_switch/image/222200.png)
+
+![Mosquitto_broker](/module_switch/image/222200.png)
