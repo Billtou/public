@@ -17,6 +17,7 @@ logger:
 
 api:
 
+#2024/06/29 Update For ESPHome 6 或以上適用
 ota:
  - platform: esphome
 
