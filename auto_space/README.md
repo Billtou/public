@@ -9,3 +9,8 @@
 
 第三步設置功能說明:
 
+![Mosquitto_broker](/auto_space/image/165548.png)
+
+![Mosquitto_broker](/auto_space/image/165724.png)
+
+![Mosquitto_broker](/auto_space/image/170029.png)
