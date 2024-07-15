@@ -77,7 +77,7 @@
 
     - ** HA 裡有個默認Default Setting功能，調亂了可以恢復預設值 **
    
-![081733](/air_cube/image/2024-01-20 075121.png)
-![081733](/air_cube/image/2024-01-20 075203.png)
-![081733](/air_cube/image/2024-01-20 075240.png)
-![081733](/air_cube/image/2024-01-20 080040.png)
+![081733](/air_cube/image/075121.png)
+![081733](/air_cube/image/075203.png)
+![081733](/air_cube/image/075240.png)
+![081733](/air_cube/image/080040.png)
