@@ -1,3 +1,11 @@
+### Pixel_Light
+
+像素燈顯示天氣預報HA模板yaml檔案
+
+### air_cube_homekit
+
+DAIKIN空氣品質傳感器 Homekit版的使用說明
+
 ### Air Cube Pro
 
 具有LD2410C微波人在的DAIKIN空氣品質傳感器，有關HA面板的設置說明，靈敏度調整內容。
@@ -7,10 +15,6 @@
 ### Air Cube with e-paper
 
 空氣品質AQI 具7.5寸電子紙
-
-### Pixel_Light
-
-像素燈顯示天氣預報HA模板yaml檔案
 
 ### Wall Switch
 
