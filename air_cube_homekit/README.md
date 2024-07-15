@@ -13,3 +13,10 @@
 ## 接入HA
 
 ![081733](/air_cube_homekit/image/083411.png)
+
+
+## 偵測數據校準
+
+![081733](/air_cube_homekit/image/084850.png)
+
+![081733](/air_cube_homekit/image/084923.png)
