@@ -17,3 +17,10 @@
   - ** 建議正式使用前先進入HA的裝置與服務 > ESPHome > Air Cube-xxxx > 1個裝置 > 右上角筆的圖案 > 將名稱改為有意義的名稱例如Livingroom Cube > 確定同意修改實體名稱 > 完成，提高實體名稱辨識度，2台以上實體名稱不容易混淆 **
   
   - ** 若想重置實體名稱，先記住設備IP > 刪除設備 > 新增設備 > 填入剛剛紀錄的設備IP > 完成。 > 重複上一個步驟即可 ** 
+
+## 面板LED燈 
+  - wifi 狀態燈 斷網閃爍 連線常滅
+  - CO2指數超過臨界值(Threshold Co2)常亮 低於 常滅
+  - pm2.5指數超過臨界值(Threshold PM2.5)常亮 低於 常滅
+  - TVOC/甲醛燈指數超過臨界值(Threshold TVOC) or (Threshold HO2C)常亮 低於 常滅
+  - LED Sleep Mode = 超標不亮燈。 
