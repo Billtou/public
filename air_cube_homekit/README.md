@@ -12,3 +12,4 @@
 
 ## 接入HA
 
+![081733](/air_cube_homekit/image/083411.png)
