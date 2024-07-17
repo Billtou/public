@@ -1,0 +1,8 @@
+type: entities
+entities:
+  - entity: sensor.eink_sensors
+  - entity: sensor.eink_next_rising
+  - entity: sensor.eink_next_sunset
+  - entity: sensor.eink_moon_phase
+  - entity: sensor.my_feels_like
+  - entity: sensor.weather_interval
