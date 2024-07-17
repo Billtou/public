@@ -17,14 +17,11 @@
 應用場景4: 閒置按鍵作為觸發場景的功能，建議解藕，透過HA的自動化觸發自訂義場景，建議解藕。 
 
 
+![Mosquitto_broker](/wall_switch/image/161734.jpg)
 
+![Mosquitto_broker](/wall_switch/image/165741.jpg)
 
-
-
-
-
-
-
+![Mosquitto_broker](/wall_switch/image/105323.png)
 
 
 
