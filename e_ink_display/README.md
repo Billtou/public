@@ -48,8 +48,8 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
           # - name: my_feels_like
           #   unique_id: 5e0e6fc9-d463-4f5e-9cac-1e9f0a57ee8d
           #   state: >
-          #     {% set T = ((states.sensor.outside_multi_sensor_bme280_temperature.state|float)*1.8)+32 %}
-          #     {% set RH = states.sensor.outside_multi_sensor_bme280_humidity.state|float %}
+          #     {% set T = ((states.sensor.outside_temperature.state|float)*1.8)+32 %}
+          #     {% set RH = states.sensor.outside_humidity.state|float %}
           #     {% set STEADMAN_HI = 0.5 * (T + 61.0 + ((T-68.0)*1.2) + (RH*0.094)) %}
           #     {% if STEADMAN_HI >= 80 %}
           #       {% set ROTHFUSZ_HI = -42.379 + 2.04901523*T + 10.14333127*RH - 0.22475541*T*RH - 0.00683783*T*T - 0.05481717*RH*RH + 0.00122874*T*T*RH + 0.00085282*T*RH*RH - 0.00000199*T*T*RH*RH %}
@@ -89,6 +89,11 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
         |  daily_high_rain (搭配daily集成，當日最高溫以及下雨機率)
         |  hourly (搭配hourly集成分小時最高溫以及下雨機率)
 
+    Refash Time
+        |  on_cwb (與氣象署時間一致每天 05:30、11:30、17:30、23:30自動更新) **默認**
+        |  one_hour (每小時更新一次)
+        |  thirty_minutes (30分鐘一次)
+        
     show last updated
-        打開後下次更新時會在右上角顯示最近的更新時間。
+        打開後下次更新時會在右上角顯示最近的更新時間。 
 
