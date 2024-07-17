@@ -34,9 +34,9 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
           ...
           ...
           today_temperature: >
-            {{states('sensor.outside_multi_sensor_bme280_temperature') | round }}°C    
+            {{states('sensor.outside_temperature') | round }}°C    
           today_humidity: >
-             {{states('sensor.outside_multi_sensor_bme280_humidity')| round}}
+             {{states('sensor.outside_humidity')| round}}
           today_feel_like: >
             {{states('sensor.my_feels_like')| round}}°          
           ...
