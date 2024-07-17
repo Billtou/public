@@ -8,7 +8,7 @@ https://opendata.cwa.gov.tw/index
 https://opendata.cwa.gov.tw/user/authkey
 HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服務  > 新增整合 > 填入API密鑰以及鄉鎮區名稱並選擇所需的更新模式，默認daily，若選hourly相關的配套yaml內容也要一起改。
 
-![Mosquitto_broker](/e_ink_display/124729.png)
+![Mosquitto_broker](/e_ink_display/image/142722.png)
 
 ## 手動建立模板實體 
 可以放在HA的configuration.yaml裡面，建議用packages方式管理手動建立模板實體的方式，方法如下: 在config(或homeassistant)資料夾中建立一個packages資料夾，並在configuration.yaml內增加以下代碼後重開機即可。
