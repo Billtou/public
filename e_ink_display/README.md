@@ -72,7 +72,7 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現，直接點選 "設定" 按紐並指定區域即完成。
          
 ## HA的ESPHome entity選項說明
-![Mosquitto_broker](/e_ink_display/133557.png)
+![Mosquitto_broker](/e_ink_display/image/150554.png)
 
 默認一小時更新一次，會在整點偏移2分鐘更新(預計氣象局會整點更新，自製模板會偏移一分鐘擷取氣象局資訊，所以面板更新設定偏移2分鐘update)
 
