@@ -1,6 +1,11 @@
 # 7.5in 紅黑白三色電子紙使用說明
 
 ## 使用前準備事項
+
+![Mosquitto_broker](/e_ink_display/image/161812.png)
+
+![Mosquitto_broker](/e_ink_display/image/161954.png)
+
 ### 必須搭配網友撰寫的中央氣象局擴充插件才能正常使用。
 先申請帳號
 https://opendata.cwa.gov.tw/index
