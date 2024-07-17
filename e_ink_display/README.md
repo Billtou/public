@@ -71,8 +71,8 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
               wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
               visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
               precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
-              forecast: "{{ daily['weather.opencwb'].forecast }}"
-              # forecast: "{{ hourly['weather.opencwb'].forecast }}"
+              forecast: "{{ daily['weather.opencwb'].forecast }}"  # 搭配cwa集成使用 與下一行二擇一
+              # forecast: "{{ hourly['weather.opencwb'].forecast }}"  # 搭配cwa集成使用 與上一行二擇一
       - sensor:
           - name: "eink_sensors"
             unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
