@@ -35,43 +35,61 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
               - "time_utc"
 
 默認溫溼度以及體感度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改e_ink_template_with_weather.yaml以下內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。
-
-          ...
-          ...
-          today_temperature: >
-            {{states('sensor.outside_temperature') | round }}°C    
-          today_humidity: >
-             {{states('sensor.outside_humidity')| round}}
-          today_feel_like: >
-            {{states('sensor.my_feels_like')| round}}°          
-          ...
-          ...
-
-
-         ...
-         ...
-          # - name: my_feels_like
-          #   unique_id: 5e0e6fc9-d463-4f5e-9cac-1e9f0a57ee8d
-          #   state: >
-          #     {% set T = ((states.sensor.outside_temperature.state|float)*1.8)+32 %}
-          #     {% set RH = states.sensor.outside_humidity.state|float %}
-          #     {% set STEADMAN_HI = 0.5 * (T + 61.0 + ((T-68.0)*1.2) + (RH*0.094)) %}
-          #     {% if STEADMAN_HI >= 80 %}
-          #       {% set ROTHFUSZ_HI = -42.379 + 2.04901523*T + 10.14333127*RH - 0.22475541*T*RH - 0.00683783*T*T - 0.05481717*RH*RH + 0.00122874*T*T*RH + 0.00085282*T*RH*RH - 0.00000199*T*T*RH*RH %}
-          #       {% set HI = ROTHFUSZ_HI %}
-          #       {% if RH < 13 and 80 < T < 112 %}
-          #         {% set ADJUSTMENT = ((13-RH)/4)*((17-(T-95)|abs)/17)**0.5 %}
-          #         {% set HI = HI - ADJUSTMENT %}
-          #       {% elif RH > 85 and 80 < T < 87 %}
-          #         {% set ADJUSTMENT = ((RH-85)/10) * ((87-T)/5) %}
-          #         {% set HI = HI + ADJUSTMENT %}
-          #       {% endif %}
-          #     {% else %}
-          #       {% set HI = STEADMAN_HI %}
-          #     {% endif %}
-          #     {% set HI_C = (HI-32)/1.8 %}
-          #     {{- HI_C|round(1) -}}
-
+    
+    template:
+      - trigger:
+          - platform: time_pattern
+            minutes: /30
+          - platform: homeassistant
+            event: start
+        action:
+          - delay: "00:01:00"
+          - service: weather.get_forecasts
+            data:
+              type: daily      # 搭配cwa集成使用 與下一行二擇一
+              # type: hourly   # 搭配cwa集成使用 與上一行二擇一
+            target:
+              entity_id: weather.opencwb
+            response_variable: daily  # 搭配cwa集成使用 與下一行二擇一
+            # response_variable: hourly  # 搭配cwa集成使用 與上一行二擇一
+    
+        sensor:
+          - name: Weather Interval
+            unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
+            state: "{{ states('weather.opencwb') }}"
+            attributes:
+              temperature: "{{ state_attr('weather.opencwb', 'temperature') }}"
+              templow: "{{state_attr('weather.opencwb', 'templow')}}"
+              dew_point: "{{ state_attr('weather.opencwb', 'dew_point') }}"
+              temperature_unit: "{{ state_attr('weather.opencwb', 'temperature_unit') }}"
+              humidity: "{{ state_attr('weather.opencwb', 'humidity') }}"
+              cloud_coverage: "{{ state_attr('weather.opencwb', 'cloud_coverage') }}"
+              pressure: "{{ state_attr('weather.opencwb', 'pressure') }}"
+              pressure_unit: "{{ state_attr('weather.opencwb', 'pressure_unit') }}"
+              wind_bearing: "{{ state_attr('weather.opencwb', 'wind_bearing') }}"
+              wind_speed: "{{ state_attr('weather.opencwb', 'wind_speed') }}"
+              wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
+              visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
+              precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
+              forecast: "{{ daily['weather.opencwb'].forecast }}"
+              # forecast: "{{ hourly['weather.opencwb'].forecast }}"
+      - sensor:
+          - name: "eink_sensors"
+            unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
+            state: >
+              {{ states('weather.opencwb') }}
+            attributes:
+              today_temperature: >
+                {{ states('sensor.opencwb_temperature') | round }}°C  # 若溫溼度與體感要改自家的，與下一行二擇一
+              # {{states('sensor.outside_temperature') | round }}°C   # 若溫溼度與體感要改自家的，與上一行二擇一
+              today_humidity: >
+                {{ states('sensor.opencwb_humidity')}}                # 若溫溼度與體感要改自家的，與下一行二擇一
+              # {{states('sensor.outside_humidity')| round}}          # 若溫溼度與體感要改自家的，與上一行二擇一
+              today_feel_like: >
+                {{ states('sensor.opencwb_feels_like_temperature') | round }}°    # 若溫溼度與體感要改自家的，與下一行二擇一
+              # {{states('sensor.my_feels_like')| round}}°                        # 若溫溼度與體感要改自家的，與上一行二擇一
+              today_uv_index: >
+                {{states('sensor.opencwb_uv_index')| round }}
 
 ## 接入HA
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現，直接點選 "設定" 按紐並指定區域即完成。
