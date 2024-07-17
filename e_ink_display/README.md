@@ -73,23 +73,45 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
               precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
               forecast: "{{ daily['weather.opencwb'].forecast }}"  # 搭配cwa集成使用 與下一行二擇一
               # forecast: "{{ hourly['weather.opencwb'].forecast }}"  # 搭配cwa集成使用 與上一行二擇一
+    sensor:
+      - name: Weather Interval
+        unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
+        state: "{{ states('weather.opencwb') }}"
+        attributes:
+          temperature: "{{ state_attr('weather.opencwb', 'temperature') }}"
+          templow: "{{state_attr('weather.opencwb', 'templow')}}"
+          dew_point: "{{ state_attr('weather.opencwb', 'dew_point') }}"
+          temperature_unit: "{{ state_attr('weather.opencwb', 'temperature_unit') }}"
+          humidity: "{{ state_attr('weather.opencwb', 'humidity') }}"
+          cloud_coverage: "{{ state_attr('weather.opencwb', 'cloud_coverage') }}"
+          pressure: "{{ state_attr('weather.opencwb', 'pressure') }}"
+          pressure_unit: "{{ state_attr('weather.opencwb', 'pressure_unit') }}"
+          wind_bearing: "{{ state_attr('weather.opencwb', 'wind_bearing') }}"
+          wind_speed: "{{ state_attr('weather.opencwb', 'wind_speed') }}"
+          wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
+          visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
+          precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
+          # 搭配cwa集成使用 與下一行二擇一
+          forecast: "{{ daily['weather.opencwb'].forecast }}" 
+          # forecast: "{{ hourly['weather.opencwb'].forecast }}"  
       - sensor:
           - name: "eink_sensors"
             unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
             state: >
               {{ states('weather.opencwb') }}
             attributes:
+              # 若溫溼度與體感要改自家的，與下一行二擇一
               today_temperature: >
-                {{ states('sensor.opencwb_temperature') | round }}°C  # 若溫溼度與體感要改自家的，與下一行二擇一
-              # {{states('sensor.outside_temperature') | round }}°C   # 若溫溼度與體感要改自家的，與上一行二擇一
+                {{ states('sensor.opencwb_temperature') | round }}°C
+              # {{states('sensor.outside_temperature') | round }}°C
               today_humidity: >
-                {{ states('sensor.opencwb_humidity')}}                # 若溫溼度與體感要改自家的，與下一行二擇一
-              # {{states('sensor.outside_humidity')| round}}          # 若溫溼度與體感要改自家的，與上一行二擇一
+                {{ states('sensor.opencwb_humidity')}}
+              # {{states('sensor.outside_humidity')| round}}
               today_feel_like: >
-                {{ states('sensor.opencwb_feels_like_temperature') | round }}°    # 若溫溼度與體感要改自家的，與下一行二擇一
-              # {{states('sensor.my_feels_like')| round}}°                        # 若溫溼度與體感要改自家的，與上一行二擇一
-              today_uv_index: >
-                {{states('sensor.opencwb_uv_index')| round }}
+                {{ states('sensor.opencwb_feels_like_temperature') | round }}°
+              # {{states('sensor.my_feels_like')| round}}°
+                  today_uv_index: >
+                    {{states('sensor.opencwb_uv_index')| round }}
 
 ## 接入HA
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現，直接點選 "設定" 按紐並指定區域即完成。
