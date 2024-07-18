@@ -1,19 +1,19 @@
 template:
   - trigger:
       - platform: time_pattern
-        minutes: /30
+        minutes: /30 #每30分鐘update一次
       - platform: homeassistant
         event: start
     action:
-      - delay: "00:01:00"
+      - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
       - service: weather.get_forecasts
         data:
-          type: daily
-          # type: hourly
+          # type: daily # 搭配cwa集成使用 與下一行二擇一
+          type: hourly # 搭配cwa集成使用 與上一行二擇一
         target:
           entity_id: weather.opencwb
-        response_variable: daily
-        # response_variable: hourly
+        # response_variable: daily # 搭配cwa集成使用 與下一行二擇一
+        response_variable: hourly # 搭配cwa集成使用 與上一行二擇一
 
     sensor:
       - name: Weather Interval
@@ -33,14 +33,16 @@ template:
           wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
           visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
           precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
-          forecast: "{{ daily['weather.opencwb'].forecast }}"
-          # forecast: "{{ hourly['weather.opencwb'].forecast }}"
+          # 搭配cwa集成使用 與下一行二擇一
+          # forecast: "{{ daily['weather.opencwb'].forecast }}"
+          forecast: "{{ hourly['weather.opencwb'].forecast }}"
   - sensor:
       - name: "eink_sensors"
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
         state: >
           {{ states('weather.opencwb') }}
         attributes:
+          # 若溫溼度與體感要改自家的，與下一行二擇一
           today_temperature: >
             {{ states('sensor.opencwb_temperature') | round }}°C
           # {{states('sensor.outside_temperature') | round }}°C
@@ -239,6 +241,31 @@ template:
           {% endif %}
           {% set HI_C = (HI-32)/1.8 %}
           {{- HI_C|round(1) -}}
+
+      # - name: eink_sidebar_temperature
+      #   unique_id: c03e5c28-fa12-4e7f-bcf8-e1ff49776b04
+      #   state: >
+      #     {{states('sensor.livingroom_temperatur') | round }}
+
+      # - name: eink_sidebar_humidity
+      #   unique_id: fdc7fca6-6e3b-420f-837c-091339a39913
+      #   state: >
+      #     {{states('sensor.livingroom_humidity') | round }}
+
+      # - name: eink_sidebar_pm25
+      #   unique_id: 4c362075-9959-4a95-a33e-dbfacb8ab9c5
+      #   state: >
+      #     {{states('sensor.livingroom_matter_2_5_m') | round }}
+
+      # - name: eink_sidebar_co2
+      #   unique_id: 52ebda00-7a29-41f2-b9ca-257e6958af7c
+      #   state: >
+      #     {{states('sensor.livingroom_co2_value') | round }}
+
+      # - name: eink_sidebar_tvoc
+      #   unique_id: 977f871c-5bd5-403a-8284-d40b5b38bd94
+      #   state: >
+      #     {{states('sensor.livingroom_tvoc_value') | round }}
 
   - sensor:
       - platform: time_date
