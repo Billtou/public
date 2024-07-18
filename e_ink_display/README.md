@@ -39,11 +39,11 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
     template:
       - trigger:
           - platform: time_pattern
-            minutes: /30
+            minutes: /30 每30分鐘update一次
           - platform: homeassistant
             event: start
         action:
-          - delay: "00:01:00"
+          - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
           - service: weather.get_forecasts
             data:
               type: daily      # 搭配cwa集成使用 與下一行二擇一
