@@ -35,6 +35,11 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
               - "time_utc"
 
 默認溫溼度以及體感度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改e_ink_template_with_weather.yaml以下內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。默認氣象預報是以天為單位，可以改成以小時為單位，必須一併修改yaml檔案內容以及cwb集成改選hourly選項，等待30分鐘後可以看一下cwb的entity 預報部分以及自製的sensor.eink_sensors 是否已經都同步了，然後按下手動刷新即可。
+
+![Mosquitto_broker](/e_ink_display/image/112708.png)
+
+![Mosquitto_broker](/e_ink_display/image/112734.png)
+
     
     template:
       - trigger:
