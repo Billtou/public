@@ -1,7 +1,7 @@
 template:
   - trigger:
       - platform: time_pattern
-        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次 
+        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
       - platform: homeassistant
         event: start
     action:
