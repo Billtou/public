@@ -1,6 +1,10 @@
 
 # 模組開關使用說明 
 
+## 接入自家WIFI
+
+上電手機搜尋設備
+
 ## 1路接線方式
 
 ![Mosquitto_broker](/module_switch/image/214835.png)
