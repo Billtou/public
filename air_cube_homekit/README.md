@@ -3,6 +3,7 @@
 
 用牙籤搓背後的erset孔超過10秒放開後 手機搜尋發出的AP熱點。
 
+![081733](/air_cube_homekit/image/220144.png)
 
 
 ## 連上自家2.4G wifi 
