@@ -1,7 +1,7 @@
 template:
   - trigger:
       - platform: time_pattern
-        minutes: /30 #每30分鐘update一次
+        minutes: /1 #每30分鐘update一次 
       - platform: homeassistant
         event: start
     action:
