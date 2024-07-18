@@ -44,7 +44,7 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
     template:
       - trigger:
           - platform: time_pattern
-            minutes: /30 #每30分鐘update一次
+            minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次
           - platform: homeassistant
             event: start
         action:
