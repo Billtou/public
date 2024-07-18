@@ -1,7 +1,7 @@
 # Air Cube Homekit版本說明文件
 ## 第一次使用讓設備發出ap熱點方式
 
-用牙籤搓背後的erset孔超過10秒放開後 手機搜尋發出的AP熱點。
+用牙籤搓背後的erset孔超過10秒後放開，手機搜尋發出的AP熱點。
 
 ![081733](/air_cube_homekit/image/220144.png)
 
