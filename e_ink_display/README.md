@@ -114,6 +114,7 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 ![Mosquitto_broker](/e_ink_display/image/150554.png)
 
 ![Mosquitto_broker](/e_ink_display/image/144320.png)
+
 默認更新時間同氣象署，會偏移5分鐘更新(流程為氣象局更新，HA的自製預報entity每30分鐘+60秒更新，故電子紙偏移5分鐘update)
 
     Manual Refresh
