@@ -98,6 +98,11 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
                       today_uv_index: >
                         {{states('sensor.opencwb_uv_index')| round }}
 
+                        ..
+                        ..
+                        ..
+                        ..
+
 ## 接入HA
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現(若沒跳出指定自家wifi頁面，請手機切換到瀏覽器，輸入192.168.4.1即可)，接入wifi後HA會自動發現設備，直接點選 "設定" 按紐並指定區域即完成。
 
