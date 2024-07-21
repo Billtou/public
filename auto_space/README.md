@@ -28,7 +28,7 @@
 
 第三步設置功能說明:
 
-bathroom 浴室版本 [https://github.com/Billtou/public/blob/main/auto_space/bathroom_%20version/README.md]
+bathroom 浴室版本 [https://github.com/Billtou/public/tree/main/auto_space/bathroom_%20version]
 
 kitchen 廚房版本 [https://github.com/Billtou/public/tree/main/auto_space/kitchen_version]
 
