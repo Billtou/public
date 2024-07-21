@@ -28,7 +28,12 @@
 
 第三步設置功能說明:
 
-bathroom 浴室版本 [https://github.com/Billtou/public/blob/main/auto_space/bathroom_%20version/README.md](https://github.com/Billtou/public/blob/main/auto_space/bathroom_%20version/README.md)
+bathroom 浴室版本 [https://github.com/Billtou/public/blob/main/auto_space/bathroom_%20version/README.md]
+
+kitchen 廚房版本 [https://github.com/Billtou/public/tree/main/auto_space/kitchen_version]
+
+entrance 玄關版本 [https://github.com/Billtou/public/tree/main/auto_space/entrance_%20version]
+
 
 ![Mosquitto_broker](/auto_space/image/165548.png)
 
