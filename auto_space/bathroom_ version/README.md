@@ -2,10 +2,5 @@
 
 ## bathroom 浴室版本
 
-![Mosquitto_broker](/auto_space/image/152300.png)
-
-![Mosquitto_broker](/auto_space/image/152648.png)
-
-![Mosquitto_broker](/auto_space/image/152032.png)
 
 
