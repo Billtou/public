@@ -1,6 +1,6 @@
 ## kitchen 廚房版本
 
-![Mosquitto_broker](/auto_space/image/175518.png)
+![Mosquitto_broker](/auto_space/image/185534.png)
 
 ![Mosquitto_broker](/auto_space/image/174733.png)
 
