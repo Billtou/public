@@ -2,47 +2,53 @@
 
 像素燈顯示天氣預報HA模板yaml檔案
 
+### air_cube
+
+基於ESPHome開發 DAIKIN空氣品質傳感器通用說明書
+
 ### air_cube_homekit
 
-DAIKIN空氣品質傳感器 Homekit版的使用說明
+基於Homekit開發DAIKIN空氣品質傳感器使用說明
 
 ### Air Cube Pro
 
-具有LD2410C微波人在的DAIKIN空氣品質傳感器，有關HA面板的設置說明，靈敏度調整內容。
+基於ESPHome開發具有LD2410C微波人在的DAIKIN空氣品質傳感器，有關HA面板的設置說明，靈敏度調整內容。
 
-** 注意範例檔案中的entity id必須替換為自己的entity id 才能正常顯示 **
+### Air Cube with epaper
 
-### Air Cube with e-paper
+**敬請期待** 空氣品質AQI 具7.5寸電子紙
 
-空氣品質AQI 具7.5寸電子紙
+## auto_space
 
-### Wall Switch
+基於ESPHome開發空間自動化系列產品 bathroom、kitchen and entrance 自動化解決方案
 
-牆壁開關程序碼，自行修改固件須注意一定要詳閱說明文件，否則有死機風險，需要回廠重燒。
+## cb3s-curtain
 
-### ikea_air_purifier
+基於ESPHome開發具有伸縮軌道功能的窗簾(開合簾)
 
-IKEA 空氣品質偵測器入HA後如何自製一個pm2.5感測器yaml以提供機器自帶自動化運行所需
+### dashboard_one
 
-### auto_space
+基於ESPHome開發86規格可自行編程觸控螢幕
 
-自動空間。
+## e_ink_display
+
+基於ESPHome開發 7.5寸黑、紅、白三色電子紙 天氣預報面板
 
 ### hollow clock 
 
 空心鐘4代簡易對時方案
 
-### dashboard_one
+### ikea_air_purifier
 
-86規格HA可編程觸控螢幕
+基於ESPHome開發 IKEA 空氣清淨機
 
-### switch_module
+## module_switch
 
-具耗電計量的1、2路開關模組
+基於ESPHome開發具有耗電計量的1、2路開關模組
 
-### e-ink_display 
+### Wall Switch
 
-7.5寸三色電子紙天氣預報面板
+基於ESPHome開發 零火版120(118)牆壁開關。
 
 ## wt32_electricity
 
