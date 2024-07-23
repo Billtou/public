@@ -75,6 +75,8 @@
   wall-switch-2-cbu-xxxxxx.yaml (二路開關)
   
   wall-switch-3-cbu-xxxxxx.yaml (三路開關)
+
+  wall-switch-3-chp-xxxxxx.yaml (三路開關 芯片模塊版本)
   
   light.yaml (在ESPHome裡面轉成原生電燈sample)
   
