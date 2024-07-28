@@ -34,9 +34,3 @@ kitchen 廚房版本 [https://github.com/Billtou/public/tree/main/auto_space/kit
 
 entrance 玄關版本 [https://github.com/Billtou/public/tree/main/auto_space/entrance_%20version]
 
-
-![Mosquitto_broker](/auto_space/image/165548.png)
-
-![Mosquitto_broker](/auto_space/image/165724.png)
-
-![Mosquitto_broker](/auto_space/image/170029.png)
