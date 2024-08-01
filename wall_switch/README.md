@@ -25,7 +25,7 @@
 
 ![Mosquitto_broker](/wall_switch/image/165741.jpg)
 
-![Mosquitto_broker](/wall_switch/image/105323.png)
+![Mosquitto_broker](/wall_switch/image/121825.png)
 
 ## 自動化提醒
 
