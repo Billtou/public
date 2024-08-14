@@ -1,4 +1,4 @@
-# Auot Space ESPHome 版本說明
+# 版本切換方法
 
 ## bathroom 浴室版本
 
