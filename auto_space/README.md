@@ -1,4 +1,4 @@
-# Auot Space ESPHome 產品規格說明
+# Auot Space 產品規格說明
 
 ## Pro版本，適合場景為浴室與廚房
 
