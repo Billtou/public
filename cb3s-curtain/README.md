@@ -10,7 +10,12 @@
   
 ## 配對遙控器
 
+![Mosquitto_broker](/cb3s-curtain/image/101426.png)
+
+## 乾接點接線方式
+
+![Mosquitto_broker](/cb3s-curtain/image/101535.png)
 
 ## HA emtity 說明
 
-![Mosquitto_broker](/cb3s-curtain/image/210910.png)
+![Mosquitto_broker](/cb3s-curtain/image/102129.png)
