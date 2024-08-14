@@ -14,7 +14,7 @@
 
 ## 規格與此尺寸表
 
-![Mosquitto_broker](/auto_space/image/134954.png)
+![Mosquitto_broker](/auto_space/image/104605.png)
 
 ## 紅線與白線分別接入市電的L/N(火線/中性線)
 
