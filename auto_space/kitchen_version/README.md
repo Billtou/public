@@ -8,3 +8,5 @@
 
 
 ## kitchen 廚房版本entity說明同 bathroom 內容。
+
+https://github.com/Billtou/public/tree/main/auto_space/bathroom_%20version
