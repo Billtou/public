@@ -11,8 +11,10 @@
 ![Mosquitto_broker](/wt32_electricity/image/103927.png)
 
 ## HA裡面的運用介紹
-### 接入HA
+### 接入HA網線版
 網路線若是通的(網路口綠橘指示燈有亮)HA就會自動發現；設定 > 裝置與服務 > 會自動出現一個Electricity Meter XXXXXX 的 ESPHome接入點，按下設定指定空間位置即可接入HA。
+### 接入HA WIFI版
+上電手機靠近本設備找wifi熱點 Electricity Meter xxxxxx，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機切換到瀏覽器輸入192.168.4.1即可)(要稍微等待一下wifi熱點才會出現)
 
 ### 安裝 計算電費整合插件
 前置作業，先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定  > 裝置與服務  > 新增整合  >   搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
