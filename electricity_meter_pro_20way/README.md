@@ -13,8 +13,8 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
 template.yaml 建議檔放在HA 資料夾中的\config\packages\energy_template.yaml
 
-sensor.cycle_kwh_cost  每度電累進電價
+sensor.cycle_kwh_cost  每度電累進電價單價(能源面板用這個entity來計費)
 
-sensor.cycle_power_cost 計費區間累計店費
+sensor.cycle_power_cost 計費區間累計電費
 
 sensor.cycle_power_cost  realtime_hour_cost
