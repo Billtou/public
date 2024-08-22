@@ -25,9 +25,11 @@ https://www.taipower.com.tw/2289/2558/49405/49408/49454/2601/22293/
 
 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
-## 檔案說明
+## energy_template.yaml檔案說明
 
-energy_template.yaml 建議檔放在HA 資料夾中的\config\packages\
+建議檔放在HA 資料夾中的\config\packages\
+
+## HA重開機會產生以下sensor entity
 
 sensor.cycle_kwh_cost  每度電累進電價單價(能源面板用這個entity來計費)
 
