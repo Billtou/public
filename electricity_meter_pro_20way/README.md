@@ -12,6 +12,7 @@ https://www.taipower.com.tw/2289/2558/49405/49408/49454/2601/22293/
 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
 template.yaml 建議檔放在HA 資料夾中的\config\packages\energy_template.yaml
+
 sensor.cycle_kwh_cost  每度電累進電價
 
 sensor.cycle_power_cost 計費區間累計店費
