@@ -17,4 +17,4 @@ sensor.cycle_kwh_cost  每度電累進電價單價(能源面板用這個entity�
 
 sensor.cycle_power_cost 計費區間累計電費
 
-sensor.cycle_power_cost  realtime_hour_cost
+sensor.realtime_hour_cost 即時每小時用電預估
