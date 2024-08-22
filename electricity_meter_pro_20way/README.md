@@ -27,7 +27,7 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
 ## energy_template.yaml檔案說明
 
-建議檔放在HA 資料夾中的\config\packages\
+建議檔案放在 HA 資料夾中的\config\packages\
 
 ## HA重開機會產生以下sensor entity
 
