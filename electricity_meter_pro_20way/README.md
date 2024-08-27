@@ -16,9 +16,8 @@
 
 目前台電 "各類電價表及計算範例"
 
-https://www.taipower.com.tw/2289/2558/49405/49408/49454/2601/22293/
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/002822.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
 
 ## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
