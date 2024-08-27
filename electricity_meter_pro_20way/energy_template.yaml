@@ -3,13 +3,13 @@
 utility_meter:
   taipower_energy:
     unique_id: 38448d28-80f8-4e1f-98a8-735a06b82db3
-    source: sensor.energy_sum
+    source: sensor.energy_sum   # 需要改成自家的id
 
 template:
   - sensor:
       - name: realtime_hour_cost
         unique_id: 239010d0-fd00-4615-ab05-b8964563370e
-        state: "{{((states.sensor.power_sum.state|float)/1000 *(states.sensor.kwh_cost.state|float))|round(1)}}"
+        state: "{{((states.sensor.power_sum.state|float)/1000 *(states.sensor.cycle_kwh_cost.state|float))|round(1)}}"
         unit_of_measurement: "$"
 
       - name: cycle_kwh_cost
