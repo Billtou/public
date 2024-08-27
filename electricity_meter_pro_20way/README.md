@@ -14,8 +14,7 @@
 
 ## 計算公式參考資料
 
-目前台電 "各類電價表及計算範例"
-
+目前台電計費表
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
