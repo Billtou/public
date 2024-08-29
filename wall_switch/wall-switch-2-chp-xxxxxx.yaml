@@ -63,7 +63,7 @@ binary_sensor:
     id: binary_sensor_2
     name: "binary_sensor_2"
     pin:
-      number: 8
+      number: 28
       inverted: true
       mode: INPUT_PULLUP
     on_press:
