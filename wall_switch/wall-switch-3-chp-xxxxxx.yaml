@@ -1,7 +1,7 @@
 esphome:
   name: "wall-switch-3-chp-266c94"
   friendly_name: wall-switch-3-chp-266c94
-  name_add_mac_suffix: true
+  name_add_mac_suffix: false
 bk72xx:
   board: cbu
 
