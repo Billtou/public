@@ -67,12 +67,14 @@
   
   7.沒意外燒寫完成顯示on-line功能就會改變了，若所編輯的程式碼有修改現有的entity等等，需要到裝置與服務的esphome把舊的刪除(記住舊的ip，再手動建立即可)。
 
-## 檔案說明  
+## 檔案說明 請注意檔案有些微不同，選擇與自己產品一致。
 
 
   wall-switch-1-cbu-xxxxxx.yaml (一路開關)
   
   wall-switch-2-cbu-xxxxxx.yaml (二路開關)
+  
+  wall-switch-2-chp-xxxxxx.yaml (三路開關 芯片模塊版本)
   
   wall-switch-3-cbu-xxxxxx.yaml (三路開關)
 
