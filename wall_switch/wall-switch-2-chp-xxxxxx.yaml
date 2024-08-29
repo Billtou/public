@@ -1,0 +1,122 @@
+esphome:
+  name: wall-switch-2-chp-xxxxxx
+  friendly_name: wall-switch-2-chp-xxxxxx
+  name_add_mac_suffix: false
+bk72xx:
+  board: cbu
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  - platform: esphome
+
+wifi:
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+
+captive_portal:
+    
+web_server:
+  port: 80  
+
+button:
+  - platform: restart
+    name: Restart    
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+    ssid:
+      name: SSID      
+
+sensor:
+  - platform: wifi_signal
+    name: "Wifi Signal"
+    update_interval: 600s  
+
+binary_sensor:
+  - platform: gpio
+    id: binary_sensor_1
+    name: "binary_sensor_1"
+    pin:
+      number: 7
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - if:
+            condition:    
+              lambda: 'return !id(decouple_1).state;'
+            then: 
+              - switch.toggle: relay_1
+
+  - platform: gpio
+    id: binary_sensor_2
+    name: "binary_sensor_2"
+    pin:
+      number: 8
+      inverted: true
+      mode: INPUT_PULLUP
+    on_press:
+      then:
+        - if:
+            condition:    
+              lambda: 'return !id(decouple_2).state;'
+            then: 
+              - switch.toggle: relay_2
+          
+switch:
+  - platform: gpio
+    id: relay_1
+    name: "relay_1"
+    pin: 14
+  - platform: gpio
+    id: relay_2
+    name: "relay_2"
+    pin: 20
+
+  - platform: template
+    name: "decouple_relay_1"
+    id: decouple_1
+    icon: mdi:link-variant
+    optimistic: true
+    entity_category: config
+    on_turn_on:
+      then:
+      - switch.turn_on: decouple_1
+    on_turn_off:
+      then:
+      - switch.turn_off: decouple_1  
+
+  - platform: template
+    name: "decouple_relay_2"
+    id: decouple_2
+    icon: mdi:link-variant
+    optimistic: true
+    entity_category: config
+    on_turn_on:
+      then:
+      - switch.turn_on: decouple_2
+    on_turn_off:
+      then:
+      - switch.turn_off: decouple_2    
+
+output:
+  - platform: gpio
+    pin: 24
+    id: gpio_led
+
+light:
+  - platform: binary
+    name: green_led
+    output: gpio_led
+    id: lightid        
