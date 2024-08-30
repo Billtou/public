@@ -16,4 +16,4 @@
 
 ## HA emtity 說明
 
-![Mosquitto_broker](/cb3s-curtain/image/102129.png)
+![Mosquitto_broker](/cb3s-curtain/image/192402.png)
