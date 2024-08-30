@@ -12,7 +12,9 @@
 
 ![Mosquitto_broker](/cb3s-curtain/image/101426.png)
 
-## 乾接點接線方式
+## 乾接點接線方式  
+
+注意!! 2024/08/30 Update 取消此功能，不支持乾接點。
 
 ![Mosquitto_broker](/cb3s-curtain/image/101535.png)
 
