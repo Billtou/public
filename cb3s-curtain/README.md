@@ -12,12 +12,11 @@
 
 ## 安裝軌道
 
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/5GKqmqNeZzU)
+[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/5GKqmqNeZzU)
 
 
  
 ## 配對遙控器
-![Mosquitto_broker](/cb3s-curtain/image/FlexClip_1.mp4)
 ![Mosquitto_broker](/cb3s-curtain/image/101426.png)
 
 ## HA emtity 說明
