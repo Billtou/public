@@ -11,7 +11,7 @@
 斷電後上電: 電機馬達會自動開合一次來設定窗簾行程，然後記憶直到斷電
  
 ## 配對遙控器
-
+![Mosquitto_broker](/cb3s-curtain/image/FlexClip_1.mp4)
 ![Mosquitto_broker](/cb3s-curtain/image/101426.png)
 
 ## HA emtity 說明
