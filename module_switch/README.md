@@ -1,6 +1,9 @@
 
 # 模組開關使用說明 
 
+## 如何接線 模組開關 影片
+[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/y1aAvbTFT-A)
+
 ## 接入自家WIFI
 
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現(若沒跳出指定自家wifi頁面，請手機切換到瀏覽器，輸入192.168.4.1即可)，接入wifi後HA會自動發現設備，直接點選 "設定" 按紐並指定區域即完成。
