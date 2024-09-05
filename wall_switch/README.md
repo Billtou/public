@@ -1,8 +1,12 @@
 # 外觀接線以及ESPhome固件功能說明 
 
-## 如何接線
+## 如何接線 零火開關
 
+[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/xd02Zd4Uk7g)
 
+## 如何接線 單火開關
+
+[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/TfvIE2JR22c)
 
 ## 接入自家WIFI
 
