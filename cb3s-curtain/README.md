@@ -14,7 +14,7 @@
 
 11065357.png
 
-[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtube.com/shorts/jlr4vEZEzaE?si=HLq1vKLYztKUYYlw)
+[![Watch the video](/cb3s-curtain/image/11065357.png)](https://youtube.com/shorts/jlr4vEZEzaE?si=HLq1vKLYztKUYYlw)
 
 [![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/5GKqmqNeZzU)
 
