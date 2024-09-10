@@ -12,8 +12,11 @@
 
 ## 安裝軌道
 
-[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/5GKqmqNeZzU)
+11065357.png
 
+[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtube.com/shorts/jlr4vEZEzaE?si=HLq1vKLYztKUYYlw)
+
+[![Watch the video](/cb3s-curtain/image/110208.png)](https://youtu.be/5GKqmqNeZzU)
 
  
 ## 配對遙控器
