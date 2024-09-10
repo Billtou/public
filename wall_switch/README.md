@@ -1,7 +1,7 @@
 # 外觀接線以及ESPhome固件功能說明 
 
 ## 如何接線 零火開關 影片
-[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/xd02Zd4Uk7g)
+[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=D7bwWcenSq0n-hPO)
 
 
 ## 如何接線 單火開關 影片
