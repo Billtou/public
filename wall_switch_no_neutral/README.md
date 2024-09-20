@@ -6,7 +6,7 @@
 
 ## 如何接線 單火開關 影片
 
-[![Watch the video](/wall_switch/image/154746.png)](https://youtu.be/F29yXvkCFT8?si=uaOXP14IR8AjSqKk)
+[![Watch the video](/wall_switch/image/154746.png)](https://youtu.be/F29yXvkCFT8?si=5taHWoGiZtORFETS)
 
 ## 接入自家WIFI
 
