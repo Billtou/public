@@ -1,5 +1,13 @@
 # 外觀接線以及ESPhome固件功能說明 
 
+## 如何接線 零火開關 影片
+[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=D7bwWcenSq0n-hPO)
+
+
+## 如何接線 單火開關 影片
+
+[![Watch the video](/wall_switch/image/154746.png)](https://youtu.be/F29yXvkCFT8?si=uaOXP14IR8AjSqKk)
+
 ## 接入自家WIFI
 
 設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現(若沒跳出指定自家wifi頁面，請手機切換到瀏覽器，輸入192.168.4.1即可)，接入wifi後HA會自動發現設備，直接點選 "設定" 按紐並指定區域即完成。
@@ -35,10 +43,3 @@
 ![Mosquitto_broker](/wall_switch/image/122930.png)
 
 ![Mosquitto_broker](/wall_switch/image/122957.png)
-
-
-
-  greenled.yaml (默認OFF亮綠燈，若想OFF不亮燈可以參考)
-  
-  
-  ** 原本預計寫個解耦候透過偵測按壓模式不同分出三個虛擬開關single、double、hold但試不出來，我感覺是硬體上設計過濾按壓頻率，或是我間隔微秒沒抓好暫時宣布放棄。 或許有大神破解再請告知小弟 **
