@@ -2,7 +2,7 @@
 # 模組開關使用說明 
 
 ## 如何接線 模組開關 影片
-[![Watch the video](/module_switch/image/154644.png)](https://youtu.be/oL1PVQXvEHQ?si=BkKQdBnzC3CtHGFS)
+[![Watch the video](/module_switch/image/154644.png)](https://youtu.be/oL1PVQXvEHQ?si=OWOFjIUSMLn_HVU_)
 
 ## 接入自家WIFI
 
