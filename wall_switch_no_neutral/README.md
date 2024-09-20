@@ -26,7 +26,7 @@
 
 ![Mosquitto_broker](/wall_switch/image/161734.jpg)
 
-![Mosquitto_broker](/wall_switch/image/165741.jpg)
+![Mosquitto_broker](/wall_switch/image/162214.png)
 
 ![Mosquitto_broker](/wall_switch/image/121825.png)
 
