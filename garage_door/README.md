@@ -8,3 +8,9 @@
 ## 接入自家網路 - WIFI方法
 
 上電手機靠近本設備找wifi熱點 garage-door-XXXXXX，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機切換到瀏覽器輸入192.168.4.1即可)(要稍微等待一下wifi熱點才會出現) 後續接入HA請參考 網線方法 說明。
+
+## OTA 切換WIFI連線或網線 ##
+
+garage-door_WIFI.ota.bin    wifi OTA檔案
+
+garage-door_ETH.ota.bin     網線 OTA檔案
