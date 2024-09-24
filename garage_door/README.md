@@ -15,5 +15,6 @@ garage-door_WIFI.ota.bin    wifi OTA檔案
 
 garage-door_ETH.ota.bin     網線 OTA檔案
 
+瀏覽器輸入garage-door被分配到的ip
 
 ![Mosquitto_broker](/garage_door/image/201829.png)
