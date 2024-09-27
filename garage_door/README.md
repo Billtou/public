@@ -9,6 +9,20 @@
 
 上電手機靠近本設備找wifi熱點 garage-door-XXXXXX，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機切換到瀏覽器輸入192.168.4.1即可)(要稍微等待一下wifi熱點才會出現) 後續接入HA請參考網線方法。
 
+## 接口介紹
+
+
+
+## 遙控器接線方式 ##
+
+
+
+
+
+
+
+
+
 ## OTA 切換WIFI連線或網線 ##
 
 garage-door_ETH_4way_version.ota.bin        網線版本 "4路" 點動開關
@@ -24,3 +38,4 @@ garage-door_WIFI_garge_version.ota.bin       WIFI版本 "車庫" 鐵捲門
 ![Mosquitto_broker](/garage_door/image/201829.png)
 
 ** PS. OTA後原本被分配的IP會變更，建議斷電重開機，若從WIFI變更為網線，重開機後請按上文 "接入自家網路 - WIFI方法" 設定連網。
+
