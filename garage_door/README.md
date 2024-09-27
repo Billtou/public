@@ -11,7 +11,7 @@
 
 ## 接口介紹
 
-![Mosquitto_broker](/garage_door/image/100445.png)
+![Mosquitto_broker](/garage_door/image/103949.png)
 
 ![Mosquitto_broker](/garage_door/image/100344.png)
 
