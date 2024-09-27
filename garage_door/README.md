@@ -40,6 +40,8 @@ garage-door_WIFI_4way_version.ota.bin       WIFI版本 "4路" 點動開關
 
 garage-door_WIFI_garge_version.ota.bin       WIFI版本 "車庫" 鐵捲門
 
+** 若沿用自家的門磁發現HA的開關門顛倒，請選擇門磁反向的檔案即可 **
+
 瀏覽器輸入garage-door被分配到的ip
 
 ![Mosquitto_broker](/garage_door/image/201829.png)
