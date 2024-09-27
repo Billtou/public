@@ -25,6 +25,10 @@
 
 
 
+## 接入HA 車庫鐵捲門實體 ##
+
+![Mosquitto_broker](/garage_door/image/110253.png)
+
 
 ## OTA 切換WIFI連線或網線 ##
 
