@@ -18,7 +18,7 @@
 
 ## 遙控器接線方式 ##
 
-![Mosquitto_broker](/garage_door/image/140842.png)
+![Mosquitto_broker](/garage_door/image/140822.png)
 
 
 ![Mosquitto_broker](/garage_door/image/140841.png)
