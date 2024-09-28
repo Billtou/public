@@ -15,11 +15,11 @@
 
 ![Mosquitto_broker](/garage_door/image/100344.png)
 
-
-## 遙控器接線方式 ##
+## 快速鐵捲門接線方式 ##
 
 ![Mosquitto_broker](/garage_door/image/140822.png)
 
+## 遙控器接線方式 ##
 
 ![Mosquitto_broker](/garage_door/image/140841.png)
 
