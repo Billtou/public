@@ -3,16 +3,16 @@
 utility_meter:
   taipower_energy:
     unique_id: 38448d28-80f8-4e1f-98a8-735a06b82db3
-    source: sensor.energy_sum   # 需要改成自家的id
+    source: sensor.electricitymeter_pro_2_way_energy_sum   # 需要改成自家的id
 
 template:
   - sensor:
       - name: realtime_hour_cost
         unique_id: 239010d0-fd00-4615-ab05-b8964563370e
-        state: "{{((states.sensor.power_sum.state|float)/1000 *(states.sensor.cycle_kwh_cost.state|float))|round(1)}}"
+        state: "{{((states.sensor.power_sum.state|float)/1000 *(states.sensor.count_kwh_cost.state|float))|round(1)}}"
         unit_of_measurement: "$"
 
-      - name: cycle_kwh_cost
+      - name: count_kwh_cost
         unique_id: 2ca5f2b9-edb4-4b2a-b1aa-50607618df7c
         state: >
           {% if now().month in [6,7,8,9] %}
@@ -47,7 +47,7 @@ template:
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-      - name: cycle_power_cost
+      - name: count_power_cost
         unique_id: f53b6ccf-becb-48ab-a473-80f239199ea8
         state: >
           {% if now().month in [6,7,8,9] %}
