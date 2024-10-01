@@ -10,7 +10,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-
+  # reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
 
 ota:
   - platform: esphome
