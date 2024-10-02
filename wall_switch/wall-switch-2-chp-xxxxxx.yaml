@@ -52,6 +52,9 @@ binary_sensor:
       number: 7
       inverted: true
       mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms         
     on_press:
       then:
         - if:
@@ -67,6 +70,9 @@ binary_sensor:
       number: 28
       inverted: true
       mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms         
     on_press:
       then:
         - if:
