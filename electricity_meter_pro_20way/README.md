@@ -8,6 +8,10 @@
 
 WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxxx，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機打開瀏覽器輸入192.168.4.1即可)，wifi 指示燈常滅即完成，HA會自動找到設備。(要稍微等待一下wifi熱點才會出現)
 
+## 賦予本設備能自動雙月份歸零功能
+
+![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
+
 ## 硬體規格
 
 2路總耗電偵測功能
