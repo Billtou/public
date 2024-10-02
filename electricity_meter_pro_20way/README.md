@@ -48,7 +48,7 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 
 ## 接入HA的能源儀表板 建議方法2
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/155809.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/160737.png)
 
 
 ## 手動建立所以有相關實體方式
