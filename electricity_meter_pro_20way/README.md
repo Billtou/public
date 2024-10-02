@@ -1,6 +1,6 @@
 # 20路全屋耗電偵測器
 
-## 接入HA的方法
+## 接入自家網路的方法
 
 默認網線板可透過OTA切換為WIFI版
 
@@ -14,7 +14,7 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 
 18路各別迴路耗電偵測功能
 
-## 硬體安裝順序
+## 設備硬體安裝順序
 
 請先將電源接上，CT線路接好插入設備接口後再依照順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
@@ -29,7 +29,7 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/151837.png)
 
 
-先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
+2.安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
 
@@ -39,8 +39,8 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
 ## 接入HA的能源儀表板 建議方法1
-將2
 
+![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
 ## 接入HA的能源儀表板 建議方法2
 
