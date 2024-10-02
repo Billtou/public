@@ -1,5 +1,15 @@
 # 20路全屋耗電偵測器
 
+## 硬體規格
+
+2路總耗電偵測功能
+
+18路各別迴路耗電偵測功能
+
+## 設備硬體安裝順序
+
+請先將電源接上，CT線路接好插入設備接口後再依照順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
+
 ## 接入自家網路的方法
 
 默認網線板可透過OTA切換為WIFI版
@@ -11,16 +21,6 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 ## 賦予本設備能自動雙月份歸零功能
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
-
-## 硬體規格
-
-2路總耗電偵測功能
-
-18路各別迴路耗電偵測功能
-
-## 設備硬體安裝順序
-
-請先將電源接上，CT線路接好插入設備接口後再依照順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
 ## 接入HA步驟 (前置作業)
 
@@ -48,8 +48,7 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 
 ## 接入HA的能源儀表板 建議方法2
 
-
-
+![Mosquitto_broker](/electricity_meter_pro_20way/image/155809.png)
 
 
 ## 計算公式參考資料
