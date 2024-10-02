@@ -31,6 +31,12 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 
 先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
 
+![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
+
+
+修改entity 名稱 (改名稱就好不須改實體ID)
+
+![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
 ## 接入HA的能源儀表板 建議方法1
 將2
