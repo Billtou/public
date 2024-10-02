@@ -6,7 +6,7 @@ template:
         event: start
     action:
       - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: daily # 搭配cwa集成使用 與下一行二擇一
           # type: hourly # 搭配cwa集成使用 與上一行二擇一
