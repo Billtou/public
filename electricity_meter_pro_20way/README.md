@@ -51,7 +51,7 @@ WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxx
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/155809.png)
 
 
-## 計算公式參考資料
+## 手動建立所以有相關實體方式
 
 目前台電計費表
 
@@ -68,8 +68,10 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
 ## HA重開機會產生以下sensor entity
 
-sensor.cycle_kwh_cost  每度電累進電價單價(能源面板用這個entity來計費)
+sensor.taipower_energy  手動建立 "功耗表" 實體
 
-sensor.cycle_power_cost 計費區間累計電費
+sensor.count_kwh_cost  每度電累進電價單價
 
-sensor.realtime_hour_cost 即時每小時用電預估
+sensor.count_power_cost 計費區間累計電費
+
+sensor.realtime_hour_cost 即時每小時用電費預估
