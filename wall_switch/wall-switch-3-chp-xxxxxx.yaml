@@ -159,6 +159,6 @@ output:
 
 light:
   - platform: binary
-    name: green_led
+    name: green_led_off
     output: gpio_led
-    id: lightid        
+    id: lightid       
