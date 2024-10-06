@@ -83,10 +83,11 @@ switch:
 
 output:
   - platform: gpio
-    pin: 17
+    pin: 24
     id: gpio_led
 
 light:
   - platform: binary
+    name: green_led_off
     output: gpio_led
-    id: lightid    
+    id: lightid   
