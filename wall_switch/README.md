@@ -74,9 +74,11 @@
 
   wall-switch-1-cbu-xxxxxx.yaml (一路開關)
   
+  wall-switch-1-chp-xxxxxx.yaml (一路開關 芯片模塊版本)  
+  
   wall-switch-2-cbu-xxxxxx.yaml (二路開關)
   
-  wall-switch-2-chp-xxxxxx.yaml (三路開關 芯片模塊版本)
+  wall-switch-2-chp-xxxxxx.yaml (二路開關 芯片模塊版本)
   
   wall-switch-3-cbu-xxxxxx.yaml (三路開關)
 
