@@ -154,7 +154,7 @@ switch:
 
 output:
   - platform: gpio
-    pin: 24
+    pin: 17
     id: gpio_led
 
 light:
