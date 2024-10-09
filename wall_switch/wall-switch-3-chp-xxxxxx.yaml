@@ -152,13 +152,9 @@ switch:
       then:
       - switch.turn_off: decouple_3         
 
-output:
-  - platform: gpio
-    pin: 24
-    id: gpio_led
-
 light:
-  - platform: binary
-    name: green_led_off
-    output: gpio_led
-    id: lightid       
+  - platform: status_led
+    name: "Green LED Off"
+    id: green_led_off
+    pin: 24
+     
