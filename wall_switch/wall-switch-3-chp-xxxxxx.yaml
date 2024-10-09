@@ -156,5 +156,6 @@ light:
   - platform: status_led
     name: "Green LED Off"
     id: green_led_off
-    pin: 24
+    pin: 17
+
      
