@@ -1,7 +1,7 @@
 esphome:
   name: "wall-switch-1-cbu-XXXXXX" # 後6碼一定要跟自家的設備後碼一致
   friendly_name: wall-switch-1-cbu-XXXXXX  # 可自定辨識度高的英文
-  
+
 bk72xx:
   board: cbu
 
@@ -117,13 +117,8 @@ switch:
       then:
       - switch.turn_off: decouple_2    
 
-output:
-  - platform: gpio
-    pin: 24
-    id: gpio_led
-
 light:
-  - platform: binary
-    name: green_led_off
-    output: gpio_led
-    id: lightid   
+  - platform: status_led
+    name: "Green LED Off"
+    id: green_led_off
+    pin: 17 
