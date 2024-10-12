@@ -10,6 +10,89 @@ esphome:
   project:
     name: esphome.web
     version: dev
+  on_boot: 
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_1
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_1      
+      - if:
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_2  
+      - if:            
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_2     
+      - if:
+          condition:
+            - lambda: 'return id(default_relay3_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_3
+      - if:
+          condition:
+            - lambda: 'return id(default_relay3_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_3      
+      - if:
+          condition:
+            - lambda: 'return id(default_relay4_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_4  
+      - if:            
+          condition:
+            - lambda: 'return id(default_relay4_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_4
+select:
+  - platform: template
+    name: "Default Relay1 State"
+    id: default_relay1_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+
+  - platform: template
+    name: "Default Relay2 State"
+    id: default_relay2_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+
+  - platform: template
+    name: "Default Relay3 State"
+    id: default_relay3_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+
+  - platform: template
+    name: "Default Relay4 State"
+    id: default_relay4_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+
 
 esp32:
   board: esp32dev
@@ -62,21 +145,25 @@ web_server:
 
 switch:
   - platform: gpio
+    id: relay_1
     pin: GPIO02
     name: "Relay_1"
     icon: mdi:electric-switch
 
   - platform: gpio
+    id: relay_2
     pin: GPIO04
     name: "Relay_2"
     icon: mdi:electric-switch
 
   - platform: gpio
+    id: relay_3  
     pin: GPIO12
     name: "Relay_3"
     icon: mdi:electric-switch
 
   - platform: gpio
+    id: relay_4  
     pin: GPIO14
     name: "Relay_4"
     icon: mdi:electric-switch    
