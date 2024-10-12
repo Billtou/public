@@ -113,7 +113,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-
+  reboot_timeout: 0s  #取消當持續15分鐘找不網路時重置系統。
 # Allow Over-The-Air updates
 ota:
 - platform: esphome
