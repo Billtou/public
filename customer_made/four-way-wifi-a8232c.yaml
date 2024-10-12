@@ -1,0 +1,85 @@
+substitutions:
+  name: "four-way-wifi-a8232c"
+  friendly_name: Four Way Wifi a8232c
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  min_version: 2024.6.0
+  name_add_mac_suffix: false
+  project:
+    name: esphome.web
+    version: dev
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+- platform: esphome
+
+# Allow provisioning Wi-Fi via serial
+improv_serial:
+
+wifi:
+  # Set up a wifi access point
+  ap: {}
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
+captive_portal:
+
+dashboard_import:
+  package_import_url: github://esphome/example-configs/esphome-web/esp32.yaml@main
+  import_full_config: true
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# To have a "next url" for improv serial
+web_server:
+  port: 80
+  version: 3
+
+switch:
+  - platform: gpio
+    pin: GPIO02
+    name: "Relay_1"
+    icon: mdi:electric-switch
+
+  - platform: gpio
+    pin: GPIO04
+    name: "Relay_2"
+    icon: mdi:electric-switch
+
+  - platform: gpio
+    pin: GPIO12
+    name: "Relay_3"
+    icon: mdi:electric-switch
+
+  - platform: gpio
+    pin: GPIO14
+    name: "Relay_4"
+    icon: mdi:electric-switch    
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
