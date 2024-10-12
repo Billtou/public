@@ -10,6 +10,48 @@ esphome:
   project:
     name: esphome.web
     version: dev
+  on_boot: 
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_1
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_1      
+      - if:
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_2  
+      - if:            
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_2    
+select:
+  - platform: template
+    name: "Default Relay1 State"
+    id: default_relay1_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+
+  - platform: template
+    name: "Default Relay2 State"
+    id: default_relay2_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
 
 esp32:
   board: esp32dev
@@ -21,7 +63,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-
+  reboot_timeout: 0s  #取消當持續15分鐘找不網路時重置系統。
 # Allow Over-The-Air updates
 ota:
 - platform: esphome
@@ -53,11 +95,13 @@ web_server:
 
 switch:
   - platform: gpio
+    id: relay_1
     pin: GPIO02
     name: "Relay_1"
     icon: mdi:electric-switch
 
   - platform: gpio
+    id: relay_2
     pin: GPIO04
     name: "Relay_2"
     icon: mdi:electric-switch
