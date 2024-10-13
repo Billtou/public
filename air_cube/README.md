@@ -12,7 +12,7 @@
     SENSIRION SGP30
 
 ## 建議接入HA方式 
-  - 通電wifi燈閃爍，手機靠近本設備找wifi熱點 air-cube-xxxxxx，指定自家wifi名稱與密碼<font color='#ed3e3e'><b>(若沒跳出輸入自家wifi畫面，手機打開瀏覽器輸入192.168.4.1即可)，wifi指示燈常滅即完成，HA會自動找到設備。(要稍微等待一下wifi熱點才會出現)
+  - 通電wifi燈閃爍，手機靠近本設備找wifi熱點 air-cube-xxxxxx，指定自家wifi名稱與密碼若沒跳出輸入自家wifi畫面，手機打開瀏覽器輸入192.168.4.1即可)，wifi指示燈常滅即完成，HA會自動找到設備。(要稍微等待一下wifi熱點才會出現)
   
   - ** 建議正式使用前先進入HA的裝置與服務 > ESPHome > Air Cube-xxxx > 1個裝置 > 右上角筆的圖案 > 將名稱改為有意義的名稱例如Livingroom Cube > 確定同意修改實體名稱 > 完成，提高實體名稱辨識度，2台以上實體名稱不容易混淆 **
   
