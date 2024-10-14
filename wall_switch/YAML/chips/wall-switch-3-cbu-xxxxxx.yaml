@@ -186,7 +186,7 @@ switch:
 select:
   - platform: template
     name: "Default Relay State1"
-    id: default_relay_state1
+    id: default_relay1_state
     optimistic: True
     restore_value:  True
     options: 
@@ -195,7 +195,7 @@ select:
     initial_option: "OFF"
   - platform: template
     name: "Default Relay State2"
-    id: default_relay_state2
+    id: default_relay2_state
     optimistic: True
     restore_value:  True
     options: 
@@ -204,7 +204,7 @@ select:
     initial_option: "OFF"
   - platform: template
     name: "Default Relay State3"
-    id: default_relay_state3
+    id: default_relay3_state
     optimistic: True
     restore_value:  True
     options: 
