@@ -137,7 +137,25 @@ switch:
     on_turn_off:
       then:
       - switch.turn_off: decouple_2    
-
+select:
+  - platform: template
+    name: "Default Relay State1"
+    id: default_relay_state1
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+  - platform: template
+    name: "Default Relay State2"
+    id: default_relay_state2
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"    
 light:
   - platform: status_led
     name: "Green LED Off"
