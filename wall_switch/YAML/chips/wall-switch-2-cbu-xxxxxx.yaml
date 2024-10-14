@@ -1,6 +1,19 @@
+
+substitutions:
+  name: wall-switch-2-cbu-xxxxxx
+  friendly_name: Wall Switch 2 CBU XXXXXX
+  upper_devicename: "CBU CHIPES 2WAY RELAY"
+  project_name: "Taiwan Smart Home Technology.2Way Wall Switch"
+  project_version: "1.1" 
+
 esphome:
-  name: "wall-switch-1-cbu-XXXXXX" # 後6碼一定要跟自家的設備後碼一致
-  friendly_name: wall-switch-1-cbu-XXXXXX  # 可自定辨識度高的英文
+  name: ${name}
+  friendly_name: ${friendly_name}
+  project:
+    name: "${project_name}"
+    version: "${project_version}"  
+  comment: ${upper_devicename}     
+  # name_add_mac_suffix: True
   on_boot: 
     then:
       - if:
@@ -12,7 +25,7 @@ esphome:
           condition:
             - lambda: 'return id(default_relay1_state).state == "ON" ;'
           then:
-            - switch.turn_on: relay_1  
+            - switch.turn_on: relay_1   
       - if:
           condition:
             - lambda: 'return id(default_relay2_state).state == "OFF" ;'
@@ -22,7 +35,8 @@ esphome:
           condition:
             - lambda: 'return id(default_relay2_state).state == "ON" ;'
           then:
-            - switch.turn_on: relay_2             
+            - switch.turn_on: relay_2       
+
 bk72xx:
   board: cbu
 
@@ -69,7 +83,7 @@ sensor:
 binary_sensor:
   - platform: gpio
     id: binary_sensor_1
-    name: "binary_sensor_1"
+    name: "Binary Sensor 1"
     pin:
       number: 14
       inverted: true
@@ -87,7 +101,7 @@ binary_sensor:
 
   - platform: gpio
     id: binary_sensor_2
-    name: "binary_sensor_2"
+    name: "Binary Sensor 2"
     pin:
       number: 15
       inverted: true
@@ -105,15 +119,15 @@ binary_sensor:
 switch:
   - platform: gpio
     id: relay_1
-    name: "relay_1"
+    name: "Relay 1"
     pin: 22
   - platform: gpio
     id: relay_2
-    name: "relay_2"
+    name: "Relay 2"
     pin: 26    
 
   - platform: template
-    name: "decouple_relay_1"
+    name: "Decouple Relay 1"
     id: decouple_1
     icon: mdi:link-variant
     optimistic: true
@@ -126,7 +140,7 @@ switch:
       - switch.turn_off: decouple_1  
 
   - platform: template
-    name: "decouple_relay_2"
+    name: "Decouple Relay 2"
     id: decouple_2
     icon: mdi:link-variant
     optimistic: true
@@ -136,11 +150,12 @@ switch:
       - switch.turn_on: decouple_2
     on_turn_off:
       then:
-      - switch.turn_off: decouple_2    
+      - switch.turn_off: decouple_2   
+       
 select:
   - platform: template
-    name: "Default Relay State1"
-    id: default_relay_state1
+    name: "Default Relay State 1"
+    id: default_relay1_state
     optimistic: True
     restore_value:  True
     options: 
@@ -148,14 +163,15 @@ select:
       - "OFF"
     initial_option: "OFF"
   - platform: template
-    name: "Default Relay State2"
-    id: default_relay_state2
+    name: "Default Relay State 2"
+    id: default_relay2_state
     optimistic: True
     restore_value:  True
     options: 
       - "ON"
       - "OFF"
-    initial_option: "OFF"    
+    initial_option: "OFF"
+
 light:
   - platform: status_led
     name: "Green LED Off"
