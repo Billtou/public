@@ -1,7 +1,18 @@
 esphome:
   name: wall-switch-1-ba31
   friendly_name: wall-switch-1-ba31
-
+  on_boot: 
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_1
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_1     
 bk72xx:
   board: cbu
 
@@ -82,7 +93,17 @@ switch:
       then:
       - switch.turn_off: decouple_1 
 
-
+select:
+  - platform: template
+    name: "Default Relay State1"
+    id: default_relay_state1
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+    
 light:
   - platform: status_led
     name: "Green LED Off"
