@@ -2,6 +2,38 @@ esphome:
   name: "wall-switch-3-chp-266c94"
   friendly_name: wall-switch-3-chp-266c94
   name_add_mac_suffix: false
+  on_boot: 
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_1
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_1    
+      - if:
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_2
+      - if:
+          condition:
+            - lambda: 'return id(default_relay2_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_2   
+      - if:
+          condition:
+            - lambda: 'return id(default_relay3_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_3
+      - if:
+          condition:
+            - lambda: 'return id(default_relay3_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_3            
 bk72xx:
   board: cbu
 
@@ -10,7 +42,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-  # reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
+  reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
 
 ota:
   - platform: esphome
@@ -151,7 +183,37 @@ switch:
     on_turn_off:
       then:
       - switch.turn_off: decouple_3         
-
+select:
+  - platform: template
+    name: "Default Relay State1"
+    id: default_relay_state1
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+select:
+  - platform: template
+    name: "Default Relay State2"
+    id: default_relay_state2
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"
+select:
+  - platform: template
+    name: "Default Relay State3"
+    id: default_relay_state3
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+    initial_option: "OFF"    
+    
 light:
   - platform: status_led
     name: "Green LED Off"
