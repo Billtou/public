@@ -93,7 +93,7 @@ switch:
       - switch.turn_off: decouple_1  
 select:
   - platform: template
-    name: "Default Relay State"
+    name: "Default Relay State1"
     id: default_relay1_state1
     optimistic: True
     restore_value:  True
