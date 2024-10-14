@@ -5,12 +5,12 @@ esphome:
     then:
       - if:
           condition:
-            - lambda: 'return id(default_relay_state).state == "OFF" ;'
+            - lambda: 'return id(default_relay1_state1).state == "OFF" ;'
           then:
             - switch.turn_off: relay_1
       - if:
           condition:
-            - lambda: 'return id(default_relay_state).state == "ON" ;'
+            - lambda: 'return id(default_relay1_state1).state == "ON" ;'
           then:
             - switch.turn_on: relay_1   
 bk72xx:
@@ -94,7 +94,7 @@ switch:
 select:
   - platform: template
     name: "Default Relay State"
-    id: default_relay_state
+    id: default_relay1_state1
     optimistic: True
     restore_value:  True
     options: 
