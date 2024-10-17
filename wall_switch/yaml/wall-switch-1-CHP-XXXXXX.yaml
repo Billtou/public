@@ -1,0 +1,124 @@
+substitutions:
+  name: "wall-switch-1-chp"
+  friendly_name: "Wall Switch 1 CHP"
+  upper_devicename: "CBU CHIPES 1WAY RELAY"
+  project_name: "Taiwan Smart Home Technology.1Way Wall Switch"
+  project_version: "1.1"   
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  project:
+    name: "${project_name}"
+    version: "${project_version}"  
+  comment: ${upper_devicename}     
+  name_add_mac_suffix: True
+  on_boot: 
+    then:
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "OFF" ;'
+          then:
+            - switch.turn_off: relay_1
+      - if:
+          condition:
+            - lambda: 'return id(default_relay1_state).state == "ON" ;'
+          then:
+            - switch.turn_on: relay_1   
+
+bk72xx:
+  board: cbu
+
+logger:
+
+web_server:
+
+captive_portal:
+
+mdns:
+
+api:
+  reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
+
+ota:
+  - platform: esphome
+
+wifi:
+  ap: {}
+
+button:
+  - platform: restart
+    name: Restart
+
+debug:
+  update_interval: 30s
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+    ssid:
+      name: SSID      
+
+sensor:
+  - platform: wifi_signal
+    name: "Wifi Signal"
+    update_interval: 600s  
+
+binary_sensor:
+  - platform: gpio
+    id: binary_sensor_1
+    name: "Binary Sensor 1"
+    pin:
+      number: 28
+      inverted: true
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms         
+    on_press:
+      then:
+        - if:
+            condition:    
+              lambda: 'return !id(decouple_1).state;'
+            then: 
+              - switch.toggle: relay_1
+
+switch:
+  - platform: gpio
+    id: relay_1
+    name: Relay 1
+    pin: P16
+
+  - platform: template
+    name: "Decouple Relay 1"
+    id: decouple_1
+    icon: mdi:link-variant
+    optimistic: true
+    entity_category: config
+    on_turn_on:
+      then:
+      - switch.turn_on: decouple_1
+    on_turn_off:
+      then:
+      - switch.turn_off: decouple_1 
+      
+select:
+  - platform: template
+    name: "Default Relay State 1"
+    id: default_relay1_state
+    optimistic: True
+    restore_value:  True
+    options: 
+      - "ON"
+      - "OFF"
+
+light:
+  - platform: status_led
+    name: "Green LED Off"
+    id: green_led_off
+    pin: 24
