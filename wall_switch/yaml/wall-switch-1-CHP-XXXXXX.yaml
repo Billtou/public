@@ -12,7 +12,7 @@ esphome:
     name: "${project_name}"
     version: "${project_version}"  
   comment: ${upper_devicename}     
-  name_add_mac_suffix: True
+  name_add_mac_suffix: false
   on_boot: 
     then:
       - if:
