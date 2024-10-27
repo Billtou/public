@@ -2,9 +2,14 @@
 substitutions:
   name: wall-switch-1-cbu-xxxxxx
   friendly_name: Wall Switch 1 CBU xxxxxx
+
+  substitutions:
+  name: wall-switch-1-cbu-c2f6ad
+  friendly_name: Wall Switch 1 CBU c2f6ad
   upper_devicename: "CBU CHIPES 1WAY RELAY"
-  project_name: "Taiwan Smart Home Technology.1Way Wall Switch"
-  project_version: "1.1" 
+  project_name: "Taiwan Smart Home Technology.1 Way Wall Switch"
+  project_version: "1.2" 
+  hidden_ssid: "false"
 
 esphome:
   name: ${name}
@@ -30,19 +35,19 @@ esphome:
 bk72xx:
   board: cbu
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
   reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
   
-#2024/06/29 Update For ESPHome 6 或以上適用
 ota:
  - platform: esphome
 
 wifi:
+  fast_connect: ${hidden_ssid}  
   ap:
+    ssid: ${name}
+    password: ""
 
 captive_portal:
 
@@ -99,12 +104,6 @@ switch:
     optimistic: true
     entity_category: config
     restore_mode: RESTORE_DEFAULT_OFF
-    # on_turn_on:
-    #   then:
-    #   - switch.turn_on: decouple_1
-    # on_turn_off:
-    #   then:
-    #   - switch.turn_off: decouple_1  
       
 select:
   - platform: template
@@ -124,3 +123,5 @@ light:
     id: green_led_off
     pin: 17 
     entity_category: config
+    disabled_by_default: False
+    restore_mode: RESTORE_DEFAULT_OFF
