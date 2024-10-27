@@ -2,10 +2,6 @@
 substitutions:
   name: wall-switch-1-cbu-xxxxxx
   friendly_name: Wall Switch 1 CBU xxxxxx
-
-  substitutions:
-  name: wall-switch-1-cbu-c2f6ad
-  friendly_name: Wall Switch 1 CBU c2f6ad
   upper_devicename: "CBU CHIPES 1WAY RELAY"
   project_name: "Taiwan Smart Home Technology.1 Way Wall Switch"
   project_version: "1.2" 
