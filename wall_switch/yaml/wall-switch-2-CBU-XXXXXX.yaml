@@ -142,12 +142,7 @@ switch:
     icon: mdi:link-variant
     optimistic: true
     entity_category: config
-    on_turn_on:
-      then:
-      - switch.turn_on: decouple_2
-    on_turn_off:
-      then:
-      - switch.turn_off: decouple_2   
+    restore_mode: RESTORE_DEFAULT_OFF  
        
 select:
   - platform: template
