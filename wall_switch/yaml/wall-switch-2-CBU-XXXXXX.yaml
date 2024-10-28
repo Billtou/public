@@ -5,7 +5,8 @@ substitutions:
   upper_devicename: "CBU CHIPES 2WAY RELAY"
   project_name: "Taiwan Smart Home Technology.2Way Wall Switch"
   project_version: "1.2" 
-
+  hidden_ssid: "false"
+  
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
