@@ -1,6 +1,6 @@
 substitutions:
-  name: "wall-switch-1-chp-XXXXXX"
-  friendly_name: "Wall Switch 1 CHP XXXXXX"
+  name: "wall-switch-1-chp-xxxxxx"
+  friendly_name: "Wall Switch 1 CHP xxxxxx"
   upper_devicename: "CBU CHIPES 1WAY RELAY"
   project_name: "Taiwan Smart Home Technology.1Way Wall Switch"
   project_version: "1.2"   
