@@ -8,3 +8,6 @@ https://www.puzzleslamps.com/manual-instructions-puzzles-lamps.html
 
 [![Watch the video](/puzzles_lamps/image/193625.png)](https://www.youtube.com/watch?v=Eu-heqvuD7I&t=11s&ab_channel=CompanyJulai)
 
+## 最後燈座安裝提醒
+
+[![Watch the video](/puzzles_lamps/image/193625.png)](https://www.youtube.com/watch?v=Eu-heqvuD7I&t=11s&ab_channel=CompanyJulai)
