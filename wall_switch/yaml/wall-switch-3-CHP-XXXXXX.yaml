@@ -3,7 +3,7 @@ substitutions:
   friendly_name: Wall Switch 3 CHP
   upper_devicename: "CBU CHIPES 3WAY RELAY"
   project_name: "Taiwan Smart Home Technology.3Way Wall Switch"
-  project_version: "1.1" 
+  project_version: "1.2" 
   hidden_ssid: "false"
   
 esphome:
