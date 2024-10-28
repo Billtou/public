@@ -12,7 +12,7 @@ esphome:
     name: "${project_name}"
     version: "${project_version}"  
   comment: ${upper_devicename}     
-  name_add_mac_suffix: false
+  # name_add_mac_suffix: True
   on_boot: 
     then:
       - if:
@@ -49,20 +49,19 @@ esphome:
 bk72xx:
   board: cbu
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
   reboot_timeout: 0s  #可定義設備多久連不上wifi會重啟，默認15分鐘，若要關閉該功能設為 0s
   
-#2024/06/29 Update For ESPHome 6 或以上適用
 ota:
  - platform: esphome
 
 wifi:
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  fast_connect: ${hidden_ssid}  
   ap:
+    ssid: ${name}
+    password: ""
 
 captive_portal:
 
@@ -163,12 +162,7 @@ switch:
     icon: mdi:link-variant
     optimistic: true
     entity_category: config
-    on_turn_on:
-      then:
-      - switch.turn_on: decouple_1
-    on_turn_off:
-      then:
-      - switch.turn_off: decouple_1  
+    restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     name: "Decouple Relay 2"
@@ -176,12 +170,7 @@ switch:
     icon: mdi:link-variant
     optimistic: true
     entity_category: config
-    on_turn_on:
-      then:
-      - switch.turn_on: decouple_2
-    on_turn_off:
-      then:
-      - switch.turn_off: decouple_2    
+    restore_mode: RESTORE_DEFAULT_OFF 
 
   - platform: template
     name: "Decouple Relay 3"
@@ -189,12 +178,7 @@ switch:
     icon: mdi:link-variant
     optimistic: true
     entity_category: config
-    on_turn_on:
-      then:
-      - switch.turn_on: decouple_3
-    on_turn_off:
-      then:
-      - switch.turn_off: decouple_3    
+    restore_mode: RESTORE_DEFAULT_OFF
            
 select:
   - platform: template
@@ -206,6 +190,8 @@ select:
       - "ON"
       - "OFF"
     initial_option: "OFF"
+    entity_category: config
+    
   - platform: template
     name: "Default Relay State 2"
     id: default_relay2_state
@@ -215,6 +201,8 @@ select:
       - "ON"
       - "OFF"
     initial_option: "OFF"
+    entity_category: config
+    
   - platform: template
     name: "Default Relay State 3"
     id: default_relay3_state
@@ -223,21 +211,14 @@ select:
     options: 
       - "ON"
       - "OFF"
-    initial_option: "OFF"  
+    initial_option: "OFF"
+    entity_category: config
 
 light:
   - platform: status_led
     name: "Green LED Off"
     id: green_led_off
     pin: 24
-
-# output:
-#   - platform: gpio
-#     pin: 24
-#     id: gpio_led
-
-# light:
-#   - platform: binary
-#     name: green_led
-#     output: gpio_led
-#     id: lightid        
+    entity_category: config
+    disabled_by_default: False
+    restore_mode: RESTORE_DEFAULT_OFF    
