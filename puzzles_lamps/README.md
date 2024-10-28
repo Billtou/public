@@ -14,6 +14,9 @@ https://www.puzzleslamps.com/manual-instructions-puzzles-lamps.html
 
 
 ![081733](/puzzles_lamps/image/200555.png)
+
 ![081733](/puzzles_lamps/image/200525.png)
 
+![081733](/puzzles_lamps/image/200625.png)
 
+![081733](/puzzles_lamps/image/200656.png)
