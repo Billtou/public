@@ -6,13 +6,5 @@ https://www.puzzleslamps.com/manual-instructions-puzzles-lamps.html
 
 ## 影片版說明
 
-
 [![Watch the video](/image/193625.png)](https://www.youtube.com/watch?v=Eu-heqvuD7I&t=11s&ab_channel=CompanyJulai)
 
-
-
-![081733](/air_cube/image/075203.png)
-
-![081733](/air_cube/image/075240.png)
-
-![081733](/air_cube/image/080040.png)
