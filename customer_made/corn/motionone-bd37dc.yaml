@@ -1,0 +1,503 @@
+substitutions:
+  name: "motionone-bd37dc"
+  friendly_name: MotionOne bd37dc
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  min_version: 2024.6.0
+  name_add_mac_suffix: false
+  project:
+    name: esphome.web
+    version: dev
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+- platform: esphome
+
+# Allow provisioning Wi-Fi via serial
+improv_serial:
+
+wifi:
+  # Set up a wifi access point
+  ap: {}
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
+captive_portal:
+
+dashboard_import:
+  package_import_url: github://esphome/firmware/esphome-web/esp32c3.yaml@main
+  import_full_config: true
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# To have a "next url" for improv serial
+web_server:
+  port: 80
+  version: 3
+
+uart:
+  id: uart_mmwave
+  tx_pin: 21
+  rx_pin: 20
+  baud_rate: 256000
+  parity: NONE
+  stop_bits: 1 
+
+ld2410:
+
+sensor:
+  - platform: ld2410
+    moving_distance:
+      name : Moving Distance
+    still_distance:
+      name: Still Distance
+    moving_energy:
+      name: Move Energy
+    still_energy:
+      name: Still Energy
+    detection_distance:
+      name: Detection Distance
+    g0:
+      move_energy:
+        name: g0 move energy
+      still_energy:
+        name: g0 still energy
+    g1:
+      move_energy:
+        name: g1 move energy
+      still_energy:
+        name: g1 still energy
+    g2:
+      move_energy:
+        name: g2 move energy
+      still_energy:
+        name: g2 still energy
+    g3:
+      move_energy:
+        name: g3 move energy
+      still_energy:
+        name: g3 still energy
+    g4:
+      move_energy:
+        name: g4 move energy
+      still_energy:
+        name: g4 still energy
+    g5:
+      move_energy:
+        name: g5 move energy
+      still_energy:
+        name: g5 still energy
+    g6:
+      move_energy:
+        name: g6 move energy
+      still_energy:
+        name: g6 still energy
+    g7:
+      move_energy:
+        name: g7 move energy
+      still_energy:
+        name: g7 still energy
+    g8:
+      move_energy:
+        name: g8 move energy
+      still_energy:
+        name: g8 still energy
+switch:
+  - platform: ld2410
+    engineering_mode:
+      name: "engineering mode"
+    bluetooth:
+      name: "control bluetooth"   
+
+number:         
+
+#FOR LD2410C
+  - platform: ld2410
+    timeout:
+      name: timeout
+    max_move_distance_gate:
+      name: max move distance gate
+    max_still_distance_gate:
+      name: max still distance gate
+    g0:
+      move_threshold:
+        name: g0 move threshold
+        id: g0_move_threshold
+      still_threshold:
+        name: g0 still threshold
+        id: g0_still_threshold
+    g1:
+      move_threshold:
+        name: g1 move threshold
+        id: g1_move_threshold
+      still_threshold:
+        name: g1 still threshold
+        id: g1_still_threshold
+    g2:
+      move_threshold:
+        name: g2 move threshold
+        id: g2_move_threshold
+      still_threshold:
+        name: g2 still threshold
+        id: g2_still_threshold
+    g3:
+      move_threshold:
+        name: g3 move threshold
+        id: g3_move_threshold
+      still_threshold:
+        name: g3 still threshold
+        id: g3_still_threshold
+    g4:
+      move_threshold:
+        name: g4 move threshold
+        id: g4_move_threshold
+      still_threshold:
+        name: g4 still threshold
+        id: g4_still_threshold
+    g5:
+      move_threshold:
+        name: g5 move threshold
+        id: g5_move_threshold
+      still_threshold:
+        name: g5 still threshold
+        id: g5_still_threshold
+    g6:
+      move_threshold:
+        name: g6 move threshold
+        id: g6_move_threshold
+      still_threshold:
+        name: g6 still threshold
+        id: g6_still_threshold
+    g7:
+      move_threshold:
+        name: g7 move threshold
+        id: g7_move_threshold
+      still_threshold:
+        name: g7 still threshold
+        id: g7_still_threshold
+    g8:
+      move_threshold:
+        name: g8 move threshold
+        id: g8_move_threshold
+      still_threshold:
+        name: g8 still threshold
+        id: g8_still_threshold  
+
+binary_sensor:
+#FOR LD2410C  
+  - platform: ld2410
+    has_moving_target:
+      name: Moving Target
+      id: moving_target
+    has_still_target:
+      name: Still Target
+      id: still_target
+    has_target:
+      name: Presence
+      id: presence
+
+button:
+  - platform: template
+    name: "Move Presets 1"
+    id: move_presets_1   
+    icon: "mdi:signal-cellular-1"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_move_threshold
+            value: 60
+        - delay: 500ms
+        - number.set:
+            id: g1_move_threshold
+            value: 60 
+        - delay: 500ms            
+        - number.set:
+            id: g2_move_threshold
+            value: 48 
+        - delay: 500ms            
+        - number.set:
+            id: g3_move_threshold
+            value: 36
+        - delay: 500ms             
+        - number.set:
+            id: g4_move_threshold
+            value: 24 
+        - delay: 500ms            
+        - number.set:
+            id: g5_move_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g6_move_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g7_move_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g8_move_threshold
+            value: 18 
+        - delay: 500ms                                                                                                
+
+  - platform: template
+    name: "Move Presets 2"
+    id: move_presets_2   
+    icon: "mdi:signal-cellular-2"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_move_threshold
+            value: 50 
+        - delay: 500ms            
+        - number.set:
+            id: g1_move_threshold
+            value: 50 
+        - delay: 500ms            
+        - number.set:
+            id: g2_move_threshold
+            value: 40 
+        - delay: 500ms            
+        - number.set:
+            id: g3_move_threshold
+            value: 30 
+        - delay: 500ms            
+        - number.set:
+            id: g4_move_threshold
+            value: 20 
+        - delay: 500ms            
+        - number.set:
+            id: g5_move_threshold
+            value: 15 
+        - delay: 500ms            
+        - number.set:
+            id: g6_move_threshold
+            value: 15 
+        - delay: 500ms            
+        - number.set:
+            id: g7_move_threshold
+            value: 15 
+        - delay: 500ms            
+        - number.set:
+            id: g8_move_threshold
+            value: 15 
+        - delay: 500ms            
+
+  - platform: template
+    name: "Move Presets 3"
+    id: move_presets_3   
+    icon: "mdi:signal-cellular-3"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_move_threshold
+            value: 45 
+        - delay: 500ms            
+        - number.set:
+            id: g1_move_threshold
+            value: 45 
+        - delay: 500ms            
+        - number.set:
+            id: g2_move_threshold
+            value: 36 
+        - delay: 500ms            
+        - number.set:
+            id: g3_move_threshold
+            value: 27
+        - delay: 500ms             
+        - number.set:
+            id: g4_move_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g5_move_threshold
+            value: 13 
+        - delay: 500ms            
+        - number.set:
+            id: g6_move_threshold
+            value: 13 
+        - delay: 500ms            
+        - number.set:
+            id: g7_move_threshold
+            value: 13
+        - delay: 500ms             
+        - number.set:
+            id: g8_move_threshold
+            value: 13 
+        - delay: 500ms            
+
+
+  - platform: template
+    name: "Still Presets 1"
+    id: still_presets_1   
+    icon: "mdi:signal-cellular-1"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g1_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g2_still_threshold
+            value: 48 
+        - delay: 500ms            
+        - number.set:
+            id: g3_still_threshold
+            value: 48 
+        - delay: 500ms            
+        - number.set:
+            id: g4_still_threshold
+            value: 36 
+        - delay: 500ms            
+        - number.set:
+            id: g5_still_threshold
+            value: 36 
+        - delay: 500ms            
+        - number.set:
+            id: g6_still_threshold
+            value: 24 
+        - delay: 500ms            
+        - number.set:
+            id: g7_still_threshold
+            value: 24 
+        - delay: 500ms            
+        - number.set:
+            id: g8_still_threshold
+            value: 24 
+        - delay: 500ms            
+
+  - platform: template
+    name: "Still Presets 2"
+    id: still_presets_2   
+    icon: "mdi:signal-cellular-2"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g1_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g2_still_threshold
+            value: 40 
+        - delay: 500ms            
+        - number.set:
+            id: g3_still_threshold
+            value: 40 
+        - delay: 500ms            
+        - number.set:
+            id: g4_still_threshold
+            value: 30 
+        - delay: 500ms            
+        - number.set:
+            id: g5_still_threshold
+            value: 30 
+        - delay: 500ms            
+        - number.set:
+            id: g6_still_threshold
+            value: 20 
+        - delay: 500ms            
+        - number.set:
+            id: g7_still_threshold
+            value: 20 
+        - delay: 500ms            
+        - number.set:
+            id: g8_still_threshold
+            value: 20 
+        - delay: 500ms            
+
+  - platform: template
+    name: "Still Presets 3"
+    id: still_presets_3   
+    icon: "mdi:signal-cellular-3"   
+    entity_category: config
+    on_press:
+      then:
+        - number.set:
+            id: g0_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g1_still_threshold
+            value: 0 
+        - delay: 500ms            
+        - number.set:
+            id: g2_still_threshold
+            value: 36 
+        - delay: 500ms            
+        - number.set:
+            id: g3_still_threshold
+            value: 36 
+        - delay: 500ms            
+        - number.set:
+            id: g4_still_threshold
+            value: 27 
+        - delay: 500ms            
+        - number.set:
+            id: g5_still_threshold
+            value: 27 
+        - delay: 500ms            
+        - number.set:
+            id: g6_still_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g7_still_threshold
+            value: 18 
+        - delay: 500ms            
+        - number.set:
+            id: g8_still_threshold
+            value: 18 
+        - delay: 500ms   
+
+select:
+  - platform: ld2410
+    distance_resolution:
+      name: "distance resolution"  
+     
+text_sensor:
+  - platform: ld2410
+    version:
+      name: "firmware version"
+    mac_address:
+      name: "mac address"  
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+  - platform: version
+    name: "Firmware"         
