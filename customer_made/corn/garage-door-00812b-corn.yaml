@@ -154,7 +154,7 @@ binary_sensor:   # 門磁
     filters:
       - delayed_on: 100ms
       - delayed_off: 100ms
-    internal: true
+    # internal: true
     on_state:
       then:
         - if:
