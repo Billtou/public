@@ -37,51 +37,51 @@ web_server:
   version: 3
 
 ##  WIFI  ##########################
-# wifi:
-#   # Set up a wifi access point
-#   ap: {}
-# captive_portal:
+wifi:
+  # Set up a wifi access point
+  ap: {}
+captive_portal:
 ############################3333333
 
 
 ## LAN ##########################
-ethernet:
-  type: W5500
-  clk_pin: GPIO18
-  mosi_pin: GPIO23
-  miso_pin: GPIO19
-  cs_pin: GPIO5
-  interrupt_pin: GPIO14
-  #reset_pin: GPIO25
-  clock_speed: 40Mhz
+# ethernet:
+#   type: W5500
+#   clk_pin: GPIO18
+#   mosi_pin: GPIO23
+#   miso_pin: GPIO19
+#   cs_pin: GPIO5
+#   interrupt_pin: GPIO14
+#   #reset_pin: GPIO25
+#   clock_speed: 40Mhz
 ################################
 
 
 text_sensor:
 
 ### LAN  ################################
-  - platform: ethernet_info
-    ip_address:
-      name: IP Address
-      icon: mdi:ip-network  
+  # - platform: ethernet_info
+  #   ip_address:
+  #     name: IP Address
+  #     icon: mdi:ip-network  
 
 ## Wifi ################################     
-  # - platform: wifi_info
-  #   ip_address:
-  #     name: "IP"      
-  #     icon: "mdi:ip-outline"
-  #   ssid:
-  #     name: "SSID"
-  #     icon: "mdi:router-wireless"
-  #   mac_address:
-  #     name: "MAC"
-  #     icon: "mdi:lan"
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
 ## Wifi ################################  
-# sensor:
-#   - platform: wifi_signal
-#     name: "Signal"
-#     update_interval: 600s  
-#     icon: mdi:signal
+sensor:
+  - platform: wifi_signal
+    name: "Signal"
+    update_interval: 600s  
+    icon: mdi:signal
 
 
 switch:
@@ -99,11 +99,24 @@ switch:
       - switch.turn_off: relay_up
 
   - platform: gpio # 下button
-    name: Down
+    name: Unlock #Down
     pin:
       number: GPIO27
       inverted: false
-    id: relay_down
+    id: relay_unlock #relay_down
+    icon: mdi:dots-horizontal
+    restore_mode: ALWAYS_OFF 
+    # internal: true
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: relay_unlock
+
+  - platform: gpio  # 鎖button
+    name: Down #Stop
+    pin:
+      number: GPIO26
+      inverted: false
+    id: relay_down #relay_stop
     icon: mdi:menu-down
     restore_mode: ALWAYS_OFF 
     # internal: true
@@ -111,31 +124,18 @@ switch:
       - delay: 500ms
       - switch.turn_off: relay_down
 
-  - platform: gpio  # 鎖button
-    name: Stop
+  - platform: gpio  # 解鎖button/Stop
+    name: Stop/Lock #Other
     pin:
-      number: GPIO26
+      number: GPIO12
       inverted: false
-    id: relay_stop
+    id: relay_lock #relay_other
     icon: mdi:stop
     restore_mode: ALWAYS_OFF 
     # internal: true
     on_turn_on:
       - delay: 500ms
-      - switch.turn_off: relay_stop
-
-  - platform: gpio  # 解鎖button/Stop
-    name: Other
-    pin:
-      number: GPIO12
-      inverted: false
-    id: relay_other
-    icon: mdi:dots-horizontal
-    restore_mode: ALWAYS_OFF 
-    # internal: true
-    on_turn_on:
-      - delay: 500ms
-      - switch.turn_off: relay_other
+      - switch.turn_off: relay_lock
 
 button:
   - platform: restart
@@ -162,7 +162,7 @@ binary_sensor:   # 門磁
               lambda: 'return id(floor_door_sensor).state;'
             then: 
               - delay: 2s
-              - switch.turn_on: relay_stop    
+              - switch.turn_on: relay_lock
 cover:
   - platform: template
     device_class: garage
@@ -175,13 +175,13 @@ cover:
         return COVER_OPEN;
       }
     open_action:
-      - switch.turn_on: relay_other
+      - switch.turn_on: relay_unlock #relay_other
       - delay: 1s
       - switch.turn_on: relay_up
     stop_action:      
-      - switch.turn_on: relay_stop
+      - switch.turn_on: relay_lock
     close_action:
-      - switch.turn_on: relay_other
+      - switch.turn_on: relay_unlock #relay_other
       - delay: 1s      
       - switch.turn_on: relay_down
     
