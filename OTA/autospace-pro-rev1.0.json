@@ -1,0 +1,14 @@
+  {
+  "name": "Auto Space Pro - HA - Rev1.0 - Stable",
+  "version": "2024.10.1",
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "ota": {
+        "md5": "https://raw.githubusercontent.com/Billtou/public/refs/heads/main/OTA/esphome-github-ota-7394e4.md5",
+        "path": "https://raw.githubusercontent.com/Billtou/public/refs/heads/main/OTA/esphome-github-ota-7394e4.ota.bin",
+        "summary": "Another update",
+      }
+    }
+  ]
+}
