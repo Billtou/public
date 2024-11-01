@@ -42,11 +42,11 @@
 
 * 像素燈上電面板出現 AP MODE 手機搜尋 awtix_xxxxxx 熱點密碼是 12345678 再指定自家的wifi 帳號與密碼，正常就會連到家裡的wifi並出在畫面出現使用的IP位置。瀏覽器打入ip位置會出現 Web Service，選單MQTT填入(Broker欄位就是你HA的IP，Prefix欄位就是該設備在HA顯示的名稱)，並打開Homeassistant Discovery 讓HA能發現。
 
-![Mosquitto_broker](/Pixel_Light/image/mqtt-login.png)
+   ![Mosquitto_broker](/Pixel_Light/image/mqtt-login.png)
 
 * 選單 TIME NTP Server 填入 time.stdtime.gov.tw，Timezone填入 CST-8
 
-    ![Mosquitto_broker](/Pixel_Light/image/timezone_1.png)
+   ![Mosquitto_broker](/Pixel_Light/image/timezone_1.png)
 
 * 完成按 Save configuration 後再按 Restart ESP ，重啟後正常HA就會發現，HA > 裝置與服務 > MQTT > awtrix_xxxxxx。
 
