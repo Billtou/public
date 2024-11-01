@@ -81,33 +81,33 @@
 
 ## 7.推薦像素燈購買國外小哥blueprints安裝分享 
 
-    https://youtu.be/N0NKPJzGHuA?si=Qu2s4GEHaSAnrwz3
+   https://youtu.be/N0NKPJzGHuA?si=Qu2s4GEHaSAnrwz3
 
-    https://ko-fi.com/s/0d1e4419bd
+   https://ko-fi.com/s/0d1e4419bd
 
-    在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案放到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
-    
-    (HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
+  在HA的資料夾config > blueprints > automation > 建立一個 pixel_light的資料夾，將購買下載的blueprints檔案放到這裡來。 若電腦未能看到HA的資料夾，請確定是否安裝Samba share這個插件。
+ 
+ (HA>設定>附加元件>附加元件商店>裡面應該可以找到這個插件)
 
-    把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
+ 把天氣的icon依序上傳到像素燈內 (注意不是copy到SD卡)
 
-    ![Mosquitto_broker](/Pixel_Light/image/215806.png)
+ ![Mosquitto_broker](/Pixel_Light/image/215806.png)
 
-    ![Mosquitto_broker](/Pixel_Light/image/220018.png)
+ ![Mosquitto_broker](/Pixel_Light/image/220018.png)
 
-    就可以使用blueprints自動化輪播像素燈了
+ 就可以使用blueprints自動化輪播像素燈了
 
 
 ## 8.附錄安裝氣象預報跑馬燈示範(用氣象局的資訊比較準確) 
 
-    必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
+ 必須先安裝HA插件 OpenCWB 與 Samba share (原已建立者可略)
 
-    ![Mosquitto_broker](/Pixel_Light/image/cwba.png)
+ ![Mosquitto_broker](/Pixel_Light/image/cwba.png)
 
 
-    請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 
+ 請先安裝此插件 https://github.com/tsunglung/OpenCWB/blob/master/README_zh-tw.md 
 
-    ![Mosquitto_broker](/Pixel_Light/image/samba.png)
+ ![Mosquitto_broker](/Pixel_Light/image/samba.png)
 
 
 * ### 建立一個天氣的實體"
