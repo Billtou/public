@@ -127,28 +127,28 @@
 
 
 ## 9. 自行下載icon使用
-    到這個網站挑選喜歡的icon, 記住icon id 號碼。
-    https://developer.lametric.com/icons
-    icon自動放在像素燈內存，mp3音樂放在sd卡內(sd轉usb自備)
-    ![Mosquitto_broker](/Pixel_Light/image/webicon.png)
-    到web service 輸入該號碼按"Preview" 喜歡就"dwonload"，會自動存在\ICONS\資料夾中備用。
+ 到這個網站挑選喜歡的icon, 記住icon id 號碼。
+ https://developer.lametric.com/icons
+ icon自動放在像素燈內存，mp3音樂放在sd卡內(sd轉usb自備)
+ ![Mosquitto_broker](/Pixel_Light/image/webicon.png)
+ 到web service 輸入該號碼按"Preview" 喜歡就"dwonload"，會自動存在\ICONS\資料夾中備用。
 
-    ![Mosquitto_broker](/Pixel_Light/image/downmloadicon.png)
+ ![Mosquitto_broker](/Pixel_Light/image/downmloadicon.png)
 
 
 
 
 ## 2024/05/20 update
 
-    國外小哥新版藍圖已經取消awtrix_weather_app 改由 Pixel Light App 這個藍圖取代了
+ 國外小哥新版藍圖已經取消awtrix_weather_app 改由 Pixel Light App 這個藍圖取代了
 
 ## 2424/05/22 新增rain.yaml 自動化方案，方法如下
 
-    1.網頁開啟像素燈IP，把2284的icon下載到像素燈內備用
-    2.透過國外小哥藍圖 Awtrix Create Sensor App 指定必要的id與2284 icon 號碼 > 存檔。
-    3.建立條件化自動化參考rain.yaml內容改一下自家的ID即可。 當下雨高於0%就會跑出提醒下雨的輪播了
+ 1.網頁開啟像素燈IP，把2284的icon下載到像素燈內備用
+ 2.透過國外小哥藍圖 Awtrix Create Sensor App 指定必要的id與2284 icon 號碼 > 存檔。
+ 3.建立條件化自動化參考rain.yaml內容改一下自家的ID即可。 當下雨高於0%就會跑出提醒下雨的輪播了
 
 
 ## 2024/05/23 update
 
-    有買國外小哥的藍圖，但藍圖選單上無法找到像素燈實體的朋友請注意，因為像素燈新版0.96把廠牌改成AWTRIX 3，但舊藍圖是基於0.94版建立的，需要到國外小哥那去升級(目前是2.11)才正常，
+ 有買國外小哥的藍圖，但藍圖選單上無法找到像素燈實體的朋友請注意，因為像素燈新版0.96把廠牌改成AWTRIX 3，但舊藍圖是基於0.94版建立的，需要到國外小哥那去升級(目前是2.11)才正常，
