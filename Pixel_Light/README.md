@@ -32,11 +32,11 @@
 
 * HA>設定>人員>使用者>新增使用者 mqtt-user，密碼我慣用mqtt-pass > 新增。
 
-![Mosquitto_broker](/Pixel_Light/image/mqtt-user.png)
+   ![Mosquitto_broker](/Pixel_Light/image/mqtt-user.png)
 
 * HA>設定>附加元件>附加元件商店>Mosquitto Broker 安裝 > 啟動。
 
-![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
+   ![Mosquitto_broker](/Pixel_Light/image/Mosquitto_broker.png)
 
 ## 3.像素燈上電連上自家wifi
 
@@ -75,12 +75,12 @@
 
     ...
 ## 6. HA自動化發送文字與mp3音效
-    設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> 
+ * 設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> 
     { "sound":"0001","text":"Good morning get up!","rainbow":true,"duration":25 } > Qos >1
 
-    執行看看應該會發出我兒子的起床聲音。 **mp3檔名前面一率用數字取名子空格 - 空格後可以取容易辨識的英文稱，播放時指定前面數字即可正常撥放。
+ *執行看看應該會發出我兒子的起床聲音。 **mp3檔名前面一率用數字取名子空格 - 空格後可以取容易辨識的英文稱，播放時指定前面數字即可正常撥放。
 
-    ![Mosquitto_broker](/Pixel_Light/image/213415.png)
+   ![Mosquitto_broker](/Pixel_Light/image/213415.png)
 
 ## 7.推薦像素燈購買國外小哥blueprints安裝分享 
 
