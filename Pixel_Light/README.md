@@ -8,22 +8,21 @@
  * 示範修改亮度:
    (下)長按出現BRIGHT，(下)短按出現x%，再按一次(下)出現AUTO。 在x%畫面按(左)減少 (右) 增加，確定設定值長按(下)回到MENU，再長按(下) 離開。
 
- 常用選單說明
- menu
-  - BRIGHT (亮度調節/auto)
-  - COLOR (默認時間顯示顏色)
-  - SWITCH
-  - T-SPEED
-  - APPTIME
-  - TIME
-  - DATE
-  - WEEKDAY (設定一周第一天)
-  - TEMP (不含溫溼度)
-  - APPS (顯示內建輪播)打開時間日期即可。
-  - SOUNS (喇叭on/off)
-  - VOLUME (喇吧大小聲)
-  - UPDATE
-    其他沒事別亂調~
+ * 常用選單說明
+      - BRIGHT (亮度調節/auto)
+      - COLOR (默認時間顯示顏色)
+      - SWITCH
+      - T-SPEED
+      - APPTIME
+      - TIME
+      - DATE
+      - WEEKDAY (設定一周第一天)
+      - TEMP (不含溫溼度)
+      - APPS (顯示內建輪播)打開時間日期即可。
+      - SOUNS (喇叭on/off)
+      - VOLUME (喇吧大小聲)
+      - UPDATE
+        其他沒事別亂調~
 
 
 ## 2. 像素燈接入Home Assostant
