@@ -61,18 +61,15 @@
       "rainbow":true,
       "duration":25 }
  ![Mosquitto_broker](/Pixel_Light/image/175836.png)
+ 
  ![Mosquitto_broker](/Pixel_Light/image/175912.png)
 
 ## 5.SD卡mp3命名方式 (以腳本示範)
 
-    *** 附贈sd卡(已經格式化fat32，裡面mp3資料夾有一個mp3示範檔) ***
-
-    sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則無法撥放。
-
+ *附贈sd卡(已經格式化fat32，裡面mp3資料夾有一個mp3示範檔) ***
+ *sd卡mp3資料夾內可放mp3音樂檔，命名方式請按照以下格式否則無法撥放。
     0001 - XXXX.mp3 (XXXX可英文名稱字)
-
     0002 - XXXX.mp3
-
     ...
 ## 6. HA自動化發送文字與mp3音效
  * 設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> 
