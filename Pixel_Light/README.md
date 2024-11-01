@@ -72,8 +72,9 @@
     0002 - XXXX.mp3
     ...
 ## 6. HA自動化發送文字與mp3音效
- * 設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容> 
-    { "sound":"0001","text":"Good morning get up!","rainbow":true,"duration":25 } > Qos >1
+ * 設定>自動化>腳本>新增腳本>命名>新增一個動作>其他動作>MQTT>發布>主題>awtrix_XXXXXX/notify>內容>
+
+   { "sound":"0001","text":"Good morning get up!","rainbow":true,"duration":25 } > Qos >1
 
  *執行看看應該會發出我兒子的起床聲音。 **mp3檔名前面一率用數字取名子空格 - 空格後可以取容易辨識的英文稱，播放時指定前面數字即可正常撥放。
 
