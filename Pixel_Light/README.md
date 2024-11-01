@@ -3,44 +3,44 @@
 
 **SD卡插在底部**  ** 像素燈熱點密碼 12345678 **
 
- 產品上蓋三個按鍵分別是(左)、(下)、(右)。
- (下)長按進入menu，再長按來開menu。
-
- 示範修改亮度:
- (下)長按出現BRIGHT，(下)短按出現x%，再按一次(下)出現AUTO。 
- 在x%畫面按(左)減少 (右) 增加，確定設定值長按(下)回到MENU，再長按(下) 離開。
-
- 常用選單說明
+  產品上蓋三個按鍵分別是(左)、(下)、(右)。
+  (下)長按進入menu，再長按來開menu。
  
- menu
+  示範修改亮度:
+  (下)長按出現BRIGHT，(下)短按出現x%，再按一次(下)出現AUTO。 
+  在x%畫面按(左)減少 (右) 增加，確定設定值長按(下)回到MENU，再長按(下) 離開。
  
-  -BRIGHT (亮度調節/auto)
+  常用選單說明
   
-  -COLOR (默認時間顯示顏色)
+  menu
   
-  -SWITCH
-  
-  -T-SPEED
-  
-  -APPTIME
-  
-  -TIME
-  
-  -DATE
-  
-  -WEEKDAY (設定一周第一天)
-  
-  -TEMP (不含溫溼度)
-  
-  -APPS (顯示內建輪播)打開時間日期即可。
-  
-  -SOUNS (喇叭on/off)
-  
-  -VOLUME (喇吧大小聲)
-  
-  -UPDATE
-
- 其他沒事別亂調~
+   -BRIGHT (亮度調節/auto)
+   
+   -COLOR (默認時間顯示顏色)
+   
+   -SWITCH
+   
+   -T-SPEED
+   
+   -APPTIME
+   
+   -TIME
+   
+   -DATE
+   
+   -WEEKDAY (設定一周第一天)
+   
+   -TEMP (不含溫溼度)
+   
+   -APPS (顯示內建輪播)打開時間日期即可。
+   
+   -SOUNS (喇叭on/off)
+   
+   -VOLUME (喇吧大小聲)
+   
+   -UPDATE
+ 
+  其他沒事別亂調~
 
 
 ## 像素燈接入Home Assostant
