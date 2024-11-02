@@ -178,6 +178,8 @@ cover:
       - switch.turn_on: relay_unlock #relay_other
       - delay: 1s
       - switch.turn_on: relay_up
+      - delay: 10s
+      - switch.turn_on: relay_lock
     stop_action:      
       - switch.turn_on: relay_lock
     close_action:
