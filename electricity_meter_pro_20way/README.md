@@ -24,21 +24,17 @@
 
 ## 接入HA步驟 (前置作業)
 
- * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表
+ * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy
 
-   名稱填入 taipower_energy
-
-輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum
+ * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/151837.png)
 
-
-2.安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
+ * 安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
 
-
-修改entity 名稱 (改名稱就好不須改實體ID)
+ * 修改entity 名稱 (改名稱就好不須改實體ID)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
