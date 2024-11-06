@@ -1,6 +1,6 @@
 # 接線說明
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/174838.png)
 
 # 20路全屋耗電偵測器
 
