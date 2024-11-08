@@ -51,7 +51,7 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
-## 8.計費週期歸零
+## 8.計費週期歸零(搭配tai-power整合)
 
 ## 9.手動建立所有相關實體方式
 
