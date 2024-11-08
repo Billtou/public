@@ -51,8 +51,8 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
-
 ## 手動建立所有相關實體方式
+
 
 目前台電計費表
 
