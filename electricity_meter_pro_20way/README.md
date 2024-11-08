@@ -63,6 +63,8 @@
 
 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
+## 計費週期歸零
+
 ## energy_template.yaml檔案說明
 
 建議檔案放在 HA 資料夾中的\config\packages\
