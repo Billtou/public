@@ -19,7 +19,7 @@
 
  * WIFI版: 通電，手機靠近本設備找wifi熱點 electricity_meter_pro-xxxxxx，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機打開瀏覽器輸入192.168.4.1即可)，wifi 指示燈常滅即完成，HA會自動找到設備。(有時要稍微等待一下wifi熱點才會出現)
 
-## 3.設備硬體安裝順序(entity ID 名稱視個別不同請自行調整)
+## 3.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
 
 # 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
@@ -31,7 +31,7 @@
 
  * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy
 
- * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum (視個別不同)
+ * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum (視個略為別不同)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/151837.png)
 
