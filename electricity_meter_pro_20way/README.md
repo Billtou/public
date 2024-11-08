@@ -51,7 +51,17 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
-## 8.計費週期歸零(搭配tai-power整合)
+## 8.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
+
+一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
+
+![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
+
+可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
+** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
+** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
+
+![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
 ## 9.手動建立所有相關實體方式
 
