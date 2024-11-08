@@ -76,3 +76,8 @@ sensor.count_kwh_cost  每度電累進電價單價
 sensor.count_power_cost 計費區間累計電費
 
 sensor.realtime_hour_cost 即時每小時用電費預估
+
+## 2024/11/08 Update
+
+內建的自動化歸零是搭配雙月份台電的計價機制，若以建議方法1道入能源面板，請用助手個別建立01-CT ~ 18CT功耗表，然後將他導入HA的能源面板，需要歸零的話就歸零助手即可。
+
