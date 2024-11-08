@@ -27,7 +27,7 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
 
-## 接入HA步驟 (前置作業)
+## 5.接入HA步驟 (前置作業)
 
  * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy
 
@@ -43,33 +43,33 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
-## 接入HA的能源儀表板 建議方法1(entity ID視個略為別不同)(請見底部update訊息)
+## 6.接入HA的能源儀表板 建議方法1(entity ID視個略為別不同)(請見底部update訊息)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/160737.png)
 
-## 接入HA的能源儀表板 建議方法2(entity ID視個略為別不同)
+## 7.接入HA的能源儀表板 建議方法2(entity ID視個略為別不同)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
-## 計費週期歸零
+## 8.計費週期歸零
 
-## 手動建立所有相關實體方式
+## 9.手動建立所有相關實體方式
 
 目前台電計費表
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
 
-## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
+## 10.自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
 
 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
 
-## energy_template.yaml檔案說明
+## 11.energy_template.yaml檔案說明
 
 建議檔案放在 HA 資料夾中的\config\packages\
 
-## HA重開機會產生以下sensor entity
+## 12.HA重開機會產生以下sensor entity
 
 sensor.taipower_energy  手動建立 "功耗表" 實體
 
