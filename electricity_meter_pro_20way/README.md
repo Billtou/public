@@ -31,7 +31,7 @@
 
  * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy
 
- * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum
+ * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum (視個別不同)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/151837.png)
 
