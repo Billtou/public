@@ -51,8 +51,9 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
 
-## 手動建立所有相關實體方式
+## 計費週期歸零
 
+## 手動建立所有相關實體方式
 
 目前台電計費表
 
@@ -63,7 +64,6 @@
 
 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
-## 計費週期歸零
 
 ## energy_template.yaml檔案說明
 
