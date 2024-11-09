@@ -83,6 +83,8 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
  sensor.taipower_energy  手動建立 "功耗表" 實體
  
+ sensor.ct_01 ~ 18_energy  手動建立10路CT "功耗表" 實體
+ 
  sensor.count_kwh_cost  每度電累進電價單價
  
  sensor.count_power_cost 計費區間累計電費
