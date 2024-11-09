@@ -53,7 +53,7 @@
 
 ## 8.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
 
-一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
+* 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 
 ![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
 
@@ -65,7 +65,7 @@
 
 ## 9.手動建立所有相關實體方式
 
-目前台電計費表
+* 目前台電計費表
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
@@ -77,21 +77,21 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
 ## 11.energy_template.yaml檔案說明
 
-建議檔案放在 HA 資料夾中的\config\packages\
+* 建議檔案放在 HA 資料夾中的\config\packages\
 
 ## 12.HA重開機會產生以下sensor entity
 
-sensor.taipower_energy  手動建立 "功耗表" 實體
-
-sensor.count_kwh_cost  每度電累進電價單價
-
-sensor.count_power_cost 計費區間累計電費
-
-sensor.realtime_hour_cost 即時每小時用電費預估
+ sensor.taipower_energy  手動建立 "功耗表" 實體
+ 
+ sensor.count_kwh_cost  每度電累進電價單價
+ 
+ sensor.count_power_cost 計費區間累計電費
+ 
+ sensor.realtime_hour_cost 即時每小時用電費預估
 
 ## 2024/11/08 Update
 
- * 本方案
+ * 本方案為2個BL0910元件組成的20路方案，本身沒有記憶歷史耗電數據的功能，若需此功能可透過HA助手中的功耗表來累計與歸零。
 
  * 內建的自動化歸零是搭配雙月份台電的計價機制，若以建議方法1導入能源面板，請用助手個別建立01~18CT功耗表，然後將他導入HA的能源面板，需要歸零的話就歸零助手即可。
 
