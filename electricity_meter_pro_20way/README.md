@@ -97,3 +97,5 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
  * 內建的自動化歸零是搭配雙月份台電的計價機制，若以建議方法1導入能源面板，請用助手個別建立01~18CT功耗表，然後將他導入HA的能源面板，需要歸零的話就歸零助手即可。
 
+## 2024/11/09 Update
+ * 下一版升級固件會將18個迴路歸零納入自動歸零內，條件必須是entity ID 需統一，請按照yaml範本逐一建立即可，最後檢查entity ID為  sensor.ct_01_energy ~ sensor.ct_18_energy 即可。
