@@ -99,3 +99,4 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 
 ## 2024/11/09 Update
  * 下一版升級固件會將18個迴路歸零納入自動歸零內，條件必須是entity ID 需統一，請按照yaml範本逐一建立即可，最後檢查entity ID為  sensor.ct_01_energy ~ sensor.ct_18_energy 即可。
+ * 參考energy_template.yaml 1~77行內容
