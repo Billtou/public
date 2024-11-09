@@ -1,5 +1,3 @@
-#
-
 utility_meter:
   taipower_energy:
     unique_id: 38448d28-80f8-4e1f-98a8-735a06b82db3
