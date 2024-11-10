@@ -1,6 +1,6 @@
 ## 版本切換方法
 
-![Mosquitto_broker](/auto_space/image/114954.png)
+![Mosquitto_broker](/auto_space/image/232055.png)
 
 ## bathroom 浴室場景接線方式以及entity說明
 
