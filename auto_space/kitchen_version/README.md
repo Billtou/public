@@ -7,7 +7,7 @@
 ![Mosquitto_broker](/auto_space/image/225513.png)
 
 ## 完成面
-![Mosquitto_broker](/auto_space/image/230253.png)
+![Mosquitto_broker](/auto_space/image/230750.png)
 
 ## kitchen 廚房版本entity說明同 bathroom 內容。
 
