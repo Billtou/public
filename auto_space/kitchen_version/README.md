@@ -9,6 +9,6 @@
 ## 完成面
 ![Mosquitto_broker](/auto_space/image/230750.png)
 
-## kitchen 廚房版本entity說明同 bathroom 內容。
+## Pir紅外線為選配品，若條件允許且需要精準快速開燈，建議選購Pir紅外線感測器，最多支持擴充2個。
 
-https://github.com/Billtou/public/tree/main/auto_space/bathroom_%20version
+
