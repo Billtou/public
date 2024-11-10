@@ -12,3 +12,6 @@
 
 ## Pir紅外線為選配品，若條件允許且需要精準快速開燈，建議選購Pir紅外線感測器，最多支持擴充2個。
 
+![Mosquitto_broker](/auto_space/image/235631.png)
+
+![Mosquitto_broker](/auto_space/image/004014.png)
