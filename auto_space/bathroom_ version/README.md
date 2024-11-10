@@ -1,16 +1,14 @@
-## 版本切換方法
+## Pro 接線示意圖
 
 ![Mosquitto_broker](/auto_space/image/232055.png)
 
-## bathroom 浴室場景接線方式以及entity說明
+## 接線方式
 
-![Mosquitto_broker](/auto_space/image/110516.png)
+![Mosquitto_broker](/auto_space/image/232300.png)
 
+## 完成面
 
-![Mosquitto_broker](/auto_space/image/14111251.png)
+![Mosquitto_broker](/auto_space/image/232554.png)
 
-
-![Mosquitto_broker](/auto_space/image/112837.png)
-
-![Mosquitto_broker](/auto_space/image/113448.png)
+Pir紅外線為選配品，若條件允許且需要精準快速開燈，建議選購Pir紅外線感測器，最多支持擴充2個。
 
