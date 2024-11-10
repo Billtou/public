@@ -25,9 +25,9 @@
 
 ## 設置功能說明:
 
-Pro版本bathroom場景 [https://github.com/Billtou/public/tree/main/auto_space/bathroom_%20version]
+* Pro版本bathroom場景 [https://github.com/Billtou/public/tree/main/auto_space/bathroom_%20version]
 
-Pro版本kitchen場景 [https://github.com/Billtou/public/tree/main/auto_space/kitchen_version]
+* Pro版本kitchen場景 [https://github.com/Billtou/public/tree/main/auto_space/kitchen_version]
 
-Lite版本 [https://github.com/Billtou/public/tree/main/auto_space/entrance_%20version]
+* Lite版本 [https://github.com/Billtou/public/tree/main/auto_space/entrance_%20version]
 
