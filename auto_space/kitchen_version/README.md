@@ -4,7 +4,7 @@
 
 ## 接線方式
 
-![Mosquitto_broker](/auto_space/image/225513.png)
+![Mosquitto_broker](/auto_space/image/231335.png)
 
 ## 完成面
 ![Mosquitto_broker](/auto_space/image/230750.png)
