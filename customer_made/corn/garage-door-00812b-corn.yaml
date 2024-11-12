@@ -143,7 +143,28 @@ button:
     entity_category: "diagnostic"
     icon: mdi:restart
 
-binary_sensor:   # 門磁
+# binary_sensor:   # 門磁
+#   - platform: gpio
+#     id: floor_door_sensor
+#     name: Ground Sensor
+#     icon: mdi:doorbell-video
+#     pin: 
+#       number: GPIO33
+#       mode: INPUT_PULLUP
+#     filters:
+#       - delayed_on: 100ms
+#       - delayed_off: 100ms
+#     # internal: true
+#     on_state:
+#       then:
+#         - if:
+#             condition:    
+#               lambda: 'return id(floor_door_sensor).state;'
+#             then: 
+#               - delay: 2s
+#               - switch.turn_on: relay_lock
+
+binary_sensor:  # 門磁
   - platform: gpio
     id: floor_door_sensor
     name: Ground Sensor
@@ -159,10 +180,12 @@ binary_sensor:   # 門磁
       then:
         - if:
             condition:    
-              lambda: 'return id(floor_door_sensor).state;'
+              lambda: |-
+                return id(floor_door_sensor).state;
             then: 
               - delay: 2s
               - switch.turn_on: relay_lock
+              
 cover:
   - platform: template
     device_class: garage
