@@ -29,7 +29,7 @@
 
 ## 5.接入HA步驟 (前置作業)
 
- * 在HA建立一個功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy (名字要一樣否則無法自動化歸零)
+ * 在HA建立一個入戶總功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy (名字要一樣否則無法自動化歸零)
 
  * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum (entity ID視個略為別不同)
 
@@ -96,6 +96,10 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
  * 本方案為2個BL0910元件組成的20路方案，本身沒有記憶歷史耗電數據的功能，若需此功能可透過HA助手中的功耗表來累計與歸零。
 
  * 內建的自動化歸零是搭配雙月份台電的計價機制，若以建議方法1導入能源面板，請用助手個別建立01~18CT功耗表，然後將他導入HA的能源面板，需要歸零的話就歸零助手即可。
+
+ * 若用UI01~18CT功耗表ID名稱建議取為sensor.ct_01_energy ~ sensor.ct_18_energy，這樣就能搭配(bata)版OTA達到同步2個月一期的台電計價了。
+ 
+ * 若熟悉yaml也可以參考energy_template.yaml檔案自己手動方式建立。
 
 ## 2024/11/09 Update
  * 下一版升級固件會將18個迴路歸零納入自動歸零內，條件必須是entity ID 需統一，請按照yaml範本逐一建立即可，最後檢查entity ID為  sensor.ct_01_energy ~ sensor.ct_18_energy 即可。
