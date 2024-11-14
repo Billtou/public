@@ -1,4 +1,4 @@
-# 接線說明
+# 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/175458.png)
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/185305.png)
