@@ -104,5 +104,5 @@ https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/ma
 ## 2024/11/09 下午 Update
  * OTA資料夾有兩個(bata)檔案，提供買家測試增加 HA內 sensor.ct_01_energy ~ sensor.ct_18_energy 歸零。
 
-## 2024/11/14 
+## 2024/11/14 Update
  * OTA檔案update新增一個Current_time entity方便核對歸零時間用
