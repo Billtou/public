@@ -119,7 +119,7 @@ template:
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-      - name: count_kwh_cost_storefront_bata
+      - name: count_kwh_cost_storefront_bata  #三段式時間電價每度用電成本
         unique_id: 40d73652-9231-4af6-85d9-d8c458dfc46e
         state: >
           {% set now_month = now().month %}
