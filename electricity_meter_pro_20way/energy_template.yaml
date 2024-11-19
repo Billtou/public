@@ -119,10 +119,43 @@ template:
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-
-
-
-
+      - name: count_kwh_cost_storefront_bata
+        unique_id: 40d73652-9231-4af6-85d9-d8c458dfc46e
+        state: >
+          {% set now_month = now().month %}
+          {% set now_weekday = now().isoweekday() %}  
+          {% set now_hour = now().hour %}  
+            {% if now_month in [6,7,8,9] %}
+              {% if now_weekday in [1,2,3,4,5] %} 
+                {% if now_hour < 8 %} 
+                  {{1.96}}
+                {% elif now_hour < 16 %}  
+                  {{4.54}}
+                {% elif now_hour < 22 %}  
+                  {{6.92}}
+                {% elif now_hour < 24 %}  
+                  {{4.54}}
+                {% endif %}
+              {% else %}
+                  {{1.96}}
+              {% endif %}
+            {% else %}
+              {% if now_weekday in [1,2,3,4,5] %} 
+                {% if now_hour < 6 %} 
+                  {{1.89}}
+                {% elif now_hour < 11 %}  
+                  {{4.43}}
+                {% elif now_hour < 14 %}  
+                  {{1.89}}
+                {% elif now_hour < 24 %}  
+                  {{4.33}}
+                {% endif %}
+              {% else %}
+                  {{1.89}}
+              {% endif %}
+            {% endif %}
+        unit_of_measurement: "TWD/kWh"
+        device_class: monetary
 
       - name: count_power_cost
         unique_id: f53b6ccf-becb-48ab-a473-80f239199ea8
