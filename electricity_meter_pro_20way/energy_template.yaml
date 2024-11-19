@@ -119,6 +119,44 @@ template:
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
+
+
+      - name: count_kwh_cost_storefront_bate
+        unique_id: 2ca5f2b9-edb4-4b2a-b1aa-50607618df7c
+        state: >
+          {% if now().month in [6,7,8,9] %}
+            {% if states("sensor.taipower_energy") | float < 120 %}
+              {{1.68}}
+            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
+              {{2.45}}
+            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 500 %}
+              {{3.7}}
+            {% elif states("sensor.taipower_energy") | float >= 500  and states("sensor.taipower_energy") | float < 700 %}
+              {{5.04}}
+            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
+              {{6.24}}
+            {% elif states("sensor.taipower_energy") | float >= 1000 %}
+              {{8.46}}
+            {% endif %}
+          {% else %}
+            {% if states("sensor.taipower_energy") | float < 120 %}
+              {{1.68}}
+            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
+              {{2.16}}
+            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 500 %}
+              {{3.03}}
+            {% elif states("sensor.taipower_energy") | float >= 500  and states("sensor.taipower_energy") | float < 700 %}
+              {{4.14}}
+            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
+              {{5.07}}
+            {% elif states("sensor.taipower_energy") | float >= 1000 %}
+              {{6.63}}
+            {% endif %}
+          {% endif %}
+        unit_of_measurement: "TWD/kWh"
+        device_class: monetary
+
+
       - name: count_power_cost
         unique_id: f53b6ccf-becb-48ab-a473-80f239199ea8
         state: >
