@@ -1,6 +1,6 @@
 ## Pro 接線示意圖
 
-![Mosquitto_broker](/auto_space/image/232055.png)
+![Mosquitto_broker](/auto_space/image/163248.png)
 
 ## 接線方式
 
