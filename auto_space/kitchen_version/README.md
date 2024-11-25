@@ -1,6 +1,6 @@
 ## Lite 接線示意圖
 
-![Mosquitto_broker](/auto_space/image/220542.png)
+![Mosquitto_broker](/auto_space/image/162830.png)
 
 ## 接線方式
 
