@@ -1,3 +1,7 @@
+## 接線影片介紹
+
+https://youtu.be/-mb3id599Ok
+
 ## Lite 接線示意圖
 
 ![Mosquitto_broker](/auto_space/image/162830.png)
