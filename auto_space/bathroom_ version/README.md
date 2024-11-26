@@ -1,3 +1,7 @@
+## 安裝影片
+https://youtu.be/zv61mjetYfA
+
+
 ## Pro 接線示意圖
 
 ![Mosquitto_broker](/auto_space/image/163248.png)
