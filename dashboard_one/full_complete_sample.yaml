@@ -961,10 +961,13 @@ text_sensor:  #"文字" 類用text_sensor 開關的on/off 也算是
   - platform: wifi_info
     ip_address:
       name: "IP"      
-      icon: "mdi:ip-outline"     
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
     mac_address:
       name: "MAC"
-      icon: "mdi:lan"    
+      icon: "mdi:lan"
 
 sensor:  #"數值" 類用 sensor
   - platform: homeassistant #取得livingroom "屬性" 亮度數值
