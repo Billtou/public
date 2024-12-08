@@ -1,6 +1,6 @@
 
 # 模組開關使用說明 
-# 提醒 <首次上電可能1分鐘以上才會出現wifi熱點>
+# 提醒 <首次上電可能1分鐘以上才會出現wifi接入熱點>
 ## 如何接線 模組開關 影片
 [![Watch the video](/module_switch/image/154644.png)](https://youtu.be/oL1PVQXvEHQ?si=OWOFjIUSMLn_HVU_)
 
