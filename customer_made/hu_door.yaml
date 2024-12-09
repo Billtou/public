@@ -141,9 +141,9 @@ switch:
     name: Big Garage Door
     lambda: |-
       if (id(reed_door_sensor).state) {
-        return COVER_CLOSED;
-      } else {
         return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
       }
     on_turn_on:
       - switch.turn_on: relay_up    
