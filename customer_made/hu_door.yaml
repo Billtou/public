@@ -1,7 +1,7 @@
 substitutions:
   name: "garage-door-019c23"
   friendly_name: Garage Door 019c23
-  upper_devicename: "ESP32 4 relay and 1 sensor "
+  upper_devicename: "ESP32 4 relay and 1 reed sensor "
   project_name: "Taiwan Smart Home Technology.Garage Door"
   project_version: "1.0" 
   wifi_signal_update_interval: "600s"
