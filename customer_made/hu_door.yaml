@@ -163,6 +163,7 @@ binary_sensor:
     pin: 
       number: GPIO33
       mode: INPUT_PULLUP
+      inverted: false
     filters:
       - delayed_on: 100ms
       - delayed_off: 100ms
