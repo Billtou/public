@@ -150,6 +150,7 @@ switch:
       - switch.turn_on: relay_up    
     on_turn_off:  
       - switch.turn_on: relay_down       
+      
 button:
   - platform: restart
     name: "Restart"
