@@ -93,7 +93,7 @@ switch:
     id: relay_up
     icon: mdi:menu-up
     restore_mode: ALWAYS_OFF 
-    internal: true 
+    # internal: true 
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: relay_up
@@ -106,7 +106,7 @@ switch:
     id: relay_down
     icon: mdi:menu-down
     restore_mode: ALWAYS_OFF 
-    internal: true 
+    # internal: true 
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: relay_down
@@ -119,7 +119,7 @@ switch:
     id: relay_stop
     icon: mdi:stop
     restore_mode: ALWAYS_OFF 
-    internal: true 
+    # internal: true 
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: relay_stop
@@ -136,7 +136,20 @@ switch:
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: relay_other
-
+  
+      
+  - platform: template
+    name: Big Garage Door
+    lambda: |-
+      if (id(reed_door_sensor).state) {
+        return COVER_CLOSED;
+      } else {
+        return COVER_OPEN;
+      }
+    on_turn_on:
+      - switch.turn_on: relay_up    
+    on_turn_off:  
+      - switch.turn_on: relay_down       
 button:
   - platform: restart
     name: "Restart"
