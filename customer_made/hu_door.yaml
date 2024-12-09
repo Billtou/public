@@ -168,7 +168,7 @@ binary_sensor:
       - delayed_on: 100ms
       - delayed_off: 100ms
     id: reed_door_sensor
-    internal: true    
+    # internal: true    
 
 cover:
   - platform: template
