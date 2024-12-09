@@ -135,8 +135,7 @@ switch:
     on_turn_on:
       - delay: 500ms
       - switch.turn_off: relay_other
-  
-      
+        
   - platform: template
     name: Big Garage Door
     lambda: |-
