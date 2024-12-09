@@ -83,7 +83,6 @@ sensor:
     update_interval: 600s  
     icon: mdi:signal
 
-
 switch:
   - platform: gpio
     name: Up
