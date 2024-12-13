@@ -138,3 +138,5 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
     show last updated
         打開後下次更新時會在右上角顯示最近的更新時間。 
 
+
+# 2024/12/13 Update
