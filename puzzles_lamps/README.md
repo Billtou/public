@@ -20,3 +20,7 @@ https://www.puzzleslamps.com/manual-instructions-puzzles-lamps.html
 ![081733](/puzzles_lamps/image/200625.png)
 
 ![081733](/puzzles_lamps/image/200656.png)
+
+# 2024/12/13 Update
+
+* -手機安裝Smart Lift App
