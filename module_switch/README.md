@@ -29,4 +29,4 @@
 
 ![Mosquitto_broker](/module_switch/image/214028.png)
 
-![Mosquitto_broker](/OTA/ota.png)
+
