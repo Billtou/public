@@ -147,13 +147,13 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
     
 3.由於新版cwb已不提供紫外線指數，請依以下步驟替換資訊源。
 
--A. 安裝OpenUV 集成，註冊此網頁 https://www.openuv.io/ 點選 "GET FREE API KEY OR SING IN" (默認用google帳號註冊，完成會看到以下畫面，copy API Key 備用) 
+- A. 安裝OpenUV 集成，註冊此網頁 https://www.openuv.io/ 點選 "GET FREE API KEY OR SING IN" (默認用google帳號註冊，完成會看到以下畫面，copy API Key 備用) 
   
--B. 點選此網頁安裝OpenUV整合 https://my.home-assistant.io/redirect/config_flow_start?domain=openuv
+- B. 點選此網頁安裝OpenUV整合 https://my.home-assistant.io/redirect/config_flow_start?domain=openuv
   
--C. 輸入API金鑰，確定一下經緯度以及海拔後按傳送。
+- C. 輸入API金鑰，確定一下經緯度以及海拔後按傳送。
   
--D. 
+- D. 
       
       
       
