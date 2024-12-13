@@ -28,3 +28,5 @@
 ![Mosquitto_broker](/module_switch/image/213942.png)
 
 ![Mosquitto_broker](/module_switch/image/214028.png)
+
+![Mosquitto_broker](/OTA/ota.png)
