@@ -151,11 +151,14 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
   
 - ![Mosquitto_broker](/e_ink_display/image/uv_api114139.png)
   
-- B. 點選此網頁安裝OpenUV整合 https://my.home-assistant.io/redirect/config_flow_start?domain=openuv
+- B. 點選此網頁在HA安裝OpenUV整合 https://my.home-assistant.io/redirect/config_flow_start?domain=openuv
   
 - C. 輸入API金鑰，確定一下經緯度以及海拔後按傳送。
   
-- D. 
+- D. 修改eink_sensors 這個yaml檔的內容把原先的 {{states('sensor.opencwb_uv_index')| round }} 替換為以下內容
+
+    {{states('sensor.openuv_current_uv_index')| round }}
+
       
       
       
