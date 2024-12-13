@@ -156,6 +156,7 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 - C. 輸入API金鑰，確定一下經緯度以及海拔後按傳送。
   
 - D. 修改eink_sensors 這個yaml檔的內容把原先的 {{states('sensor.opencwb_uv_index')| round }} 替換為以下內容
+  
         {{states('sensor.openuv_current_uv_index')| round }}
 
       
