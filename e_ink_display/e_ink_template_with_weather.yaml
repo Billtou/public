@@ -53,15 +53,15 @@ template:
             {{ states('sensor.opencwb_feels_like_temperature') | round }}°
           # {{states('sensor.my_feels_like')| round}}°
           today_uv_index: >
-            {{states('sensor.opencwb_uv_index')| round }}
+            {{states('sensor.openuv_current_uv_index')| round }}
           forecast_rain_precipitation: >
-            {{states('sensor.opencwb_forecast_precipitation_probability')| round() }}
+            {{states('sensor.opencwb_forecast_precipitation_probability')| round }}
           forecast_rain_probability: >
-            {{states('sensor.opencwb_forecast_precipitation')| round() }}
+            {{states('sensor.opencwb_forecast_precipitation')| round }}
           today_wind_speed: >
-            {{states('sensor.opencwb_wind_speed')| round() }}
+            {{states('sensor.opencwb_wind_speed')| round }}
           today_dew_point: >
-            {{states('sensor.opencwb_dew_point')| round() }}
+            {{states('sensor.opencwb_dew_point')| round }}
           forecast_weekday_1: >
             {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%a') }}
           forecast_condition_1: >
