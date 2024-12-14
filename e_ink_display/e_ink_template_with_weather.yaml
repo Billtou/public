@@ -4,7 +4,7 @@ template:
         minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
       - platform: homeassistant
         event: start
-    actions:
+    action:
       - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
       - action: weather.get_forecasts
         data:
