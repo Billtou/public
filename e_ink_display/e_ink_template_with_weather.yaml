@@ -8,12 +8,12 @@ template:
       - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
       - action: weather.get_forecasts
         data:
-          type: daily # 搭配cwa集成使用 與下一行二擇一
-          # type: hourly # 搭配cwa集成使用 與上一行二擇一
+          # type: daily # 搭配cwa集成使用 與下一行二擇一
+          type: hourly # 搭配cwa集成使用 與上一行二擇一
         target:
           entity_id: weather.opencwb
-        response_variable: daily # 搭配cwa集成使用 與下一行二擇一
-        # response_variable: hourly # 搭配cwa集成使用 與上一行二擇一
+        # response_variable: daily # 搭配cwa集成使用 與下一行二擇一
+        response_variable: hourly # 搭配cwa集成使用 與上一行二擇一
 
     sensor:
       - name: Weather Interval
@@ -34,8 +34,8 @@ template:
           visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
           precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
           # 搭配cwa集成使用 與下一行二擇一
-          forecast: "{{ daily['weather.opencwb'].forecast }}"
-          # forecast: "{{ hourly['weather.opencwb'].forecast }}"
+          # forecast: "{{ daily['weather.opencwb'].forecast }}"
+          forecast: "{{ hourly['weather.opencwb'].forecast }}"
   - sensor:
       - name: "eink_sensors"
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
