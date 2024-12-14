@@ -4,7 +4,7 @@ template:
         minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
       - platform: homeassistant
         event: start
-    action:
+    actions:
       - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
       - action: weather.get_forecasts
         data:
@@ -36,6 +36,9 @@ template:
           # 搭配cwa集成使用 與下一行二擇一
           # forecast: "{{ daily['weather.opencwb'].forecast }}"
           forecast: "{{ hourly['weather.opencwb'].forecast }}"
+
+################################################
+          
   - sensor:
       - name: "eink_sensors"
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
@@ -204,6 +207,38 @@ template:
             {{ state_attr('sensor.weather_interval', 'forecast')[11].precipitation_probability | round }}%
           forecast_time_11: >
             {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%p') }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       - name: eink_next_rising
         unique_id: 404907c7-4326-4583-967b-dea7d88a1607
