@@ -1,7 +1,7 @@
 template:
   - trigger:
       - platform: time_pattern
-        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
+        minutes: /30 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
       - platform: homeassistant
         event: start
     action:
@@ -11,60 +11,56 @@ template:
           # type: daily # 搭配cwa集成使用 與下一行二擇一
           type: hourly # 搭配cwa集成使用 與上一行二擇一
         target:
-          entity_id: weather.opencwb
+          entity_id: weather.opencwa_nan_tun_qu
         # response_variable: daily # 搭配cwa集成使用 與下一行二擇一
         response_variable: hourly # 搭配cwa集成使用 與上一行二擇一
 
     sensor:
       - name: Weather Interval
         unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
-        state: "{{ states('weather.opencwb') }}"
+        state: "{{ states('weather.opencwa_nan_tun_qu') }}"
         attributes:
-          temperature: "{{ state_attr('weather.opencwb', 'temperature') }}"
-          templow: "{{state_attr('weather.opencwb', 'templow')}}"
-          dew_point: "{{ state_attr('weather.opencwb', 'dew_point') }}"
-          temperature_unit: "{{ state_attr('weather.opencwb', 'temperature_unit') }}"
-          humidity: "{{ state_attr('weather.opencwb', 'humidity') }}"
-          cloud_coverage: "{{ state_attr('weather.opencwb', 'cloud_coverage') }}"
-          pressure: "{{ state_attr('weather.opencwb', 'pressure') }}"
-          pressure_unit: "{{ state_attr('weather.opencwb', 'pressure_unit') }}"
-          wind_bearing: "{{ state_attr('weather.opencwb', 'wind_bearing') }}"
-          wind_speed: "{{ state_attr('weather.opencwb', 'wind_speed') }}"
-          wind_speed_unit: "{{ state_attr('weather.opencwb', 'wind_speed_unit') }}"
-          visibility_unit: "{{ state_attr('weather.opencwb', 'visibility_unit') }}"
-          precipitation_unit: "{{ state_attr('weather.opencwb', 'precipitation_unit') }}"
-          # 搭配cwa集成使用 與下一行二擇一
-          # forecast: "{{ daily['weather.opencwb'].forecast }}"
-          forecast: "{{ hourly['weather.opencwb'].forecast }}"
+          temperature: "{{ state_attr('weather.opencwa_nan_tun_qu', 'temperature') }}"
+          templow: "{{state_attr('weather.opencwa_nan_tun_qu', 'templow')}}"
+          dew_point: "{{ state_attr('weather.opencwa_nan_tun_qu', 'dew_point') }}"
+          temperature_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'temperature_unit') }}"
+          humidity: "{{ state_attr('weather.opencwa_nan_tun_qu', 'humidity') }}"
+          cloud_coverage: "{{ state_attr('weather.opencwa_nan_tun_qu', 'cloud_coverage') }}"
+          pressure: "{{ state_attr('weather.opencwa_nan_tun_qu', 'pressure') }}"
+          pressure_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'pressure_unit') }}"
+          wind_bearing: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_bearing') }}"
+          wind_speed: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_speed') }}"
+          wind_speed_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_speed_unit') }}"
+          visibility_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'visibility_unit') }}"
+          precipitation_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'precipitation_unit') }}"
+          forecast: "{{ hourly['weather.opencwa_nan_tun_qu'].forecast }}"
 
-################################################
-          
   - sensor:
       - name: "eink_sensors"
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
         state: >
-          {{ states('weather.opencwb') }}
+          {{ states('weather.opencwa_nan_tun_qu') }}
         attributes:
           # 若溫溼度與體感要改自家的，與下一行二擇一
           today_temperature: >
-            {{ states('sensor.opencwb_temperature') | round }}°C
+            {{ states('sensor.opencwa_nan_tun_qu_temperature') | round }}°C
           # {{states('sensor.outside_temperature') | round }}°C
           today_humidity: >
-            {{ states('sensor.opencwb_humidity')}}
+            {{ states('sensor.opencwa_nan_tun_qu_humidity')}}
           # {{states('sensor.outside_humidity')| round}}
           today_feel_like: >
-            {{ states('sensor.opencwb_feels_like_temperature') | round }}°
+            {{ states('sensor.opencwa_nan_tun_qu_feels_like_temperature') | round }}°
           # {{states('sensor.my_feels_like')| round}}°
           today_uv_index: >
             {{states('sensor.openuv_current_uv_index')| round }}
           forecast_rain_precipitation: >
-            {{states('sensor.opencwb_forecast_precipitation_probability')| round }}
+            {{states('sensor.opencwa_nan_tun_qu_forecast_precipitation_probability')| round }}
           forecast_rain_probability: >
-            {{states('sensor.opencwb_forecast_precipitation')| round }}
+            {{states('sensor.opencwa_nan_tun_qu_forecast_precipitation')| round }}
           today_wind_speed: >
-            {{states('sensor.opencwb_wind_speed')| round }}
+            {{states('sensor.opencwa_nan_tun_qu_wind_speed')| round }}
           today_dew_point: >
-            {{states('sensor.opencwb_dew_point')| round }}
+            {{states('sensor.opencwa_nan_tun_qu_dew_point')| round }}
           forecast_weekday_1: >
             {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%a') }}
           forecast_condition_1: >
@@ -208,38 +204,6 @@ template:
           forecast_time_11: >
             {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%p') }}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       - name: eink_next_rising
         unique_id: 404907c7-4326-4583-967b-dea7d88a1607
         state: >
@@ -277,38 +241,13 @@ template:
           {% set HI_C = (HI-32)/1.8 %}
           {{- HI_C|round(1) -}}
 
-      # - name: eink_sidebar_temperature
-      #   unique_id: c03e5c28-fa12-4e7f-bcf8-e1ff49776b04
-      #   state: >
-      #     {{states('sensor.livingroom_temperatur') | round }}
-
-      # - name: eink_sidebar_humidity
-      #   unique_id: fdc7fca6-6e3b-420f-837c-091339a39913
-      #   state: >
-      #     {{states('sensor.livingroom_humidity') | round }}
-
-      # - name: eink_sidebar_pm25
-      #   unique_id: 4c362075-9959-4a95-a33e-dbfacb8ab9c5
-      #   state: >
-      #     {{states('sensor.livingroom_matter_2_5_m') | round }}
-
-      # - name: eink_sidebar_co2
-      #   unique_id: 52ebda00-7a29-41f2-b9ca-257e6958af7c
-      #   state: >
-      #     {{states('sensor.livingroom_co2_value') | round }}
-
-      # - name: eink_sidebar_tvoc
-      #   unique_id: 977f871c-5bd5-403a-8284-d40b5b38bd94
-      #   state: >
-      #     {{states('sensor.livingroom_tvoc_value') | round }}
-
-  - sensor:
-      - platform: time_date
-        display_options:
-          - "time"
-          - "date"
-          - "date_time"
-          - "date_time_utc"
-          - "date_time_iso"
-          - "time_date"
-          - "time_utc"
+  # - sensor:
+  #     - platform: time_date
+  #       display_options:
+  #         - "time"
+  #         - "date"
+  #         - "date_time"
+  #         - "date_time_utc"
+  #         - "date_time_iso"
+  #         - "time_date"
+  #         - "time_utc"
