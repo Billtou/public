@@ -164,4 +164,5 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
       
 # 2024/12/14 Update    
 - 更新到最新版方法: 進入HA裡面的HACS 找到 Opendata CWA > 右上三點 > Download 這樣之前的日期錯誤就會修復
+- 由於中央氣象局api改版，部分數據未放進去導致一週天氣與報請暫時全部改成以小時顯示。
 - ESPHome裡面 Forcate Type deily_High_low 目前會不顯示最低溫度，因為中央氣象局API改版莫名的把這個資料取消了，我會反映請他家回來希望他會聽我的....
