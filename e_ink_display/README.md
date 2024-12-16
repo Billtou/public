@@ -172,6 +172,6 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 - 有設定以天為預報基礎的都暫時改為以小時方式顯示。
 - OpenCWA 整合重新安裝或版更一下。
 - 原來的weather.opencwb entity b改a且後綴多了區域名稱例如南屯區如右 "_nan_tun_qu"
-- 請修改yaml檔案，用搜尋與取代的方式把 weather.opencwb  >>  weather.opencwa_nan_tun_qu
+- 請修改yaml檔案，用搜尋與取代的方式把 weather.opencwb  >>  weather.opencwa_XXX_XXX_XXX
 - 把sensor.opencwb_temperature 改成自家的 entity 例如 sensor.opencwa_XXX_XXX_XXX_temperature
 - 手動更新看看就知道是否正確了。 以上。 
