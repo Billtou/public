@@ -63,7 +63,7 @@ template:
           forecast_time_1: >
             {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%p') }}
 
-            forecast_weekday_2: >
+          forecast_weekday_2: >
             {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[2].datetime) | timestamp_custom('%a') }}
           forecast_condition_2: >
             {{ state_attr('sensor.weather_interval', 'forecast')[2].condition }}
