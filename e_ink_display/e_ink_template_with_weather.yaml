@@ -1,7 +1,7 @@
 template:
   - trigger:
       - platform: time_pattern
-        minutes: /30 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
+        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
       - platform: homeassistant
         event: start
     action:
@@ -20,20 +20,8 @@ template:
         unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
         state: "{{ states('weather.opencwa_nan_tun_qu') }}"
         attributes:
-          temperature: "{{ state_attr('weather.opencwa_nan_tun_qu', 'temperature') }}"
-          templow: "{{state_attr('weather.opencwa_nan_tun_qu', 'templow')}}"
-          dew_point: "{{ state_attr('weather.opencwa_nan_tun_qu', 'dew_point') }}"
-          temperature_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'temperature_unit') }}"
-          humidity: "{{ state_attr('weather.opencwa_nan_tun_qu', 'humidity') }}"
-          cloud_coverage: "{{ state_attr('weather.opencwa_nan_tun_qu', 'cloud_coverage') }}"
-          pressure: "{{ state_attr('weather.opencwa_nan_tun_qu', 'pressure') }}"
-          pressure_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'pressure_unit') }}"
-          wind_bearing: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_bearing') }}"
-          wind_speed: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_speed') }}"
-          wind_speed_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'wind_speed_unit') }}"
-          visibility_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'visibility_unit') }}"
-          precipitation_unit: "{{ state_attr('weather.opencwa_nan_tun_qu', 'precipitation_unit') }}"
-          forecast: "{{ hourly['weather.opencwa_nan_tun_qu'].forecast }}"
+          forecast: "{{ hourly['weather.opencwa_nan_tun_qu'].forecast }}" # 搭配cwa集成使用 與下一行二擇一
+          # forecast: "{{ daily['weather.opencwa_nan_tun_qu'].forecast }}"  # 搭配cwa集成使用 與下一行二擇一
 
   - sensor:
       - name: "eink_sensors"
@@ -43,24 +31,25 @@ template:
         attributes:
           # 若溫溼度與體感要改自家的，與下一行二擇一
           today_temperature: >
-            {{ states('sensor.opencwa_nan_tun_qu_temperature') | round }}°C
+            {{ state_attr('weather.opencwa_nan_tun_qu','temperature') | round }}°C
           # {{states('sensor.outside_temperature') | round }}°C
           today_humidity: >
-            {{ states('sensor.opencwa_nan_tun_qu_humidity')}}
+            {{ state_attr('weather.opencwa_nan_tun_qu','humidity') }}
           # {{states('sensor.outside_humidity')| round}}
           today_feel_like: >
-            {{ states('sensor.opencwa_nan_tun_qu_feels_like_temperature') | round }}°
+            {{ state_attr('weather.opencwa_nan_tun_qu','apparent_temperature') | round }}°
           # {{states('sensor.my_feels_like')| round}}°
-          today_uv_index: >
-            {{states('sensor.openuv_current_uv_index')| round }}
-          forecast_rain_precipitation: >
-            {{states('sensor.opencwa_nan_tun_qu_forecast_precipitation_probability')| round }}
-          forecast_rain_probability: >
-            {{states('sensor.opencwa_nan_tun_qu_forecast_precipitation')| round }}
-          today_wind_speed: >
-            {{states('sensor.opencwa_nan_tun_qu_wind_speed')| round }}
           today_dew_point: >
-            {{states('sensor.opencwa_nan_tun_qu_dew_point')| round }}
+            {{ state_attr('weather.opencwa_nan_tun_qu','dew_point') | round }}
+          today_wind_speed: >
+            {{ states('sensor.opencwa_nan_tun_qu_forecast_wind_speed') | round }}
+          today_uv_index: >
+            {{ states('sensor.opencwa_nan_tun_qu_uv_index') | round }}
+          forecast_rain_precipitation: >
+            {{ states('sensor.opencwa_nan_tun_qu_forecast_precipitation_probability')| round }}
+          forecast_rain_probability: >
+            {{ states('sensor.opencwa_nan_tun_qu_forecast_precipitation') | round }}
+
           forecast_weekday_1: >
             {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%a') }}
           forecast_condition_1: >
@@ -74,7 +63,7 @@ template:
           forecast_time_1: >
             {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%p') }}
 
-          forecast_weekday_2: >
+            forecast_weekday_2: >
             {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[2].datetime) | timestamp_custom('%a') }}
           forecast_condition_2: >
             {{ state_attr('sensor.weather_interval', 'forecast')[2].condition }}
@@ -240,7 +229,6 @@ template:
           {% endif %}
           {% set HI_C = (HI-32)/1.8 %}
           {{- HI_C|round(1) -}}
-
   # - sensor:
   #     - platform: time_date
   #       display_options:
