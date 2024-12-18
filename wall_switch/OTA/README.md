@@ -24,3 +24,6 @@ wall-switch-1-CHP-xxx.uf2   1路開關
 wall-switch-2-CHP-xxx.uf2   2路開關
 
 wall-switch-3-CHP-xxx.uf2   3路開關
+
+# OTA 刷機方法
+- 
