@@ -7,9 +7,9 @@
 
 # 檔案說明分1路與兩路確定好即可
 
-  module-1e-XXXXXX.uf2   1路具耗電模組
+  module-1e-CBU.uf2   1路具耗電模組
 
-  module-2e-XXXXXX.uf2   2路具耗電模組
+  module-2e-CBU.uf2   2路具耗電模組
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
