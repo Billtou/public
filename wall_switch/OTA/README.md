@@ -1,14 +1,25 @@
-# 自動校正版的 hollow clock 4
-## 接入自家wifi
-  設備上電手機搜尋設備發出的wifi AP(熱點) "AutoConnectAP" 並指定自家2.4G wifi 與密碼。
-## 自動校正
-  手機瀏覽器輸入 http://wifi-clock.local/  就會跳出自動校正頁面，若家裡有兩台以上，可以透過路由器Router的管理頁面找到接入的IP位置(Active Host Name 應該是 "ESP-XXXXXX")，於瀏覽器輸入該IP即可進入。P.S 實測每天只能自動校正一次，若測試階段當天已用完額度，參考下列手動對時方法。
+# 2024/10/28 Update 1.2.1
+  - Update內容
+  - 1.新增可指定開機relay on or off by select
+  - 2.新增wifi狀態燈與綠色led並存且具斷電記憶功能
+  - 3.新增解偶斷電記憶功能
+  - 4.esphome entity type 調理
+  - 5.timeout 設為 0s 避免裝潢時期現場沒有wifi設備會15分鐘重置的困擾
 
-![Mosquitto_broker](/hollow_clock/image/083921.png)
+# OTA 檔案說明
+# 主板是芯片規格適用 ** 請特別注意別搞錯檔案，不確定時可諮詢賣家 **  Line ID 0988057325
 
-## 手動校正
-  進入下列網站，點選Real Time按鍵出現現在時間的方位，將空心鐘放在螢幕上對準中心點，再調整時針與分針的角度(調整底部齒輪改變指針角度)，簡單粗暴。
-  
-https://www.visnos.com/demos/clock
+wall-switch-1-CBU-xxx.uf2  1路開關
 
-![Mosquitto_broker](/hollow_clock/image/131424.png)
+wall-switch-2-CBU-xxx.uf2  2路開關
+
+wall-switch-3-CBU-xxx.uf2  3路開關
+
+
+# 主板是模組規格適用
+
+wall-switch-1-CHP-xxx.uf2   1路開關
+
+wall-switch-2-CHP-xxx.uf2   2路開關
+
+wall-switch-3-CHP-xxx.uf2   3路開關
