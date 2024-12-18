@@ -26,4 +26,4 @@ wall-switch-2-CHP-xxx.uf2   2路開關
 wall-switch-3-CHP-xxx.uf2   3路開關
 
 # OTA 刷機方法
-- 
+- ![Mosquitto_broker](/wall_switch/image/ota.png)
