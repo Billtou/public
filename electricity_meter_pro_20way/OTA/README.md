@@ -1,15 +1,14 @@
-# 2024/10/28 Update 1.1
+# 線上OTA檔案
 
-  - 1.新增可設定來電 on / off
-  - 2.解偶斷電記憶
-  - 3.timeout 設定為 0s
-  - 4.傳統開關訊號delayed on/off 50ms
+2024/11/14 新增一個Current_time entity方便核對歸零時間用
 
-# 檔案說明分1路與兩路確定好即可
+electricitymeter-pro.ota_WIFI_60s_Current_time.bin  # WIFI版OTA檔案  
 
-  module-1e-XXXXXX.uf2   1路具耗電模組
+electricitymeter-pro.ota_ETH_60s_Current_time.bin   # WIFI版OTA檔案  
 
-  module-2e-XXXXXX.uf2   2路具耗電模組
+electricitymeter-pro.ota_WIFI_60s_reset_18way_Current_time.bin   # 網線版18路歸零(bate)版
+
+electricitymeter-pro.ota_ETH_60s_reset_18way_Current_time.bin   # WIFI版18路歸零(bate)版
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
