@@ -181,4 +181,6 @@ HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服�
 - 參考新上傳的 e_ink_template_with_weather.yaml 並依據12/16 Update修改為自家的ID名稱。
 - 把 yaml 檔案中 LOCATION_NAME 替換成自家的entity 後綴名稱即可。
 - 手動更新看看就知道是否正確了。 以上。
-  
+
+# 2024/12/18 Update  
+- 功能沒變更僅將e_ink_template_with_weather.yaml 的語法修改成新版本的結構。
