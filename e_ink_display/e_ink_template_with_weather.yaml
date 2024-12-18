@@ -30,14 +30,14 @@ template:
         attributes:
           # 若溫溼度與體感要改自家的，與下一行二擇一
           today_temperature: >
-            {{states('sensor.outside_temperature') | round }}°C
-          # {{ state_attr('weather.opencwa_LOCATION_NAME','temperature') | round }}°C
+          # {{states('sensor.outside_temperature') | round }}°C
+            {{ state_attr('weather.opencwa_LOCATION_NAME','temperature') | round }}°C
           today_humidity: >
-            {{states('sensor.outside_humidity')| round}}
-          # {{ state_attr('weather.opencwa_LOCATION_NAME','humidity') }}
+          # {{states('sensor.outside_humidity')| round}}
+            {{ state_attr('weather.opencwa_LOCATION_NAME','humidity') }}
           today_feel_like: >
-            {{states('sensor.my_feels_like')| round}}°
-          # {{ state_attr('weather.opencwa_LOCATION_NAME','apparent_temperature') | round }}°
+          # {{states('sensor.my_feels_like')| round}}°
+            {{ state_attr('weather.opencwa_LOCATION_NAME','apparent_temperature') | round }}°
           today_dew_point: >
             {{ state_attr('weather.opencwa_LOCATION_NAME','dew_point') | round }}
           today_wind_speed: >
