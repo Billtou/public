@@ -1,15 +1,12 @@
-# 2024/10/28 Update 1.1
+# 切換韌體OTA說明
 
-  - 1.新增可設定來電 on / off
-  - 2.解偶斷電記憶
-  - 3.timeout 設定為 0s
-  - 4.傳統開關訊號delayed on/off 50ms
+garage-door_ETH_4way_version.ota.bin    網線版本 "4路" 點動開關
 
-# 檔案說明分1路與兩路確定好即可
+garage-door_ETH_garge_version.ota.bin   網線版本 "車庫" 鐵捲門
 
-  module-1e-XXXXXX.uf2   1路具耗電模組
+garage-door_WIFI_4way_version.ota.bin   WIFI版本 "4路" 點動開關
 
-  module-2e-XXXXXX.uf2   2路具耗電模組
+garage-door_WIFI_garge_version.ota.bin   WIFI版本 "車庫" 鐵捲門
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
