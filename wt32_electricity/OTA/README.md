@@ -1,15 +1,8 @@
-# 2024/10/28 Update 1.1
+# OTA 檔案說明
 
-  - 1.新增可設定來電 on / off
-  - 2.解偶斷電記憶
-  - 3.timeout 設定為 0s
-  - 4.傳統開關訊號delayed on/off 50ms
+electricity-meter_wifi_ota.bin   WIFI版本
 
-# 檔案說明分1路與兩路確定好即可
-
-  module-1e-XXXXXX.uf2   1路具耗電模組
-
-  module-2e-XXXXXX.uf2   2路具耗電模組
+electricity-meter_EHT_ota.bin   網線版本
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
