@@ -1,9 +1,9 @@
 template:
   - trigger:
-      - platform: time_pattern
-        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30
-      - platform: homeassistant
-        event: start
+      - trigger: time_pattern
+        minutes: /1 # 剛開始設置可以改1分鐘，一切穩定後請改30分鐘update一次  minutes: /30 或 /15
+      - event: start
+        trigger: homeassistant
     action:
       - delay: "00:01:00" #偏移1分鐘避免與CWB更新時間重疊
       - action: weather.get_forecasts
@@ -14,31 +14,30 @@ template:
           entity_id: weather.opencwa_LOCATION_NAME
         # response_variable: daily # 搭配cwa集成使用 與下一行二擇一
         response_variable: hourly # 搭配cwa集成使用 與上一行二擇一
-
     sensor:
       - name: Weather Interval
         unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
         state: "{{ states('weather.opencwa_LOCATION_NAME') }}"
         attributes:
+          # forecast: "{{ daily['weather.opencwa_LOCATION_NAME'].forecast }}"  # 搭配cwa集成使用 與下一行二擇一        
           forecast: "{{ hourly['weather.opencwa_LOCATION_NAME'].forecast }}" # 搭配cwa集成使用 與下一行二擇一
-          # forecast: "{{ daily['weather.opencwa_LOCATION_NAME'].forecast }}"  # 搭配cwa集成使用 與下一行二擇一
 
   - sensor:
-      - name: "eink_sensors"
+      - name: Eink Sensors
         unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
         state: >
           {{ states('weather.opencwa_LOCATION_NAME') }}
         attributes:
           # 若溫溼度與體感要改自家的，與下一行二擇一
           today_temperature: >
-            {{ state_attr('weather.opencwa_LOCATION_NAME','temperature') | round }}°C
-          # {{states('sensor.outside_temperature') | round }}°C
+            {{states('sensor.outside_temperature') | round }}°C
+          # {{ state_attr('weather.opencwa_LOCATION_NAME','temperature') | round }}°C
           today_humidity: >
-            {{ state_attr('weather.opencwa_LOCATION_NAME','humidity') }}
-          # {{states('sensor.outside_humidity')| round}}
+            {{states('sensor.outside_humidity')| round}}
+          # {{ state_attr('weather.opencwa_LOCATION_NAME','humidity') }}
           today_feel_like: >
-            {{ state_attr('weather.opencwa_LOCATION_NAME','apparent_temperature') | round }}°
-          # {{states('sensor.my_feels_like')| round}}°
+            {{states('sensor.my_feels_like')| round}}°
+          # {{ state_attr('weather.opencwa_LOCATION_NAME','apparent_temperature') | round }}°
           today_dew_point: >
             {{ state_attr('weather.opencwa_LOCATION_NAME','dew_point') | round }}
           today_wind_speed: >
@@ -229,13 +228,3 @@ template:
           {% endif %}
           {% set HI_C = (HI-32)/1.8 %}
           {{- HI_C|round(1) -}}
-  # - sensor:
-  #     - platform: time_date
-  #       display_options:
-  #         - "time"
-  #         - "date"
-  #         - "date_time"
-  #         - "date_time_utc"
-  #         - "date_time_iso"
-  #         - "time_date"
-  #         - "time_utc"
