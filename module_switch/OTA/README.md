@@ -3,7 +3,7 @@
   - 1.新增可指定開機relay on or off by select
   - 2.新增解偶斷電記憶功能
   - 3.timeout 設為 0s 避免裝潢時期現場沒有wifi設備會15分鐘重置的困擾
-  - 4.接傳統開關訊號delayed on/off 50ms (避免電子訊號雜訊誤判開關訊號)
+  - 4.接傳統開關訊號delayed on/off 50ms (避免電子雜訊誤判開關電燈)
 
 # 檔案說明分1路與兩路確定好即可
 
