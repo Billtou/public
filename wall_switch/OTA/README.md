@@ -10,20 +10,31 @@
 
 # 主板是芯片規格適用 
 
-wall-switch-1-CBU-xxx.uf2  1路開關
+wall-switch-1-CBU-ota-1.2d.uf2  1路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
 
-wall-switch-2-CBU-xxx.uf2  2路開關
+wall-switch-1-CBU-ota-1.2n.uf2  1路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
 
-wall-switch-3-CBU-xxx.uf2  3路開關
+wall-switch-2-CBU-ota-1.2d.uf2  2路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
 
+wall-switch-2-CBU-ota-1.2n.uf2  2路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
+
+wall-switch-3-CBU-ota-1.2d.uf2  3路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
+
+wall-switch-3-CBU-ota-1.2n.uf2  3路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
 
 # 主板是模組規格適用
 
-wall-switch-1-CHP-xxx.uf2   1路開關
+wall-switch-1-CHP-ota-1.2d.uf2  1路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
 
-wall-switch-2-CHP-xxx.uf2   2路開關
+wall-switch-1-CHP-ota-1.2n.uf2  1路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
 
-wall-switch-3-CHP-xxx.uf2   3路開關
+wall-switch-2-CHP-ota-1.2d.uf2  2路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
+
+wall-switch-2-CHP-ota-1.2n.uf2  2路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
+
+wall-switch-3-CHP-ota-1.2d.uf2  3路開關(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
+
+wall-switch-3-CHP-ota-1.2n.uf2  3路開關(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)
