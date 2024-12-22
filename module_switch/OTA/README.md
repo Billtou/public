@@ -2,14 +2,18 @@
 
   - 1.新增可指定開機relay on or off by select
   - 2.新增解偶斷電記憶功能
-  - 3.imeout 設為 0s 避免裝潢時期現場沒有wifi設備會15分鐘重置的困擾
-  - 4.傳統開關訊號delayed on/off 50ms (避免電子訊號雜訊誤判開關訊號)
+  - 3.timeout 設為 0s 避免裝潢時期現場沒有wifi設備會15分鐘重置的困擾
+  - 4.接傳統開關訊號delayed on/off 50ms (避免電子訊號雜訊誤判開關訊號)
 
 # 檔案說明分1路與兩路確定好即可
 
-  module-1e-CBU.uf2   1路具耗電模組
+  module-1e-ota-1.0d.uf2   1路具耗電模組(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機)
+  
+  module-1e-ota-1.0n.uf2   1路具耗電模組(適用使用期，若15分鐘沒找到WIFI "會" 重開機)
 
-  module-2e-CBU.uf2   2路具耗電模組
+  module-2e-ota-1.1d.uf2   2路具耗電模組(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機)
+  
+  module-2e-ota-1.1n.uf2   2路具耗電模組(適用使用期，若15分鐘沒找到WIFI "會" 重開機)
 
 # OTA 刷機方法
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
