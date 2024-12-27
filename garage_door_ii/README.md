@@ -11,7 +11,7 @@
 
 ![Mosquitto_broker](/garage_door_ii/image/112327.png)
 
-![Mosquitto_broker](/image/112349.png)
+![Mosquitto_broker](/garage_door_ii/image/112349.png)
 
 ## 快速鐵捲門接線方式 ##
 
