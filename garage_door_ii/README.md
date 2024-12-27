@@ -7,11 +7,9 @@
 上電手機靠近本設備找wifi熱點 garage-ii-XXXXXX，手機切換到瀏覽器輸入192.168.4.1 指定自家wifi與密碼 (要稍微等待一下wifi熱點才會出現) 後續接入HA請參考網線方法。
 
 ## 接口介紹
-
-
-![Mosquitto_broker](/garage_door_ii/image/112349.png)
-
 ![Mosquitto_broker](/garage_door_ii/image/113020.png)
+![Mosquitto_broker](/garage_door_ii/image/113250.png)
+![Mosquitto_broker](/garage_door_ii/image/113310.png)
 
 ## 快速鐵捲門接線方式 ##
 
