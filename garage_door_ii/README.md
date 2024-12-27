@@ -9,7 +9,7 @@
 ## 接口介紹
 
 
-![Mosquitto_broker](/image/112327.png)
+![Mosquitto_broker](/garage_door_ii/image/112327.png)
 
 ![Mosquitto_broker](/image/112349.png)
 
