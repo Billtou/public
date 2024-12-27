@@ -9,9 +9,9 @@
 ## 接口介紹
 
 
-![Mosquitto_broker](/garage_door_ii/image/112327.png)
-
 ![Mosquitto_broker](/garage_door_ii/image/112349.png)
+
+![Mosquitto_broker](/garage_door_ii/image/113020.png)
 
 ## 快速鐵捲門接線方式 ##
 
