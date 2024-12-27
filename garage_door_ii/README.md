@@ -12,8 +12,8 @@
 ![Mosquitto_broker](/garage_door_ii/image/113310.png)
 
 ## 快速鐵捲門接線方式 ##
-
-![Mosquitto_broker](/garage_door/image/140822.png)
+- 傳統鐵捲門改裝方式
+![Mosquitto_broker](/garage_door_ii/image/113722.png)
 
 ## 遙控器接線方式 ##
 
