@@ -18,25 +18,6 @@
 
 
 ## 接入HA 車庫鐵捲門實體 ##
-
 ![Mosquitto_broker](/garage_door/image/110253.png)
 
-
-## OTA 切換WIFI連線或網線 ##
-
-garage-door_ETH_4way_version.ota.bin        網線版本 "4路" 點動開關
-
-garage-door_ETH_garge_version.ota.bin       網線版本 "車庫" 鐵捲門
-
-garage-door_WIFI_4way_version.ota.bin       WIFI版本 "4路" 點動開關
-
-garage-door_WIFI_garge_version.ota.bin       WIFI版本 "車庫" 鐵捲門
-
-** 若沿用自家的門磁發現HA的開關門顛倒，請選擇門磁反向的檔案即可 **
-
-瀏覽器輸入garage-door被分配到的ip
-
-![Mosquitto_broker](/garage_door/image/201829.png)
-
-** PS. OTA後原本被分配的IP會變更，建議斷電重開機，若從WIFI變更為網線，重開機後請按上文 "接入自家網路 - WIFI方法" 設定連網。
 
