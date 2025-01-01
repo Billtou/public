@@ -10,5 +10,5 @@
   - module-1e-ota-1.0n.uf2   1路具耗電模組(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
   - module-2e-ota-1.1d.uf2   2路具耗電模組(適用裝潢期，若15分鐘沒找到WIFI "不會" 重開機設備)
   - module-2e-ota-1.1n.uf2   2路具耗電模組(適用使用期，若15分鐘沒找到WIFI "會" 重開機設備)
-# OTA 刷機方法
+# OTA 刷機方法 刷機完會重開，若遲遲沒連線斷電在給電即可
 - ![Mosquitto_broker](/wall_switch/image/ota.png)  
