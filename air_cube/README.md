@@ -1,5 +1,5 @@
 # Air Cube 使用說明
-##  通電wifi燈閃爍，手機靠近本設備找wifi熱點 air-cube-xxxxxx，手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。(要稍微等待一下wifi熱點才會出現)
+##  上電手機靠近設備找wifi熱點 air-cube-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。(要稍微等待一下wifi熱點才會出現)
 ## 硬體規格 
   - Wifi Module
     ESPRESSIF ESP32-WROOM
