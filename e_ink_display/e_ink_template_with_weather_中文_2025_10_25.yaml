@@ -1,0 +1,288 @@
+template:
+  - trigger:
+      - trigger: time_pattern
+        minutes: /1
+    action:
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.opencwa_nan_tun_qu # 這行的emtity要修改為自己的id *** 以下同 ***
+        data:
+          # type: hourly # 搭配cwa集成使用 與下一行二擇一
+          type: daily
+        response_variable: daily # 搭配cwa集成使用 與下一行二擇一
+        # response_variable: hourly
+    sensor:
+      - name: Weather Interval
+        unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
+        state: "{{ states('weather.opencwa_nan_tun_qu') }}"
+        attributes:
+          forecast: "{{ daily['weather.opencwa_nan_tun_qu'].forecast }}" # 搭配cwa集成使用 與下一行二擇一
+          # forecast: "{{ hourly['weather.opencwa_nan_tun_qu'].forecast }}" # 搭配cwa集成使用 與下一行二擇一
+  - sensor:
+      - name: Eink Sensors
+        unique_id: 7d4a5b29-70c3-4fd0-9b8e-a79a3a3165d2
+        state: >
+          {{ states('weather.opencwa_nan_tun_qu') }}
+        attributes:
+          today_temperature: >
+            {{ state_attr('weather.opencwa_nan_tun_qu','temperature') | round }}°c
+          today_humidity: >
+            {{ state_attr('weather.opencwa_nan_tun_qu','humidity') }}
+          today_feel_like: >
+            {{ state_attr('weather.opencwa_nan_tun_qu','apparent_temperature') | round }}°
+          today_dew_point: >
+            {{ state_attr('weather.opencwa_nan_tun_qu','dew_point') | round }}
+          today_wind_speed: >
+            {{ states('sensor.opencwa_nan_tun_qu_forecast_wind_speed') | round }}
+          today_uv_index: >
+            {{ states('sensor.opencwa_nan_tun_qu_uv_index') | round }}
+          today_weather_text: >
+            {% set eweather = states('sensor.opencwa_nan_tun_qu_weather') %}
+            {% if eweather and '。' in eweather %}
+              {{ eweather.split('。')[0] }}
+            {% else %}
+              {{ eweather }}
+            {% endif %}
+          today_rain_probability: >
+            {% set eweather = states('sensor.opencwa_nan_tun_qu_weather') %}
+            {% if eweather and '降雨機率' in eweather and '%' in eweather %}
+              {% set after_rain = eweather.split('降雨機率', 1)[1] %}
+              {% set percentage_part = after_rain.split('%')[0] %}
+              {{ percentage_part.strip() }}
+            {% else %}
+              None
+            {% endif %}
+          forecast_weekday_1: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%a') }}
+          forecast_condition_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].condition }}
+          forecast_temperature_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].temperature | round }}°
+          forecast_templow_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].templow | round }}°
+          forecast_precipitation_probability_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].precipitation_probability | round }}%
+          forecast_time_1: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[1].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].feels_like_temperature | round }}°
+          forecast_humidity_1: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[1].humidity | round }}%
+
+          forecast_weekday_2: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[2].datetime) | timestamp_custom('%a') }}
+          forecast_condition_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].condition }}
+          forecast_temperature_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].temperature | round }}°
+          forecast_templow_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].templow | round }}°
+          forecast_precipitation_probability_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].precipitation_probability | round }}%
+          forecast_time_2: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[2].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[2].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].feels_like_temperature | round }}°
+          forecast_humidity_2: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[2].humidity | round }}%
+
+          forecast_weekday_3: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[3].datetime) | timestamp_custom('%a') }}
+          forecast_condition_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].condition }}
+          forecast_temperature_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].temperature | round }}°
+          forecast_templow_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].templow | round }}°
+          forecast_precipitation_probability_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].precipitation_probability | round }}%
+          forecast_time_3: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[3].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[3].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].feels_like_temperature | round }}°
+          forecast_humidity_3: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[3].humidity | round }}%
+
+          forecast_weekday_4: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[4].datetime) | timestamp_custom('%a') }}
+          forecast_condition_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].condition }}
+          forecast_temperature_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].temperature | round }}°
+          forecast_templow_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].templow | round }}°
+          forecast_precipitation_probability_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].precipitation_probability | round }}%
+          forecast_time_4: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[4].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[4].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].feels_like_temperature | round }}°
+          forecast_humidity_4: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[4].humidity | round }}%
+
+          forecast_weekday_5: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[5].datetime) | timestamp_custom('%a') }}
+          forecast_condition_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].condition }}
+          forecast_temperature_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].temperature | round }}°
+          forecast_templow_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].templow | round }}°
+          forecast_precipitation_probability_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].precipitation_probability | round }}%
+          forecast_time_5: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[5].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[5].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].feels_like_temperature | round }}°
+          forecast_humidity_5: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[5].humidity | round }}%
+
+          forecast_weekday_6: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[6].datetime) | timestamp_custom('%a') }}
+          forecast_condition_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].condition }}
+          forecast_temperature_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].temperature | round }}°
+          forecast_templow_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].templow | round }}°
+          forecast_precipitation_probability_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].precipitation_probability | round }}%
+          forecast_time_6: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[6].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[6].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].feels_like_temperature | round }}°
+          forecast_humidity_6: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[6].humidity | round }}%
+
+          forecast_weekday_7: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[7].datetime) | timestamp_custom('%a') }}
+          forecast_condition_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].condition }}
+          forecast_temperature_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].temperature | round }}°
+          forecast_templow_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].templow | round }}°
+          forecast_precipitation_probability_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].precipitation_probability | round }}%
+          forecast_time_7: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[7].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[7].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].feels_like_temperature | round }}°
+          forecast_humidity_7: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[7].humidity | round }}%
+
+          forecast_weekday_8: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[8].datetime) | timestamp_custom('%a') }}
+          forecast_condition_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].condition }}
+          forecast_temperature_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].temperature | round }}°
+          forecast_templow_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].templow | round }}°
+          forecast_precipitation_probability_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].precipitation_probability | round }}%
+          forecast_time_8: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[8].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[8].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].feels_like_temperature | round }}°
+          forecast_humidity_8: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[8].humidity | round }}%
+
+          forecast_weekday_9: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[9].datetime) | timestamp_custom('%a') }}
+          forecast_condition_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].condition }}
+          forecast_temperature_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].temperature | round }}°
+          forecast_templow_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].templow | round }}°
+          forecast_precipitation_probability_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].precipitation_probability | round }}%
+          forecast_time_9: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[9].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[9].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].feels_like_temperature | round }}°
+          forecast_humidity_9: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[9].humidity | round }}%
+
+          forecast_weekday_10: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[10].datetime) | timestamp_custom('%a') }}
+          forecast_condition_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].condition }}
+          forecast_temperature_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].temperature | round }}°
+          forecast_templow_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].templow | round }}°
+          forecast_precipitation_probability_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].precipitation_probability | round }}%
+          forecast_time_10: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[10].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[10].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].feels_like_temperature | round }}°
+          forecast_humidity_10: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[10].humidity | round }}%
+
+          forecast_weekday_11: >
+            {{as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%a') }}
+          forecast_condition_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].condition }}
+          forecast_temperature_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].temperature | round }}°
+          forecast_templow_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].templow | round }}°
+          forecast_precipitation_probability_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].precipitation_probability | round }}%
+          forecast_time_11: >
+            {{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%I') | int }}{{ as_timestamp(state_attr('sensor.weather_interval', 'forecast')[11].datetime) | timestamp_custom('%p') }}
+          forecast_feels_like_temperature_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].feels_like_temperature | round }}°
+          forecast_humidity_11: >
+            {{ state_attr('sensor.weather_interval', 'forecast')[11].humidity | round }}%
+
+      - name: eink_next_rising
+        unique_id: 404907c7-4326-4583-967b-dea7d88a1607
+        state: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom ("%H:%M") }}
+
+      - name: eink_next_sunset
+        unique_id: 3ecf6a10-c665-46bb-9f53-55fe18752e64
+        state: >
+          {{ as_timestamp(states.sun.sun.attributes.next_dawn) | timestamp_custom ("%H:%M") }}
+
+      - name: eink_moon_phase
+        unique_id: c4253e80-fbfc-4875-b35d-9487e1c212c3
+        state: >
+          {{states('sensor.moon_phase')}}
+
+#############################################
+##每天自動更新畫面時間點的自動化程序
+##可自行增減下列程序碼來改變畫面更新頻率
+automation:
+  - alias: Refresh Screen Schedule
+    id: ecc1d5d7-e5e8-4b55-91f2-c61a304b5756
+    description: 每天定時自動更新畫面的時段
+    trigger:
+      - trigger: time
+        at: "00:20:00"
+      - trigger: time
+        at: "06:20:00"
+      - trigger: time
+        at: "12:20:00"
+      - trigger: time
+        at: "18:20:00"
+    actions:
+      - action: button.press
+        target:
+          entity_id: button.weather_panel_fa874c_refresh_weather_panel # 這行的emtity要修改為自己的id
+    mode: single
+#############################################
+#  氣象局未來7天與72小時 這兩個API每天更新時段約為
+#  早上6:10~6:20之間 (每6小時以此類推)
+#  00:10~20
+#  06:10~20
+#  12:10~20
+#  18:10~20
+#
+#
+#############################################
+
