@@ -55,28 +55,24 @@
 
 ![Mosquitto_broker](/e_ink_display/image/144320.png)
 
-默認更新時間同氣象署，會偏移5分鐘更新(流程為氣象局更新，HA的自製預報entity每30分鐘+60秒更新，故電子紙偏移5分鐘update)
+- 默認同步氣象局每天更新4次，下表為在HA中的ESPHome後台的設定選項說明(中文版)。
 
     Manual Refresh
-        | 立即手動更新按紐
+        | 立即手動更新畫面
     
     Sidebar Type
-        |  nothing (不顯示額外訊息) **默認**    
-        |  sun_and_moon  (日出日落時間以及月像)
-        |  time (顯示更新時間)
-    
-    Forcast Type
-        |  daily_high_low (搭配daily集成，當日最高、低溫預測) **默認**
-        |  daily_high_rain (搭配daily集成，當日最高溫以及下雨機率)
-        |  hourly (搭配hourly集成分小時最高溫以及下雨機率)
+        |  nothing (不顯示額外訊息) 
+        |  sun_and_moon  (日出日落時間以及月像) **默認**
 
-    Refash Time
-        |  on_cwb (與氣象署時間一致每天 05:30、6:30、11:30、17:30、23:30自動更新) **默認**
-        |  one_hour (每小時更新一次)
-        |  thirty_minutes (30分鐘一次)
-        
+    Forcast Type
+        |  daily_high_low (搭配daily模式，當日最高、低溫預測) **默認**
+        |  daily_fell_humidity (搭配daily模式 體感溫度與濕度)
+        |  daily_high_rain (搭配daily模式，當日最高溫以及下雨機率)
+        |  hourly (搭配hourly集成分小時最高溫以及下雨機率)
+        |  hourly_fell_humidity (搭配hourly模式 體感溫度與濕度)
+       
     show last updated
-        打開後下次更新時會在右上角顯示最近的更新時間。 
+        打開後下次更新時會在右上角顯示最近的更新時間。 **默認**
 
 
 # 2024/12/13 Update
