@@ -122,7 +122,7 @@
 - 功能沒變更僅將e_ink_template_with_weather.yaml 的語法修改成新版本的結構。
 
 # 2025/2/10 Update
-- 更新固件版本為2025.01.25c為中文顯示搭配中文版的e_ink_template_with_weather_中文_2025_10_25.yaml 使用
+- 更新固件版本為2025.01.25c為中文顯示搭配中文版的e_ink_template_with_weather_TW_2025_10_25.yaml 使用
 - 取消esphome後台自動更新頁面時段選擇，改為在HA裡面透過自訂義自動化自由指定。
 - 增加focast mode 計有 daily_high_low、deily_feel_rain、deily_feel_humidity、hourly_feel_rain and hourly_feel_humidity 五種選擇。
 - 調整程序碼提升執行效率。
