@@ -17,12 +17,13 @@
 ![Mosquitto_broker](/e_ink_display/image/142722.png)
 
 ## 手動建立模板實體 
-可以放在HA的configuration.yaml裡面，建議用packages方式管理手動建立模板實體的方式，方法如下: 在config(或homeassistant)資料夾中建立一個packages資料夾，並在configuration.yaml內增加以下代碼後重開機即可。
+- 可以放在HA的configuration.yaml裡面，建議用packages方式管理手動建立模板實體的方式，方法如下:
+- 在config(或homeassistant)資料夾中建立一個packages資料夾，並在configuration.yaml內增加以下代碼後重開機即可。
 
-    homeassistant:
-      packages: !include_dir_named packages
+        homeassistant:
+          packages: !include_dir_named packages
 
-若是放在configuration.yaml裡面可以把整個e_ink_template_with_weather.yaml 內容貼入即可，若是用packages方式管理就把該檔案copy到此資料夾裡面然後都HA需重開機。注意若自家HA已經有以下這段程序碼的話請自行刪除或註解掉即可。
+- 若是放在configuration.yaml裡面可以把整個e_ink_template_with_weather.yaml 內容貼入即可(注意entity類別宣告重複性問題)，若是用packages方式管理就把該檔案copy到此資料夾裡面然後HA需重開機。注意若自家HA已經有以下這段程序碼的話請自行刪除或註解掉即可。
 
       - sensor:
           - platform: time_date
@@ -35,7 +36,7 @@
               - "time_date"
               - "time_utc"
 
-默認溫溼度以及體感度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改e_ink_template_with_weather.yaml以下內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。默認氣象預報是以天為單位，可以改成以小時為單位，必須一併修改yaml檔案內容以及cwb集成改選hourly選項，等待30分鐘後可以看一下cwb的entity 預報部分以及自製的sensor.eink_sensors 是否已經都同步了，然後按下手動刷新即可。
+- 默認溫溼度以及體感溫度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改yaml內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。默認氣象預報是以天為單位，可以改成以小時為單位，必須一併修改yaml檔案內容以及cwa集成改選hourly選項，等待片刻後可以看一下cwa的entity 預報部分以及自製的sensor.eink_sensors 是否已經都同步了，然後按下產品在HAc.後台的手動刷新按鈕即可。
 
 ![Mosquitto_broker](/e_ink_display/image/112708.png)
 
