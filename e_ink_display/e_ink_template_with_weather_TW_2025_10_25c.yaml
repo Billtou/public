@@ -5,7 +5,7 @@ template:
     action:
       - action: weather.get_forecasts
         target:
-          entity_id: weather.opencwa_nan_tun_qu
+          entity_id: weather.opencwa_nan_tun_qu  #改成自己的entity(以下同)
         data:
           # type: hourly # 搭配cwa集成使用 與下一行二擇一
           type: daily
