@@ -11,8 +11,8 @@
     https://opendata.cwa.gov.tw/index
 - 進去這裡取得api授權碼
     https://opendata.cwa.gov.tw/user/authkey
-- HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服務  > 新增整合 > 填入API密鑰以及 "鄉鎮區" 名稱並選擇所需的更新模式 https://www.cwa.gov.tw/V8/C/W/Town/Town.html?TID=6600400
-- 默認daily，若選hourly相關的配套yaml內容也要一起改。
+- HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服務  > 新增整合 > 填入API密鑰以及 "鄉鎮區" 名稱(可以在這裡找一下正確名稱 https://www.cwa.gov.tw/V8/C/W/Town/Town.html?TID=6600400 )
+- 更新模式默認daily，若選hourly相關的配套yaml內容也要一起改。
 
 ![Mosquitto_broker](/e_ink_display/image/142722.png)
 
