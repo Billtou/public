@@ -36,7 +36,7 @@
               - "time_date"
               - "time_utc"
 
-- 默認溫溼度以及體感溫度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改yaml內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。默認氣象預報是以天為單位，可以改成以小時為單位，必須一併修改yaml檔案內容以及cwa集成改選hourly選項，等待片刻後可以看一下cwa的entity 預報部分以及自製的sensor.eink_sensors 是否已經都同步了，然後按下產品在HAc.後台的手動刷新按鈕即可。
+-  **默認溫溼度以及體感溫度是抓中央氣象局資料，若想改為自家的戶外溫溼度可以修改yaml內容，改為自家的entity以及把 my_feels_like的內容取消註解，存檔然後快速重開機即可。默認氣象預報是以天為單位，可以改成以小時為單位，必須一併修改yaml檔案內容以及cwa集成改選hourly選項，等待片刻後可以看一下cwa的entity 預報部分以及自製的sensor.eink_sensors 是否已經都同步了，然後按下產品在HAc.後台的手動刷新按鈕即可。**
 
 ![Mosquitto_broker](/e_ink_display/image/112708.png)
 
