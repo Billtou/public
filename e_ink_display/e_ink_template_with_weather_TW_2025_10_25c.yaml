@@ -9,6 +9,9 @@ template:
         data:
           # type: hourly # 搭配cwa集成使用 與下一行二擇一
           type: daily
+        # response_variable: hourly # 搭配cwa集成使用 與上一行二擇一               
+        response_variable: daily # 搭配cwa集成使用 與下一行二擇一
+     
     sensor:
       - name: Weather Interval
         unique_id: 08128e00-6b12-443a-9e9c-ad3f57ec2da9
