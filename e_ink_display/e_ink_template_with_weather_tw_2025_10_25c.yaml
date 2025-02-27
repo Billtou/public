@@ -6,6 +6,9 @@
 #  若採用 hourly模式下面這兩行可以註解掉，這樣日誌會報錯抓不到資料，不過不影響顯示功能，也可以無視。
 #          today_uv_index: >
 #            {{ states('sensor.opencwa_nan_tun_qu_uv_index') | round }}
+#  本yaml安裝好後HA要重開，稍等片刻檢查下列兩個sensor的屬性資料是否正常
+#   sensor.eink_sensors
+#   sensor.weather_interval
 # ===================================================================
 template:
   - trigger:
