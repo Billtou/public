@@ -2,6 +2,10 @@
 #  必須修改的entity id
 #  weather.opencwa_nan_tun_qu 改成自家的ID
 #  button.weather_panel_fa874c_refresh_weather_panel  改成自家的ID
+#  sensor.opencwa_nan_tun_qu_weather 改成自家的ID
+#  若採用 hourly模式下面這兩行可以註解掉，這樣日誌會報錯抓不到資料，不過不影響顯示功能，也可以無視。
+#          today_uv_index: >
+#            {{ states('sensor.opencwa_nan_tun_qu_uv_index') | round }}
 # ===================================================================
 template:
   - trigger:
