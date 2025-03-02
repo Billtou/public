@@ -169,6 +169,7 @@ binary_sensor:  # 門磁
     id: floor_door_sensor
     name: Ground Sensor
     icon: mdi:doorbell-video
+    inverted: True #狀態反向
     pin: 
       number: GPIO33
       mode: INPUT_PULLUP
@@ -181,7 +182,7 @@ binary_sensor:  # 門磁
         - if:
             condition:    
               lambda: |-
-                return id(floor_door_sensor).state;
+                return !id(floor_door_sensor).state;
             then: 
               - delay: 2s
               - switch.turn_on: relay_lock
@@ -192,7 +193,7 @@ cover:
     name: My Garage Door
     id: template_cover1
     lambda: |-
-      if (id(floor_door_sensor).state) {
+      if (!id(floor_door_sensor).state) {
         return COVER_CLOSED;
       } else {
         return COVER_OPEN;
