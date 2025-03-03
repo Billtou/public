@@ -62,9 +62,8 @@
       "rainbow":true,
       "duration":25 }
 新版的
- ![Mosquitto_broker](/Pixel_Light/image/175836.png)
- 
- ![Mosquitto_broker](/Pixel_Light/image/175912.png)
+ ![Mosquitto_broker](/Pixel_Light/image/112909.png)
+
 
 ## 5.SD卡mp3命名方式 (以腳本示範)
 
