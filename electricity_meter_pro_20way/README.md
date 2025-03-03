@@ -49,7 +49,7 @@
 
 ## 7.接入HA的能源儀表板 建議方法2(entity ID視個略為別不同)
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/154712.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/115839.png)
 
 ## 8.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
 
