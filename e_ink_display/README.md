@@ -13,7 +13,7 @@
     https://opendata.cwa.gov.tw/user/authkey
 - HACS 搜尋 Opendata CWA 並安裝它； HA 重開機 ； 設定 > 裝置與服務  > 新增整合 > 填入API密鑰以及 "鄉鎮區" 名稱(附件 "氣象局鄉鎮名稱一覽表.pdf" 可以在這裡找一下正確名稱)
 - 更新模式默認daily，若選hourly相關的配套yaml內容也要一起改。
-
+https://github.com/Billtou/public/blob/main/e_ink_display/%E6%B0%A3%E8%B1%A1%E5%B1%80%E9%84%89%E9%8E%AE%E5%90%8D%E7%A8%B1%E4%B8%80%E8%A6%BD%E8%A1%A8.pdf
 ![Mosquitto_broker](/e_ink_display/image/142722.png)
 
 ## 手動建立模板實體 
