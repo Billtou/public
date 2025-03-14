@@ -1,6 +1,6 @@
 # 線上OTA檔案
 2025/03/14 update
-同步2路加總與20路sensor時間同步為20秒。
+2路加總與20路sensor時間同步為20秒。
 - electricitymeter-pro.ota_WIFI_v2025.3.14.bin
 - electricitymeter-pro.ota_ETH_v2025.3.14.bin
 
