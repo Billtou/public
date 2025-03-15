@@ -84,144 +84,123 @@ template:
         state: "{{((states.sensor.power_sum.state|float)/1000 *(states.sensor.count_kwh_cost.state|float))|round(1)}}"
         unit_of_measurement: "$"
 
-      - name: count_kwh_cost   #建立一個台電對於一般2個月計算一次的電費收費的一度電單價
+      - name: count_kwh_cost   # 建立台電兩個月計算一次的電費收費的一度電單價
         unique_id: 2ca5f2b9-edb4-4b2a-b1aa-50607618df7c
         state: >
-          {% if now().month in [6,7,8,9] %}
-            {% if states("sensor.taipower_energy") | float < 120 %}
-              {{1.68}}
-            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
-              {{2.45}}
-            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 500 %}
-              {{3.7}}
-            {% elif states("sensor.taipower_energy") | float >= 500  and states("sensor.taipower_energy") | float < 700 %}
-              {{5.04}}
-            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
-              {{6.24}}
-            {% elif states("sensor.taipower_energy") | float >= 1000 %}
-              {{8.46}}
-            {% endif %}
+          {% set energy = states("sensor.taipower_energy") | float(0) %}
+          {% set is_summer = now().month in [6,7,8,9] %}
+
+          {% if energy < 120 %}
+            {{ 1.68 }}
+          {% elif energy < 330 %}
+            {{ 2.45 if is_summer else 2.16 }}
+          {% elif energy < 500 %}
+            {{ 3.7 if is_summer else 3.03 }}
+          {% elif energy < 700 %}
+            {{ 5.04 if is_summer else 4.14 }}
+          {% elif energy < 1000 %}
+            {{ 6.24 if is_summer else 5.07 }}
           {% else %}
-            {% if states("sensor.taipower_energy") | float < 120 %}
-              {{1.68}}
-            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
-              {{2.16}}
-            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 500 %}
-              {{3.03}}
-            {% elif states("sensor.taipower_energy") | float >= 500  and states("sensor.taipower_energy") | float < 700 %}
-              {{4.14}}
-            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
-              {{5.07}}
-            {% elif states("sensor.taipower_energy") | float >= 1000 %}
-              {{6.63}}
-            {% endif %}
+            {{ 8.46 if is_summer else 6.63 }}
           {% endif %}
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-      - name: count_kwh_cost_storefront_3_bata  #三段式時間電價每度用電成本
+      - name: count_kwh_cost_storefront_3_bata  # 三段式時間電價每度用電成本
         unique_id: 40d73652-9231-4af6-85d9-d8c458dfc46e
         state: >
           {% set now_month = now().month %}
-          {% set now_weekday = now().isoweekday() %}  
-          {% set now_hour = now().hour %}  
-            {% if now_month in [6,7,8,9] %}
-              {% if now_weekday in [1,2,3,4,5] %} 
-                {% if now_hour < 8 %} 
-                  {{1.96}}
-                {% elif now_hour < 16 %}  
-                  {{4.54}}
-                {% elif now_hour < 22 %}  
-                  {{6.92}}
-                {% elif now_hour < 24 %}  
-                  {{4.54}}
-                {% endif %}
-              {% else %}
-                  {{1.96}}
+          {% set now_weekday = now().isoweekday() %}
+          {% set now_hour = now().hour %}
+          {% set is_summer = now_month in [6,7,8,9] %}
+          {% set is_weekday = now_weekday in [1,2,3,4,5] %}
+          
+          {% if is_summer %}
+            {% if is_weekday %}
+              {% if now_hour < 8 %} 1.96
+              {% elif now_hour < 16 %} 4.54
+              {% elif now_hour < 22 %} 6.92
+              {% else %} 4.54
               {% endif %}
             {% else %}
-              {% if now_weekday in [1,2,3,4,5] %} 
-                {% if now_hour < 6 %} 
-                  {{1.89}}
-                {% elif now_hour < 11 %}  
-                  {{4.43}}
-                {% elif now_hour < 14 %}  
-                  {{1.89}}
-                {% elif now_hour < 24 %}  
-                  {{4.33}}
-                {% endif %}
-              {% else %}
-                  {{1.89}}
-              {% endif %}
+              1.96
             {% endif %}
+          {% else %}
+            {% if is_weekday %}
+              {% if now_hour < 6 %} 1.89
+              {% elif now_hour < 11 %} 4.43
+              {% elif now_hour < 14 %} 1.89
+              {% else %} 4.33
+              {% endif %}
+            {% else %}
+              1.89
+            {% endif %}
+          {% endif %}
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-      - name: count_kwh_cost_storefront_2_bata #二段式時間電價每度用電成本
+      - name: count_kwh_cost_storefront_2_bata # 二段式時間電價每度用電成本
         unique_id: 6f06b6bf-8434-4812-8cd4-464296ed7e9b
         state: >
           {% set now_month = now().month %}
-          {% set now_weekday = now().isoweekday() %}  
-          {% set now_hour = now().hour %}  
-            {% if now_month in [6,7,8,9] %}
-              {% if now_weekday in [1,2,3,4,5] %} 
-                {% if now_hour < 9 %} 
-                  {{1.96}}
-                {% elif now_hour < 24 %}  
-                  {{5.01}}
-                {% endif %}
-              {% else %}
-                  {{1.96}}
+          {% set now_weekday = now().isoweekday() %}
+          {% set now_hour = now().hour %}
+          {% set is_summer = now_month in [6,7,8,9] %}
+          {% set is_weekday = now_weekday in [1,2,3,4,5] %}
+
+          {% if is_summer %}
+            {% if is_weekday %}
+              {% if now_hour < 9 %} 1.96
+              {% else %} 5.01
               {% endif %}
             {% else %}
-              {% if now_weekday in [1,2,3,4,5] %} 
-                {% if now_hour < 6 %} 
-                  {{1.89}}
-                {% elif now_hour < 11 %}  
-                  {{4.78}}
-                {% elif now_hour < 14 %}  
-                  {{1.89}}
-                {% elif now_hour < 24 %}  
-                  {{4.78}}
-                {% endif %}
-              {% else %}
-                  {{1.89}}
-              {% endif %}
+              1.96
             {% endif %}
+          {% else %}
+            {% if is_weekday %}
+              {% if now_hour < 6 %} 1.89
+              {% elif now_hour < 11 %} 4.78
+              {% elif now_hour < 14 %} 1.89
+              {% else %} 4.78
+              {% endif %}
+            {% else %}
+              1.89
+            {% endif %}
+          {% endif %}
         unit_of_measurement: "TWD/kWh"
         device_class: monetary
 
-      - name: count_power_cost  #建立一個台電對於一般2個月計算一次的電費期間的預估電費
+
+      - name: count_power_cost  # 建立台電一般2個月計算一次的預估電費
         unique_id: f53b6ccf-becb-48ab-a473-80f239199ea8
         state: >
-          {% if now().month in [6,7,8,9] %}
-            {% if states("sensor.taipower_energy") | float < 120 %}
-              {{(states("sensor.taipower_energy") | float * states("sensor.kwh_cost") | float) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
-              {{(((states("sensor.taipower_energy") | float - 120) * states("sensor.kwh_cost") | float) + 201.6) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 550 %}
-              {{(((states("sensor.taipower_energy") | float - 330) * states("sensor.kwh_cost") | float) + 716.1) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 550  and states("sensor.taipower_energy") | float < 700 %}
-              {{(((states("sensor.taipower_energy") | float - 550) * states("sensor.kwh_cost") | float) + 1530.1) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
-              {{(((states("sensor.taipower_energy") | float - 700) * states("sensor.kwh_cost") | float) + 2286.1) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 1000 %}
-              {{(((states("sensor.taipower_energy") | float - 1000) * states("sensor.kwh_cost") | float) + 4158.1) | round(0)}}
-            {% endif %}
+          {% set energy = states("sensor.taipower_energy") | float(0) %}
+          {% set cost_per_kwh = states("sensor.kwh_cost") | float(0) %}
+          {% set is_summer = now().month in [6,7,8,9] %}
+
+          {% if energy < 120 %}
+            {{ (energy * cost_per_kwh) | round(0) }}
+          {% elif energy < 330 %}
+            {{ ((energy - 120) * cost_per_kwh + 201.6) | round(0) }}
+          {% elif energy < 550 and is_summer %}
+            {{ ((energy - 330) * cost_per_kwh + 716.1) | round(0) }}
+          {% elif energy < 700 and is_summer %}
+            {{ ((energy - 550) * cost_per_kwh + 1530.1) | round(0) }}
+          {% elif energy < 1000 and is_summer %}
+            {{ ((energy - 700) * cost_per_kwh + 2286.1) | round(0) }}
+          {% elif energy >= 1000 and is_summer %}
+            {{ ((energy - 1000) * cost_per_kwh + 4158.1) | round(0) }}
+          {% elif energy < 330 and not is_summer %}
+            {{ ((energy - 120) * cost_per_kwh + 201.6) | round(0) }}
+          {% elif energy < 700 and not is_summer %}
+            {{ ((energy - 330) * cost_per_kwh + 665.2) | round(0) }}
+          {% elif energy < 1000 and not is_summer %}
+            {{ ((energy - 700) * cost_per_kwh + 1942.8) | round(0) }}
+          {% elif energy >= 1000 and not is_summer %}
+            {{ ((energy - 1000) * cost_per_kwh + 3463.8) | round(0) }}
           {% else %}
-            {% if states("sensor.taipower_energy") | float < 120 %}
-              {{(states("sensor.taipower_energy") | float * states("sensor.kwh_cost") | float) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 120  and states("sensor.taipower_energy") | float < 330 %}
-              {{(((states("sensor.taipower_energy") | float - 120) * states("sensor.kwh_cost") | float) + 201.6) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 330  and states("sensor.taipower_energy") | float < 1000 %}
-              {{(((states("sensor.taipower_energy") | float - 330) * states("sensor.kwh_cost") | float) + 665.2) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 1000  and states("sensor.taipower_energy") | float < 700 %}
-              {{(((states("sensor.taipower_energy") | float - 1000) * states("sensor.kwh_cost") | float) + 1321.8) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 700  and states("sensor.taipower_energy") | float < 1000 %}
-              {{(((states("sensor.taipower_energy") | float - 700) * states("sensor.kwh_cost") | float) + 1942.8) | round(0)}}
-            {% elif states("sensor.taipower_energy") | float >= 1000 %}
-              {{(((states("sensor.taipower_energy") | float - 1000) * states("sensor.kwh_cost") | float) + 3463.8.2) | round(0)}}
-            {% endif %}
+            0
           {% endif %}
         unit_of_measurement: "TWD"
         device_class: monetary
+
