@@ -7,7 +7,7 @@
   ![Mosquitto_broker](/motion_mmWave/esphome/image/235904.png)
 
 ## 雷達調整最佳角度說明
-## 固定好MotionOne，打開蜂鳴器開關 >  設定延遲1秒 離開偵測範圍，等待無人提示音響 > 走進涵蓋範圍 > 有人聲音響起 > 必要時調整角度後直到最佳方位後測定延遲60秒或更久，關閉蜂鳴器。
+## 固定好MotionOne，打開蜂鳴器開關 >  設定延遲1秒 離開偵測範圍，等待無人提示音響 > 走進涵蓋範圍 > 有人聲音響起 > 必要時調整雷達角度與偵測距離倍數直到最佳方位後測定延遲60秒或更久，關閉蜂鳴器。
 ### 涵蓋範圍(官方數據必須打折扣)
   ![Mosquitto_broker](/motion_mmWave/esphome/image/000928.png)
   ![Mosquitto_broker](/motion_mmWave/esphome/image/000902.png)
