@@ -6,3 +6,9 @@
   ![Mosquitto_broker](/motion_mmWave/esphome/image/235811.png)
   ![Mosquitto_broker](/motion_mmWave/esphome/image/235904.png)
 
+## 雷達調整最佳角度說明
+### 涵蓋範圍(官方數據必須打折扣)
+  ![Mosquitto_broker](/motion_mmWave/esphome/image/000928.png)
+  ![Mosquitto_broker](/motion_mmWave/esphome/image/000902.png)
+  ![Mosquitto_broker](/motion_mmWave/esphome/image/000834.png)
+  ![Mosquitto_broker](/motion_mmWave/esphome/image/000757.png)
