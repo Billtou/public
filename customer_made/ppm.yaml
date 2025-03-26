@@ -1,0 +1,12 @@
+template:
+  - sensor:
+      - name: AirCube TVOC PPM
+        unique_id: 747986c1-f913-445e-90b1-21ff75ec31b4
+        unit_of_measurement: "ppm"
+        device_class: volatile_organic_compounds
+        state: >-
+          {% if states('sensor.aircube_plus_f768e0_tvoc') not in ['unknown', 'unavailable', 'none'] %}
+            {{ (states('sensor.aircube_plus_f768e0_tvoc') | float / 1000) | round(3) }}
+          {% else %}
+            unknown
+          {% endif %}
