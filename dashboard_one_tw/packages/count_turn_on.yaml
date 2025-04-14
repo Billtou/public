@@ -12,7 +12,7 @@
 #  
 #  自製計算entity類別的 sensor
 #  注意事項: state 是 on off 比較點單，但cover，climate過濾條件就要調整。
-#  詳情見下列sample
+#  詳情見下列sample 可以使用selectattr以及必要時搭配 rejectattr 篩選
 
 
 template:
