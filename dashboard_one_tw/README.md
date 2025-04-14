@@ -239,3 +239,5 @@
                             :
                             :
                             :
+## 首層導航的說明
+   ![Mosquitto_broker](/dashboard_one_tw/image/AC2C38DFDF.jpg)
