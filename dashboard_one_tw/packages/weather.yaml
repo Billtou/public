@@ -23,10 +23,10 @@ automation:
       feels_like_sensor: sensor.opencwa_nan_tun_qu_feels_like_temperature    #修改為自家的entity id  見 cwa 整合
 
       
-      forecast_status_binary: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor    #修改為自家的entity id
-      text_icon: text.dashboard_one_e73d68_fr_cond_icon    #修改為自家的entity id
-      text_condition: text.dashboard_one_e73d68_fr_cond_name    #修改為自家的entity id
-      text_temp_ap: text.dashboard_one_e73d68_fr_tempap      #修改為自家的entity id
+      forecast_status_binary: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor    #修改為自家的entity id  見 deshboard_one 在HA的esphome裡面的entity
+      text_icon: text.dashboard_one_e73d68_fr_cond_icon    #修改為自家的entity id  (同上)
+      text_condition: text.dashboard_one_e73d68_fr_cond_name    #修改為自家的entity id  (同上)
+      text_temp_ap: text.dashboard_one_e73d68_fr_tempap      #修改為自家的entity id  (同上)
 
     trigger:
       - platform: state
