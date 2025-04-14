@@ -28,24 +28,20 @@ automation:
     alias: "Weather Dashboard Update"
     mode: queued
     variables:
-      weather_condition_sensor: sensor.opencwa_nan_tun_qu_condition
-      weather_description_sensor: sensor.opencwa_nan_tun_qu_weather
-      feels_like_sensor: sensor.opencwa_nan_tun_qu_feels_like_temperature
-      forecast_status_binary: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
-      forecast_temp_low_sensor: sensor.opencwa_nan_tun_qu_forecast_templow
-      outside_temp_sensor: sensor.outside_sensor_temperature
+      weather_condition_sensor: sensor.opencwa_nan_tun_qu_condition   #修改為自家的entity id   見 cwa 整合
+      weather_description_sensor: sensor.opencwa_nan_tun_qu_weather    #修改為自家的entity id    見 cwa 整合
+      feels_like_sensor: sensor.opencwa_nan_tun_qu_feels_like_temperature    #修改為自家的entity id  見 cwa 整合
 
-      text_icon: text.dashboard_one_e73d68_fr_cond_icon
-      text_condition: text.dashboard_one_e73d68_fr_cond_name
-      text_temp_ap: text.dashboard_one_e73d68_fr_tempap
-      text_temp_hi: text.dashboard_one_e73d68_fr_temphi
-      text_temp_lo: text.dashboard_one_e73d68_fr_templo
-      text_temp_now: text.dashboard_one_e73d68_wd_out_now
+      
+      forecast_status_binary: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor    #修改為自家的entity id
+      text_icon: text.dashboard_one_e73d68_fr_cond_icon    #修改為自家的entity id
+      text_condition: text.dashboard_one_e73d68_fr_cond_name    #修改為自家的entity id
+      text_temp_ap: text.dashboard_one_e73d68_fr_tempap      #修改為自家的entity id
 
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+          - binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor  #修改為自家的entity id(當偵測到deshboard on 時5分鐘 update 一次
         to: "on"
       - platform: time_pattern
         minutes: "/5"
@@ -91,20 +87,3 @@ automation:
         data:
           value: "{{ states(feels_like_sensor) | round(0) }}°"
 
-      - service: text.set_value
-        target:
-          entity_id: "{{ text_temp_hi }}"
-        data:
-          value: "{{ states(feels_like_sensor) | round(1) }} °C"
-
-      - service: text.set_value
-        target:
-          entity_id: "{{ text_temp_lo }}"
-        data:
-          value: "{{ states(forecast_temp_low_sensor) | round(1) }} °C"
-
-      - service: text.set_value
-        target:
-          entity_id: "{{ text_temp_now }}"
-        data:
-          value: "{{ states(outside_temp_sensor) | round(1) }} °C"
