@@ -159,7 +159,7 @@
                           flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
                           flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
 
-## 天氣預報小部件
+## 天氣預報小部件  **每5分鐘更新一次首次使用稍待片刻才會出現訊號**
    ![Mosquitto_broker](/dashboard_one_tw/image/13762B9.jpg)
 
             widgets:   
