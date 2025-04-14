@@ -45,11 +45,15 @@
               livingroom_curtain: "cover.curtain_29ae50_curtain"  修改為自家的 id
               livingroom_smart_light: "light.livingroom_big_light"  修改為自家的 id
               livingroom_switch_light: "light.study_wall_light_2"  修改為自家的 id
-              count_light_entity: "sensor.count_light_turn_on"  
-              count_switch_entity: "sensor.count_switch_turn_on"  
-              count_climate_entity: "sensor.count_climate_turn_on"  
-              count_fan_entity: "sensor.count_fan_turn_on"  
-              count_cover_entity: "sensor.count_cover_turn_open"  
+              livingroom_smart_fan: "fan.livingroom_fan"  修改為自家的 id
+              balcony_switch_fan: "fan.balcony_esp01_convulsions"  修改為自家的 id           
+
+              count_light_entity: "sensor.count_light_turn_on"    # packages 裡面 count_turn_on.yaml 產生
+              count_switch_entity: "sensor.count_switch_turn_on"  #同上 
+              count_climate_entity: "sensor.count_climate_turn_on"  #同上
+              count_fan_entity: "sensor.count_fan_turn_on"   #同上
+              count_cover_entity: "sensor.count_cover_turn_open"   #同上
+              
               count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"  修改為自家的 id
             
             external_components:
