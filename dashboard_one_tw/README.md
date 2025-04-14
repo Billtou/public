@@ -203,3 +203,6 @@
                           - label:   
                               checkable: true
                               align: CENTER
+                                :
+                                :
+                                :
