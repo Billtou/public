@@ -4,3 +4,1381 @@ substitutions:
   device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
   project_name: "Panlee.ZX3D95CE01S-TR-4848"
   project_version: "2025.4"
+
+  livingroom_climate: "climate.livingroom"
+  livingroom_curtain: "cover.curtain_29ae50_curtain"
+  livingroom_smart_light: "light.livingroom_big_light"
+  livingroom_switch_light: "light.study_wall_light_2"
+  livingroom_smart_fan: "fan.livingroom_fan"
+  balcony_switch_fan: "fan.balcony_esp01_convulsions"
+
+  count_fan_entity: "sensor.count_fan_turn_on"  
+  count_light_entity: "sensor.count_light_turn_on"
+  count_climate_entity: "sensor.count_climate_turn_on"
+  count_switch_entity: "sensor.count_switch_turn_on"
+  count_cover_entity: "sensor.count_cover_turn_open"
+
+  count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"
+
+# external_components:
+#   - source: github://sEbola76/gc9503v
+
+packages:
+  basic_device_in: !include dashboard_one/base/esphome_basic.yaml
+  display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
+  weather_forecast_in: !include dashboard_one/weather_forecast.yaml
+  climate_in: !include dashboard_one/climates.yaml
+  scenes_in: !include dashboard_one/sceness.yaml
+  fonts_in: !include dashboard_one/fonts.yaml
+  fan_in: !include dashboard_one/fans.yaml
+  cover_in: !include dashboard_one/covers.yaml
+  light_in: !include dashboard_one/lights.yaml
+  count_entity: !include dashboard_one/count_entity.yaml
+
+# --------------------------------------
+# -            背景圖
+# --------------------------------------            
+image: !include { file: dashboard_one/lvgl/image.yaml }
+# --------------------------------------
+# -            GUI                     -
+# --------------------------------------
+lvgl:
+  displays:
+    - my_display
+  touchscreens:
+    - my_touchscreen
+  # -------------------------------------------------
+  # -   超時關螢幕 (正常使用打開，開發編譯時可以註解掉)   -
+  # -------------------------------------------------
+  on_idle:
+    timeout: !lambda "return (id(display_timeout).state * 1000);"
+    then:
+      - logger.log: "LVGL is idle"
+      - light.turn_off: display_backlight
+      - lvgl.pause:
+  # -------------------------------------------------
+  # -   # 小部件預設參數  -
+  # -------------------------------------------------
+  theme: !include { file: dashboard_one/lvgl/theme.yaml }  
+
+  # -------------------------------------------------
+  # -   # 風格預設   -
+  # -------------------------------------------------
+  style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    
+
+  # -------------------------------------------------
+  # -   頁腳#永遠放在最上層 首層 導航頁腳畫面   -
+  # -------------------------------------------------
+  top_layer: !include { file: dashboard_one/lvgl/top_layer.yaml }   
+ 
+  #--------------------------------------------
+  #  宣告main_page_type_a頁面
+  #--------------------------------------------
+  pages:  #定義多個頁面（類似畫面、Tab 或分頁）。  
+   - id: main_page_type_a    #這個頁面的 ID，稍後可以用來跳轉或引用。
+     bg_image_src: my_background_image
+     widgets:   #宣告 "小部件" widgets
+        - obj:       ##小部件下建立"容器" obj 的定義繼承 pages 的定義
+            styles: regular_page # align: CENTER  #把這個容器在螢幕上置中對齊。
+            layout:  # 版面配置
+              type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+              flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+              flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+            widgets:   
+              - button:   
+                  styles: button_A  ## 統一調用Button A的風格參數 (免去本button 長寬圓腳顏色等等宣告)
+                  #-------------------------------------------------------------------------------------
+                  # 天氣預告小部件內容 請見esphome lvgl https://esphome.io/components/lvgl/widgets.html 
+                  #-------------------------------------------------------------------------------------
+                  widgets:
+                    - label:
+                        text: "\U000F14E4"  #氣象預報icon 來自於fonts.yaml 的 id icons_100 的宣告
+                        id: lvgl_label_weather_forecast_condition_icon  #來源是 weather_forecast.yaml 的建立
+                        text_font: icons_100  # 來自於fonts.yaml 的宣告
+                        align: TOP_LEFT #放置的位置  (上左)
+                        text_color: 0x3182b7  # 文字顏色宣告
+                    - label:
+                        text: "--°"  #體感溫度
+                        id: lvgl_label_weather_forecast_tempap  #內容由這個id反饋而來
+                        align: TOP_RIGHT #(上右)
+                        y: 10  #偏移y軸10像素 正負直端看 align: TOP_RIGHT 位置而定
+                        text_font: weather_forecast_50 # 引用的自型庫id
+                        text_color: 0xf5f8fa #顏色
+                    - label:
+                        text: "--" 
+                        y: 5
+                        id: lvgl_label_weather_forecast_condition_name
+                        text_font: weather_forecast_24
+                        align: BOTTOM_MID
+                        text_color: 0xa4abb1  # 文字顏色
+                        long_mode: dot
+
+              - obj:  ## 用obj包裹四 button 
+                  styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
+                  layout:  # 版面配置
+                    type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+                    flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+                    flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+                  widgets:      
+                    - button:   ## 鬧鐘按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D #調用button_D的風格
+                        id: lvgl_button_scene_trigger_home_page_a
+                        checkable: true #依據id的on/off 反饋button顏色
+                        widgets:
+                          - label:   
+                              # checkable: true 
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F0021" # 鬧鐘
+                              text_color: 0x8b3333
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_a  # 當按下button時觸發  scene_trigger_a 這個id
+
+                    - button:   ## 睡覺按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_button_scene_trigger_home_page_b                  
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F04B2" # 睡覺
+                              text_color: 0x8e07f5
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_b                          
+                                                              
+                    - button:   ## 鎖門按鈕  後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_button_scene_trigger_home_page_c        
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F181F" # DOOR
+                              text_color: 0xbda702
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_c   
+
+                    - button:   ## part按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_button_scene_trigger_home_page_d
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F1056" # part
+                              text_color: 0x38761D
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_d
+
+              - button:
+                  styles: button_F                
+                  widgets:
+                    - label:   
+                        x: +5
+                        y: -12
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0335" # 電燈
+                        text_color: 0xfc9d21 
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_light_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2 
+              - button:
+                  styles: button_F                           
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000f0210" # 風扇
+                        text_color: 0x3182b7 
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_fan_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2                    
+
+              - button:
+                  styles: button_F                        
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0717" # 冷氣
+                        text_color: 0x3182b7 
+
+                    - label:   
+                        checkable: true
+                        x: +65
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0438" # 電熱
+                        text_color: 0x8b3333
+
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_climate_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2 
+
+              - button:
+                  styles: button_F                     
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F00AC" # cover
+                        text_color: 0x38761D
+                    - label:   
+                        checkable: true
+                        x: +65
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F12D3"  # 車庫門
+                        text_color: 0x8e07f5                        
+                     
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_cover_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2 
+
+              - button:
+                  width: 220
+                  height: 55
+                  radius: 35
+                  bg_opa: 40%                            
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0A1A" # 開關
+                        text_color: 0xf2f2f2                         
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_switch_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2 
+
+              - button:
+                  width: 220
+                  height: 55
+                  radius: 35
+                  bg_opa: 40%                            
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
+                        y: -10
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0241" # 用電
+                        text_color: 0xf2f2f2                         
+                    - label:   
+                        x: +5
+                        y: -2                        
+                        text: "度"
+                        align: RIGHT_MID
+                        text_font: font_Bold
+                        text_color: 0xf2f2f2 
+                        long_mode: dot
+
+                    - label:   
+                        x: -30
+                        y: -2                        
+                        id: lvgl_label_count_power_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2                         
+
+
+   - id: main_page_type_b    #這個頁面的 ID，稍後可以用來跳轉或引用。
+     bg_image_src: my_background_image
+     widgets:   #宣告 "小部件" widgets
+        - obj:       ##小部件下建立"容器" obj 的定義繼承 pages 的定義
+            styles: regular_page # align: CENTER  #把這個容器在螢幕上置中對齊。
+            layout:  # 版面配置
+              type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+              flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+              flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+            widgets:   
+              - button:   
+                  styles: button_A  ## 調用 Button A styles定義
+                  id: lvgl_widget_aircon_current_state 
+                  # checkable: true
+                  widgets:
+                    - label:    
+                        id: lvgl_label_aircon_temp_for_button                    
+                        checkable: true
+                        text_font: font_apple_Bold_big
+                        align: TOP_LEFT
+                        text: "--°"
+                        y: -10
+                        text_color: 0xf5f8fa
+                        checked:  # 選中狀態設定
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        align: BOTTOM_RIGHT
+                        text: "客廳空調"     
+                  on_click: 
+                    then:
+                      - lvgl.page.show: climate_page       
+              - button:   
+                  styles: button_B  ## 調用 Button B styles定義
+                  checkable: true
+                  id: lvgl_button_livingroom_smart_light_state
+                  widgets:
+                    - label:   
+                        checkable: true
+                        text_font: font_icon_big
+                        id: lvgl_widget_livingroom_smart_light_state
+                        align: TOP_LEFT
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色
+                    - label:
+                        checkable: true
+                        y: 20 # 下降20 與燈泡icon置中                         
+                        text_font: font_apple_Heavy_medium
+                        id: weather_light_adjust_label
+                        align: TOP_RIGHT
+                        text: "--%"
+                    - slider:
+                        id: lvgl_slider_livingroom_smart_light_slider
+                        styles: slider_A
+                        y: 20
+                        value: !lambda return id(livingroom_smart_light_brightness).state;  
+                        min_value: 0.0
+                        max_value: 100.0     
+                        indicator:
+                          bg_color: 0x003866
+                          bg_grad_color: 0x4adeff
+                          bg_grad_dir: HOR
+                          bg_opa: COVER
+                        on_value:
+                          - lvgl.label.update:
+                              id: weather_light_adjust_label
+                              text: 
+                                format: "%.0f%%"
+                                args: [ 'x' ]                                    
+                        on_release:
+                          - homeassistant.action:
+                              action: light.turn_on
+                              data:
+                                entity_id: ${livingroom_smart_light}
+                                brightness: !lambda return int(x*2.55);      #调整步進0-255                                                                                      
+
+                    - label:
+                        align: BOTTOM_RIGHT
+                        checkable: true
+                        id: lvgl_label_livingroom_smart_light_state
+                        text: "客廳電燈"
+                  on_click:
+                    - homeassistant.action:
+                        action: light.toggle
+                        data:
+                          entity_id: ${livingroom_smart_light}
+
+              - button:   #### Button C
+                  styles: button_C
+                  checkable: true
+                  widgets:
+                    - label:    
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        x: 10
+                        text: "\U000F1846"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        align: RIGHT_MID
+                        text: "客廳窗簾"
+                  on_click:
+                    - homeassistant.action:
+                        action: light.toggle
+                        data:
+                          entity_id: ${livingroom_switch_light}
+
+              - button:   #### Button C
+                  styles: button_C
+                  checkable: true
+                  id: lvgl_button_balcony_switch_fan_state
+                  widgets:
+                    - label:   
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        id: lvgl_widget_balcony_switch_fan_state
+                        checkable: true
+                        x: 10
+                        text: "\U000f0210"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                                
+                    - label:
+                        align: RIGHT_MID
+                        id: lvgl_label_balcony_switch_fan_state
+                        checkable: true
+                        text: "循環扇"
+                  on_click:
+                    - homeassistant.action:
+                        action: fan.toggle
+                        data:
+                          entity_id: ${balcony_switch_fan}
+
+              - obj:  ## ## Button D
+                  styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
+                  layout:  # 版面配置
+                    type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+                    flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+                    flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+                  widgets:      
+                    - button:   ## 鬧鐘按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_widget_scene_trigger_a
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F0021" # 鬧鐘
+                              text_color: 0x8b3333
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_a
+
+
+                    - button:   ## 睡覺按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_widget_scene_trigger_b                        
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F04B2" # 睡覺
+                              text_color: 0x8e07f5
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_b                          
+                                                              
+                    - button:   ## 鎖門按鈕  後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_widget_scene_trigger_c                      
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F181F" # DOOR
+                              text_color: 0xbda702
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_c   
+
+                    - button:   ## part按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_widget_scene_trigger_d
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F1056" # part
+                              text_color: 0x38761D
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_d
+
+   - id: main_page_type_c  ####主畫面版型b
+     bg_image_src: my_background_image
+     widgets:   #宣告 "小部件" widgets
+        - obj:       ##小部件下建立"容器" obj 的定義繼承 pages 的定義
+            styles: regular_page # align: CENTER  #把這個容器在螢幕上置中對齊。
+            layout:  # 版面配置
+              type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+              flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+              flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+            widgets:   
+              - button:   ## Button A
+                  styles: button_A 
+                  widgets:
+                    - label:
+                        text: "\U000F14E4"  #氣象預報icon
+                        # id: lbl_weather_forecast_condition_icon
+                        text_font: icons_100
+                        align: TOP_LEFT
+                        text_color: 0x3182b7  # 文字顏色
+                    - label:
+                        text: "--°"  #體感溫度
+                        # id: lbl_weather_forecast_tempap
+                        align: TOP_RIGHT
+                        y: 10
+                        text_font: weather_forecast_50
+                        text_color: 0xf5f8fa
+                    - label:
+                        text: "--" 
+                        y: 5
+                        # id: lbl_weather_forecast_condition_name
+                        text_font: weather_forecast_24
+                        align: BOTTOM_MID
+                        text_color: 0xa4abb1  # 文字顏色
+                        long_mode: dot
+
+              - button:   #### Button B
+                  styles: button_B 
+                  checkable: true
+                  id: lvgl_widget_livingroom_fan_state
+                  widgets:
+                    - label:   
+                        id: lvgl_livingroom_fan_icon
+                        checkable: true
+                        text_font: font_icon_big
+                        align: TOP_LEFT
+                        text: "\U000f0210"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        checkable: true
+                        y: 20                         
+                        text_font: font_apple_Heavy_medium
+                        # text_color: 0x626a6f
+                        id: fan_speed_adjust_number
+                        align: TOP_RIGHT
+                        text: "--%"
+                        long_mode: dot                        
+                    - slider:
+                        id: lvgl_slider_livingroom_fan_speed
+                        checkable: true
+                        styles: slider_A
+                        y: 20
+                        value: !lambda |-
+                          return id(lvgl_slider_livingroom_fan_speed).state;   // 使用已定義的 ID
+                        min_value: 0.0
+                        max_value: 100.0     
+                        indicator:
+                          bg_color: 0x003866
+                          bg_grad_color: 0x4adeff
+                          bg_grad_dir: HOR
+                          bg_opa: COVER
+                          height: 20     
+                        on_value:
+                          - lvgl.label.update:
+                              id: fan_speed_adjust_number
+                              text: 
+                                format: "%.0f%%"
+                                args: [ 'x' ]           
+                        on_release:
+                          - homeassistant.service:
+                              service: fan.set_percentage
+                              data:
+                                entity_id: fan.livingroom_fan
+                                percentage: !lambda |-
+                                  return (int(x) <= 10) ? 0 :    // 小於10就關閉
+                                        (int(x) <= 33) ? 33 :
+                                        (int(x) <= 66) ? 66 : 100;
+
+                    - label:
+                        align: BOTTOM_RIGHT
+                        checkable: true
+                        id: lvgl_livingroom_fan_label
+                        text: "客廳風扇"
+                  on_click:
+                    - homeassistant.action:
+                        action: fan.toggle
+                        data:
+                          entity_id: ${livingroom_smart_fan}
+
+
+              - obj:  ## ## Button D
+                  styles: four_grids
+                  layout:  # 版面配置
+                    type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+                    flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+                    flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+                  widgets:      
+                    - button:   ## 
+                        styles: button_D
+                        id: lvgl_button_livingroom_switch_light_a
+                        checkable: true
+                        widgets:
+                          - label:
+                              styles: label_1   
+                              checkable: true
+                              id: lvgl_widget_livingroom_switch_light_a
+                              checked:  # 選中狀態設定
+                                text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F1B2A" # 廚房水龍頭                                                                                            
+                        on_click:
+                          - homeassistant.action:
+                              action: light.toggle
+                              data:
+                                entity_id: ${livingroom_switch_light}     
+
+                    - button:   ## 
+                        styles: button_D
+                        id: lvgl_button_livingroom_switch_light_b
+                        checkable: true
+                        widgets:
+                          - label:   
+                              styles: label_1 
+                              checkable: true
+                              id: lvgl_widget_livingroom_switch_light_b
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F04B9" # 沙發
+                              checked:  # 選中狀態設定
+                                text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
+                        on_click:
+                          - homeassistant.action:
+                              action: light.toggle
+                              data:
+                                entity_id: ${livingroom_switch_light}                             
+
+                    - button:
+                        id: lvgl_button_livingroom_switch_light_c
+                        checkable: true
+                        styles: button_D
+                        widgets:
+                          - label:   
+                              styles: label_1 
+                              checkable: true
+                              id: lvgl_widget_livingroom_switch_light_c
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F1158" # 衛生紙
+                              checked:  # 選中狀態設定
+                                text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
+                        on_click:
+                          - homeassistant.action:
+                              action: light.toggle
+                              data:
+                                entity_id: ${livingroom_switch_light}
+
+                    - button:   ## 
+                        styles: button_D
+                        checkable: true
+                        id: lvgl_button_livingroom_switch_light_d
+                        widgets:
+                          - label:   
+                              styles: label_1 
+                              checkable: true
+                              id: lvgl_widget_livingroom_switch_light_d
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F06B5" # 檯燈icon
+                              checked:  # 選中狀態設定
+                                text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
+                        on_click:
+                          - homeassistant.action:
+                              action: light.toggle
+                              data:
+                                entity_id: ${livingroom_switch_light}
+
+
+              - button:
+                  width: 220
+                  height: 150
+                  text_font: font_Medium_big
+                  # checkable: true
+                  id: lvgl_button_lvingroom_curtain_current_state
+                  widgets:
+                    - label:
+                        checkable: true
+                        id: lvgl_label_lvingroom_curtain_current_state
+                        checked:
+                          text_color: 0x3182b7
+                        text_font: font_icon_medium
+                        text: "\U000F1846"  # 窗簾icon
+                        y: 10
+                        x: 10
+                        align: LV_ALIGN_TOP_LEFT
+                    - label:
+                        checkable: true
+                        y: 12
+                        text_font: font_apple_Heavy_medium
+                        text_color: 6449775
+                        id: lvingroom_curtain_adjust_label
+                        align: LV_ALIGN_TOP_RIGHT
+                        text: "--%"
+                        long_mode: LV_LABEL_LONG_DOT
+                    - slider:
+                        id: lvgl_slider_lvingroom_curtain_percentage
+                        align: LV_ALIGN_BOTTOM_MID
+                        y: -12
+                        width: 160
+                        height: 20
+                        pad_all: 8
+                        min_value: 0
+                        max_value: 100
+                        value: !lambda  return id(lvingroom_curtain_current_position_a).state;
+                        indicator:
+                          bg_color: 0x003866
+                          bg_grad_color: 0x4adeff
+                          bg_grad_dir: HOR
+                          bg_opa: COVER
+                        on_value:
+                          - lvgl.label.update:
+                              id: lvingroom_curtain_adjust_label
+                              text:
+                                format: "%.0f%%"
+                                args: [ 'x' ]
+                        on_release:
+                          - homeassistant.service:
+                              service: cover.set_cover_position  # 修正為控制窗簾的服務
+                              data:
+                                entity_id: ${livingroom_curtain}  # 使用變量或替換為實際實體ID
+                                position: !lambda 'return int(x);'
+                  on_click:
+                    - homeassistant.action:
+                        action: cover.toggle
+                        data:
+                          entity_id: ${livingroom_curtain}
+
+   - id: climate_page
+     width: 480
+     height: 400 
+     bg_image_src: my_background_image
+     align: TOP_MID
+     widgets:  
+        - obj:
+            # x: 0
+            # y: 0
+            align: TOP_MID
+            # styles: card
+            width: 480
+            height: 400
+            styles: regular_page
+            widgets:
+              - arc:
+                  width: 330
+                  height: 330
+                  align: TOP_MID
+                  adjustable: true
+                  min_value: 18
+                  max_value: 30
+                  start_angle: 145
+                  end_angle: 35
+                  id: lvgl_arc_aircon_set_temp
+                  on_release:
+                    then:
+                      - homeassistant.action:
+                          action: climate.set_temperature
+                          data: 
+                            entity_id: ${livingroom_climate}
+                            temperature: !lambda 'return x;'
+                                  
+                  widgets:
+                    - label:
+                        # x: 0
+                        y: 60
+                        align: TOP_MID
+                        text: "空調"
+                        id: lvgl_label_aircon_mode
+                        text_font: font_Medium_big
+                        text_color: 0xE5E5E5
+                        text_align: CENTER
+
+                    - label:
+                        x: 0
+                        y: 110
+                        align: TOP_MID
+                        text: "--°"
+                        id: lvgl_label_aircon_set_temp_text
+                        text_font: font_apple_Bold_big
+                        text_color: 0xE5E5E5
+                        text_align: CENTER
+                 
+                    - button:
+                        x: -60
+                        y: 100
+                        width: 60
+                        height: 60
+                        align: CENTER
+                        # bg_opa: TRANSP
+                        radius: 75
+                        outline_width: 3
+                        outline_color: 0xE5E5E5
+                        bg_color: 0x02b002
+                        on_click:
+                          then:
+                            - homeassistant.action:
+                                action: climate.set_temperature
+                                data: 
+                                  entity_id: ${livingroom_climate}
+                                  temperature: !lambda 'return (id(livingroom_aircon_set_temp_a).state) - 1 ;'
+                                  #  return id(lvgl_slider_livingroom_fan_speed).state;   // 使用已定義的 ID
+                        widgets:
+                          - label:
+                              align: center
+                              text: "\U000F004A"
+                              text_align: center
+                              text_font: font_icon_small
+                              text_color: 0xf2f2f2
+                              # bg_color:  0xE5E5E5
+
+                    - button:
+                        x: 60
+                        y: 100
+                        width: 60
+                        height: 60
+                        align: CENTER
+                        # bg_opa: TRANSP
+                        radius: 75
+                        outline_width: 3
+                        outline_color: 0xE5E5E5
+                        bg_color: 0xfc0313
+                        on_click:
+                          then:
+                            - homeassistant.action:
+                                action: climate.set_temperature
+                                data: 
+                                  entity_id: ${livingroom_climate}
+                                  temperature: !lambda 'return (id(livingroom_aircon_set_temp_a).state) + 1 ;'
+                                
+                        widgets:
+                          - label:
+                              align: CENTER
+                              text: "\U000F0062"
+                              text_align: center
+                              text_font: font_icon_small
+                              text_color: 0xf2f2f2
+                              # bg_color:  0xE5E5E5
+                              
+              - label:
+                  align: TOP_LEFT
+                  text: "目前溫度"
+                  text_font: font_Medium_small
+                  text_color: 0xE5E5E5
+                  # text_align: CENTER
+              - label:
+                  id: lvgl_label_aircon_current_temp
+                  y: 33
+                  align: TOP_LEFT
+                  text: "--°"
+                  text_font: font_apple_Heavy_medium
+                  text_color: 0xE5E5E5
+              - label:
+                  align: TOP_RIGHT
+                  text: "目前濕度"
+                  text_font: font_Medium_small
+                  text_color: 0xE5E5E5
+              - label:
+                  id: lgvl_label_aircon_now_humi
+                  y: 33
+                  align: TOP_RIGHT
+                  text: "--%"
+                  text_font: font_apple_Heavy_medium
+                  text_color: 0xE5E5E5
+                  text_align: CENTER
+  
+              - button:
+                  width: 100
+                  height: 50
+                  radius: 25
+                  bg_opa: 40%
+                  align: BOTTOM_LEFT
+                  x: 0
+                  y: -10
+                  on_click:
+                    then:
+                      - homeassistant.action:
+                          action: climate.turn_off
+                          data:
+                            entity_id: ${livingroom_climate}  # 替換為你的空調實體 ID          
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "關閉"
+                        text_font: font_Medium_small   
+                        text_color: 0xE5E5E5     
+
+              - button:
+                  width: 100
+                  height: 50
+                  radius: 25
+                  bg_opa: 40%
+                  align: BOTTOM_LEFT
+                  x: 116
+                  y: -10    
+                  on_click:
+                    then:
+                      - homeassistant.action:
+                          action: climate.set_hvac_mode
+                          data:
+                            hvac_mode: cool
+                            entity_id: ${livingroom_climate}  # 替換為你的空調實體 ID                                          
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "冷氣"
+                        text_font: font_Medium_small   
+                        text_color: 0xE5E5E5      
+
+              - button:
+                  width: 100
+                  height: 50
+                  radius: 25
+                  bg_opa: 40%
+                  align: BOTTOM_LEFT
+                  x: 232
+                  y: -10     
+                  on_click:
+                    then:
+                      - homeassistant.action:
+                          action: climate.set_hvac_mode
+                          data:
+                            hvac_mode: dry
+                            entity_id: ${livingroom_climate}  # 替換為你的空調實體 ID                                       
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "除濕"
+                        text_font: font_Medium_small   
+                        text_color: 0xE5E5E5      
+
+              - button:
+                  width: 100
+                  height: 50
+                  radius: 25
+                  bg_opa: 40%
+                  align: BOTTOM_LEFT
+                  x: 348
+                  y: -10     
+                  on_click:
+                    then:
+                      - homeassistant.action:
+                          action: climate.set_hvac_mode
+                          data:
+                            hvac_mode: fan_only
+                            entity_id: ${livingroom_climate}  # 替換為你的空調實體 ID                                           
+                  widgets:
+                    - label:
+                        align: CENTER
+                        text: "送風"
+                        text_font: font_Medium_small   
+                        text_color: 0xE5E5E5            
+                 
+   - id: setup_page   
+     width: 480
+     height: 480 
+     bg_image_src: my_background_image
+     scrollbar_mode: "OFF"
+     layout:
+       type: flex
+       flex_flow: column_wrap     
+     widgets:
+        - obj:       ##螢幕亮度
+            # styles: regular_page
+            height: 85
+            width: 480          
+            bg_opa: 0%
+            shadow_width: 0  # 陰影寬度（無陰影）
+            border_opa: TRANSP  # 邊框透明度（透明            
+            # layout:
+            #   type: flex
+            #   flex_flow: column_wrap
+            widgets:      
+              - label:   
+                  styles: label_1
+                  align: LEFT_MID
+                  text_font: font_icon_small
+                  text_color: 0xffffff
+                  x: 15
+                  text: "\U000F1110"    
+              - label:   
+                  styles: label_1
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 80
+                  text: "螢幕亮度"           
+              - label:
+                  styles: label_1
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: backlight_brightness_adjust_label
+                  align: RIGHT_MID
+                  text: "--%"
+                  long_mode: dot                                    
+              - slider:
+                  id: backlight_slide_brightness
+                  align: RIGHT_MID
+                  x: -90
+                  width: 140
+                  height: 20
+                  pad_all: 8
+                  value: !lambda return id(backlight_brightness).state;
+                  min_value: 10    #調太低喚起螢幕無法看到背光
+                  max_value: 100       
+                  indicator:
+                    bg_color: 0x003866
+                    bg_grad_color: 0x4adeff
+                    bg_grad_dir: HOR
+                    bg_opa: COVER
+                    height: 20   
+                  on_value:
+                    - lvgl.label.update:
+                        id: backlight_brightness_adjust_label
+                        text: 
+                          format: "%.0f%%"
+                          args: [ 'x' ]                                                                  
+                  on_release:
+                    then:
+                      - light.control:
+                          id: display_backlight
+                          brightness: !lambda return x / 100;
+                      - number.set:
+                          id: backlight_brightness
+                          value: !lambda return x;              
+
+
+        - obj:       ##第1層 obj
+            # styles: regular_page
+            height: 85
+            width: 480          
+            bg_opa: 0%
+            shadow_width: 0  # 陰影寬度（無陰影）
+            border_opa: TRANSP  # 邊框透明度（透明            
+            # layout:
+            #   type: flex
+            #   flex_flow: column_wrap
+            widgets:      
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_icon_small
+                  text_color: 0xffffff
+                  x: 15
+                  # y: 25
+                  text: "\U000F083B"   
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 85
+                  # y: 25
+                  text: "延遲關閉"      
+              - label:
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: backlight_brightness_timeout
+                  align: RIGHT_MID
+                  text: "--s"
+                  long_mode: dot                                       
+              - slider:
+                  id: lvgl_display_timeout
+                  align: RIGHT_MID
+                  x: -90
+                  # y: 10
+                  width: 140
+                  height: 20
+                  pad_all: 8
+                  # value: !lambda return id(backlight_brightness).state;
+                  min_value: 10
+                  max_value: 150       
+                  indicator:
+                    bg_color: 0x003866
+                    bg_grad_color: 0x4adeff
+                    bg_grad_dir: HOR
+                    bg_opa: COVER
+                    height: 20      
+                  on_value:
+                    - lvgl.label.update:
+                        id: backlight_brightness_timeout
+                        text: 
+                          format: "%.0fs"
+                          args: [ 'x' ]                                                             
+                  on_release:
+                    then:
+                      - number.set:
+                          id: display_timeout
+                          value: !lambda return x;   
+
+
+
+        - obj:       ##第1層 obj
+            # styles: regular_page
+            height: 85
+            width: 480          
+            bg_opa: 0%
+            shadow_width: 0  # 陰影寬度（無陰影）
+            border_opa: TRANSP  # 邊框透明度（透明            
+            # layout:
+            #   type: flex
+            #   flex_flow: column_wrap
+            widgets:      
+              - label:
+                  styles: label_1
+                  text: "\U000f05a9"
+                  id: lbl_hastatus
+                  hidden: true
+                  text_font: font_icon_small
+                  align: LEFT_MID
+                  x: 15
+                  text_align: right
+                  text_color: 0xFFFFFF   
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 85
+                  # y: 25
+                  text: "連網狀態" 
+              - label:
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: lvgl_label_wifi_signal_percentage
+                  align: RIGHT_MID
+                  text: "--%"
+                  long_mode: dot   
+
+
+
+
+
+
+
+              # - label:
+              #     styles: label_1
+              #     checkable: true
+              #     x: -10
+              #     text_font: font_apple_Regular
+              #     text_color: 0xffffff
+              #     id: lvgl_label_wifi_signal_db
+              #     align: RIGHT_MID
+              #     text: "--%"
+              #     long_mode: dot 
+              # - label:
+              #     checkable: true
+              #     x: -10
+              #     text_font: font_apple_Regular
+              #     text_color: 0xffffff
+              #     id: backlight_brightness_timeout
+              #     align: RIGHT_MID
+              #     text: "10s"
+              #     long_mode: dot                                       
+              # - slider:
+              #     id: lvgl_display_timeout
+              #     align: RIGHT_MID
+              #     x: -90
+              #     # y: 10
+              #     width: 140
+              #     height: 20
+              #     pad_all: 8
+              #     # value: !lambda return id(backlight_brightness).state;
+              #     min_value: 10
+              #     max_value: 150       
+              #     indicator:
+              #       bg_color: 0x003866
+              #       bg_grad_color: 0x4adeff
+              #       bg_grad_dir: HOR
+              #       bg_opa: COVER
+              #       height: 20      
+              #     on_value:
+              #       - lvgl.label.update:
+              #           id: backlight_brightness_timeout
+              #           text: 
+              #             format: "%.0fs"
+              #             args: [ 'x' ]                                                             
+              #     on_release:
+              #       then:
+              #         - number.set:
+              #             id: display_timeout
+              #             value: !lambda return x;   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # - obj: 
+        #     height: 85
+        #     width: 480
+        #     bg_opa: 0%
+        #     shadow_width: 0
+        #     border_opa: TRANSP
+        #     # id: lvgl_switch_antiburn
+        #     # checkable: true
+        #     widgets: 
+        #       - label: 
+        #           styles: label_1
+        #           align: LEFT_MID
+        #           text_font: font_icon_small
+        #           text_color: 16777215
+        #           x: 15
+        #           text: 󱄐
+        #       - label: 
+        #           styles: label_1
+        #           align: LEFT_MID
+        #           text_font: font_Medium_big
+        #           text_color: 16777215
+        #           x: 80
+        #           text: 手動燒屏
+        #       - switch: 
+        #           align: RIGHT_MID
+        #           x: -10
+        #           id: lvgl_switch_antiburn
+        #           checkable: true
+        #           on_click: 
+        #             then: 
+        #               - switch.trigger: switch_antiburn
+
+  #  - id: main_power
+  #    width: 480
+  #    height: 405 
+  #    bg_image_src: my_background_image
+  #    scrollbar_mode: "OFF"
+  #    widgets:
+  #       - obj:       ##第1層 obj
+  #           # styles: regular_page
+  #           height: 235
+  #           width: 202            
+  #           layout:
+  #             type: flex
+  #             flex_flow: column_wrap
+  #           widgets:
+  #                 #--------------------------------------------
+  #                 #  第一個計量 # 累計K瓦
+  #                 #--------------------------------------------      
+  #             - meter:
+  #                 height: 200
+  #                 width: 200
+  #                 x: 20
+  #                 y: 10
+  #                 align: TOP_LEFT
+  #                 text_font: font_apple_Regular_small
+  #                 bg_opa: TRANSP
+  #                 text_color: 0x999999
+  #                 border_width: 0
+  #                 pad_all: 8
+  #                 id: power_meter_power_meter_arc
+  #                 checkable: true
+  #                 scales:
+  #                   - ticks:
+  #                       width: 2
+  #                       count: 26
+  #                       length: 10
+  #                       color: 0x999999
+  #                       major:
+  #                         stride: 5
+  #                         width: 4
+  #                         length: 15
+  #                         color: 0x999999
+  #                         label_gap: 16
+  #                     range_from: 0
+  #                     range_to: 500
+  #                     angle_range: 270
+  #                     rotation: 135
+  #                     indicators:
+  #                       - line:
+  #                           #  id: power_meter_power_meter_arc
+  #                           width: 4
+  #                           color: 0x999999
+  #                           r_mod: -10
+  #                       - arc:
+  #                           color: 0x3182b7
+  #                           width: 3
+  #                           start_value: 0
+  #                           end_value: 100
+  #                       - tick_style:
+  #                           start_value: 0
+  #                           end_value: 100
+  #                           color_start: 0x3182b7
+  #                           color_end: 0x3182b7
+  #                           width: 0
+  #                           local: true
+  #                       - arc:
+  #                           color: 0x8b3333
+  #                           width: 3
+  #                           start_value: 400
+  #                           end_value: 500
+  #                       - tick_style:
+  #                           start_value: 400
+  #                           end_value: 500
+  #                           color_start: 0x8b3333
+  #                           color_end: 0x8b3333
+  #                           width: 0
+  #                           local: true
+
+  #             - label:
+  #                 id: lvgl_power_meter_energy
+  #                 text_font: font_apple_Heavy_medium
+  #                 align: TOP_LEFT
+  #                 #  text_color: 0x336699
+  #                 bg_opa: TRANSP
+  #                 y: +170
+  #                 x: +90
+  #                 text: "---"
+ 
