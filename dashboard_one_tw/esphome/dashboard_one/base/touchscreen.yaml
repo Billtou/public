@@ -16,7 +16,10 @@ spi:    #required only for libraries
 # --------------------------------------
 # -            DISPLAY 屏幕驅動勿動
 # --------------------------------------
+external_components:
+  - source: github://sEbola76/gc9503v
 
+  
 display:
   - platform: gc9503v
     model: PANLEE  # 或 VIEWE
@@ -99,11 +102,12 @@ touchscreen:
       - if:
           condition: lvgl.is_paused #睡眠喚起
           then:
+            - light.turn_on:
+                id: display_backlight          
             - logger.log: "LVGL resuming"
-            - lvgl.page.show: main_page_type_a   #閉屏觸發亮屏導航到此頁面  ***** 這裡可以調整喜歡的頁面 ********          
             - lvgl.resume:  #讓螢幕開始反應並更新畫面
             - lvgl.widget.redraw: #強制所有 widget 重繪，以確保畫面內容在 resume 後立即更新。
-
+            - lvgl.page.show: main_page_type_a   #閉屏觸發亮屏導航到此頁面  ***** 這裡可以調整喜歡的頁面 ********   
 
 # ---------------------------------------------
 # -          燒屏的switch 避免屏木烙印的機制的開關 勿動
@@ -124,10 +128,6 @@ switch:
             - lvgl.widget.redraw:
       - lvgl.pause:
           show_snow: true
-      # - lvgl.widget.update:
-      #     id: lvgl_switch_antiburn
-      #     state:
-      #       checked: true
     turn_off_action:
       - logger.log: "Stopping Antiburn"
       - if:
@@ -135,13 +135,8 @@ switch:
           then:
             - lvgl.resume:
             - lvgl.widget.redraw:
-      # - lvgl.widget.update:
-      #     id: lvgl_switch_antiburn
-      #     state:
-      #       checked: false
-
 # --------------------------------------
-# 自動燒屏的程序 凌晨2,3,4,5點零5分到35分自動花屏避免烙印  勿動
+# 自動燒屏的程序(防止lcd烙印的方法) 凌晨2,3,4,5點零5分到35分自動背景花屏  勿動
 # --------------------------------------
 time:
   - platform: homeassistant
@@ -159,7 +154,7 @@ time:
           - switch.turn_off: switch_antiburn    
 
 # --------------------------------------
-# 主屏最上層右下角時間的entity 每分鐘更新一次
+# 主屏最上層右下角時間的entity 每分鐘更新一次  勿動
 # --------------------------------------     
   - platform: sntp
     id: my_sntp_time
@@ -181,7 +176,7 @@ time:
               snprintf(buff, sizeof(buff), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
               lv_label_set_text(id(local_time), buff);
 # --------------------------------------
-# -   背光螢幕LED entity
+# -   背光螢幕LED entity 勿動
 # --------------------------------------
 output:
   - platform: ledc
@@ -197,7 +192,7 @@ light:
     restore_mode: ALWAYS_ON
 
 # --------------------------------------
-# -   調整背光螢幕的亮度 UI entity
+# -   調整背光螢幕的亮度 UI entity 勿動
 # --------------------------------------
 number:
   - platform: template
@@ -219,7 +214,7 @@ number:
             id: display_backlight
             brightness: !lambda 'return x / 100.0;'
 # --------------------------------------
-# -   調整關閉屏幕的秒數 UI entity
+# -   調整關閉屏幕的秒數 UI entity 勿動
 # --------------------------------------
   - platform: template
     name: Screen timeout
