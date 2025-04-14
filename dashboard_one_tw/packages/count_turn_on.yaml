@@ -40,7 +40,12 @@ template:
       - name: count_climate_turn_on
         unique_id: c904933e-2b14-4556-bbea-3219007d1031
         state: >
-          {{ states.climate | rejectattr('state','eq','off') | list | count }}
+          {% set climate = states.climate
+            | selectattr('entity_id', 'search', 'climate')
+            | rejectattr('state', 'eq', 'off')
+            | rejectattr('state', 'eq', 'unavailable')
+            | map(attribute = 'entity_id') | list | count %}
+          {{ climate }}
 
       - name: count_switch_turn_on
         unique_id: b7c38a93-4cea-4453-92e1-b7dcd3f3a72e
