@@ -1,3 +1,13 @@
+#
+#
+#
+#  自製統計entity sensor
+#  將本檔案
+#
+#
+#
+
+
 template:
   - sensor:
       - name: count_fan_turn_on
