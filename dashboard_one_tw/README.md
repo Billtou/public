@@ -60,13 +60,13 @@
               - source: github://sEbola76/gc9503v  # 驅動外掛別動
             
             packages:
-              basic_device_in: !include dashboard_one/base/esphome_basic.yaml  # 依據 預置檔案，將檔案放置於相對位置  見首頁說明
-              display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
-              weather_forecast_in: !include dashboard_one/weather_forecast.yaml
-              climate_in: !include dashboard_one/climates.yaml
-              scenes_in: !include dashboard_one/sceness.yaml
-              fonts_in: !include dashboard_one/fonts.yaml
-              fan_in: !include dashboard_one/fans.yaml
-              cover_in: !include dashboard_one/covers.yaml
-              light_in: !include dashboard_one/lights.yaml
-              count_entity: !include dashboard_one/count_entity.yaml
+              basic_device_in: !include dashboard_one/base/esphome_basic.yaml  # 必須  依據 預置檔案，將檔案放置於相對位置  見首頁說明
+              display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml  #必須
+              weather_forecast_in: !include dashboard_one/weather_forecast.yaml  #天氣預報外掛
+              climate_in: !include dashboard_one/climates.yaml #冷氣空調外掛
+              scenes_in: !include dashboard_one/sceness.yaml #自帶4個自動化場景外掛
+              fonts_in: !include dashboard_one/fonts.yaml #字體外掛
+              fan_in: !include dashboard_one/fans.yaml   #風扇外掛
+              cover_in: !include dashboard_one/covers.yaml  #窗簾、車門外掛
+              light_in: !include dashboard_one/lights.yaml #電燈外掛
+              count_entity: !include dashboard_one/count_entity.yaml  #計數 entity 開啟狀態外掛
