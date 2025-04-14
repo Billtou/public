@@ -106,6 +106,9 @@
               style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    # 這是風格預設的檔案，後期所有的小部件都會引用達到統一化管理的目的
 
 ## HA 實體到轉到 esphome觸控板內 再改變ha實體的三角關係圖
+### - HA 先要有個有效得實體，然後在esphome裡面建立一個與隻連動狀態的id，透過這個id狀態的變化改變lvgl畫面id的狀態。
+### - 當觸摸指定的button 轉化成on_click:的指令執行 homeassistant.action: 的一連串動作達到改變ha實體的狀態
+
  ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
 
 
