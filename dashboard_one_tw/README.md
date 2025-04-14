@@ -163,3 +163,36 @@
                         text_color: 0xa4abb1  # 文字顏色
                         long_mode: dot
                 
+## 四宮格自動化或場景觸發button說明
+   ![Mosquitto_broker](/dashboard_one_tw/image/E89FB4C5855B.jpg)
+   
+              - obj:  ## 用obj包裹四 button 
+                  styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
+                  layout:  # 版面配置
+                    type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+                    flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+                    flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+                  widgets:      
+                    - button:   ## 鬧鐘按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D #調用button_D的風格
+                        id: lvgl_button_scene_trigger_home_page_a
+                        checkable: true #依據id的on/off 反饋button顏色
+                        widgets:
+                          - label:   
+                              # checkable: true 
+                              align: CENTER
+                              text_font: font_icon_medium
+                              text: "\U000F0021" # 鬧鐘
+                              text_color: 0x8b3333
+                        on_click:
+                          then:
+                            - switch.turn_on: scene_trigger_a  # 當按下button時觸發  scene_trigger_a 這個id
+
+                    - button:   ## 睡覺按鈕 後期由user 在HA建立自動化或場景使用
+                        styles: button_D
+                        id: lvgl_button_scene_trigger_home_page_b                  
+                        checkable: true
+                        widgets:
+                          - label:   
+                              checkable: true
+                              align: CENTER
