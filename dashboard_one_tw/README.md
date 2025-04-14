@@ -172,6 +172,8 @@
                 
 ## 四宮格自動化或場景觸發button說明
    ![Mosquitto_broker](/dashboard_one_tw/image/E89FB4C5855B.jpg)
+
+         **每個button或widgets擺放的位置直接影響在覑面上排列的位置**
    
               - obj:  ## 用obj包裹四 button 
                   styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
@@ -209,5 +211,28 @@
 ## 實體開啟狀態統計圖
    ![Mosquitto_broker](/dashboard_one_tw/image/AC2C38DFDF.jpg)
 
-
+        **每個button或widgets擺放的位置直接影響在覑面上排列的位置**
     
+              - button:
+                  styles: button_F                
+                  widgets:
+                    - label:   
+                        x: +5
+                        y: -12
+                        align: TOP_LEFT
+                        text_font: font_icon_small
+                        text: "\U000F0335" # 電燈
+                        text_color: 0xfc9d21 
+                    - label:   
+                        x: -10
+                        y: -2                        
+                        id: lvgl_label_count_light_entity_state
+                        align: RIGHT_MID
+                        text_font: font_apple_Heavy_medium
+                        text_color: 0xf2f2f2 
+              - button:
+                  styles: button_F                           
+                  widgets:
+                    - label:   
+                        checkable: true
+                        x: +5
