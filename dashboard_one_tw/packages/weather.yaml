@@ -45,11 +45,6 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - sensor.opencwa_nan_tun_qu_condition
-          - sensor.opencwa_nan_tun_qu_weather
-          - sensor.opencwa_nan_tun_qu_feels_like_temperature
-          - sensor.opencwa_nan_tun_qu_forecast_templow
-          - sensor.outside_sensor_temperature
           - binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
         to: "on"
       - platform: time_pattern
