@@ -51,23 +51,10 @@ template:
         state: >
           {{ states.cover | selectattr('state','eq','open') | list | count }}
 
-      - name: count_other_turn_on
-        unique_id: 8a34bcce-767d-4cbf-aef0-0683f22151d1
-        state: >
-          {% set devices = states.switch 
-            | selectattr('entity_id', 'search', '_devices')
-            | list %}     
-          {{ devices | selectattr('state','eq','on') | list | count }}
-
       - name: count_airquality_turn_on
         unique_id: eeb1f5f0-bfdc-4abc-a511-957b4ff09bd6
         state: >
           {{ states.humidifier | selectattr('state','eq','on') | list | count }}
-
-      - name: count_wifi_device_tracker_fail
-        unique_id: 6a1e40d6-2f14-4de5-a2b3-ba82b8b99438
-        state: >
-          {{ states.device_tracker | selectattr('state','eq','not_home') | list | count }}
 
       - name: count_person_in_home
         unique_id: 75454269-d4f6-4e66-b0fc-af674d35ac28
@@ -78,4 +65,4 @@ template:
             states.person.jobs
           ] %}
           {% set counts_on = counts | selectattr('state','eq','home') | list %}
-          {{ counts_on | length }}   
+          {{ counts_on | length }}
