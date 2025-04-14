@@ -11,7 +11,8 @@
 #        - /config
 #  
 #  自製計算entity類別的 sensor
-#
+#  注意事項: state 是 on off 比較點單，但cover，climate過濾條件就要調整。
+#  詳情見下列sample
 
 
 template:
