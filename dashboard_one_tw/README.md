@@ -334,4 +334,4 @@
  https://pictogrammers.com/library/mdi/
 - 默認睡眠喚起導航頁面在 touchscreen.yaml  110行，需要時可自行替換。
 - dashboard-one-xxxxxx.yaml  1057行最低亮度請保持於10以上避免喚起太暗以為當機了。
-- 
+- 冷氣entity各家的havc_modes: 各有不同，有的冷暖有的沒有，需自行細看自家的屬性多寡調整功能。
