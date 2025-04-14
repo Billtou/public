@@ -1,4 +1,4 @@
-  # theme:
+  # theme: 定義兩個常用的小部件格式
     label:
       text_font: font_Medium_big  # 設定標籤字體
       scroll_on_focus: true  # 焦點時啟用滾動
