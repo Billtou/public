@@ -31,6 +31,9 @@
                             |  boot_logo.png
                             |  ha_logo.svg
 
+    [ packages ] 資料夾兩個檔案放置於自家HA的 packages 資料夾中，並依照說明替換成自家的id
+
+
 
     ## dashboard-one-XXXX.yaml 檔案說明
     
