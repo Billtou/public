@@ -20,9 +20,6 @@ substitutions:
 
   count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"
 
-# external_components:
-#   - source: github://sEbola76/gc9503v
-
 packages:
   basic_device_in: !include dashboard_one/base/esphome_basic.yaml
   display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
