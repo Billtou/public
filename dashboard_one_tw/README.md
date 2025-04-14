@@ -328,3 +328,10 @@
                       on_press:
                         - lvgl.widget.hide: boot_screen
                             
+
+- 筆記以及提醒事項
+- 搜尋icon網頁
+ https://pictogrammers.com/library/mdi/
+- 默認睡眠喚起導航頁面在 touchscreen.yaml  110行，需要時可自行替換。
+- dashboard-one-xxxxxx.yaml  1057行最低亮度請保持於10以上避免喚起太暗以為當機了。
+- 
