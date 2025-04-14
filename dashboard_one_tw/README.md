@@ -20,66 +20,65 @@
 - 觸控板 HA lvgl互動關係 (可參考這小哥的影片介紹，進一步了解)
   https://www.youtube.com/watch?v=WWWi_-JWyys&t=333s&ab_channel=foggyhlw
 
+        本項目檔案結構與放置位置
+
         < esphome >
-            |  dashboard-one-XXXXXX.yaml
-            |  -- < fonts >
-            |        |  GenJyuuGothic-Bold.ttf
+            |  dashboard-one-XXXXXX.yaml   主程序
+            |  -- < fonts >  中英文字體庫
+            |        |  GenJyuuGothic-Bold.ttf   
             |        |  GenJyuuGothic-Medium.ttf
             |        |  SFProDisplay-BoldItalic.ttf
             |        |  FProDisplay-HeavyItalic.ttf
             |        |  SFProDisplay-RegularItalic.ttf
             |        |  materialdesignicons-webfont.ttf
             |
-            |  --< dashboard_one >
+            |  --< dashboard_one >  項目資料夾
                     |  < base >
-                    |      |  esphome_basic.yaml
-                    |      |  touchscreen.yaml
+                    |      |  esphome_basic.yaml   基本esphom設置程序碼
+                    |      |  touchscreen.yaml   觸控屏設置程序碼
                     |
-                    |  < lvgl >
+                    |  < lvgl >  lvgl 外掛yaml 資料夾
                           |
-                          |  image.yaml
-                          |  style_definitions.yaml
-                          |  theme.yaml
-                          |  top_layer.yaml
+                          |  image.yaml  背景與開機參數設置
+                          |  style_definitions.yaml  風格設置
+                          |  theme.yaml 小部件默認預設參數設置
+                          |  top_layer.yaml 首層頁底導航頁面代碼
                           |  < image >
                                 |
-                                |  background_1.png
-                                |  background_2.png
-                                |  background_3.png
-                                |  boot_logo.png
-                                |  ha_logo.svg
+                                |  background_1.png  背景圖1
+                                |  background_2.png  背景圖2
+                                |  background_3.png  背景圖3
+                                |  boot_logo.png  開機esphome logo 1
+                                |  ha_logo.svg  開機esphome logo 2
     
         [ packages ] 資料夾兩個檔案放置於自家HA的 packages 資料夾中，並依照說明替換成自家的id
-    
     
     
         ## dashboard-one-XXXX.yaml 檔案說明
     
             substitutions:
-              name: "dashboard-one-XXXXXX"  修改為自家的 id
+              name: "dashboard-one-XXXXXX"  修改為自家的 id 注意弄錯會死機
               friendly_name: "Dashboard One XXXXXX"   修改為自家的 id
               device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
               project_name: "Panlee.ZX3D95CE01S-TR-4848"
               project_version: "2025.4"
             
-              livingroom_climate: "climate.livingroom"   修改為自家的 id
-              livingroom_curtain: "cover.curtain_29ae50_curtain"  修改為自家的 id
-              livingroom_smart_light: "light.livingroom_big_light"  修改為自家的 id
-              livingroom_switch_light: "light.study_wall_light_2"  修改為自家的 id
-              livingroom_smart_fan: "fan.livingroom_fan"  修改為自家的 id
-              balcony_switch_fan: "fan.balcony_esp01_convulsions"  修改為自家的 id           
+              livingroom_climate: "climate.livingroom"   修改為自家的 id 與底下畫面以及各項entity 類別綁定，初期只改勿刪，日後了解結構後再自行調整
+              livingroom_curtain: "cover.curtain_29ae50_curtain"  同上
+              livingroom_smart_light: "light.livingroom_big_light"  同上
+              livingroom_switch_light: "light.study_wall_light_2"  同上
+              livingroom_smart_fan: "fan.livingroom_fan"  同上
+              balcony_switch_fan: "fan.balcony_esp01_convulsions"  同上
 
-              count_light_entity: "sensor.count_light_turn_on"    # packages 裡面 count_turn_on.yaml 產生
+              count_light_entity: "sensor.count_light_turn_on"    # packages 裡面 count_turn_on.yaml 產生，初期勿刪，日後了解結構後再自行調整
               count_switch_entity: "sensor.count_switch_turn_on"  #同上 
               count_climate_entity: "sensor.count_climate_turn_on"  #同上
               count_fan_entity: "sensor.count_fan_turn_on"   #同上
               count_cover_entity: "sensor.count_cover_turn_open"   #同上
               
-              count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"  修改為自家的 id
+              count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"  若有入戶電力統計時修改為自家的 id
             
-            external_components:  
-              - source: github://sEbola76/gc9503v  # 驅動外掛別動
-            
+           
             packages:
               basic_device_in: !include dashboard_one/base/esphome_basic.yaml  # 必須  依據 預置檔案，將檔案放置於相對位置  見首頁說明
               display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml  #必須
@@ -91,9 +90,7 @@
               cover_in: !include dashboard_one/covers.yaml  #窗簾、車門外掛
               light_in: !include dashboard_one/lights.yaml #電燈外掛
               count_entity: !include dashboard_one/count_entity.yaml  #計數 entity 開啟狀態外掛
-
-
-            
+          
               
             # --------------------------------------
             # -            背景圖
@@ -104,14 +101,14 @@
             # --------------------------------------
             lvgl:     #  以下開始lvgl 圖形化頁面宣告
               displays:
-                - my_display
+                - my_display  #定義display名稱
               touchscreens:
-                - my_touchscreen
+                - my_touchscreen  #定義觸控名稱
               # -------------------------------------------------
               # -   超時關螢幕 (正常使用打開，開發編譯時可以註解掉)   -
               # -------------------------------------------------
               on_idle:
-                timeout: !lambda "return (id(display_timeout).state * 1000);"
+                timeout: !lambda "return (id(display_timeout).state * 1000);"  # 這行是調用面板的亮度參數當成開機預設值
                 then:
                   - logger.log: "LVGL is idle"
                   - light.turn_off: display_backlight
@@ -126,16 +123,16 @@
               # -------------------------------------------------
               style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    # 這是風格預設的檔案，後期所有的小部件都會引用達到統一化管理的目的
 
-## HA 實體轉到 esphome觸控板內 再改變ha實體的三角關係圖
-### - HA 先要有個有效的實體，然後在esphome裡面建立一個與之連動state的id，透過這個id狀態的變化改變lvgl畫面id的狀態。(見dashboard_one/lights.yaml)
-### - 當觸摸指定的button 轉化成on_click:的指令執行 homeassistant.action: 的一連串動作達到改變ha實體的狀態
+## HA 實體轉到 esphome 觸控板內 然後lvgl面板再改變 ha 實體的三角關係圖
+### - HA 要有個有效的實體，然後在esphome裡面建立一個與之連動state的id，透過這個id狀態的變化改變lvgl畫面id的狀態。(見所有的entity類別外掛yaml檔案)
+### - 當觸摸到指定的button 轉化成on_click:的指令去執行 homeassistant.action: 的一連串控制動作進而改變ha實體的狀態
 
  ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
 
 
 
 
-## 以下為實際頁面內容
+## 以下為實際頁面內容說明畫面的組成結構
  ![Mosquitto_broker](/dashboard_one_tw/image/212414.jpg)
 
 
@@ -150,7 +147,7 @@
               #--------------------------------------------
               pages:  #定義多個頁面（類似畫面、Tab 或分頁）。  
                - id: main_page_type_a    #這個頁面的 ID，稍後可以用來跳轉或引用。
-                 bg_image_src: my_background_image
+                 bg_image_src: my_background_image  #調用背景圖id
                  widgets:   #宣告 "小部件" widgets
                     - obj:       ##小部件下建立"容器" obj 的定義繼承 pages 的定義
                         styles: regular_page # align: CENTER  #把這個容器在螢幕上置中對齊。
@@ -164,7 +161,7 @@
 
             widgets:   
               - button:   
-                  styles: button_A  ## 統一調用Button A的風格參數 (免去本button 長寬圓腳顏色等等宣告)
+                  styles: button_A  ## 統一調用Button A的風格參數 (簡化同樣風格的button 長寬圓腳顏色等等宣告)
                   #-------------------------------------------------------------------------------------
                   # 天氣預告小部件內容 請見esphome lvgl https://esphome.io/components/lvgl/widgets.html 
                   #-------------------------------------------------------------------------------------
@@ -182,9 +179,9 @@
                         y: 10  #偏移y軸10像素 正負直端看 align: TOP_RIGHT 位置而定
                         text_font: weather_forecast_50 # 引用的自型庫id
                         text_color: 0xf5f8fa #顏色
-                    - label:  #預報文字內容
+                    - label:  #預報中文字內容
                         text: "--" 
-                        y: 5
+                        y: 5  # 微調位置y軸5個像素
                         id: lvgl_label_weather_forecast_condition_name
                         text_font: weather_forecast_24
                         align: BOTTOM_MID
@@ -194,7 +191,7 @@
 ## 四宮格自動化或場景觸發button說明
    ![Mosquitto_broker](/dashboard_one_tw/image/E89FB4C5855B.jpg)
 
-         **每個button或widgets擺放的位置直接影響在覑面上排列的位置**
+         **每個button或widgets擺放的位置對齊位置直接影響在頁面上排列與放置的地點**
    
               - obj:  ## 用obj包裹四 button 
                   styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
@@ -212,7 +209,7 @@
                               # checkable: true 
                               align: CENTER
                               text_font: font_icon_medium
-                              text: "\U000F0021" # 鬧鐘
+                              text: "\U000F0021" # 鬧鐘圖示
                               text_color: 0x8b3333
                         on_click:
                           then:
@@ -232,8 +229,7 @@
 ## 實體開啟狀態統計圖
    ![Mosquitto_broker](/dashboard_one_tw/image/8DFDF.jpg)
 
-        **每個button或widgets擺放的位置直接影響在覑面上排列的位置**
-    
+             ** 因為上面四宮格已經把第一列空間用完了，自動會跑到第二列右上往下放置button， 同樣的，擺放對齊的位置直接影響畫面布局
               - button:
                   styles: button_F                
                   widgets:
@@ -264,14 +260,14 @@
    ![Mosquitto_broker](/dashboard_one_tw/image/8BB02FEDA214.jpg)
 
 
-            dashboard_one/lvgl/top_layer.yaml
+            來源內容 dashboard_one/lvgl/top_layer.yaml
             
-            # top_layer:   #永遠放在最上層
+            # top_layer:   #永遠放在最上層 本行需註解，因為宣告引用時 top_layer: 已經有引用過了
                 widgets:
                   - buttonmatrix:
-                      align: BOTTOM_LEFT #放在畫面底靠左
+                      align: BOTTOM_LEFT #放在畫面底部靠左
                       styles: header_footer #調用主題風格，排列方式由左至右
-                      width: 360  # 寬度
+                      width: 360  # 寬度 這裡若不需告寬度，則繼承於調用主題風格的內容 480 
                       height: 75  # 高度    
                       id: my_top_layer
                       items:
@@ -282,23 +278,23 @@
                             text: "\U000F07D0" # home
                             on_press:
                               then:
-                                lvgl.page.show: main_page_type_a  #導航到該頁面
+                                lvgl.page.show: main_page_type_a  #按下後導航到該頁面
                           - id: top_layer_page_type_b
                             text:  "\U000F04B9" #客廳 
                             on_press:
                               then:
-                                lvgl.page.show: main_page_type_b  #導航到該頁面
+                                lvgl.page.show: main_page_type_b  #按下後導航到該頁面
                           - id: top_layer_page_type_c
                             text: "\U000F0FCE" # 場景
                             on_press:
                               then:
-                                lvgl.page.show: main_page_type_c  #導航到該頁面
+                                lvgl.page.show: main_page_type_c  #按下後導航到該頁面
                           - id: top_layer_setup
                             text: "\U000F0493" # 齒輪
                             on_press:
                               then:
-                                lvgl.page.show: setup_page  #導航到該頁面         
-                  - button:   ## Button A   #右下時間的button內容
+                                lvgl.page.show: setup_page  #按下後導航到該頁面         
+                  - button:   ## Button A   #右下 "時間" 的button宣告
                       styles: header_footer
                       width: 120
                       height: 75        
@@ -306,7 +302,7 @@
                       radius: 0 #取消圓角     
                       widgets:
                         - label:
-                            id: local_time
+                            id: local_time # 時鐘的id
                             text_font: font_apple_Heavy_medium
                             align: CENTER
                             radius: 0 #取消圓角
@@ -334,4 +330,4 @@
  https://pictogrammers.com/library/mdi/
 - 默認睡眠喚起導航頁面在 touchscreen.yaml  110行，需要時可自行替換。
 - dashboard-one-xxxxxx.yaml  1057行最低亮度請保持於10以上避免喚起太暗以為當機了。
-- 冷氣entity各家的havc_modes: 各有不同，有的冷暖有的沒有，需自行細看自家的屬性多寡調整功能。
+- 冷氣entity各家的havc_modes: 文字各有不同，需自行細看自家climate的屬性內容調整功能。
