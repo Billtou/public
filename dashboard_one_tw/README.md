@@ -10,6 +10,9 @@
 - 將 packages 資料夾 weather.yaml count_turn_on.yaml 裡面的id改成自家的。(若沒安裝CWA氣象署整合請先安裝) 然後重開機，檢查一下相對應的entity有沒有順利出現。
 - 將程序碼中第8~21行的內容置換為自己的id，若有些類別entity 還沒有是沒關係的，先放著不影響功能。等熟悉後自行做新增與刪除即可(這些宣告與底下程序碼綁定，先別急著刪除了解清楚日後再處理)
 - 成功接入後新增HA的實體到觸控請依照說明文件陸續接入即可，有問題可以line詢問 id 0988057325
+參考網頁
+https://esphome.io/components/lvgl/index.html
+
 
         < esphome >
             |  dashboard-one-XXXXXX.yaml
