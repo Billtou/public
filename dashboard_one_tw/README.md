@@ -33,6 +33,7 @@
 
 
     ## dashboard-one-XXXX.yaml 檔案說明
+    
             substitutions:
               name: "dashboard-one-e73d68"
               friendly_name: "Dashboard One e73d68"
