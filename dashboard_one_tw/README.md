@@ -35,22 +35,22 @@
     ## dashboard-one-XXXX.yaml 檔案說明
     
             substitutions:
-              name: "dashboard-one-e73d68"
-              friendly_name: "Dashboard One e73d68"
+              name: "dashboard-one-XXXXXX"  修改為自家的 id
+              friendly_name: "Dashboard One XXXXXX"   修改為自家的 id
               device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
               project_name: "Panlee.ZX3D95CE01S-TR-4848"
               project_version: "2025.4"
             
-              livingroom_climate: "climate.livingroom"
-              livingroom_curtain: "cover.curtain_29ae50_curtain"
-              livingroom_smart_light: "light.livingroom_big_light"
-              livingroom_switch_light: "light.study_wall_light_2"
-              count_light_entity: "sensor.count_light_turn_on"
-              count_switch_entity: "sensor.count_switch_turn_on"
-              count_climate_entity: "sensor.count_climate_turn_on"
-              count_fan_entity: "sensor.count_fan_turn_on"
-              count_cover_entity: "sensor.count_cover_turn_open"
-              count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"
+              livingroom_climate: "climate.livingroom"   修改為自家的 id
+              livingroom_curtain: "cover.curtain_29ae50_curtain"  修改為自家的 id
+              livingroom_smart_light: "light.livingroom_big_light"  修改為自家的 id
+              livingroom_switch_light: "light.study_wall_light_2"  修改為自家的 id
+              count_light_entity: "sensor.count_light_turn_on"  
+              count_switch_entity: "sensor.count_switch_turn_on"  
+              count_climate_entity: "sensor.count_climate_turn_on"  
+              count_fan_entity: "sensor.count_fan_turn_on"  
+              count_cover_entity: "sensor.count_cover_turn_open"  
+              count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"  修改為自家的 id
             
             external_components:
               - source: github://sEbola76/gc9503v
