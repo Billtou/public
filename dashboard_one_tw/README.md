@@ -206,3 +206,6 @@
                                 :
                                 :
                                 :
+## 實體開啟狀態統計圖
+   ![Mosquitto_broker](/dashboard_one_tw/image/AC2C38DFDF.jpg)
+
