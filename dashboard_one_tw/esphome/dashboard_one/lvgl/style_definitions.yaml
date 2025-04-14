@@ -1,0 +1,81 @@
+
+# style_definitions:
+  - id: regular_page
+    bg_opa: TRANSP          # 背景透明
+    border_opa: TRANSP      # 邊框透明
+    width: 480              # 頁面寬度
+    height: 405             # 高度（例如預留 75px 給 footer）
+    scrollbar_mode: "OFF"   # 不顯示捲動條
+    align: TOP_MID          # 頁面在畫面上方置中對齊
+    
+  - id: four_grids
+    width: 220
+    height: 215
+    border_opa: TRANSP      # 邊框透明
+    scrollbar_mode: "OFF"   # 不顯示捲動條
+    align: TOP_MID          # 頁面在畫面上方置中對齊
+    bg_opa: TRANSP  #透明
+    radius: 15  # 圓角半徑
+    pad_left: 0px  # 左邊距
+    pad_top: 0px  # 上邊距
+    pad_bottom: 0px  # 下邊距
+    pad_right: 0px  # 右邊距   
+
+  - id: header_footer  # 樣式 ID（用於頁眉和頁腳）
+    text_font: font_icon_small
+    bg_color: 0x3b4041 # 背景顏色
+    bg_opa: 80%   # 背景透明度（完全覆蓋）
+    border_opa: TRANSP  # 邊框透明度（透明）
+    outline_width: 0 #輪廓線寬
+    radius: 0  # 圓角半徑（無圓角）
+    pad_all: 0  # 所有方向的內邊距
+    pad_row: 0  # 行內邊距
+    pad_column: 0  # 列內邊距
+    shadow_width: 0  # 陰影寬度（無陰影）
+    text_color: 0xa4abb1  # 文字顏色
+
+  - id: slider_A
+    align: CENTER
+    width: 170
+    height: 20
+    pad_all: 8
+
+  - id: button_A
+    width: 220
+    height: 150
+    text_font: font_Medium_big      
+  - id: button_B      
+    width: 220
+    height: 215
+    text_font: font_Medium_big 
+  - id: button_C    
+    width: 220
+    height: 72
+    text_font: font_icon_small
+  - id: button_D
+    width: 104
+    height: 101
+    pad_left: 0px  # 左邊距
+    pad_top: 0px  # 上邊距
+    pad_bottom: 0px  # 下邊距
+    pad_right: 0px  # 右邊距
+    shadow_width: 0  # 陰影寬度（無陰影）
+  - id: button_E
+    width: 220
+    height: 70
+    radius: 35
+    text_font: font_Medium_big 
+
+
+
+  - id: label_1
+    pad_left: 0px  # 左邊距
+    pad_top: 0px  # 上邊距
+    pad_bottom: 0px  # 下邊距
+    pad_right: 0px  # 右邊距   
+  # - id: label_2
+  #   bg_color: 0xa4abb1 # 背景顏色
+  #   text_color: 0x838585  # 文字顏色  
+  #   checked:  # 選中狀態設定
+  #     bg_color: 0xf2f2f2  # 選中時背景顏色
+  #     text_color: 0x3182b7  # 選中時文字顏色            
