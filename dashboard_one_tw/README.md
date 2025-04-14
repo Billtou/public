@@ -230,7 +230,7 @@
                                 :
                                 :
 ## 實體開啟狀態統計圖
-   ![Mosquitto_broker](/dashboard_one_tw/image/AC2C38DFDF.jpg)
+   ![Mosquitto_broker](/dashboard_one_tw/image/8DFDF.jpg)
 
         **每個button或widgets擺放的位置直接影響在覑面上排列的位置**
     
