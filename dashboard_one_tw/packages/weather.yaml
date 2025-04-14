@@ -11,18 +11,8 @@
 #        - /config
 #
 #  以下yaml 請更改為自家entity id
-#  sensor.opencwa_nan_tun_qu_condition
-#  text.dashboard_one_e73d68_fr_cond_icon
-#  sensor.opencwa_nan_tun_qu_condition
-#  text.dashboard_one_e73d68_fr_cond_name
-#  sensor.opencwa_nan_tun_qu_weather
-#  sensor.opencwa_nan_tun_qu_feels_like_temperature
-#  binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
-#  text.dashboard_one_e73d68_fr_tempap
-#  sensor.opencwa_nan_tun_qu_feels_like_temperature
-#  text.dashboard_one_e73d68_fr_temphi
-#  sensor.opencwa_nan_tun_qu_feels_like_temperature
 #---------------------------------------------
+
 automation:
   - id: weather_dashboard_update
     alias: "Weather Dashboard Update"
