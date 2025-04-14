@@ -104,7 +104,11 @@
               # -   # 風格預設   -
               # -------------------------------------------------
               style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    # 這是風格預設的檔案，後期所有的小部件都會引用達到統一化管理的目的
-            
+
+## HA 實體到轉到 esphome觸控板內 再改變ha實體的三角關係圖
+ ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
+
+
 
 
 ## 以下為實際頁面內容
