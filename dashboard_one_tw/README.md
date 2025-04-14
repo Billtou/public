@@ -70,3 +70,43 @@
               cover_in: !include dashboard_one/covers.yaml  #窗簾、車門外掛
               light_in: !include dashboard_one/lights.yaml #電燈外掛
               count_entity: !include dashboard_one/count_entity.yaml  #計數 entity 開啟狀態外掛
+
+
+            
+              
+            # --------------------------------------
+            # -            背景圖
+            # --------------------------------------            
+            image: !include { file: dashboard_one/lvgl/image.yaml }   # 調用 image.yaml 定義背景圖的檔案名稱 以及開機圖名稱
+            # --------------------------------------
+            # -            GUI                     -
+            # --------------------------------------
+            lvgl:     #  以下開始lvgl 圖形化頁面宣告
+              displays:
+                - my_display
+              touchscreens:
+                - my_touchscreen
+              # -------------------------------------------------
+              # -   超時關螢幕 (正常使用打開，開發編譯時可以註解掉)   -
+              # -------------------------------------------------
+              on_idle:
+                timeout: !lambda "return (id(display_timeout).state * 1000);"
+                then:
+                  - logger.log: "LVGL is idle"
+                  - light.turn_off: display_backlight
+                  - lvgl.pause:
+              # -------------------------------------------------
+              # -   # 小部件預設參數  -
+              # -------------------------------------------------
+              theme: !include { file: dashboard_one/lvgl/theme.yaml }    # 這是小部件 button，lcabel，widgets等預設格式後期都會引用達到統一化管理的目的
+            
+              # -------------------------------------------------
+              # -   # 風格預設   -
+              # -------------------------------------------------
+              style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    # 這是風格預設的檔案，後期所有的小部件都會引用達到統一化管理的目的
+            
+              # -------------------------------------------------
+              # -   頁腳#永遠放在最上層 首層 導航頁腳畫面   -
+              # -------------------------------------------------
+              top_layer: !include { file: dashboard_one/lvgl/top_layer.yaml }   # 永遠放在最上層，導航到pages頁面都靠他，右下較時間也是這裡定義的
+ 
