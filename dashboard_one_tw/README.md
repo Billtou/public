@@ -169,27 +169,27 @@
                   # 天氣預告小部件內容 請見esphome lvgl https://esphome.io/components/lvgl/widgets.html 
                   #-------------------------------------------------------------------------------------
                   widgets:
-                    - label:
+                    - label:  # 天氣圖標
                         text: "\U000F14E4"  #氣象預報icon 來自於fonts.yaml 的 id icons_100 的宣告
                         id: lvgl_label_weather_forecast_condition_icon  #來源是 weather_forecast.yaml 的建立
                         text_font: icons_100  # 來自於fonts.yaml 的宣告
                         align: TOP_LEFT #放置的位置  (上左)
                         text_color: 0x3182b7  # 文字顏色宣告
-                    - label:
+                    - label:  #體感溫度
                         text: "--°"  #體感溫度
                         id: lvgl_label_weather_forecast_tempap  #內容由這個id反饋而來
                         align: TOP_RIGHT #(上右)
                         y: 10  #偏移y軸10像素 正負直端看 align: TOP_RIGHT 位置而定
                         text_font: weather_forecast_50 # 引用的自型庫id
                         text_color: 0xf5f8fa #顏色
-                    - label:
+                    - label:  #預報文字內容
                         text: "--" 
                         y: 5
                         id: lvgl_label_weather_forecast_condition_name
                         text_font: weather_forecast_24
                         align: BOTTOM_MID
                         text_color: 0xa4abb1  # 文字顏色
-                        long_mode: dot
+                        long_mode: dot  #超過字數超過..取代
                 
 ## 四宮格自動化或場景觸發button說明
    ![Mosquitto_broker](/dashboard_one_tw/image/E89FB4C5855B.jpg)
