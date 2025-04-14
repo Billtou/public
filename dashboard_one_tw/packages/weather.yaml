@@ -1,0 +1,135 @@
+#----------------------------------------------
+#  以下yaml 請更改為自家entity id
+#  sensor.opencwa_nan_tun_qu_condition
+#  text.dashboard_one_e73d68_fr_cond_icon
+#  sensor.opencwa_nan_tun_qu_condition
+#  text.dashboard_one_e73d68_fr_cond_name
+#  sensor.opencwa_nan_tun_qu_weather
+#  sensor.opencwa_nan_tun_qu_feels_like_temperature
+#  binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+#  text.dashboard_one_e73d68_fr_tempap
+#  sensor.opencwa_nan_tun_qu_feels_like_temperature
+#  text.dashboard_one_e73d68_fr_temphi
+#  sensor.opencwa_nan_tun_qu_feels_like_temperature
+#---------------------------------------------
+
+
+automation:
+  - id: weather_cond_forecast
+    alias: "Weather Forecast Condition"
+    trigger:
+      - platform: state
+        entity_id: sensor.opencwa_nan_tun_qu_condition
+      - platform: state
+        entity_id: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+        to: "on"
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_fr_cond_icon
+        data:
+          value: >
+            {% set d = {
+            "clear-night": "\U000F0594",
+            "cloudy": "\U000F0590",
+            "exceptional": "\U000F0F2F",
+            "fog": "\U000F0591",
+            "hail": "\U000F0592",
+            "lightning": "\U000F0593",
+            "lightning-rainy": "\U000F067E",
+            "partlycloudy": "\U000F0595",
+            "pouring": "\U000F0596",
+            "rainy": "\U000F0597",
+            "snowy": "\U000F0598",
+            "snowy-rainy": "\U000F067F",
+            "sunny": "\U000F0599",
+            "windy": "\U000F059D",
+            "windy-variant": "\U000F059E",
+            "unknown": "\U000F14E4",
+            "unavailable": "\U000F14E4",
+            } %}
+            {{ d.get( states('sensor.opencwa_nan_tun_qu_condition') ) }}
+
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_fr_cond_name
+        data:
+          value: >
+            {% set txt = states('sensor.opencwa_nan_tun_qu_weather') %}
+            {{ txt.split('。')[0] if '。' in txt else txt }}
+
+  - id: weather_temp_feels_like_forecast
+    alias: "Weather Temperature Feels Like"
+    trigger:
+      - platform: state
+        entity_id: sensor.opencwa_nan_tun_qu_feels_like_temperature
+      - platform: state
+        entity_id: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+        to: "on"
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_fr_tempap
+        data:
+          value: "{{states('sensor.opencwa_nan_tun_qu_feels_like_temperature') | round(0)}}°"
+
+  - id: weather_temp_forecast_temphi
+    alias: "Weather Temperature Forecast Hi"
+    trigger:
+      - platform: state
+        entity_id: sensor.opencwa_nan_tun_qu_feels_like_temperature
+      - platform: state
+        entity_id: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+        to: "on"
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_fr_temphi
+        data:
+          value: "{{states('sensor.opencwa_nan_tun_qu_feels_like_temperature') | round(1)}} °C"
+
+  - id: weather_temp_forecast_templo
+    alias: "Weather Temperature Forecast Lo"
+    trigger:
+      - platform: state
+        entity_id: sensor.opencwa_nan_tun_qu_forecast_templow
+      - platform: state
+        entity_id: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+        to: "on"
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_fr_templo
+        data:
+          value: "{{states('sensor.opencwa_nan_tun_qu_forecast_templow') | round(1)}} °C"
+
+  - id: weather_temp_outdoor_now
+    alias: "Weather Temperature Now"
+    trigger:
+      - platform: state
+        entity_id: sensor.outside_sensor_temperature
+      - platform: state
+        entity_id: binary_sensor.dashboard_one_e73d68_weather_forecast_status_sensor
+        to: "on"
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - action: text.set_value
+        target:
+          entity_id:
+            - text.dashboard_one_e73d68_wd_out_now
+        data:
+          value: "{{states('sensor.outside_sensor_temperature') | round(1)}} °C"
