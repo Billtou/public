@@ -4,7 +4,6 @@
 
     < esphome >
         |  dashboard-one-XXXXXX.yaml
-        |
         |  -- < fonts >
         |        |  GenJyuuGothic-Bold.ttf
         |        |  GenJyuuGothic-Medium.ttf
