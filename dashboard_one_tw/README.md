@@ -56,11 +56,11 @@
               
               count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"  修改為自家的 id
             
-            external_components:
-              - source: github://sEbola76/gc9503v
+            external_components:  
+              - source: github://sEbola76/gc9503v  # 驅動外掛別動
             
             packages:
-              basic_device_in: !include dashboard_one/base/esphome_basic.yaml
+              basic_device_in: !include dashboard_one/base/esphome_basic.yaml  # 依據 預置檔案，將檔案放置於相對位置  見首頁說明
               display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
               weather_forecast_in: !include dashboard_one/weather_forecast.yaml
               climate_in: !include dashboard_one/climates.yaml
