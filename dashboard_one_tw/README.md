@@ -109,7 +109,7 @@
 ### - HA 先要有個有效的實體，然後在esphome裡面建立一個與之連動state的id，透過這個id狀態的變化改變lvgl畫面id的狀態。(見dashboard_one/lights.yaml)
 ### - 當觸摸指定的button 轉化成on_click:的指令執行 homeassistant.action: 的一連串動作達到改變ha實體的狀態
 
- ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
+ ![Mosquitto_broker](/dashboard_one_tw/image/180844.jpg)
 
 
 
