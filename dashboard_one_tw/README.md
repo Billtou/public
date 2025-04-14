@@ -136,25 +136,24 @@
 
             widgets:   
               - button:   
-                  styles: button_A  ## 調用Button A的風格參數
-                  #------------------------------
-                  #
+                  styles: button_A  ## 統一調用Button A的風格參數 (免去本button 長寬圓腳顏色等等宣告)
+                  #-------------------------------------------------------------------------------------
                   # 天氣預告小部件內容 請見esphome lvgl https://esphome.io/components/lvgl/widgets.html 
-                  #------------------------------
+                  #-------------------------------------------------------------------------------------
                   widgets:
                     - label:
                         text: "\U000F14E4"  #氣象預報icon 來自於fonts.yaml 的 id icons_100 的宣告
                         id: lvgl_label_weather_forecast_condition_icon  #來源是 weather_forecast.yaml 的建立
                         text_font: icons_100  # 來自於fonts.yaml 的宣告
-                        align: TOP_LEFT #放置的位置  
+                        align: TOP_LEFT #放置的位置  (上左)
                         text_color: 0x3182b7  # 文字顏色宣告
                     - label:
                         text: "--°"  #體感溫度
-                        id: lvgl_label_weather_forecast_tempap
-                        align: TOP_RIGHT
-                        y: 10
-                        text_font: weather_forecast_50
-                        text_color: 0xf5f8fa
+                        id: lvgl_label_weather_forecast_tempap  #內容由這個id反饋而來
+                        align: TOP_RIGHT #(上右)
+                        y: 10  #偏移y軸10像素 正負直端看 align: TOP_RIGHT 位置而定
+                        text_font: weather_forecast_50 # 引用的自型庫id
+                        text_color: 0xf5f8fa #顏色
                     - label:
                         text: "--" 
                         y: 5
