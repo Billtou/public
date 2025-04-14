@@ -130,4 +130,7 @@
                           type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
                           flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
                           flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+
+## 天氣預報小部件
+   ![Mosquitto_broker](/dashboard_one_tw/image/13762B9.jpg)
                 
