@@ -1,0 +1,31 @@
+template:
+  - sensor:
+      - name: count_fan_turn_on
+        unique_id: 1dbff217-387a-4bf3-8771-62e66cfab590
+        state: >
+          {{ states.fan | selectattr('state','eq','on') | list | count }}
+          
+      - name: count_light_turn_on 
+        unique_id: 79aff1f8-ed4b-4222-a268-ad429e426bea
+        state: >
+          {{ states.light | selectattr('state','eq','on') | list | count }}
+
+      - name: count_climate_turn_on
+        unique_id: c904933e-2b14-4556-bbea-3219007d1031
+        state: >
+          {{ states.climate | selectattr('state','eq','cool') | list | count }}
+
+      - name: count_switch_turn_on
+        unique_id: b7c38a93-4cea-4453-92e1-b7dcd3f3a72e
+        state: >
+          {{ states.switch | selectattr('state','eq','on') | list | count }}
+
+      - name: count_cover_turn_open
+        unique_id: eb68b620-68a2-4f52-81f4-05a894b73a51
+        state: >
+          {{ states.cover | selectattr('state','eq','open') | list | count }}
+
+      - name: count_airquality_turn_on
+        unique_id: eeb1f5f0-bfdc-4abc-a511-957b4ff09bd6
+        state: >
+          {{ states.humidifier | selectattr('state','eq','on') | list | count }}
