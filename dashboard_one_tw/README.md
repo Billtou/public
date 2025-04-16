@@ -20,6 +20,15 @@
 - 觸控板 HA lvgl互動關係 (可參考這小哥的影片介紹，進一步了解)
   https://www.youtube.com/watch?v=WWWi_-JWyys&t=333s&ab_channel=foggyhlw
 
+## HA 實體轉到 esphome 觸控板內 然後lvgl面板再改變 ha 實體的三角關係圖
+### - HA 要有個有效的實體，然後在esphome裡面建立一個與之連動state的id，透過這個id狀態的變化改變lvgl畫面id的狀態。(見所有的entity類別外掛yaml檔案)
+### - 當觸摸到指定的button 轉化成on_click:的指令去執行 homeassistant.action: 的一連串控制動作進而改變ha實體的狀態
+
+ ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
+
+
+
+
         本項目檔案結構與放置位置
 
             < esphome >/
@@ -128,16 +137,6 @@
               # -   # 風格預設   -
               # -------------------------------------------------
               style_definitions: !include { file: dashboard_one/lvgl/style_definitions.yaml }    # 這是風格預設的檔案，後期所有的小部件都會引用達到統一化管理的目的
-
-## HA 實體轉到 esphome 觸控板內 然後lvgl面板再改變 ha 實體的三角關係圖
-### - HA 要有個有效的實體，然後在esphome裡面建立一個與之連動state的id，透過這個id狀態的變化改變lvgl畫面id的狀態。(見所有的entity類別外掛yaml檔案)
-### - 當觸摸到指定的button 轉化成on_click:的指令去執行 homeassistant.action: 的一連串控制動作進而改變ha實體的狀態
-
- ![Mosquitto_broker](/dashboard_one_tw/image/174735.jpg)
-
-
-
-
 ## 以下為實際頁面內容說明畫面的組成結構
  ![Mosquitto_broker](/dashboard_one_tw/image/212414.jpg)
 
