@@ -70,7 +70,12 @@
               livingroom_switch_light: "light.study_wall_light_2"  同上
               livingroom_smart_fan: "fan.livingroom_fan"  同上
               balcony_switch_fan: "fan.balcony_esp01_convulsions"  同上
+              dining_table_light: "light.kitchen_wall_light_2"
+              sofa_light: "light.livingroom_sofa_light_1"
+              study_tabel_light: "switch.1ch_wifi_switch_module_switch_1"
+              kitchen_light: "light.autospace_kitchen_331a6c_relay_1"
 
+  
               count_light_entity: "sensor.count_light_turn_on"    # packages 裡面 count_turn_on.yaml 產生，初期勿刪，日後了解結構後再自行調整
               count_switch_entity: "sensor.count_switch_turn_on"  #同上 
               count_climate_entity: "sensor.count_climate_turn_on"  #同上
@@ -94,9 +99,9 @@
           
               
             # --------------------------------------
-            # -            背景圖
+            # -            背景圖 # 調用 image.yaml 定義背景圖的檔案名稱 以及開機圖名稱
             # --------------------------------------            
-            image: !include { file: dashboard_one/lvgl/image.yaml }   # 調用 image.yaml 定義背景圖的檔案名稱 以及開機圖名稱
+            image: !include { file: dashboard_one/lvgl/image.yaml }   
             # --------------------------------------
             # -            GUI                     -
             # --------------------------------------
