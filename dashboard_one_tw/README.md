@@ -329,7 +329,7 @@
                       on_press:
                         - lvgl.widget.hide: boot_screen
                             
-# 熟悉page_a後，page_b 以及c 都可以依樣畫葫蘆，可以將依些小部件拼拼湊湊成自己喜歡的版面。
+# 熟悉page_a後，page_b 以及c 都可以依樣畫葫蘆，可以將依些小部件以區塊為單位拼拼湊湊成自己喜歡的版面。
 - 筆記以及提醒事項
 - 搜尋icon網頁
  https://pictogrammers.com/library/mdi/
