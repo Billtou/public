@@ -1,6 +1,6 @@
 substitutions:
-  name: "dashboard-one-e73d68"
-  friendly_name: "Dashboard One e73d68"
+  name: "dashboard-one-XXXXXX"
+  friendly_name: "Dashboard One XXXXXX"
   device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
   project_name: "Panlee.ZX3D95CE01S-TR-4848"
   project_version: "2025.4"
