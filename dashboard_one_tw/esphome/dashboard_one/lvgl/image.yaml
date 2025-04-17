@@ -1,0 +1,9 @@
+# image:  指定背景圖與開機畫面
+  - file: "dashboard_one/lvgl/image/background_1.png" 
+    id: my_background_image
+    resize: 480x480
+    type: RGB565     
+  - file: "dashboard_one/lvgl/image/ha_logo.svg"
+    id: boot_logo
+    resize: 150x150
+    type: RGB565
