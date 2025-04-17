@@ -22,7 +22,7 @@ template:
         state: >
           {{ states.fan | selectattr('state','eq','on') | list | count }}
 
-      - name: count_light_turn_on ## 必須同步調整sidebar.yaml
+      - name: count_light_turn_on
         unique_id: 79aff1f8-ed4b-4222-a268-ad429e426bea
         state: >
           {% set lights = states.light
@@ -56,7 +56,7 @@ template:
         unique_id: eb68b620-68a2-4f52-81f4-05a894b73a51
         state: >
           {{ states.cover | selectattr('state','eq','open') | list | count }}
-
+          
       - name: count_airquality_turn_on
         unique_id: eeb1f5f0-bfdc-4abc-a511-957b4ff09bd6
         state: >
