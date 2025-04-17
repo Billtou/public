@@ -113,7 +113,9 @@ lvgl:
                         align: BOTTOM_MID
                         text_color: 0xa4abb1  # 文字顏色
                         long_mode: dot
-
+                #-------------------------------------------------------------------------------------
+                # 首頁四個自動化、場景或腳本的案件畫面code
+                #-------------------------------------------------------------------------------------
               - obj:  ## 用obj包裹四 button 
                   styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
                   layout:  # 版面配置
@@ -180,7 +182,9 @@ lvgl:
                         on_click:
                           then:
                             - switch.turn_on: scene_trigger_d
-
+                #-------------------------------------------------------------------------------------
+                # 首頁右半部6個entity統計畫面code
+                #-------------------------------------------------------------------------------------
               - button:
                   styles: button_F     
                   radius: 35
@@ -327,7 +331,9 @@ lvgl:
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
 
-
+    #-------------------------------------------------------------------------------------
+    # 第二頁客廳頁面code
+    #-------------------------------------------------------------------------------------
    - id: main_page_type_b    #這個頁面的 ID，稍後可以用來跳轉或引用。
      bg_image_src: my_background_image
      widgets:   #宣告 "小部件" widgets
@@ -338,6 +344,9 @@ lvgl:
               flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
               flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
             widgets:   
+                #-------------------------------------------------------------------------------------
+                # 長方形 客廳冷氣狀態畫面，點選後進入冷氣控制頁面 id climate_page 
+                #-------------------------------------------------------------------------------------
               - button:   
                   styles: button_A  ## 調用 Button A styles定義
                   id: lvgl_widget_aircon_current_state 
@@ -359,6 +368,9 @@ lvgl:
                   on_click: 
                     then:
                       - lvgl.page.show: climate_page       
+                #-------------------------------------------------------------------------------------
+                # 方形 智能電燈示範畫面，可開關與調整亮度(顏色目前lvgl尚未支持)
+                #-------------------------------------------------------------------------------------                      
               - button:   
                   styles: button_B  ## 調用 Button B styles定義
                   checkable: true
@@ -415,7 +427,9 @@ lvgl:
                         action: light.toggle
                         data:
                           entity_id: ${livingroom_smart_light}
-
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易窗簾開與關示範畫面
+                #-------------------------------------------------------------------------------------    
               - button:   #### Button C
                   styles: button_C
                   checkable: true
@@ -437,7 +451,9 @@ lvgl:
                         action: light.toggle
                         data:
                           entity_id: ${livingroom_switch_light}
-
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易風扇開與關示範畫面
+                #-------------------------------------------------------------------------------------    
               - button:   #### Button C
                   styles: button_C
                   checkable: true
@@ -463,7 +479,9 @@ lvgl:
                         action: fan.toggle
                         data:
                           entity_id: ${balcony_switch_fan}
-
+                #-------------------------------------------------------------------------------------
+                # 與首頁重複 一個obj容器包裹四個自動化、場景或腳本的案件畫面code
+                #-------------------------------------------------------------------------------------
               - obj:  ## ## Button D
                   styles: four_grids # align: CENTER  #把這個容器在螢幕上置中對齊。
                   layout:  # 版面配置
@@ -531,7 +549,9 @@ lvgl:
                         on_click:
                           then:
                             - switch.turn_on: scene_trigger_d
-
+    #-------------------------------------------------------------------------------------
+    # 第三頁書桌頁面code
+    #-------------------------------------------------------------------------------------
    - id: main_page_type_c  ####主畫面版型b
      bg_image_src: my_background_image
      widgets:   #宣告 "小部件" widgets
@@ -541,6 +561,9 @@ lvgl:
               type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
               flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
               flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+            #-------------------------------------------------------------------------------------
+            # 長方形 預計要做一個http直通CWA氣象預報的功能，還沒完成
+            #-------------------------------------------------------------------------------------              
             widgets:   
               - button:   ## Button A
                   styles: button_A 
@@ -566,7 +589,9 @@ lvgl:
                         align: BOTTOM_MID
                         text_color: 0xa4abb1  # 文字顏色
                         long_mode: dot
-
+                #-------------------------------------------------------------------------------------
+                # 四方型 智慧風扇的示範
+                #-------------------------------------------------------------------------------------         
               - button:   #### Button B
                   styles: button_B 
                   checkable: true
@@ -617,9 +642,12 @@ lvgl:
                               data:
                                 entity_id: fan.livingroom_fan
                                 percentage: !lambda |-
-                                  return (int(x) <= 10) ? 0 :    // 小於10就關閉
+                                  return (int(x) <= 10) ? 0 :    // 小於10就關閉(這裡的參數依照自家風扇特性不同作調整，我家是3段式機械開關風扇改的與像是小米智能風扇略有不同)
                                         (int(x) <= 33) ? 33 :
                                         (int(x) <= 66) ? 66 : 100;
+
+                                  // return int(x);  // 若是一般智能風扇，本行取代上面3行即可直接傳送滑桿百分比
+
 
                     - label:
                         align: BOTTOM_RIGHT
@@ -632,7 +660,9 @@ lvgl:
                         data:
                           entity_id: ${livingroom_smart_fan}
 
-
+                #-------------------------------------------------------------------------------------
+                # 一個obj容器包裹四個小按鍵帶反饋
+                #-------------------------------------------------------------------------------------
               - obj:  ## ## Button D
                   styles: four_grids
                   layout:  # 版面配置
@@ -720,7 +750,9 @@ lvgl:
                               data:
                                 entity_id: ${study_tabel_light}
 
-
+                #-------------------------------------------------------------------------------------
+                # 智能窗簾示範 ** 指令下達需要等到動作完成才會反饋訊號**
+                #-------------------------------------------------------------------------------------
               - button:
                   width: 220
                   height: 150
@@ -780,19 +812,16 @@ lvgl:
                         data:
                           entity_id: ${livingroom_curtain}
 
+    #-------------------------------------------------------------------------------------
+    # 獨立的冷氣頁面
+    #-------------------------------------------------------------------------------------                          
+
    - id: climate_page
-     width: 480
-     height: 400 
      bg_image_src: my_background_image
      align: TOP_MID
      widgets:  
         - obj:
-            # x: 0
-            # y: 0
             align: TOP_MID
-            # styles: card
-            width: 480
-            height: 400
             styles: regular_page
             widgets:
               - arc:
@@ -918,10 +947,7 @@ lvgl:
                   text_align: CENTER
   
               - button:
-                  width: 100
-                  height: 50
-                  radius: 25
-                  bg_opa: 40%
+                  styles: button_E
                   align: BOTTOM_LEFT
                   x: 0
                   y: -10
@@ -939,10 +965,7 @@ lvgl:
                         text_color: 0xE5E5E5     
 
               - button:
-                  width: 100
-                  height: 50
-                  radius: 25
-                  bg_opa: 40%
+                  styles: button_E
                   align: BOTTOM_LEFT
                   x: 116
                   y: -10    
@@ -961,10 +984,7 @@ lvgl:
                         text_color: 0xE5E5E5      
 
               - button:
-                  width: 100
-                  height: 50
-                  radius: 25
-                  bg_opa: 40%
+                  styles: button_E
                   align: BOTTOM_LEFT
                   x: 232
                   y: -10     
@@ -983,10 +1003,7 @@ lvgl:
                         text_color: 0xE5E5E5      
 
               - button:
-                  width: 100
-                  height: 50
-                  radius: 25
-                  bg_opa: 40%
+                  styles: button_E
                   align: BOTTOM_LEFT
                   x: 348
                   y: -10     
@@ -1002,11 +1019,12 @@ lvgl:
                         align: CENTER
                         text: "送風"
                         text_font: font_Medium_small   
-                        text_color: 0xE5E5E5            
-                 
+                        text_color: 0xE5E5E5    
+
+    #-------------------------------------------------------------------------------------
+    # 一般設置畫面
+    #-------------------------------------------------------------------------------------                                
    - id: setup_page   
-     width: 480
-     height: 480 
      bg_image_src: my_background_image
      scrollbar_mode: "OFF"
      layout:
@@ -1014,15 +1032,7 @@ lvgl:
        flex_flow: column_wrap     
      widgets:
         - obj:       ##螢幕亮度
-            # styles: regular_page
-            height: 85
-            width: 480          
-            bg_opa: 0%
-            shadow_width: 0  # 陰影寬度（無陰影）
-            border_opa: TRANSP  # 邊框透明度（透明            
-            # layout:
-            #   type: flex
-            #   flex_flow: column_wrap
+            styles: obj_A           
             widgets:      
               - label:   
                   styles: label_1
@@ -1082,14 +1092,7 @@ lvgl:
 
         - obj:       ##第1層 obj
             # styles: regular_page
-            height: 85
-            width: 480          
-            bg_opa: 0%
-            shadow_width: 0  # 陰影寬度（無陰影）
-            border_opa: TRANSP  # 邊框透明度（透明            
-            # layout:
-            #   type: flex
-            #   flex_flow: column_wrap
+            styles: obj_A
             widgets:      
               - label:   
                   styles: label_1                
@@ -1145,14 +1148,8 @@ lvgl:
                           id: display_timeout
                           value: !lambda return x;   
 
-
-
         - obj:       ##第1層 obj
-            height: 85
-            width: 480          
-            bg_opa: 0%
-            shadow_width: 0  # 陰影寬度（無陰影）
-            border_opa: TRANSP  # 邊框透明度（透明            
+            styles: obj_A
             widgets:      
               - label:
                   styles: label_1
@@ -1170,6 +1167,7 @@ lvgl:
                   text_font: font_Medium_big
                   text_color: 0xffffff
                   x: 85
+                  # y: 25
                   text: "連網狀態" 
               - label:
                   checkable: true
@@ -1181,6 +1179,3 @@ lvgl:
                   text: "--%"
                   long_mode: dot   
 
-
-
- 
