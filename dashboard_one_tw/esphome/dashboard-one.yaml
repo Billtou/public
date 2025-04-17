@@ -1,6 +1,6 @@
 substitutions:
-  name: "dashboard-one-XXXXXX"
-  friendly_name: "Dashboard One XXXXXX"
+  name: "dashboard-one-e73d68"
+  friendly_name: "Dashboard One e73d68"
   device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
   project_name: "Panlee.ZX3D95CE01S-TR-4848"
   project_version: "2025.4"
@@ -11,7 +11,11 @@ substitutions:
   livingroom_switch_light: "light.study_wall_light_2"
   livingroom_smart_fan: "fan.livingroom_fan"
   balcony_switch_fan: "fan.balcony_esp01_convulsions"
-
+  dining_table_light: "light.kitchen_wall_light_2"
+  sofa_light: "light.livingroom_sofa_light_1"
+  study_tabel_light: "switch.1ch_wifi_switch_module_switch_1"
+  kitchen_light: "light.autospace_kitchen_331a6c_relay_1"
+ 
   count_fan_entity: "sensor.count_fan_turn_on"  
   count_light_entity: "sensor.count_light_turn_on"
   count_climate_entity: "sensor.count_climate_turn_on"
@@ -178,7 +182,9 @@ lvgl:
                             - switch.turn_on: scene_trigger_d
 
               - button:
-                  styles: button_F                
+                  styles: button_F     
+                  radius: 35
+                  bg_opa: 40%                                
                   widgets:
                     - label:   
                         x: +5
@@ -193,9 +199,11 @@ lvgl:
                         id: lvgl_label_count_light_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2 
+
               - button:
-                  styles: button_F                           
+                  styles: button_F   
+                  radius: 35
+                  bg_opa: 40%                                             
                   widgets:
                     - label:   
                         checkable: true
@@ -211,10 +219,11 @@ lvgl:
                         id: lvgl_label_count_fan_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2                    
 
               - button:
-                  styles: button_F                        
+                  styles: button_F    
+                  radius: 35
+                  bg_opa: 40%                                         
                   widgets:
                     - label:   
                         checkable: true
@@ -240,10 +249,11 @@ lvgl:
                         id: lvgl_label_count_climate_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2 
 
               - button:
-                  styles: button_F                     
+                  styles: button_F   
+                  radius: 35
+                  bg_opa: 40%                                       
                   widgets:
                     - label:   
                         checkable: true
@@ -268,13 +278,11 @@ lvgl:
                         id: lvgl_label_count_cover_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2 
 
               - button:
-                  width: 220
-                  height: 55
+                  styles: button_F   
                   radius: 35
-                  bg_opa: 40%                            
+                  bg_opa: 40%                           
                   widgets:
                     - label:   
                         checkable: true
@@ -290,13 +298,11 @@ lvgl:
                         id: lvgl_label_count_switch_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2 
 
               - button:
-                  width: 220
-                  height: 55
+                  styles: button_F   
                   radius: 35
-                  bg_opa: 40%                            
+                  bg_opa: 40%    
                   widgets:
                     - label:   
                         checkable: true
@@ -312,7 +318,6 @@ lvgl:
                         text: "度"
                         align: RIGHT_MID
                         text_font: font_Bold
-                        text_color: 0xf2f2f2 
                         long_mode: dot
 
                     - label:   
@@ -321,7 +326,6 @@ lvgl:
                         id: lvgl_label_count_power_entity_state
                         align: RIGHT_MID
                         text_font: font_apple_Heavy_medium
-                        text_color: 0xf2f2f2                         
 
 
    - id: main_page_type_b    #這個頁面的 ID，稍後可以用來跳轉或引用。
@@ -415,6 +419,7 @@ lvgl:
               - button:   #### Button C
                   styles: button_C
                   checkable: true
+                  id: lvgl_widget_lvingroom_curtain_current_state
                   widgets:
                     - label:    
                         align: LEFT_MID
@@ -637,13 +642,13 @@ lvgl:
                   widgets:      
                     - button:   ## 
                         styles: button_D
-                        id: lvgl_button_livingroom_switch_light_a
+                        id: lvgl_button_kitchen_light_state
                         checkable: true
                         widgets:
                           - label:
                               styles: label_1   
                               checkable: true
-                              id: lvgl_widget_livingroom_switch_light_a
+                              id: lvgl_label_kitchen_light_state
                               checked:  # 選中狀態設定
                                 text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
                               align: CENTER
@@ -653,17 +658,17 @@ lvgl:
                           - homeassistant.action:
                               action: light.toggle
                               data:
-                                entity_id: ${livingroom_switch_light}     
+                                entity_id: ${kitchen_light} 
 
                     - button:   ## 
                         styles: button_D
-                        id: lvgl_button_livingroom_switch_light_b
+                        id: lvgl_button_sofa_light_state
                         checkable: true
                         widgets:
                           - label:   
                               styles: label_1 
                               checkable: true
-                              id: lvgl_widget_livingroom_switch_light_b
+                              id: lvgl_label_sofa_light_state
                               align: CENTER
                               text_font: font_icon_medium
                               text: "\U000F04B9" # 沙發
@@ -673,37 +678,37 @@ lvgl:
                           - homeassistant.action:
                               action: light.toggle
                               data:
-                                entity_id: ${livingroom_switch_light}                             
+                                entity_id: ${sofa_light}                        
 
                     - button:
-                        id: lvgl_button_livingroom_switch_light_c
+                        id: lvgl_button_dining_table_light_state
                         checkable: true
                         styles: button_D
                         widgets:
                           - label:   
                               styles: label_1 
                               checkable: true
-                              id: lvgl_widget_livingroom_switch_light_c
+                              id: lvgl_label_dining_table_light_state
                               align: CENTER
                               text_font: font_icon_medium
-                              text: "\U000F1158" # 衛生紙
+                              text: "\U000F04A6" # 刀叉 餐桌
                               checked:  # 選中狀態設定
                                 text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
                         on_click:
                           - homeassistant.action:
                               action: light.toggle
                               data:
-                                entity_id: ${livingroom_switch_light}
+                                entity_id: ${dining_table_light}
 
                     - button:   ## 
                         styles: button_D
                         checkable: true
-                        id: lvgl_button_livingroom_switch_light_d
+                        id: lvgl_button_study_tabel_light_state
                         widgets:
                           - label:   
                               styles: label_1 
                               checkable: true
-                              id: lvgl_widget_livingroom_switch_light_d
+                              id: lvgl_label_study_tabel_light_state
                               align: CENTER
                               text_font: font_icon_medium
                               text: "\U000F06B5" # 檯燈icon
@@ -711,9 +716,9 @@ lvgl:
                                 text_color: 0xfc9d21  # 選中時顏色指定為琥珀色
                         on_click:
                           - homeassistant.action:
-                              action: light.toggle
+                              action: switch.toggle
                               data:
-                                entity_id: ${livingroom_switch_light}
+                                entity_id: ${study_tabel_light}
 
 
               - button:
@@ -1143,15 +1148,11 @@ lvgl:
 
 
         - obj:       ##第1層 obj
-            # styles: regular_page
             height: 85
             width: 480          
             bg_opa: 0%
             shadow_width: 0  # 陰影寬度（無陰影）
             border_opa: TRANSP  # 邊框透明度（透明            
-            # layout:
-            #   type: flex
-            #   flex_flow: column_wrap
             widgets:      
               - label:
                   styles: label_1
@@ -1169,7 +1170,6 @@ lvgl:
                   text_font: font_Medium_big
                   text_color: 0xffffff
                   x: 85
-                  # y: 25
                   text: "連網狀態" 
               - label:
                   checkable: true
@@ -1181,3 +1181,6 @@ lvgl:
                   text: "--%"
                   long_mode: dot   
 
+
+
+ 
