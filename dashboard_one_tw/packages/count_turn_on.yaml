@@ -1,7 +1,10 @@
 #----------------------------------------------
 #  本檔案請放置於ha的packages資料夾中，若第一次使用packages 方式管理yaml
 #  檢查一下configuration.yaml裡面有無下列內容
-#
+#   ** 原理說明， 這是在ha製作數個計算sensor，以HA entity 開頭的類別來做
+#      篩選的依據，例如風扇，以fan.開頭的都納入，篩選狀態是on的計數，
+#      篩選條件可以 "涵蓋" 或 "排除" 就依據這類別state的特性而定 **
+
 #    homeassistant:
 #      packages: !include_dir_named packages
 #      customize_domain:
