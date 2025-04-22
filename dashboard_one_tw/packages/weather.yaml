@@ -1,7 +1,9 @@
 #----------------------------------------------
 #  本檔案請放置於ha的packages資料夾中，若第一次使用packages 方式管理yaml
 #  檢查一下configuration.yaml裡面有無下列內容
-#
+#  ** 原理說明，透過這個自動化把HA的氣象預報entity state 寫到了
+#     deshboard one 相對應的文字欄位中，再由deshboard one 每5分鐘
+#     抓取該欄位的數據定時更新資訊 **
 #    homeassistant:
 #      packages: !include_dir_named packages
 #      customize_domain:
