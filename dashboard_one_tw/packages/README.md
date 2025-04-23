@@ -1,5 +1,5 @@
-#  ** 有些人的 config 資料夾可能是 homeassistant **)
-
+#  ** 有些人的 config 資料夾可能是 homeassistant **
+#  HA 重開才會生效
 ----------------------------------------------
   本檔案請放置於ha的packages資料夾中，若第一次使用packages 方式管理yaml
   檢查一下configuration.yaml裡面有無下列內容
