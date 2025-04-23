@@ -1,0 +1,119 @@
+#-------------------------------------
+#
+#   在esphome下生成四個switch 連動lvgl畫面並暴露給HA，
+#   後期可以自行在HA裡面做自動化，例如當switch xxx 開啟時 執行 xxx 腳本、自動化或者是場景，方便有彈性
+#
+#-------------------------------------
+switch:
+  - platform: template
+    name: "Scene Trigger A"
+    id: scene_trigger_a
+    icon: mdi:movie-open
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - delay: 1s 
+      - switch.turn_off: scene_trigger_a
+    turn_on_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_a
+          state:
+            checked: true
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_a
+          state:
+            checked: true            
+    turn_off_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_a
+          state:
+            checked: false         
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_a
+          state:
+            checked: false
+
+  - platform: template
+    name: "Scene Trigger B"
+    id: scene_trigger_b
+    icon: mdi:movie-open
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - delay: 1s 
+      - switch.turn_off: scene_trigger_b  
+    turn_on_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_b
+          state:
+            checked: true
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_b
+          state:
+            checked: true               
+    turn_off_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_b
+          state:
+            checked: false  
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_b
+          state:
+            checked: false   
+
+
+  - platform: template
+    name: "Scene Trigger C"
+    id: scene_trigger_c
+    icon: mdi:movie-open
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - delay: 1s 
+      - switch.turn_off: scene_trigger_c    
+    turn_on_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_c
+          state:
+            checked: true
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_c
+          state:
+            checked: true   
+    turn_off_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_c
+          state:
+            checked: false  
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_c
+          state:
+            checked: false               
+
+  - platform: template
+    name: "Scene Trigger D"
+    id: scene_trigger_d
+    icon: mdi:movie-open
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF    
+    on_turn_on:
+      - delay: 1s 
+      - switch.turn_off: scene_trigger_d   
+    turn_on_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_d
+          state:
+            checked: true
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_d
+          state:
+            checked: true             
+    turn_off_action:
+      - lvgl.widget.update:
+          id: lvgl_widget_scene_trigger_d
+          state:
+            checked: false   
+      - lvgl.button.update:
+          id: lvgl_button_scene_trigger_home_page_d
+          state:
+            checked: false               

@@ -1,0 +1,98 @@
+# -------------------------------------------------------------------------------------
+# -            小技巧提醒
+# - 要把HA entity 的 state 或 attribute 調用過來必須依據state的特性選擇不同的 感測器 platform
+# - 例如switch 類的 light 基本上只有 on/off 用 binary_sensor: platform
+# - climate cover 類的 他的state 是 open cool 用 text_sensor: platform
+# - 溫溼度或是電燈亮度等等用 sensor:  platform
+# --------------------------------------------------------------------------------------
+sensor:
+  - platform: homeassistant
+    id: livingroom_smart_light_brightness
+    entity_id: ${livingroom_smart_light}
+    attribute: brightness
+    on_value:
+      - lvgl.slider.update:
+          id: lvgl_slider_livingroom_smart_light_slider
+          value: !lambda |-
+            if( isnan(x) ){ return 0 ;} 
+            else{return int(x/2.55);}
+
+binary_sensor:
+  - platform: homeassistant
+    id: livingroom_smart_light_state
+    entity_id: ${livingroom_smart_light}
+    publish_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: lvgl_widget_livingroom_smart_light_state
+            state:
+              checked: !lambda return x;  
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_smart_light_state
+            state:
+              checked: !lambda return x;            
+        - lvgl.label.update:
+            id: lvgl_label_livingroom_smart_light_state
+            state:
+              checked: !lambda return x;    
+
+  - platform: homeassistant
+    id: livingroom_switch_light_state_a
+    entity_id: ${livingroom_switch_light}
+    publish_initial_state: true
+    on_state:
+      then:
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_switch_light_a
+            state:
+              checked: !lambda return x;        
+        - lvgl.widget.update:
+            id: lvgl_widget_livingroom_switch_light_a
+            state:
+              checked: !lambda return x;     
+
+  - platform: homeassistant
+    id: livingroom_switch_light_state_b
+    entity_id: ${livingroom_switch_light}
+    publish_initial_state: true
+    on_state:
+      then:
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_switch_light_b
+            state:
+              checked: !lambda return x;        
+        - lvgl.widget.update:
+            id: lvgl_widget_livingroom_switch_light_b
+            state:
+              checked: !lambda return x;      
+
+  - platform: homeassistant
+    id: livingroom_switch_light_state_c
+    entity_id: ${livingroom_switch_light}
+    publish_initial_state: true
+    on_state:
+      then:
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_switch_light_c
+            state:
+              checked: !lambda return x;        
+        - lvgl.widget.update:
+            id: lvgl_widget_livingroom_switch_light_c
+            state:
+              checked: !lambda return x;   
+
+  - platform: homeassistant
+    id: livingroom_switch_light_state_d
+    entity_id: ${livingroom_switch_light}
+    publish_initial_state: true
+    on_state:
+      then:
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_switch_light_d
+            state:
+              checked: !lambda return x;        
+        - lvgl.widget.update:
+            id: lvgl_widget_livingroom_switch_light_d
+            state:
+              checked: !lambda return x;      

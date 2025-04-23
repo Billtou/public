@@ -1,0 +1,89 @@
+# -------------------------------------------------------------------------------------
+# -            小技巧提醒
+# - 要把HA entity 的 state 或 attribute 調用過來必須依據state的特性選擇不同的 感測器 platform
+# - 例如switch 類的 light 基本上只有 on/off 用 binary_sensor: platform
+# - climate cover 類的 他的state 是 open cool 用 text_sensor: platform
+# - 溫溼度或是電燈亮度等等用 sensor:  platform
+# --------------------------------------------------------------------------------------
+# --------------------------------------
+# -            
+# - 將窗簾的百分比抓出來提共給lvgl的slider 小部件 調用
+# --------------------------------------
+sensor:
+  - platform: homeassistant
+    id: lvingroom_curtain_current_position_a
+    entity_id: ${livingroom_curtain}
+    attribute: current_position  # 抓取窗帘的當前位置百分比
+    on_value:
+      - lvgl.slider.update:
+          id: lvgl_slider_lvingroom_curtain_percentage #必須對應lvgl的使用兩個要同時存在否則報錯
+          value: !lambda |-
+            if (isnan(x)) {
+              return 0;
+            } else {
+              return x;
+            }
+
+text_sensor:
+  - platform: homeassistant
+    id: lvingroom_curtain_current_state
+    entity_id: ${livingroom_curtain}
+    on_value:
+      - if:
+          condition:
+            lambda: 'return x != "closed";'
+          then:
+            - lvgl.button.update:
+                id: lvgl_button_lvingroom_curtain_current_state
+                state:
+                  checked: true
+            - lvgl.label.update:
+                id: lvgl_label_lvingroom_curtain_current_state
+                state:
+                  checked: true
+            # - lvgl.widget.update:
+            #     id: lvgl_widget_lvingroom_curtain_current_state
+            #     state:
+            #       checked: true                                    
+          else:
+            - lvgl.button.update:
+                id: lvgl_button_lvingroom_curtain_current_state
+                state:
+                  checked: false
+            - lvgl.label.update:
+                id: lvgl_label_lvingroom_curtain_current_state
+                state:
+                  checked: false
+            # - lvgl.widget.update:
+            #     id: lvgl_widget_lvingroom_curtain_current_state
+            #     state:
+            #       checked: false
+
+
+# binary_sensor:
+  # - platform: homeassistant
+  #   id: lvingroom_curtain_state_a
+  #   entity_id: ${livingroom_curtain}
+  #   publish_initial_state: true
+  #   on_state:
+  #     then:
+  #       - lvgl.widget.update:
+  #           id: lvgl_widget_lvingroom_curtain_state   #反饋給lvgl的button狀態顏色變換
+  #           state:
+  #             checked: !lambda return x;     
+  #       - lvgl.label.update: 
+  #           id: lvgl_label_lvingroom_curtain_state   #反饋給lvgl的"客廳風扇"字體顏色變換
+  #           state:
+  #             checked: !lambda return x;        
+
+  # - platform: homeassistant
+  #   id: lvingroom_curtain_icon
+  #   entity_id: ${livingroom_curtain}
+  #   publish_initial_state: true
+  #   on_state:
+  #     then:
+  #       - lvgl.widget.update:
+  #           id: lvgl_widget_lvingroom_curtain_icon  #反饋給lvgl的"客廳風扇"圖標顏色變換
+  #           state:
+  #             checked: !lambda return x;     
+                          
