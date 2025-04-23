@@ -27,14 +27,13 @@ substitutions:
 packages:
   basic_device_in: !include dashboard_one/base/esphome_basic.yaml
   display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
-  weather_forecast_in: !include dashboard_one/weather_forecast.yaml
   climate_in: !include dashboard_one/climates.yaml
   scenes_in: !include dashboard_one/sceness.yaml
   fonts_in: !include dashboard_one/fonts.yaml
   fan_in: !include dashboard_one/fans.yaml
   cover_in: !include dashboard_one/covers.yaml
   light_in: !include dashboard_one/lights.yaml
-  count_entity: !include dashboard_one/count_entity.yaml
+
 
 # --------------------------------------
 # -            背景圖
