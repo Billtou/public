@@ -12,7 +12,6 @@
       allowlist_external_dirs:
         - /config
 
-  以下yaml 請更改為自家entity id
 ---------------------------------------------
 
 ## weather.yaml 氣象預報資訊推播到dashboard one 的自動化yaml
