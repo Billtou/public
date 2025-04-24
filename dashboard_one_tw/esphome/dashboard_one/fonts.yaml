@@ -178,6 +178,7 @@ font:
       "\U000F00AC", # Cover
       "\U000F12D3", # 車庫門
       "\U000F0438", # 電熱器
+      "\U000F05DA", # 書
     ]    
     
   - file: 'fonts/materialdesignicons-webfont.ttf'
