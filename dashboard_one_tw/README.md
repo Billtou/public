@@ -65,6 +65,8 @@
                      | -- fonts.yaml
                      | -- lights.yaml
                      | -- sceness.yaml
+                     | -- weather_forecast.yaml
+                     | -- count_entity.yaml
   
         < packages > 資料夾兩個檔案放置於自家HA的 packages 資料夾中，並依照說明替換成自家的id
     
