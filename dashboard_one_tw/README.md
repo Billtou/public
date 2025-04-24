@@ -110,7 +110,8 @@
               fan_in: !include dashboard_one/fans.yaml   #風扇外掛
               cover_in: !include dashboard_one/covers.yaml  #窗簾、車門外掛
               light_in: !include dashboard_one/lights.yaml #電燈外掛
-              
+              count_entity: !include dashboard_one/count_entity.yaml
+              weather_forecast_in: !include dashboard_one/weather_forecast.yaml
           
               
             # --------------------------------------
