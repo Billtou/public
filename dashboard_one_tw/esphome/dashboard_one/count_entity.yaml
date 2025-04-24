@@ -1,0 +1,98 @@
+# -------------------------------------------------------------------------------------
+# -            小技巧提醒
+# - 要把HA entity 的 state 或 attribute 調用過來必須依據state的特性選擇不同的 感測器 platform
+# - 例如switch 類的 light 基本上只有 on/off 用 binary_sensor: platform
+# - climate cover 類的 他的state 是 open cool 用 text_sensor: platform
+# - 溫溼度或是電燈亮度等等用 sensor:  platform
+# --------------------------------------------------------------------------------------
+
+text_sensor:
+  - platform: homeassistant
+    id: text_count_light_entity_state
+    entity_id: ${count_light_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_light_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0");
+              } else {
+                return x;
+              }
+
+  - platform: homeassistant
+    id: text_count_fan_entity_state
+    entity_id: ${count_fan_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_fan_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0");
+              } else {
+                return x;
+              }
+
+  - platform: homeassistant
+    id: text_count_climate_entity_state
+    entity_id: ${count_climate_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_climate_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0");
+              } else {
+                return x;
+              }
+
+  - platform: homeassistant
+    id: text_count_cover_entity_state
+    entity_id: ${count_cover_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_cover_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0");
+              } else {
+                return x;
+              }
+
+  - platform: homeassistant
+    id: text_count_switch_entity_state
+    entity_id: ${count_switch_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_switch_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0");
+              } else {
+                return x;
+              }
+
+
+  - platform: homeassistant
+    id: text_count_power_entity_state
+    entity_id: ${count_power_entity}
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: lvgl_label_count_power_entity_state
+            text: !lambda |-
+              if (x.empty()) {
+                return std::string("0 kWh");
+              } else {
+                size_t dot_pos = x.find(".");
+                std::string int_part = x;
+                if (dot_pos != std::string::npos) {
+                  int_part = x.substr(0, dot_pos);
+                }
+                return int_part;
+              }

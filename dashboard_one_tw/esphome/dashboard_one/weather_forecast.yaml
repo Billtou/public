@@ -1,0 +1,17 @@
+binary_sensor:
+  - platform: status
+    id: device_status
+    name: weather_forecast_status_sensor
+text:
+  - platform: lvgl
+    name: fr_cond_icon
+    widget: lvgl_label_weather_forecast_condition_icon
+    mode: text
+  - platform: lvgl
+    name: fr_cond_name
+    widget: lvgl_label_weather_forecast_condition_name
+    mode: text
+  - platform: lvgl
+    name: fr_tempap
+    widget: lvgl_label_weather_forecast_tempap
+    mode: text
