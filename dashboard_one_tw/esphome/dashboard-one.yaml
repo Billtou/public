@@ -1,6 +1,6 @@
 substitutions:
-  name: "dashboard-one-XXXXXX"
-  friendly_name: "Dashboard One XXXXXX"
+  name: "dashboard-one-e73d68"
+  friendly_name: "Dashboard One e73d68"
   device_description: "Panlee ZX3D95CE01S-TR-4848 480*480 Smart Screen"
   project_name: "Panlee.ZX3D95CE01S-TR-4848"
   project_version: "2025.4"
@@ -22,17 +22,19 @@ substitutions:
   count_switch_entity: "sensor.count_switch_turn_on"
   count_cover_entity: "sensor.count_cover_turn_open"
 
-  count_power_entity: "sensor.entrance_home_power_meter_power_monitor_energy"
+  count_power_entity: "sensor.entrance_powermeter_power_monitor_energy"
 
 packages:
   basic_device_in: !include dashboard_one/base/esphome_basic.yaml
   display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
+  weather_forecast_in: !include dashboard_one/weather_forecast.yaml
   climate_in: !include dashboard_one/climates.yaml
   scenes_in: !include dashboard_one/sceness.yaml
   fonts_in: !include dashboard_one/fonts.yaml
   fan_in: !include dashboard_one/fans.yaml
   cover_in: !include dashboard_one/covers.yaml
   light_in: !include dashboard_one/lights.yaml
+  count_entity: !include dashboard_one/count_entity.yaml
 
 
 # --------------------------------------
@@ -1065,7 +1067,7 @@ lvgl:
                   height: 20
                   pad_all: 8
                   value: !lambda return id(backlight_brightness).state;
-                  min_value: 10    #調太低喚起螢幕無法看到背光
+                  min_value: 5   #調太低喚起螢幕無法看到背光
                   max_value: 100       
                   indicator:
                     bg_color: 0x003866
@@ -1177,4 +1179,3 @@ lvgl:
                   align: RIGHT_MID
                   text: "--%"
                   long_mode: dot   
-
