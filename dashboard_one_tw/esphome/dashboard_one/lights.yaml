@@ -38,61 +38,61 @@ binary_sensor:
               checked: !lambda return x;    
 
   - platform: homeassistant
-    id: livingroom_switch_light_state_a
-    entity_id: ${livingroom_switch_light}
+    id: kitchen_light_state
+    entity_id: ${kitchen_light}
     publish_initial_state: true
     on_state:
       then:
         - lvgl.button.update:
-            id: lvgl_button_livingroom_switch_light_a
+            id: lvgl_button_kitchen_light_state
             state:
               checked: !lambda return x;        
-        - lvgl.widget.update:
-            id: lvgl_widget_livingroom_switch_light_a
+        - lvgl.label.update:
+            id: lvgl_label_kitchen_light_state
             state:
               checked: !lambda return x;     
 
   - platform: homeassistant
-    id: livingroom_switch_light_state_b
-    entity_id: ${livingroom_switch_light}
+    id: study_tabel_light_state
+    entity_id: ${study_tabel_light}
     publish_initial_state: true
     on_state:
       then:
         - lvgl.button.update:
-            id: lvgl_button_livingroom_switch_light_b
+            id: lvgl_button_study_tabel_light_state
             state:
               checked: !lambda return x;        
-        - lvgl.widget.update:
-            id: lvgl_widget_livingroom_switch_light_b
+        - lvgl.label.update:
+            id: lvgl_label_study_tabel_light_state
             state:
               checked: !lambda return x;      
 
   - platform: homeassistant
-    id: livingroom_switch_light_state_c
-    entity_id: ${livingroom_switch_light}
+    id: sofa_light_state
+    entity_id: ${sofa_light}
     publish_initial_state: true
     on_state:
       then:
         - lvgl.button.update:
-            id: lvgl_button_livingroom_switch_light_c
+            id: lvgl_button_sofa_light_state
             state:
               checked: !lambda return x;        
-        - lvgl.widget.update:
-            id: lvgl_widget_livingroom_switch_light_c
+        - lvgl.label.update:
+            id: lvgl_label_sofa_light_state
             state:
               checked: !lambda return x;   
 
   - platform: homeassistant
-    id: livingroom_switch_light_state_d
-    entity_id: ${livingroom_switch_light}
+    id: dining_table_light_state
+    entity_id: ${dining_table_light}
     publish_initial_state: true
     on_state:
       then:
         - lvgl.button.update:
-            id: lvgl_button_livingroom_switch_light_d
+            id: lvgl_button_dining_table_light_state
             state:
               checked: !lambda return x;        
-        - lvgl.widget.update:
-            id: lvgl_widget_livingroom_switch_light_d
+        - lvgl.label.update:
+            id: lvgl_label_dining_table_light_state
             state:
               checked: !lambda return x;      
