@@ -183,14 +183,15 @@ output:
   - platform: ledc
     pin: 5
     id: backlight_led
-    frequency: 5000Hz
-
+    frequency: 2000Hz
+    
 light:
   - platform: monochromatic
     output: backlight_led
     name: "Backlight"
     id: display_backlight
     restore_mode: ALWAYS_ON
+    gamma_correct: 1.0
 
 # --------------------------------------
 # -   調整背光螢幕的亮度 UI entity 勿動
