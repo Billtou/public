@@ -13,8 +13,7 @@
     - ### 刷新後台管理頁面，若欄位顯示新的內容代表修改成功。
     - ### 按下 "Refresh Panel 更新頁面" 的按鈕會重新抓以新的授權碼、縣市別、鄉鎮名稱的天氣預報。
    
-![Mosquitto_broker](weatherpanel-auto/image/a123.PNG)
-![Mosquitto_broker](/OTA/a123.jpg)
+
 # 每天自動更新數據時間
   - ## 00:15、06:15、09:15、12:15、15:15、18:15、21:15 
 
@@ -25,4 +24,3 @@
   - 當下雨機率超過30% 背光LED燈會亮紅燈提醒，也可以通過調整參數頁面關閉紅燈提示。
   - 若調整值亂掉可以按下 "Defaul 恢復出廠值" 即可。
 
-![Mosquitto_broker](/weatherpanel-auto/image/a456.png)
