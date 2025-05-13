@@ -26,3 +26,13 @@
   - 若調整值亂掉可以按下 "Defaul 恢復出廠值" 即可。
 # icon說明
 ![Mosquitto_broker](/weatherpanel-auto/image/123.JPG)
+
+# 預報選單說明
+  - daily_temp_high_low   一週 最高溫與最低
+  - daily_feel_high_low   一週 最高體感溫度與最低
+  - daily_avg_temp_humid  一週 平均溫度與濕度 
+  - daily_avg_temp_rainy  一週 平均溫度與下雨機率 
+  - daily_avg_temp_uv     一週 平均溫度與紫外線指數
+  - hourly_temp_humid     小時 溫度與濕度
+  - hourly_temp_rainy     小時 溫度與下雨機率
+  - hourly_feel_rainy     小時 體感溫度與下雨機率
