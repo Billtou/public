@@ -14,7 +14,7 @@
     - ### 按下 "Refresh Panel 更新頁面" 的按鈕會重新抓以新的授權碼、縣市別、鄉鎮名稱的天氣預報。
    
 ![Mosquitto_broker](weatherpanel-auto/image/123.PNG)
-
+![Mosquitto_broker](/weatherpanel-auto/image/123.jpg)
 # 每天自動更新數據時間
   - ## 00:15、06:15、09:15、12:15、15:15、18:15、21:15 
 
