@@ -183,11 +183,11 @@ cover:
       }
     open_action:
       - switch.turn_on: relay_stop
-      - delayed_on: 1000ms
+      - delay: 1000ms
       - switch.turn_on: relay_up
     close_action:
       - switch.turn_on: relay_stop
-      - delayed_on: 1000ms    
+      - delay: 1000ms    
       - switch.turn_on: relay_down
     stop_action:
       - switch.turn_on: relay_stop      
