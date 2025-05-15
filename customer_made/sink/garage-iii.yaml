@@ -174,7 +174,7 @@ cover:
     device_class: garage
     name: "Garage III"
     id: template_cover1
-    assumed_state: true  # 隨時都可上或下的宣告
+    # assumed_state: true  # 隨時都可上或下的宣告
     lambda: |-
       if (id(door_sensor).state) {
         return COVER_OPEN;
