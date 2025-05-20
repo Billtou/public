@@ -9,6 +9,7 @@
   - https://github.com/Billtou/public/blob/main/e_ink_display/%E6%B0%A3%E8%B1%A1%E5%B1%80%E9%84%89%E9%8E%AE%E5%90%8D%E7%A8%B1%E4%B8%80%E8%A6%BD%E8%A1%A8.pdf
 # 調整參數
   - ## 畫面右上方會有設備的ip位置，手機或電腦的瀏覽器輸入後會跳出後台管理頁面。
+  - ![Mosquitto_broker](/WP_475/image/20250519_17.JPG)
     - ### 按照調整頁面選項說明替換氣象署的授權碼、縣市別、鄉鎮名稱。
     - ### 刷新後台管理頁面，若欄位顯示新的內容代表修改成功。
     - ### 按下 "Refresh Panel 更新頁面" 的按鈕會重新抓以新的授權碼、縣市別、鄉鎮名稱的天氣預報。
