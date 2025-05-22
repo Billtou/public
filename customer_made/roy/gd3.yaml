@@ -1,0 +1,158 @@
+substitutions:
+  name: "automate-gd-3-436ee8"
+  friendly_name: AUTOMATE GD-3 436ee8
+  upper_devicename: "ESP32 3 relay and 3 sensor"
+  project_name: "Taiwan Smart Home Technology.Garage Door"
+  project_version: "2025.4" 
+  wifi_signal_update_interval: "600s"
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
+  comment: ${upper_devicename}   
+  name_add_mac_suffix: False
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+
+logger:
+
+api:
+  reboot_timeout: 0s
+
+ota:
+  - platform: esphome
+
+light:
+  - platform: status_led
+    name: "Status LED OFF"
+    id: green_led_off
+    pin: 21
+    entity_category: config
+    disabled_by_default: False
+    restore_mode: RESTORE_DEFAULT_OFF     
+
+web_server:
+  port: 80
+
+##  WIFI  ##########################
+wifi:
+  ap: {}
+
+captive_portal:
+############################3333333
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+## Wifi ################################  
+
+  - platform: homeassistant 
+    id: zigbee_door_sensor
+    entity_id: binary_sensor.entrance_door 
+
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    id: wifi_signal_db
+    update_interval: 30s
+    internal: true
+    entity_category: "diagnostic"
+
+  - platform: copy
+    source_id: wifi_signal_db
+    icon: mdi:signal
+    name: "WiFi Signal"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "%"
+    entity_category: "diagnostic"
+
+button:
+  - platform: restart
+    name: "Restart"
+    id: restart_btn      
+
+switch:
+  - platform: gpio
+    name: "UP"
+    pin:
+      number: GPIO9
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_up
+    icon: mdi:menu-up-outline
+    restore_mode: ALWAYS_OFF 
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: relay_up
+
+  - platform: gpio
+    name: "DOWN"
+    pin:
+      number: GPIO10
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_down
+    icon: mdi:menu-down-outline
+    restore_mode: ALWAYS_OFF   
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: relay_down
+         
+
+  - platform: gpio
+    name: "STOP"
+    pin:
+      number: GPIO11
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_stop
+    icon: mdi:stop
+    restore_mode: ALWAYS_OFF     
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: relay_stop   
+    
+
+binary_sensor:
+  - platform: gpio
+    id: button_sensor
+    name: "Button Sensor"
+    pin:
+      number: 18
+      inverted: true
+      mode: INPUT_PULLUP            
+    internal: true
+
+
+cover:
+  - platform: template
+    device_class: garage
+    name: "Garage III"
+    id: template_cover1
+    lambda: |-
+      if (id(zigbee_door_sensor).state == "on") {
+        return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
+      }
+    open_action:
+      - switch.turn_on: relay_up
+    close_action:
+      - switch.turn_on: relay_down
+    stop_action:
+      - switch.turn_on: relay_stop    
