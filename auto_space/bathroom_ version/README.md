@@ -1,3 +1,5 @@
+## 第一步上電靜待超過2分鐘，手機搜尋設備發出的AP熱點(autospace-pro 或 autospace-lite) 點選接入這個名稱的wifi後，手機切換到瀏覽器輸入192.168.4.1 即可填入自家wifi與密碼完成接入。
+
 ## 安裝影片
 https://youtu.be/zv61mjetYfA
 
