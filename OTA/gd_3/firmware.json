@@ -6,7 +6,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "md5": "a5c764f3f9ab8861b57dacd11bdc0bb7",
-        "path": "/OTA/gd_3/gd3_ota.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/OTA/gd_3/gd3_ota.bin",
         "summary": "Another update",
       }
     }
