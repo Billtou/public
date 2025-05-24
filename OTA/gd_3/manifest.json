@@ -1,6 +1,6 @@
 {
     "name": "AUTOMATE.Garage Door III",
-    "version": "2.0.7",
+    "version": "2.2",
     "builds": [
         {
             "chipFamily": "ESP32-S3",
