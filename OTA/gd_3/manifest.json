@@ -1,13 +1,13 @@
 {
-  "name": "AUTOMATE.Garage Door III",
-  "version": "2.1",
-  "builds": [
-    {
-      "chipFamily": "ESP32-S3",
-      "ota": {
-        "md5": "a5c764f3f9ab8861b57dacd11bdc0bb7",
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/OTA/gd_3/gd3_ota.bin"
-      }
-    }
-  ]
+    "name": "AUTOMATE.Garage Door III",
+    "version": "2.0.7",
+    "builds": [
+        {
+            "chipFamily": "ESP32-S3",
+            "ota": {
+                "md5": "a5c764f3f9ab8861b57dacd11bdc0bb7",
+                "path": "https://raw.githubusercontent.com/Billtou/public/main/OTA/gd_3/gd3_ota.bi"
+            }
+        }
+    ]
 }
