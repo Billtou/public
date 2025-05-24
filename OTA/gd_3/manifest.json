@@ -1,6 +1,6 @@
 {
     "name": "AUTOMATE.Garage Door III",
-    "version": "wifi.2.2",
+    "version": "2.2",
     "builds": [
         {
             "chipFamily": "ESP32-S3",
