@@ -1,6 +1,6 @@
 {
-  "name": "Taiwan Smart Home Technology.Garage Door",
-  "version": "2025.5",
+  "name": "Garage Door IIIr",
+  "version": "2.1",
   "builds": [
     {
       "chipFamily": "ESP32-S3",
