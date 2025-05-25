@@ -1,12 +1,13 @@
+# 接入自家WIFI
+
+## 設備上電等待1-2分鐘手機搜尋熱點wall_switch-x-xxxxxx 會跳出wifi引導頁面，輸入後按 "SAVE" 後約5-10秒斷電重開機即可。 HA就會自動發現 
+## 若沒跳出跳出wifi引導頁面，手機切換到瀏覽器，輸入192.168.4.1即可依上面步驟繼續。
+
 # 外觀接線以及ESPhome固件功能說明 
 
 ## 如何接線 零火開關 影片
 [![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=lUK7gXcIuBD8snV8)
 
-
-## 接入自家WIFI
-
-設備上電手機搜尋熱點並指定自家wifi與密碼HA會自動發現(若沒跳出指定自家wifi頁面，請手機切換到瀏覽器，輸入192.168.4.1即可)，接入wifi後HA會自動發現設備，直接點選 "設定" 按紐並指定區域即完成。
 
 ## 名詞解說
 
