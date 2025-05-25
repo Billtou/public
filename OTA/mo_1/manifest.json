@@ -6,7 +6,7 @@
             "chipFamily": "ESP32-C3",
             "ota": {
                 "md5": "433d69a8d7e24bad55591fb5bd241560",
-                "path": "https://raw.githubusercontent.com/Billtou/public/main/OTA/mo_1/3.0/motionone.ota_v3.0.bin",
+                "path": "https://github.com/Billtou/public/blob/main/OTA/mo_1/3.0/README.md",
                 "release_url": "https://github.com/Billtou/public/tree/main/OTA/mo_1/3.0",
                 "summary": "修正 Wi-Fi 掉線問題與新增狀態燈"
             }
