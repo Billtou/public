@@ -1,6 +1,9 @@
+# 接入自家WIFI
+
+## 設備上電等待1-2分鐘手機搜尋熱點wall_switch-x-xxxxxx 會跳出wifi引導頁面，輸入後按 "SAVE" 後約 5-10 秒斷電重開機即可。 HA就會自動發現 
+## 若沒跳出跳出wifi引導頁面，手機切換到瀏覽器，輸入192.168.4.1即可依上面步驟繼續。
 
 # 模組開關使用說明 
-# 提醒 <首次上電可能1分鐘以上才會出現wifi接入熱點> 接入wifi若遲遲沒發現設備連網斷電重給電即可
 ## 如何接線 模組開關 影片
 [![Watch the video](/module_switch/image/154644.png)](https://youtu.be/oL1PVQXvEHQ?si=OWOFjIUSMLn_HVU_)
 
