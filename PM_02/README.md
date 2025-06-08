@@ -43,7 +43,7 @@
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
 
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
-
+*PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
 ## 附錄，做一個可以即時計算每小時電費的sensor
 
     template:
