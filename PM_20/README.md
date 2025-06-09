@@ -36,7 +36,7 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/120153.png)
 
-## 6.接入HA的能源儀表板 建議方法2(entity ID視個略為別不同)
+## 6.接入HA的能源儀表板 建議方法2(entity ID視個別產品略為別不同)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/115839.png)
 
