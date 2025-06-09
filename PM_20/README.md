@@ -52,7 +52,8 @@
 
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
-PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變
+*PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
+
 ## 8.手動建立所有相關實體方式
 
 * 目前台電計費表
