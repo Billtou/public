@@ -3,7 +3,7 @@
 ### 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## 接入自家網路(網線)
 ### 上電插上網線即可。
-![Mosquitto_broker](/PM_02/image/image11.JPG)
+![Mosquitto_broker](/PM_02/image/image12.JPG)
 # 安裝線路與順序
 ### 1. 斷電施作
 ### 2. 接上L，N線上電連接網線或WIFI (若要切換連線方式，可在OTA資料夾找到對應的檔案)
