@@ -54,23 +54,23 @@
 
 *PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
 
-## 8.手動建立所有相關實體方式
+## 附錄.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
 
-* 目前台電計費表
+* 目前台電一般民眾計費表
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
 
 ## 9.自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
 
-https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
+參考來源 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
 
-## 10.energy_template.yaml檔案說明
+## energy_template.yaml檔案說明
 
 * 建議檔案放在 HA 資料夾中的\config\packages\
 
-## 11.HA重開機會產生以下sensor entity
+## HA重開機會產生以下sensor entity
 
  sensor.taipower_energy  手動建立 "功耗表" 實體
  
