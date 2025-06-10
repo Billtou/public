@@ -46,7 +46,7 @@
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
 *PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
-## 附錄，做一個可以即時計算每小時電費的sensor
+## 附錄A ，做一個可以即時計算每小時電費的sensor
 
     template:
       - sensor:
@@ -54,3 +54,31 @@
             unique_id: 1f3bfe9e-8042-46a5-9ce5-f1a9fd197ec4
             state: "{{((states.sensor.wt32_electricity_2_way_power.state|float)/1000 *(states.sensor.sensor_wt32_electricity_2_way_energy_kwh_cost.state|float))|round(1)}}"
             unit_of_measurement: "$"
+
+## 附錄B.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
+
+* 目前台電一般民眾計費表
+
+![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
+
+
+## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
+
+參考來源 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
+
+
+## energy_template.yaml檔案說明
+
+* 建議檔案放在 HA 資料夾中的\config\packages\
+
+## HA重開機會產生以下sensor entity
+
+ sensor.taipower_energy  手動建立 "功耗表" 實體
+ 
+ sensor.ct_01 ~ 18_energy  手動建立10路CT "功耗表" 實體
+ 
+ sensor.count_kwh_cost  每度電累進電價單價
+ 
+ sensor.count_power_cost 計費區間累計電費
+ 
+ sensor.realtime_hour_cost 即時每小時用電費預估
