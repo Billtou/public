@@ -61,7 +61,7 @@
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
 
 
-## 9.自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
+## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
 
 參考來源 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
