@@ -54,7 +54,17 @@
 
 *PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
 
-## 附錄.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
+## 附錄A ，做一個可以即時計算每小時電費的sensor
+
+    template:
+      - sensor:
+          - name: hour_power_cost
+            unique_id: 1f3bfe9e-8042-46a5-9ce5-f1a9fd197ec4
+            state: "{{((states.sensor.wt32_electricity_2_way_power.state|float)/1000 *(states.sensor.sensor_wt32_electricity_2_way_energy_kwh_cost.state|float))|round(1)}}"
+            unit_of_measurement: "$"
+
+
+## 附錄B **.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
 
 * 目前台電一般民眾計費表
 
