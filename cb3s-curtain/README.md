@@ -20,7 +20,7 @@
  
 ## 配對遙控器
 ![Mosquitto_broker](/cb3s-curtain/image/101426.png)
-
+*新版的電機反轉設定為按下電機配對按鈕直到亮綠燈， 遙控器中間暫停按鍵連按兩次即可*
 ## HA emtity 說明
 
 ![Mosquitto_broker](/cb3s-curtain/image/192402.png)
