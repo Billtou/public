@@ -5,12 +5,12 @@
 ## -  上電插上網線即可。
 # 匯流排式電箱介紹
 ![Mosquitto_broker](/PM_20/image/image10.JPG)
+# 一般式電箱介紹
+![Mosquitto_broker](/PM_20/image/a_15.JPG)
 ## 1 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
 
    ![Mosquitto_broker](/PM_20/image/20250519_15.JPG)
    
-   ![Mosquitto_broker](/PM_20/image/a_15.JPG)
-
 ## 2.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
 
 # 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
