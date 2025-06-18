@@ -7,6 +7,7 @@
 ## 1 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
 
    ![Mosquitto_broker](/PM_20/image/20250519_15.JPG)
+   ![Mosquitto_broker](/PM_20/image/a_15.JPG)
 
 ## 2.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
 
