@@ -28,18 +28,23 @@ web_server:
 captive_portal:
   
 font:
-  - file: 'fonts/SFProDisplay-Medium.ttf'
+  - file: 'fonts/SFProDisplay-Medium.ttf'  # 純英文字
     id: my_font #yes
     size: 26
-    glyphs: &font-glyphs    
-      ['!', ',', '.', '"', '%', '-', '_', ':', '°', '/',
-       '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ',
-       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
-       'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-       's', 't', 'u', 'v', 'w', 'x', 'y', 'z','µ','³']   
+    glyphs: 
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']  
 
+  - file: 'fonts/NotoSansTC-Light.ttf'   #中文字
+    id: font_tw
+    size: 30
+    glyphs: 
+     ['歐特美字數多']
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_tw_a
+    size: 30     
+    glyphs: 
+     ['歐特美圓體字']
 spi:
   clk_pin: D5
   mosi_pin: D7
@@ -57,3 +62,5 @@ display:
     lambda: |-
       it.print(0, 0, id(my_font), "AUTOMATE ED-29");  
       it.print(0, 30, id(my_font), "2.9inch ePaper");  
+      it.print(0, 60, id(font_tw), "歐特美字數多");  
+      it.print(0, 90, id(font_tw_a), "歐特美圓體字");  
