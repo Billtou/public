@@ -1,4 +1,5 @@
 # AUTOMATE GD-3
+2025/07/09 Update
 ![081733](/GD_3/image/S__461128391.JPG)
 # 接入自家網路(WIFI)
 ## -  上電稍待1~2分鐘手機靠近設備找wifi熱點 automate_gd3-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
