@@ -1,3 +1,6 @@
+# 2025-7-10 Update
+- 檔名  motionone.ota_v2.1.bin
+- 修改預設靈敏度名稱從1、2、3改為低、中、高。方便認知與理解。
 # 2025-05-25 Update
 - 檔名  motionone.ota_v2.0.bin
 - 新增人在音樂可以自己定義
