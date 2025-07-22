@@ -13,7 +13,7 @@
 ## Pir紅外線為選配品，若條件允許且需要精準快速開燈，建議選購Pir紅外線感測器，最多支持擴充2個。
 
 
-## 自動化介紹影片
+## 使用說明與自動化介紹影片
 [![Watch the video](/auto_space/image/image133.JPG)](https://youtu.be/mLWufJHFCHk)
 
 [![Watch the video](/auto_space/image/image134.JPG)](https://youtu.be/juzmh7kPao4)
