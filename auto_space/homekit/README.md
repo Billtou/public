@@ -14,4 +14,4 @@
 
 
 ## 自動化介紹影片
-[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=lUK7gXcIuBD8snV8)
+[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/mLWufJHFCHk)
