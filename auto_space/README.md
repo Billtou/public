@@ -27,4 +27,4 @@
 
 * Lite版本 廚房/玄關/通道場景 [https://github.com/Billtou/public/tree/main/auto_space/kitchen_version]
 
-* Homekit版本廚房/玄關/通道場景 [https://github.com/Billtou/public/tree/main/auto_space/homekit]
+* Homekit版本 [https://github.com/Billtou/public/tree/main/auto_space/homekit]
