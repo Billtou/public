@@ -1,5 +1,5 @@
 # AUTOMATE GD3 Homekit 版本說明
-## 重置設備方式
+## 重置設備方式(清除wifi)
 ![081733](/GD_3_homekit/image/image13.JPG)
 # 1.1 接入自家網路(WIFI)
 ## -  上電稍待超過30秒手機靠近設備找wifi熱點 automate_gd3-xxxxxx，接入後手機會自動跳出設訂wifi頁面，指定好自家wifi與密碼即可。
