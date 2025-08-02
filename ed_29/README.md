@@ -19,3 +19,4 @@
 - 進入ESPHome Device Builder + NEW DEVICE > CONTINUE > 名稱取與接入的ESPHome相同的名稱 "AUTOMATE ED-29-XXXXXX" xxxxxx是流水號每台設備不同 > NEXT > ESP8266 > SKIP。
 - 找到剛剛建立的設備名稱(右上會出現ONLINE) > EDIT  >  貼上檔案 automate-ed-29-forecast.yaml 的內容 > 並將名稱修改成正確的內容。
 
+
