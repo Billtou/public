@@ -4,7 +4,8 @@
 #### 使用方式: 
 - HA安裝CWA插件。
 - A. 修改氣象預報CVWA在HA裡面的ID
-- 
-    my_condition: "sensor.opencwa_nan_tun_qu_condition_2"    # 來自CWA插件。置換成自家的id
-    my_feels_like_temperature: "sensor.opencwa_nan_tun_qu_feels_like_temperature_2" # 來自CWA插件。置換成自家的id
-    my_weather: "sensor.opencwa_nan_tun_qu_weather_2" # 來自CWA插件。置換成自家的id
+
+      # 來自CWA插件的ID原為 > 改成
+        sensor.opencwa_XX_XXX_XXX_condition  >   sensor.opencwa_my_condition 
+        sensor.opencwa_my_XX_XXX_XXX_temperature > sensor.opencwa_my_feels_like_temperature 
+        sensor.opencwa_XX_XXX_XXX_weather > sensor.opencwa_my_weather
