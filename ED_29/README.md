@@ -1,5 +1,5 @@
 # 2.9" 電子紙開源範本
-## 簡易日曆與氣象預報
+## 簡易日曆與氣象預報 (預設10分鐘更新一次頁面)
 ### 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-ed-29-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ### 檔案名稱 automate-ed-29-forecast.yaml
 #### 使用方式: A 修改HA的entity吻合預設的名稱即可 
@@ -18,5 +18,6 @@
 - 在HA裡面找到esphome資料夾裡面建立一個fonts資料夾把字型都copy進來。(電腦要能看見HA的資料夾，附加元件必須安裝Samba share)
 - 進入ESPHome Device Builder + NEW DEVICE > CONTINUE > 名稱取與接入的ESPHome相同的名稱 "AUTOMATE ED-29-XXXXXX" xxxxxx是流水號每台設備不同 > NEXT > ESP8266 > SKIP。
 - 找到剛剛建立的設備名稱(右上會出現ONLINE) > EDIT  >  貼上檔案 automate-ed-29-forecast.yaml 的內容 > 並將名稱修改成正確的內容。
+- 右上 INSTALL > Wirelessly 等待編譯完成即可。
 
 
