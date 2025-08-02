@@ -14,4 +14,8 @@
 - B. 賦予本設備抓取HA訊息的權限
   * 設定> 裝置與服務 > ESPHome > 找到本設備名稱 > 右上有一個小齒輪 >  允許裝置執行 Home Assistant 動作 > 打勾  > 傳送。
 #### 使用方式: B 在HA裡面安裝ESPHome開發環境，自行編譯
+- 在HA安裝附加元件 "ESPHome Device Builder"
+- 在HA裡面找到esphome資料夾裡面建立一個fonts資料夾把字型都copy進來。(電腦要能看見HA的資料夾，附加元件必須安裝Samba share)
+- 進入ESPHome Device Builder + NEW DEVICE > CONTINUE > 名稱取與接入的ESPHome相同的名稱 "AUTOMATE ED-29-XXXXXX" xxxxxx是流水號每台設備不同 > NEXT > ESP8266 > SKIP。
+- 找到剛剛建立的設備名稱(右上會出現ONLINE) > EDIT  >  貼上檔案 automate-ed-29-forecast.yaml 的內容 > 並將名稱修改成正確的內容。
 
