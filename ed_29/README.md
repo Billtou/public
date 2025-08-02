@@ -12,6 +12,6 @@
         sensor.opencwa_my_XX_XXX_XXX_temperature > sensor.opencwa_my_feels_like_temperature 
         sensor.opencwa_XX_XXX_XXX_weather > sensor.opencwa_my_weather
 - B. 賦予本設備抓取HA訊息的權限
-- * 設定> 裝置與服務 > ESPHome > 找到本設備名稱 > 右上有一個小齒輪 >  允許裝置執行 Home Assistant 動作 > 打勾  > 傳送。
+  * 設定> 裝置與服務 > ESPHome > 找到本設備名稱 > 右上有一個小齒輪 >  允許裝置執行 Home Assistant 動作 > 打勾  > 傳送。
 #### 使用方式: B 在HA裡面安裝ESPHome開發環境，自行編譯
 
