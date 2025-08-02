@@ -13,6 +13,10 @@
         濕度     ed29_humidity  
         CO2     ed29_co2   
         PM2.5   ed29_pm25
+
+
+![081733](/ED_29/image/B8AD097F1.JPG)
+
   
 - 步驟2. 賦予本設備抓取HA訊息的權限
   * 設定> 裝置與服務 > ESPHome > 找到本設備名稱 > 右上有一個小齒輪 >  允許裝置執行 Home Assistant 動作 > 打勾  > 傳送。
