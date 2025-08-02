@@ -1,0 +1,252 @@
+substitutions:
+  name: "automate-ed-29"
+  friendly_name: "AUTOMATE ED-29"
+  upper_devicename: "ESP8266 2.9inch epaper"
+  project_name: "Taiwan Smart Home Technology.AUTOMATE ED-29"
+  project_version: "2.0" 
+  
+  my_condition: "sensor.opencwa_nan_tun_qu_condition_2"    # 來自CWA插件。置換成自家的id
+  my_feels_like_temperature: "sensor.opencwa_nan_tun_qu_feels_like_temperature_2" # 來自CWA插件。置換成自家的id
+  my_weather: "sensor.opencwa_nan_tun_qu_weather_2" # 來自CWA插件。置換成自家的id
+  
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
+  comment: ${upper_devicename}    
+  name_add_mac_suffix: False
+  on_boot:
+    priority: -100.0  # 等裝置初始化完成後執行
+    then:
+      - logger.log: "開機完成，更新畫面"
+      - delay: 5s  # 可略為等待畫面準備
+      - lambda: |-
+          id(my_display).update();
+
+esp8266:
+  board: nodemcuv2
+
+logger:
+
+api:
+  reboot_timeout: 0s
+
+ota:
+- platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password  
+  ap: {}
+
+web_server:
+  port: 80
+
+captive_portal:
+
+time:
+  - platform: homeassistant
+    id: ha_time
+
+text_sensor:
+  - platform: homeassistant
+    entity_id: ${my_condition}
+    id: forecast_weather_condition
+    
+  - platform: homeassistant
+    entity_id: ${my_feels_like_temperature}
+    id: forecast_feels_link_temperature  
+
+  - platform: homeassistant
+    entity_id: ${my_weather}
+    id: forecast_weathe_tw_condition
+
+interval:
+  - interval: 60s  # 每分鐘檢查一次
+    then:
+      - lambda: |-
+          auto now = id(ha_time).now();
+          if (now.minute == 0 && now.second < 5) {  // 整點的前 5 秒內觸發一次
+            id(my_display).show_page(id(page1));
+          }
+
+font:
+  - file: 'fonts/Gotham-Rounded-Bold.ttf'
+    id: font_day_large #yes
+    size: 60
+    glyphs:
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','-']
+
+  - file: 'fonts/GenJyuuGothic-Bold.ttf'
+    id: font_jyuugothic_Bold_2 #yes
+    size: 20
+    glyphs: 
+      ['稍寒意冷易暑過危險偏南東西北低高中量級舒適悶熱體下','冰','午','多','天','局','後','或','時','晨','晴','暫','暴','有','短','積','部','陣','陰','雨','雪','雲','雷','霧','風','+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_jyuugothic_Bold #yes
+    size: 25
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '日', '星', '期','未','知','-','0', '1', '2', '3', '4', '5', '6', '7', '8', '9','°']
+
+
+  - file: 'fonts/GenJyuuGothic-Bold.ttf'
+    id: font_feels_link #yes
+    size: 35
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '日', '星', '期','未','知','-','0', '1', '2', '3', '4', '5', '6', '7', '8', '9','°',':']
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_time #yes
+    size: 12
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '日', '星', '期','未','知','-','0', '1', '2', '3', '4', '5', '6', '7', '8', '9','°',':']      
+
+  - file: 'fonts/GenJyuuGothic-Bold.ttf'
+    id: font_NotoSansHK_Bold  # yes
+    size: 40
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
+      '月','-']
+
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: icon_today #yes
+    size: 120
+    glyphs: &mdi-weather-glyphs
+      - "\U000F0590" # mdi-weather-cloudy
+      - "\U000F0F2F" # mdi-weather-cloudy-alert
+      - "\U000F0E6E" # mdi-weather-cloudy-arrow-right
+      - "\U000F0593" # mdi-weather-lightning
+      - "\U000F067E" # mdi-weather-lightning-rainy
+      - "\U000F0594" # mdi-weather-night
+      - "\U000F0F31" # mdi-weather-night-partly-cloudy      
+      - "\U000F0595" # mdi-weather-partly-cloudy
+      - "\U000F0F32" # mdi-weather-partly-lightning
+      - "\U000F0F33" # mdi-weather-partly-rainy
+      - "\U000F0596" # mdi-weather-pouring
+      - "\U000F0597" # mdi-weather-rainy
+      - "\U000F0599" # mdi-weather-sunny
+      - "\U000F0F37" # mdi-weather-sunny-alert
+      - "\U000F14E4" # mdi-weather-sunny-off
+      - "\U000F059A" # mdi-weather-sunset
+      - "\U000F059B" # mdi-weather-sunset-down
+      - "\U000F059C" # mdi-weather-sunset-up
+      - "\U000F059D" # mdi-weather-windy
+      - "\U000F059E" # mdi-weather-windy-variant
+      - "\U000F0783" # mdi-signal-off
+      - "\U000F08BF" # mdi-signal-cellular-outline bad
+      - "\U000F08BC" # mdi-signal-cellular-1
+      - "\U000F08BD" # mdi-signal-cellular-2
+      - "\U000F08BE" # mdi-signal-cellular-3 good
+      - "\U000F054B" # mdi:umbrella
+      - "\U000F04E6" # mdi:sync
+
+spi:
+  clk_pin: D5
+  mosi_pin: D7
+
+display:
+  - platform: waveshare_epaper
+    id: my_display
+    cs_pin: D8
+    dc_pin: D2
+    busy_pin: D1
+    reset_pin: D4
+    model: 2.90in
+    update_interval: never
+    rotation: 270°
+    pages:
+      - id: page1
+        lambda: |-    
+          const auto BLACK   = Color(0,   0,   0,   0);
+          const auto WHITE   = Color(255, 255, 255, 0);
+          // Map weather states to MDI characters.
+          std::map<std::string, std::string> weather_icon_map
+            {
+              {"cloudy", "\U000F0590"},
+              {"cloudy-alert", "\U000F0F2F"},
+              {"fog", "\U000F0591"},
+              {"hail", "\U000F0592"},
+              {"hazy", "\U000F0F30"},
+              {"lightning", "\U000F0593"},
+              {"lightning-rainy", "\U000F067E"},
+              {"clear-night", "\U000F0594"},
+              {"night-partly-cloudy", "\U000F0F31"},          
+              {"partlycloudy", "\U000F0595"},
+              {"partly-lightning", "\U000F0F32"},
+              {"partly-rainy", "\U000F0F33"},
+              {"pouring", "\U000F0596"},
+              {"rainy", "\U000F0597"},
+              {"sunny", "\U000F0599"},
+              {"sunny-alert", "\U000F0F37"},
+              {"sunny-off", "\U000F14E4"},
+              {"sunset", "\U000F059A"},
+              {"sunset-down", "\U000F059B"},
+              {"sunset-up", "\U000F059C"},
+              {"windy", "\U000F059D"},
+              {"windy-variant", "\U000F059E"},
+            };
+
+
+            //****************************************** 日曆 *****************************************************
+            // 獲取當前月份的數字
+            int month_num = id(ha_time).now().month; 
+
+            // 使用 strftime 取得當前星期數字 (1-7)，其中 1 表示星期一,7 表示星期日
+            char weekday_char[2];
+            id(ha_time).now().strftime(weekday_char, sizeof(weekday_char), "%u");
+
+            // 轉換星期數字字元為整數，調整為 0 (星期日) 到 6 (星期六)
+            int weekday_num = atoi(weekday_char) % 7; // 星期日從 7 轉為 0
+
+            // 判斷是否為週末
+            // bool is_weekend = (weekday_num == 0 || weekday_num == 6);
+
+            // 對應中文月份
+            std::string month_names[] = {
+                "一月", "二月", "三月", "四月", "五月", "六月", 
+                "七月", "八月", "九月", "十月", "十一", "十二"
+            };
+            // 確保月份值有效，並選擇對應的中文月份
+            std::string month = (month_num >= 1 && month_num <= 12) ? month_names[month_num - 1] : "未知月份";            
+            // 顯示中文月份
+            it.print(50, 0, id(font_NotoSansHK_Bold), TextAlign::TOP_CENTER, month.c_str());
+
+            // 顯示數字日期
+            it.strftime(50, 48, id(font_day_large), TextAlign::TOP_CENTER, "%d", id(ha_time).now());      
+
+            // 中文星期名稱陣列
+            std::string weekday_names[] = {
+                "星期日", "星期一", "星期二", "星期三", 
+                "星期四", "星期五", "星期六"
+            };
+
+            // 確保有效性，並選擇對應的中文星期名稱
+            std::string weekday = (weekday_num >= 0 && weekday_num <= 6) ? weekday_names[weekday_num] : "未知星期";
+
+            // 顯示中文星期名稱（
+            it.print(50, 97, id(font_jyuugothic_Bold), TextAlign::TOP_CENTER, weekday.c_str());
+
+            //************************天氣 ************************   
+            //weather icon
+            it.printf(190, 0, id(icon_today), TextAlign::TOP_CENTER, "%s", weather_icon_map[id(forecast_weather_condition).state.c_str()].c_str()); 
+            //forecast_weathe_tw_condition
+            //***************************************** 天氣描述文字 *****************************************************
+            it.printf(190, 102, id(font_jyuugothic_Bold_2), TextAlign::TOP_CENTER, "%s", []() -> std::string {
+              std::string s = id(forecast_weathe_tw_condition).state;
+              if (s == "unknown") return "-";
+              size_t pos = s.find("。");
+              if (pos != std::string::npos) {
+                return s.substr(0, pos);
+              }
+              return s;
+            }().c_str());
+
+            // 顯示 體感溫度與時間
+            it.print(263, 0, id(font_feels_link), TextAlign::TOP_CENTER, (id(forecast_feels_link_temperature).state + "°").c_str());
+            it.strftime(270, 46, id(font_time), TextAlign::TOP_CENTER, "%H:%M", id(ha_time).now());
+
+
+
