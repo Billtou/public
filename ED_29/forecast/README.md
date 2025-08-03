@@ -12,8 +12,10 @@
         sensor.opencwa_XX_XXX_XXX_condition  >   sensor.opencwa_condition_xxxxxx
         sensor.opencwa_my_XX_XXX_XXX_feels_liketemperature > sensor.opencwa_feels_like_temperature_xxxxxx
         sensor.opencwa_XX_XXX_XXX_weather > sensor.opencwa_weather_xxxxxx
-  
-- 步驟2. 賦予本設備抓取HA訊息的權限
+
+![081733](/ED_29/image/B8AD097F33.JPG)
+
+  - 步驟2. 賦予本設備抓取HA訊息的權限
   * 設定> 裝置與服務 > ESPHome > 找到本設備名稱 > 右上有一個小齒輪 >  允許裝置執行 Home Assistant 動作 > 打勾  > 傳送。
 
 - 步驟3. 重新上電等待每個10分鐘就會更新頁面資訊
