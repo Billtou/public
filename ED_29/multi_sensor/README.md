@@ -15,7 +15,7 @@
         PM2.5   ed29_pm25_xxxxxx
 
 
-![081733](/ED_29/image/B8AD097F1.JPG)
+![081733](/ED_29/image/B8AD097F3.JPG)
 
   
 - 步驟2. 賦予本設備抓取HA訊息的權限
