@@ -21,7 +21,7 @@
 
 ## 4.接入HA步驟 (前置作業)
 
- * 在HA建立一個入戶總功耗表  設定 >  裝置與服務  >  助手  >  新增助手  >  功耗表 ； 名稱填入 taipower_energy (名字要一樣否則無法自動化歸零)
+ * 在HA建立一個入戶總功耗表  設定 >  裝置與服務  >  輔助工具  >  新增輔助工具 >  功耗表 ； 名稱填入 taipower_energy (名字要一樣否則無法自動化歸零)
 
  * 輸入感測器填入 ElectricityMeter Pro 2 Way Energy Sum (entity ID視個略為別不同)
 
