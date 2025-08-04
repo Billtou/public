@@ -31,9 +31,9 @@
 
         本項目檔案結構與放置位置
 
-            < esphome >/
+            /< esphome >/
             |  dashboard-one-XXXXXX.yaml   主程序
-            |  --- fonts/  中英文字體庫
+            |  --- /fonts/  中英文字體庫
             |        |  -- GenJyuuGothic-Bold.ttf   
             |        |  -- GenJyuuGothic-Medium.ttf
             |        |  -- SFProDisplay-BoldItalic.ttf
@@ -41,24 +41,24 @@
             |        |  -- SFProDisplay-RegularItalic.ttf
             |        |  -- materialdesignicons-webfont.ttf
             |
-            |  -- dashboard_one/  項目資料夾
-                     |  -- base/
-                     |      |  -- esphome_basic.yaml   基本esphom設置程序碼
-                     |      |  -- touchscreen.yaml   觸控屏設置程序碼
+            |  -- /dashboard_one/  項目資料夾
+                     |  -- /base/
+                     |       |  -- esphome_basic.yaml   基本esphom設置程序碼
+                     |       |  -- touchscreen.yaml   觸控屏設置程序碼
                      |
-                     | -- lvgl/  lvgl 外掛yaml 資料夾
-                     |     |
-                     |     |  -- image.yaml  背景與開機參數設置
-                     |     |  -- style_definitions.yaml  風格設置
-                     |     |  -- theme.yaml 小部件默認預設參數設置
-                     |     |  -- top_layer.yaml 首層頁底導航頁面代碼
-                     |     |
-                     |     |  -- image/ 
-                     |           |  -- background_1.png  背景圖1
-                     |           |  -- background_2.png  背景圖2
-                     |           |  -- background_3.png  背景圖3
-                     |           |  -- boot_logo.png  開機esphome logo 1
-                     |           |  -- ha_logo.svg  開機esphome logo 2
+                     | -- /lvgl/  lvgl 外掛yaml 資料夾
+                     |      |
+                     |      |  -- image.yaml  背景與開機參數設置
+                     |      |  -- style_definitions.yaml  風格設置
+                     |      |  -- theme.yaml 小部件默認預設參數設置
+                     |      |  -- top_layer.yaml 首層頁底導航頁面代碼
+                     |      |
+                     |      |  -- /image/ 
+                     |              |  -- background_1.png  背景圖1
+                     |              |  -- background_2.png  背景圖2
+                     |              |  -- background_3.png  背景圖3
+                     |              |  -- boot_logo.png  開機esphome logo 1
+                     |              |  -- ha_logo.svg  開機esphome logo 2
                      |
                      | -- climates.yaml
                      | -- covers.yaml
