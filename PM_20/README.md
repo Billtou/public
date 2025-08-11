@@ -18,6 +18,7 @@
 ## 3.賦予本設備能自動雙月份歸零功能
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/S__49905668_2.JPG)
 
 ## 4.接入HA步驟 (前置作業)
 
