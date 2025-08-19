@@ -1,0 +1,39 @@
+blueprint:
+  name: Any Entity to ESPHome Display  
+  description: Select ANY entity and display on ESPHome device (ESPHome only)
+  domain: automation
+  input:
+    source_entity:
+      name: Entity to Display
+      description: Choose ANY entity from your Home Assistant
+      selector:
+        entity: {}
+    esphome_number:
+      name: ESPHome Display Number
+      description: Select the number entity from your ESPHome device
+      selector:
+        entity:
+          domain: number
+          # integration: esphome
+trigger:
+  - platform: state
+    entity_id: !input source_entity
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.platform == 'homeassistant' }}"
+      - condition: template
+        value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+action:
+  - variables:
+      source_entity: !input source_entity
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_number
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+mode: single
+          
