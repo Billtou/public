@@ -1,55 +1,59 @@
 blueprint:
-  name: ED-29 Mult Sensor to ESPHome 2.9inch Display
-  description: Map Home Assistant energy/cost entities to ESPHome number entities for ED-29 display
+  name: ED-29 Mult Sensor to ESPHome 2.9inch Display (Dynamic Mapping)
+  description: Map Home Assistant sensors to ESPHome number entities for ED-29 display (optional inputs supported)
   domain: automation
   input:
     source_temperature:
       name: Source - Temperature
       selector:
         entity: {}
-
+      default: ""
     esphome_temperature:
       name: ESPHome - Temperature
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_humidity:
       name: Source - Humidity
       selector:
         entity: {}
-
+      default: ""
     esphome_humidity:
       name: ESPHome - Humidity
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_co2:
       name: Source - Co2
       selector:
         entity: {}
-
+      default: ""
     esphome_co2:
       name: ESPHome - Co2
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_pm25:
       name: Source - PM2.5
       selector:
         entity: {}
-
+      default: ""
     esphome_pm25:
       name: ESPHome - PM2.5
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
 trigger:
   - platform: state
@@ -58,42 +62,33 @@ trigger:
       - !input source_humidity
       - !input source_co2
       - !input source_pm25
+    for: "00:00:01"
   - platform: homeassistant
     event: start
 
 variables:
-  source_temperature: !input source_temperature
-  source_humidity: !input source_humidity
-  source_co2: !input source_co2
-  source_pm25: !input source_pm25
+  mappings:
+    - source: !input source_temperature
+      target: !input esphome_temperature
+    - source: !input source_humidity
+      target: !input esphome_humidity
+    - source: !input source_co2
+      target: !input esphome_co2
+    - source: !input source_pm25
+      target: !input esphome_pm25
+
 action:
-  # temperature
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_temperature
-    data:
-      value: "{{ states(source_temperature) | float(-999999) | round(2)}}"
-
-  #humidity
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_humidity
-    data:
-      value: "{{ states(source_humidity) | float(-999999) | round(2)}}"
-
-  # co2
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_co2
-    data:
-      value: "{{ states(source_co2) | float(-999999)| round(2)}}"
-
-  # pm25
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_pm25
-    data:
-      value: "{{ states(source_pm25) | float(-999999)| round(2) }}"
-
+  - repeat:
+      for_each: "{{ mappings }}"
+      sequence:
+        - if:
+            - condition: template
+              value_template: "{{ repeat.item.source != '' and repeat.item.target != '' }}"
+          then:
+            - service: number.set_value
+              target:
+                entity_id: "{{ repeat.item.target }}"
+              data:
+                value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
 
 mode: single
