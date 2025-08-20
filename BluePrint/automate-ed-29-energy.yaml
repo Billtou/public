@@ -9,12 +9,12 @@ blueprint:
       selector:
         entity: {}
 
-    esphome_device:
-      name: ESPHome Device
-      description: Select your ESPHome device
-      selector:
-        device:
-          integration: esphome
+    # esphome_device:  # 目前還不支持動態連結
+    #   name: ESPHome Device
+    #   description: Select your ESPHome device
+    #   selector:
+    #     device:
+    #       integration: esphome
 
     esphome_number:
       name: ESPHome Display Number
