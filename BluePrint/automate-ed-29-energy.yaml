@@ -1,5 +1,5 @@
 blueprint:
-  name: Any Entity to ESPHome Display  
+  name: ED-29 Energy to ESPHome 2.9inch Display  
   description: Select ANY entity and display on ESPHome device (ESPHome only)
   domain: automation
   input:
