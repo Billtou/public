@@ -14,7 +14,7 @@ blueprint:
       selector:
         entity:
           domain: number
-          # integration: esphome
+          integration: esphome
 trigger:
   - platform: state
     entity_id: !input source_entity
