@@ -8,9 +8,17 @@ blueprint:
       description: Choose ANY entity from your Home Assistant
       selector:
         entity: {}
+
+    esphome_device:
+      name: ESPHome Device
+      description: Select your ESPHome device
+      selector:
+        device:
+          integration: esphome
+
     esphome_number:
       name: ESPHome Display Number
-      description: Select the number entity from your ESPHome device
+      description: Select the number entity from the chosen ESPHome device
       selector:
         entity:
           domain: number
