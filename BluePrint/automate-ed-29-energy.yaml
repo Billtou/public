@@ -1,26 +1,78 @@
 blueprint:
-  name: ED-29 Energy to ESPHome 2.9inch Display  
-  description: Select ANY entity and display on ESPHome device (ESPHome only)
+  name: ED-29 Energy to ESPHome 2.9inch Display
+  description: Map Home Assistant entities to ESPHome number entities for ED-29 display
   domain: automation
   input:
+    # 來源 entity（可以選任意 sensor/number）
     source_entity:
-      name: Entity to Display
-      description: Choose ANY entity from your Home Assistant
+      name: Source Entity
+      description: Choose ANY entity from Home Assistant
       selector:
         entity: {}
 
-    esphome_number:
-      name: ESPHome Display Number
-      description: Select the number entity from the chosen ESPHome device
+    # ESPHome Numbers
+    esphome_total_energy:
+      name: ESPHome - Total Energy
       selector:
         entity:
           domain: number
           integration: esphome
+
+    esphome_total_cost:
+      name: ESPHome - Total Cost
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_yesterday_energy:
+      name: ESPHome - Yesterday Energy
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_yesterday_cost:
+      name: ESPHome - Yesterday Cost
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_today_energy:
+      name: ESPHome - Today Energy
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_today_cost:
+      name: ESPHome - Today Cost
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_count_kwh_cost:
+      name: ESPHome - Count kWh Cost
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    esphome_realtime_hour_cost:
+      name: ESPHome - Realtime Hour Cost
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
 trigger:
   - platform: state
     entity_id: !input source_entity
   - platform: homeassistant
     event: start
+
 condition:
   - condition: or
     conditions:
@@ -28,13 +80,58 @@ condition:
         value_template: "{{ trigger.platform == 'homeassistant' }}"
       - condition: template
         value_template: "{{ trigger.to_state.state != trigger.from_state.state }}"
+
 action:
   - variables:
       source_entity: !input source_entity
+
+  # Update ESPHome Numbers
   - service: number.set_value
     target:
-      entity_id: !input esphome_number
+      entity_id: !input esphome_total_energy
     data:
       value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_total_cost
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_yesterday_energy
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_yesterday_cost
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_today_energy
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_today_cost
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_count_kwh_cost
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_realtime_hour_cost
+    data:
+      value: "{{ states(source_entity) | float(-999999) }}"
+
 mode: single
-          
