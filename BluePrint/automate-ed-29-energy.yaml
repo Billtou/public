@@ -1,103 +1,111 @@
 blueprint:
-  name: ED-29 Energy to ESPHome 2.9inch Display
-  description: Map Home Assistant energy/cost entities to ESPHome number entities for ED-29 display
+  name: ED-29 Energy to ESPHome 2.9inch Display (Dynamic Mapping)
+  description: Map Home Assistant energy/cost entities to ESPHome number entities for ED-29 display (optional inputs supported)
   domain: automation
   input:
     source_total_energy:
       name: Source - Total Energy Use
       selector:
         entity: {}
-
+      default: ""
     esphome_total_energy:
-      name: ESPHome - Total Energy Ues
+      name: ESPHome - Total Energy Use
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_total_cost:
-      name: Source - Total  Energy Cost
+      name: Source - Total Energy Cost
       selector:
         entity: {}
-
+      default: ""
     esphome_total_cost:
-      name: ESPHome - Total  Energy Cost
+      name: ESPHome - Total Energy Cost
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_yesterday_energy:
       name: Source - Yesterday Energy Use
       selector:
         entity: {}
-
+      default: ""
     esphome_yesterday_energy:
       name: ESPHome - Yesterday Energy Use
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_yesterday_cost:
       name: Source - Yesterday Energy Cost
       selector:
         entity: {}
-
+      default: ""
     esphome_yesterday_cost:
       name: ESPHome - Yesterday Energy Cost
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_today_energy:
       name: Source - Today Energy Use
       selector:
         entity: {}
-
+      default: ""
     esphome_today_energy:
       name: ESPHome - Today Energy Use
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_today_cost:
       name: Source - Today Energy Cost
       selector:
         entity: {}
-
+      default: ""
     esphome_today_cost:
       name: ESPHome - Today Energy Cost
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_count_kwh_cost:
       name: Source - Count kWh Cost
       selector:
         entity: {}
-
+      default: ""
     esphome_count_kwh_cost:
       name: ESPHome - Count kWh Cost
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
     source_realtime_hour_cost:
       name: Source - Realtime Hour Cost
       selector:
         entity: {}
-
+      default: ""
     esphome_realtime_hour_cost:
       name: ESPHome - Realtime Hour Cost
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
 trigger:
   - platform: state
@@ -110,74 +118,41 @@ trigger:
       - !input source_today_cost
       - !input source_count_kwh_cost
       - !input source_realtime_hour_cost
+    for: "00:00:01"
   - platform: homeassistant
     event: start
 
 variables:
-  source_total_energy: !input source_total_energy
-  source_total_cost: !input source_total_cost
-  source_yesterday_energy: !input source_yesterday_energy
-  source_yesterday_cost: !input source_yesterday_cost
-  source_today_energy: !input source_today_energy
-  source_today_cost: !input source_today_cost
-  source_count_kwh_cost: !input source_count_kwh_cost
-  source_realtime_hour_cost: !input source_realtime_hour_cost
+  mappings:
+    - source: !input source_total_energy
+      target: !input esphome_total_energy
+    - source: !input source_total_cost
+      target: !input esphome_total_cost
+    - source: !input source_yesterday_energy
+      target: !input esphome_yesterday_energy
+    - source: !input source_yesterday_cost
+      target: !input esphome_yesterday_cost
+    - source: !input source_today_energy
+      target: !input esphome_today_energy
+    - source: !input source_today_cost
+      target: !input esphome_today_cost
+    - source: !input source_count_kwh_cost
+      target: !input esphome_count_kwh_cost
+    - source: !input source_realtime_hour_cost
+      target: !input esphome_realtime_hour_cost
 
 action:
-  # Total Energy
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_total_energy
-    data:
-      value: "{{ states(source_total_energy) | float(-999999) | round(2)}}"
-
-  # Total Cost
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_total_cost
-    data:
-      value: "{{ states(source_total_cost) | float(-999999) | round(2)}}"
-
-  # Yesterday Energy
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_yesterday_energy
-    data:
-      value: "{{ states(source_yesterday_energy) | float(-999999)| round(2)}}"
-
-  # Yesterday Cost
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_yesterday_cost
-    data:
-      value: "{{ states(source_yesterday_cost) | float(-999999)| round(2) }}"
-
-  # Today Energy
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_today_energy
-    data:
-      value: "{{ states(source_today_energy) | float(-999999) | round(2)}}"
-
-  # Today Cost
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_today_cost
-    data:
-      value: "{{ states(source_today_cost) | float(-999999) | round(2)}}"
-
-  # Count kWh Cost
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_count_kwh_cost
-    data:
-      value: "{{ states(source_count_kwh_cost) | float(-999999)| round(2) }}"
-
-  # Realtime Hour Cost
-  - service: number.set_value
-    target:
-      entity_id: !input esphome_realtime_hour_cost
-    data:
-      value: "{{ states(source_realtime_hour_cost) | float(-999999) | round(2)}}"
+  - repeat:
+      for_each: "{{ mappings }}"
+      sequence:
+        - if:
+            - condition: template
+              value_template: "{{ repeat.item.source != '' and repeat.item.target != '' }}"
+          then:
+            - service: number.set_value
+              target:
+                entity_id: "{{ repeat.item.target }}"
+              data:
+                value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
 
 mode: single
