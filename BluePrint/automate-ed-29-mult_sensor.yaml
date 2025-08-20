@@ -1,1 +1,99 @@
-readme
+blueprint:
+  name: ED-29 Mult Sensor to ESPHome 2.9inch Display
+  description: Map Home Assistant energy/cost entities to ESPHome number entities for ED-29 display
+  domain: automation
+  input:
+    source_temperature:
+      name: Source - Temperature
+      selector:
+        entity: {}
+
+    esphome_temperature:
+      name: ESPHome - Temperature
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    source_humidity:
+      name: Source - Humidity
+      selector:
+        entity: {}
+
+    esphome_humidity:
+      name: ESPHome - Humidity
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    source_co2:
+      name: Source - Co2
+      selector:
+        entity: {}
+
+    esphome_co2:
+      name: ESPHome - Co2
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+    source_pm25:
+      name: Source - PM2.5
+      selector:
+        entity: {}
+
+    esphome_pm25:
+      name: ESPHome - PM2.5
+      selector:
+        entity:
+          domain: number
+          integration: esphome
+
+trigger:
+  - platform: state
+    entity_id:
+      - !input source_temperature
+      - !input source_humidity
+      - !input source_co2
+      - !input source_pm25
+  - platform: homeassistant
+    event: start
+
+variables:
+  source_temperature: !input source_temperature
+  source_humidity: !input source_humidity
+  source_co2: !input source_co2
+  source_pm25: !input source_pm25
+action:
+  # temperature
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_temperature
+    data:
+      value: "{{ states(source_temperature) | float(-999999) | round(2)}}"
+
+  #humidity
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_humidity
+    data:
+      value: "{{ states(source_humidity) | float(-999999) | round(2)}}"
+
+  # co2
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_co2
+    data:
+      value: "{{ states(source_co2) | float(-999999)| round(2)}}"
+
+  # pm25
+  - service: number.set_value
+    target:
+      entity_id: !input esphome_pm25
+    data:
+      value: "{{ states(source_pm25) | float(-999999)| round(2) }}"
+
+
+mode: single
