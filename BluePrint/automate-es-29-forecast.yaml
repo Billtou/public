@@ -1,145 +1,66 @@
 blueprint:
   name: ED-29 Forecast to ESPHome 2.9inch Display
-  description: Map Home Assistant forecast entities to ESPHome entities for ED-29 display (optional inputs supported)
+  description: Map Home Assistant forecast entities to ESPHome entities for ED-29 display (supports number & text domains)
   domain: automation
   input:
-    source_feels_link_temperature:
-      name: Source - Feels Link Temperature
+    source_feels_like_temperature:
+      name: Source - Feels Like Temperature
       selector:
         entity: {}
       default: ""
-    esphome_total_energy:
-      name: ESPHome - Feels Link Temperature
+    esphome_feels_like_temperature:
+      name: ESPHome - Feels Like Temperature
       selector:
         entity:
           domain: number
           integration: esphome
       default: ""
 
-    source_total_cost:
-      name: Source - Total Energy Cost
+    source_weather_condition:
+      name: Source - Weather Condition
       selector:
         entity: {}
       default: ""
-    esphome_total_cost:
-      name: ESPHome - Total Energy Cost
+    esphome_weather_condition:
+      name: ESPHome - Weather Condition
       selector:
         entity:
-          domain: number
+          domain: text
           integration: esphome
       default: ""
 
-    source_yesterday_energy:
-      name: Source - Yesterday Energy Use
+    source_weather_tw_condition:
+      name: Source - Weather TW Condition
       selector:
         entity: {}
       default: ""
-    esphome_yesterday_energy:
-      name: ESPHome - Yesterday Energy Use
+    esphome_weather_tw_condition:
+      name: ESPHome - Weather TW Condition
       selector:
         entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_yesterday_cost:
-      name: Source - Yesterday Energy Cost
-      selector:
-        entity: {}
-      default: ""
-    esphome_yesterday_cost:
-      name: ESPHome - Yesterday Energy Cost
-      selector:
-        entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_today_energy:
-      name: Source - Today Energy Use
-      selector:
-        entity: {}
-      default: ""
-    esphome_today_energy:
-      name: ESPHome - Today Energy Use
-      selector:
-        entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_today_cost:
-      name: Source - Today Energy Cost
-      selector:
-        entity: {}
-      default: ""
-    esphome_today_cost:
-      name: ESPHome - Today Energy Cost
-      selector:
-        entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_count_kwh_cost:
-      name: Source - Count kWh Cost
-      selector:
-        entity: {}
-      default: ""
-    esphome_count_kwh_cost:
-      name: ESPHome - Count kWh Cost
-      selector:
-        entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_realtime_hour_cost:
-      name: Source - Realtime Hour Cost
-      selector:
-        entity: {}
-      default: ""
-    esphome_realtime_hour_cost:
-      name: ESPHome - Realtime Hour Cost
-      selector:
-        entity:
-          domain: number
+          domain: text
           integration: esphome
       default: ""
 
 trigger:
   - platform: state
     entity_id:
-      - !input source_total_energy
-      - !input source_total_cost
-      - !input source_yesterday_energy
-      - !input source_yesterday_cost
-      - !input source_today_energy
-      - !input source_today_cost
-      - !input source_count_kwh_cost
-      - !input source_realtime_hour_cost
+      - !input source_feels_like_temperature
+      - !input source_weather_condition
+      - !input source_weather_tw_condition
     for: "00:00:01"
+
   - platform: homeassistant
     event: start
 
 variables:
   mappings:
-    - source: !input source_total_energy
-      target: !input esphome_total_energy
-    - source: !input source_total_cost
-      target: !input esphome_total_cost
-    - source: !input source_yesterday_energy
-      target: !input esphome_yesterday_energy
-    - source: !input source_yesterday_cost
-      target: !input esphome_yesterday_cost
-    - source: !input source_today_energy
-      target: !input esphome_today_energy
-    - source: !input source_today_cost
-      target: !input esphome_today_cost
-    - source: !input source_count_kwh_cost
-      target: !input esphome_count_kwh_cost
-    - source: !input source_realtime_hour_cost
-      target: !input esphome_realtime_hour_cost
+    - source: !input source_feels_like_temperature
+      target: !input esphome_feels_like_temperature
+    - source: !input source_weather_condition
+      target: !input esphome_weather_condition
+    - source: !input source_weather_tw_condition
+      target: !input esphome_weather_tw_condition
 
 action:
   - repeat:
@@ -149,10 +70,27 @@ action:
             - condition: template
               value_template: "{{ repeat.item.source != '' and repeat.item.target != '' }}"
           then:
-            - service: number.set_value
-              target:
-                entity_id: "{{ repeat.item.target }}"
-              data:
-                value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
+            - choose:
+                # 如果目標是 number
+                - conditions:
+                    - condition: template
+                      value_template: "{{ repeat.item.target.startswith('number.') }}"
+                  sequence:
+                    - service: number.set_value
+                      target:
+                        entity_id: "{{ repeat.item.target }}"
+                      data:
+                        value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
+
+                # 如果目標是 text
+                - conditions:
+                    - condition: template
+                      value_template: "{{ repeat.item.target.startswith('text.') }}"
+                  sequence:
+                    - service: text.set_value
+                      target:
+                        entity_id: "{{ repeat.item.target }}"
+                      data:
+                        value: "{{ states(repeat.item.source) | string }}"
 
 mode: single
