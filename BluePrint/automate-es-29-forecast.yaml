@@ -53,6 +53,10 @@ trigger:
   - platform: homeassistant
     event: start
 
+  # 每 10 分鐘觸發一次
+  - platform: time_pattern
+    minutes: "/10"
+
 variables:
   mappings:
     - source: !input source_feels_like_temperature
