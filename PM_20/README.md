@@ -56,7 +56,7 @@ PM_20/image/S__49905668_2.JPG
 
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
-*PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
+*PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若是每月須重置(2、3段式計費)選'Every_Month'*
 
 ## 備註
 
