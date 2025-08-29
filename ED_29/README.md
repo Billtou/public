@@ -4,7 +4,7 @@
 
 
 ## 簡易日曆與氣象預報
-[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Billtou/public/blob/main/BluePrint/automate-es-29-forecast.yaml)
+[![Import氣象預報 Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Billtou/public/blob/main/BluePrint/automate-es-29-forecast.yaml)
 
 ![081733](/ED_29/image/B8AD097F.jpg)
 
