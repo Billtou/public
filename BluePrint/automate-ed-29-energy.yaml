@@ -3,31 +3,32 @@ blueprint:
   description: Map Home Assistant energy/cost entities to ESPHome number entities for ED-29 display (optional inputs supported)
   domain: automation
   input:
-    source_total_energy:
-      name: Source - Total Energy Use
+    source_today_energy:
+      name: Source - Today Energy Use
       selector:
         entity: {}
       default: ""
-    esphome_total_energy:
-      name: ESPHome - Total Energy Use
+    esphome_today_energy:
+      name: ESPHome - Today Energy Use
       selector:
         entity:
           domain: number
           integration: esphome
       default: ""
 
-    source_total_cost:
-      name: Source - Total Energy Cost
+    source_today_cost:
+      name: Source - Today Energy Cost
       selector:
         entity: {}
       default: ""
-    esphome_total_cost:
-      name: ESPHome - Total Energy Cost
+    esphome_today_cost:
+      name: ESPHome - Today Energy Cost
       selector:
         entity:
           domain: number
           integration: esphome
       default: ""
+
 
     source_yesterday_energy:
       name: Source - Yesterday Energy Use
@@ -53,28 +54,27 @@ blueprint:
         entity:
           domain: number
           integration: esphome
-      default: ""
-
-    source_today_energy:
-      name: Source - Today Energy Use
+      default: ""      
+    source_total_energy:
+      name: Source - Total Energy Use
       selector:
         entity: {}
       default: ""
-    esphome_today_energy:
-      name: ESPHome - Today Energy Use
+    esphome_total_energy:
+      name: ESPHome - Total Energy Use
       selector:
         entity:
           domain: number
           integration: esphome
       default: ""
 
-    source_today_cost:
-      name: Source - Today Energy Cost
+    source_total_cost:
+      name: Source - Total Energy Cost
       selector:
         entity: {}
       default: ""
-    esphome_today_cost:
-      name: ESPHome - Today Energy Cost
+    esphome_total_cost:
+      name: ESPHome - Total Energy Cost
       selector:
         entity:
           domain: number
