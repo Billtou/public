@@ -24,6 +24,7 @@
     
     ---
     #-----------使用方法-------------------
+    #  
     #  將下列的entity id 改為自己的id
     #
     #  sensor.entrance_powermeter_power_monitor_energy   >   改成自家的總耗電 kWh ID
