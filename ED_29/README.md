@@ -1,4 +1,7 @@
-# 2.9" 電子紙範本
+# 2.9" 電子紙箱對應的藍圖簡易使用說明
+
+![081733](/ED_29/image/enger_12.JPG)
+
 
 ## 簡易日曆與氣象預報
 [![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Billtou/public/blob/main/BluePrint/automate-es-29-forecast.yaml)
