@@ -9,3 +9,6 @@ https://github.com/Billtou/public/tree/main/ED_29/forecast
 https://github.com/Billtou/public/tree/main/ED_29/multi_sensor
 
 ![081733](/ED_29/image/834866CA.jpg)
+
+
+[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/yourname/yourrepo/main/blueprints/automation/my_blueprint.yaml)
