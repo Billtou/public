@@ -1,5 +1,5 @@
 # AUTOMATE PM-20_v2
-![Mosquitto_broker](/PM_20/image/S__51159045-3.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/S__51159045-3.JPG)
 # 接入自家網路(WIFI)
 ## -  上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 # 接入自家網路(網線)
