@@ -5,12 +5,12 @@
 # 接入自家網路(網線)
 ## -  上電插上網線即可。
 # 匯流排式電箱介紹
-![Mosquitto_broker](/PM_20/image/image10.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/image10.JPG)
 # 一般式電箱介紹
-![Mosquitto_broker](/PM_20/image/a_15.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/a_15.JPG)
 ## 1 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
 
-   ![Mosquitto_broker](/PM_20/image/S__51159045-2.JPG)
+   ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__51159045-2.JPG)
    
 ## 2.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
 
@@ -19,7 +19,7 @@
 ## 3.賦予本設備能自動雙月份歸零功能
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
-![Mosquitto_broker](/PM_20/image/S__49905668_2.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/S__49905668_2.JPG)
 PM_20/image/S__49905668_2.JPG
 ## 4.接入HA步驟 (前置作業)
 
