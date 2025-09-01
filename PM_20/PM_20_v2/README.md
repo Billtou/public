@@ -8,13 +8,13 @@
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/image10.JPG)
 # 一般式電箱介紹
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a_15.JPG)
-## 1 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
+## 1.接線說明(ch1-L,N 與ch2-L各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上，建議左邊接紅色110V，右邊裝黑色)
 
    ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__51159045-2.JPG)
    
 ## 2.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
 
-# 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
+### - 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
 ## 3.賦予本設備能自動雙月份歸零功能
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__49905668_2.JPG)
