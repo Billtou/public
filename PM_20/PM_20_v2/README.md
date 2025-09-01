@@ -17,8 +17,6 @@
 # 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
 ## 3.賦予本設備能自動雙月份歸零功能
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__49905668_2.JPG)
 PM_20/image/S__49905668_2.JPG
 ## 4.接入HA步驟 (前置作業)
