@@ -182,10 +182,10 @@ template:
             {{ (energy * cost_per_kwh) | round(0) }}
           {% elif energy < 330 %}
             {{ ((energy - 120) * cost_per_kwh + 201.6) | round(0) }}
-          {% elif energy < 550 and is_summer %}
+          {% elif energy < 500 and is_summer %}
             {{ ((energy - 330) * cost_per_kwh + 716.1) | round(0) }}
           {% elif energy < 700 and is_summer %}
-            {{ ((energy - 550) * cost_per_kwh + 1530.1) | round(0) }}
+            {{ ((energy - 500) * cost_per_kwh + 1530.1) | round(0) }}
           {% elif energy < 1000 and is_summer %}
             {{ ((energy - 700) * cost_per_kwh + 2286.1) | round(0) }}
           {% elif energy >= 1000 and is_summer %}
