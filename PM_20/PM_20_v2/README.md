@@ -28,7 +28,7 @@
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_44.JPG)
 
  * 依據步驟4再建立18個迴路的功耗表備用，名稱為 ct_01_energy 輸入感測器為Beraker Energy 01 依此類推，有幾個迴路CT就做幾個自訂功耗表。
- * 做完後到 開發工具 > 狀態 > 在實體篩選器輸入sensor.ct_01  應該要能看到剛剛建立的emtity才對。
+ * 做完後到 開發工具 > 狀態 > 在實體篩選器輸入sensor.ct_  應該要能看到剛剛建立的emtity才對。
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_45.JPG)
  
