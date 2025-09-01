@@ -36,7 +36,7 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
 
- * 修改entity 名稱 (改名稱就好不須改實體ID)
+ * 修改上一步驟產生的entity 名稱 (改名稱就好不須改實體ID)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
