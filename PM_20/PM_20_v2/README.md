@@ -32,7 +32,7 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_45.JPG)
  
- * 安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
+ * 安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。完成後會產生以下兩個entity其中一個entity是要餵給HA的能源表來作為獨立價格實體。
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
 
