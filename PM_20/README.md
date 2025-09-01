@@ -17,7 +17,6 @@
 
 ## 3.賦予本設備能自動雙月份歸零功能
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/155055.png)
 ![Mosquitto_broker](/PM_20/image/S__49905668_2.JPG)
 
 ## 4.接入HA步驟 (前置作業)
@@ -26,7 +25,7 @@
 
  * 輸入感測器填入(PM20為例) sensor.automate_pm_20_XXXXXX_2_way_energy_sum (entity ID視個略為別不同) 
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/151837.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/20250519_44.JPG)
 
  * 安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
 
