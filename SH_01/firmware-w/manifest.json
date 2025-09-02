@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.SH-01-ETH",
-  "version": "v2.3",
+  "version": "3",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
