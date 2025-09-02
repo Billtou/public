@@ -10,12 +10,7 @@
         "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-w/automate-sh-01-eth.ota_e.bin",
         "md5": "1581b484f52083761388ee4028f8b0dc"
       },
-      "parts": [
-        {
-          "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-w/automate-sh-01-eth.factory_e.bin",
-          "offset": 0
-        }
-      ]
+      "parts": []
     }
   ]
 }
