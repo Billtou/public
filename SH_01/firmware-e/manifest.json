@@ -12,7 +12,7 @@
       },
       "parts": [
         {
-          "path": "apollo-r-pro-1-eth-esp32s3.factory.bin",
+          "path": "automate-sh-01-eth.factory_e.bin",
           "offset": 0
         }
       ]
