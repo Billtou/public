@@ -3,6 +3,8 @@
   "version": "3",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
+  "changelog": "修正網路連線，改善穩定性。",
+  "documentation": "https://github.com/Billtou/public/tree/main/SH_01",  
   "builds": [
     {
       "chipFamily": "ESP32-S3",
