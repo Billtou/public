@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.PM-20W",
-  "version": "v3.2 bate",
+  "version": "v3.0 bate",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
