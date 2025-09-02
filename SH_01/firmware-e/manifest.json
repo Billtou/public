@@ -9,7 +9,6 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-e/automate-sh-01-eth.ota.bin",
         "md5": "375f266fc93731bf3371c264c01e983f"
-        "summary": "修正網路連線，改善穩定性,https://github.com/Billtou/public/tree/main/SH_01"
       }
     }
   ]
