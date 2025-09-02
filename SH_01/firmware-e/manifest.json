@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-e/automate-sh-01-eth.ota.bin",
-        "md5": "03d2aa07074eedf4a32ca97d710d8894"
+        "md5": "375f266fc93731bf3371c264c01e983f"
       }
     }
   ]
