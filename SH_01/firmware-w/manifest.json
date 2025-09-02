@@ -1,1 +1,21 @@
-readme.me
+{
+  "name": "AUTOMATE.SH-01-ETH",
+  "version": "v2.1",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "automate-sh-01-eth.ota_w.bin",
+        "md5": "31148248f8853aa633085794c1fd1fd6"
+      },
+      "parts": [
+        {
+          "path": "automate-sh-01-eth.factory_w.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
