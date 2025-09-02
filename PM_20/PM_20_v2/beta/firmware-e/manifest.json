@@ -1,14 +1,14 @@
 {
-  "name": "AUTOMATE.PM-20W",
-  "version": "3.1bate",
+  "name": "AUTOMATE.PM-20E",
+  "version": "v3.1bate",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-e/automate-sh-01-eth.ota.bin",
-        "md5": "db892c74aec8c7e42fb208904c38739b"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/SH_01/firmware-w/automate-sh-01-w.ota.bin",
+        "md5": "91ae784e24c25d56dc4f284dee1eb347"
       }
     }
   ]
