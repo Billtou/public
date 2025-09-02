@@ -27,7 +27,7 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_44.JPG)
 
- * 依據步驟4再建立18個迴路的功耗表備用，名稱為 ct_01_energy 輸入感測器為Beraker Energy 01 依此類推，有幾個迴路CT就做幾個自訂功耗表。
+## 5. 依據步驟4再建立18個迴路的功耗表備用，名稱為 ct_01_energy 輸入感測器為Beraker Energy 01 依此類推，有幾個迴路CT就做幾個自訂功耗表。
  * 做完後到 開發工具 > 狀態 > 在實體篩選器輸入sensor.ct_  應該要能看到剛剛建立的emtity才對。
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_45.JPG)
@@ -40,15 +40,15 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
 
-## 5.接入HA的能源儀表板 建議方法1 *推薦* (entity ID視個別產品略為別不同)
+## 6.接入HA的能源儀表板 建議方法1 *推薦* (entity ID視個別產品略為別不同)
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_46.JPG)
 
-## 6.接入HA的能源儀表板 建議方法2(entity ID視個別產品略為別不同)
+## 7.接入HA的能源儀表板 建議方法2(entity ID視個別產品略為別不同)
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/20250519_47.JPG)
 
-## 7.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
+## 8.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
 
 * 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 
