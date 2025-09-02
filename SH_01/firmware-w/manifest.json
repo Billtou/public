@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "automate-sh-01-eth.ota_w.bin",
-        "md5": "31148248f8853aa633085794c1fd1fd6"
+        "md5": "953fc37680a3a6fcda6eef99c58885db"
       },
       "parts": [
         {
