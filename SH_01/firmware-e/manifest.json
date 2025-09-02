@@ -1,1 +1,22 @@
 readme
+{
+  "name": "AUTOMATE.SH-01-ETH",
+  "version": "v2.1",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "apollo-r-pro-1-eth-esp32s3.ota.bin",
+        "md5": "31148248f8853aa633085794c1fd1fd6"
+      },
+      "parts": [
+        {
+          "path": "apollo-r-pro-1-eth-esp32s3.factory.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
