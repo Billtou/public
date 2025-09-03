@@ -1,0 +1,15 @@
+{
+  "name": "AUTOMATE.PM-02W",
+  "version": "v3.10 beta",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-w/automate-pm-02w.ota_v3.0.bin",
+        "md5": "e2f32880aa3786e210024dc9132e8b0c"
+      }
+    }
+  ]
+}
