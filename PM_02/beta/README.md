@@ -10,19 +10,20 @@
 ### 3. 所有線路都連接完成接入HA之後，最後最後才鉤CT鉤環 (順序不對會有高頻聲音)
 ![Mosquitto_broker](/PM_02/image/p45.JPG)
 *若不熟悉水電方面，建議諮詢專業水電師傅*
-# 導入HA裡面的entity運用介紹
+### 4. 導入HA裡面的entity運用介紹
 ![Mosquitto_broker](/PM_02/image/p48.JPG)
 ![Mosquitto_broker](/PM_02/image/p47.JPG)
 
-### 設定HA能源面板
+### 5. 設定HA能源面板
 
 設定  >  儀錶板  > 能源  依序填入必要entity即可。
 
 ![Mosquitto_broker](/PM_02/image/p49.JPG)
 
-## 計費週期歸零
+## 附件 計費週期歸零
 
 手動歸零。
+
 ![Mosquitto_broker](/wt32_electricity/image/110341.png)
 
 ## 設備自帶自動化計費週期歸零 
