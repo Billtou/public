@@ -34,7 +34,7 @@
 
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
-*PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若每月要更新選 "" (2、3階段計價模式適用)*
+*PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)*
 
 * 目前台電一般民眾計費表
 
