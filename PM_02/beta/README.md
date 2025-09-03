@@ -25,28 +25,16 @@
 手動歸零。
 ![Mosquitto_broker](/wt32_electricity/image/110341.png)
 
-## 設備自帶自動化計費週期歸零 (bate)
+## 設備自帶自動化計費週期歸零 
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
-
 ![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
 
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
-** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
 
 ![Mosquitto_broker](/wt32_electricity/image/114753.png)
 
-*PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，其餘不變*
-## 附錄A ，做一個可以即時計算每小時電費的sensor
-
-    template:
-      - sensor:
-          - name: hour_power_cost
-            unique_id: 1f3bfe9e-8042-46a5-9ce5-f1a9fd197ec4
-            state: "{{((states.sensor.wt32_electricity_2_way_power.state|float)/1000 *(states.sensor.sensor_wt32_electricity_2_way_energy_kwh_cost.state|float))|round(1)}}"
-            unit_of_measurement: "$"
-
-## 附錄B.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
+*PM-02已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若每月要更新選 "" (2、3階段計價模式適用)*
 
 * 目前台電一般民眾計費表
 
@@ -57,19 +45,3 @@
 
 參考來源 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
 
-
-## energy_template.yaml檔案說明
-
-* 建議檔案放在 HA 資料夾中的\config\packages\
-
-## HA重開機會產生以下sensor entity
-
- sensor.taipower_energy  手動建立 "功耗表" 實體
- 
- sensor.ct_01 ~ 18_energy  手動建立10路CT "功耗表" 實體
- 
- sensor.count_kwh_cost  每度電累進電價單價
- 
- sensor.count_power_cost 計費區間累計電費
- 
- sensor.realtime_hour_cost 即時每小時用電費預估
