@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.PM-02W",
-  "version": "v3.10 beta",
+  "version": "v1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
