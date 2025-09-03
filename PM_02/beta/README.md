@@ -11,7 +11,7 @@
 ![Mosquitto_broker](/PM_02/image/p45.JPG)
 *若不熟悉水電方面，建議諮詢專業水電師傅*
 # 導入HA裡面的entity運用介紹
-![Mosquitto_broker](/PM_02/image/p46.JPG)
+![Mosquitto_broker](/PM_02/image/p48.JPG)
 ![Mosquitto_broker](/PM_02/image/p47.JPG)
 
 ### 設定HA能源面板
