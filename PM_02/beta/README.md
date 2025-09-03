@@ -19,7 +19,6 @@
 設定  >  儀錶板  > 能源  依序填入必要entity即可。
 
 ![Mosquitto_broker](/PM_02/image/p49.JPG)
-![Mosquitto_broker](/wt32_electricity/image/214521.png)
 
 ## 計費週期歸零
 
