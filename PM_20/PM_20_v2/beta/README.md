@@ -43,7 +43,7 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
 
-## 設備自帶自動化計費週期歸零 
+## 8. 設備自帶自動化計費週期歸零 
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 ![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
 
@@ -52,7 +52,7 @@
 * 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
   
 ![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
-## 7. 切換聯網方式
+## 9. 切換聯網方式
 * 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引導接入自家Wifi即可。
 
 ### 備註:
