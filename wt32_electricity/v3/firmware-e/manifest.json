@@ -1,11 +1,11 @@
 {
-  "name": "AUTOMATE.PM-20E",
-  "version": "v3.10 beta",
+  "name": "AUTOMATE.Electricity-Meter",
+  "version": "3.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
-      "chipFamily": "ESP32-S3",
+      "chipFamily": "ESP32",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-e/automate-pm-02e.ota_v3.0.bin",
         "md5": "40aaad94ffd87d7a5b7da9dbcf8814d3"
