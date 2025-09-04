@@ -29,7 +29,9 @@
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
 ## 6. 設定HA能源面板-裝置
 * 接入18個迴路，其他個別裝置(例如s31能耗插頭)必須指定其中一個迴路為父裝置
-![Mosquitto_broker](/PM_20/PM_20_v2/image/p944.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機迴路.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
+
 ## 7. 實體說明
 * (瀏覽器輸入ip位置即可顯示本頁面)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a1.JPG)
