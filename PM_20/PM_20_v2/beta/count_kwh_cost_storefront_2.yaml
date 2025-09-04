@@ -1,6 +1,6 @@
+# 二段式時間電價每度用電成本
 template:
   - sensor:
-      # 二段式時間電價每度用電成本
       - name: "count_kwh_cost_storefront_2"
         unique_id: 6f06b6bf-8434-4812-8cd4-464296ed7e9b
         state: >
