@@ -42,7 +42,7 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
 
-* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)
+* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
   
 ![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
 ## 7. 切換聯網方式
