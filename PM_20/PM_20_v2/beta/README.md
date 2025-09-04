@@ -32,8 +32,7 @@
 * 接入18個迴路，其他個別裝置(例如s31能耗插頭)必須指定其中一個迴路為上游以避免重複計算能耗
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機迴路.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
-* 搭配台電計價週期設定方式
-![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
+
 ## 7. 實體說明
 * (瀏覽器輸入ip位置即可顯示本頁面)
   
@@ -43,6 +42,9 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
 
+* 搭配台電計價週期設定方式
+  
+![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
 ## 7. 切換聯網方式
 * 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引導接入自家Wifi即可。
 
