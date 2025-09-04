@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.WL-01",
-  "version": "1.1",
+  "version": "1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "release_url": "https://github.com/Billtou/public/tree/main/WL_01",
