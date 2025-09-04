@@ -40,14 +40,14 @@
 *奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)*
 ### 備註:
  * 針對營業用電2段式或3段式計價模式請自行將 count_kwh_cost_storefront_2.yaml 或 count_kwh_cost_storefront_2.yaml 複製到HA的 \config\packages 裡面，若沒有請自行建立並將以下程序碼新增於configuration.yaml檔案中然後重新載入yaml或重開機生效。在設備後台歸零的選單請選擇每月，然後依據上述程序 5.設定HA能源面板-電網把單價改成新生成的計價單位id即可。
-     
-  homeassistant:
-    packages: !include_dir_named packages
-    customize_domain:
-      automation:
-        initial_state: true
-    allowlist_external_dirs:
-      - /config
+
+          homeassistant:
+          packages: !include_dir_named packages
+          customize_domain:
+           automation:
+             initial_state: true
+          allowlist_external_dirs:
+           - /config
     
 
 
