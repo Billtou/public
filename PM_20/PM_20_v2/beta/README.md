@@ -21,10 +21,9 @@
 ## 3.賦予本設備能自動雙月份歸零功能
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__49905668_2.JPG)
 
-## 4. 在HA建立迴路18個CT的功耗表(有幾個小CT就做幾個)
+## 4. 在HA建立18個迴路CT的功耗表(有幾個小CT就做幾個)
 * 設定 > 裝置與服務 > 輔助工具 > 新增輔助工具 > 功耗表 ，名稱為 ct_01_energy 輸入感測器為Beraker Energy 01 依此類推，有幾個迴路CT就做幾個自訂功耗表。
 * 做完後到 開發工具 > 狀態 > 在實體篩選器輸入sensor.ct_  應該要能看到剛剛建立的emtity才對。
-
   
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p943.JPG)
 
