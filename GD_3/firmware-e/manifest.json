@@ -1,0 +1,15 @@
+{
+  "name": "AUTOMATE.GD-3(Ethernet)",
+  "version": "2.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.3.bin",
+        "md5": "bc2714df8a163c1974b4b3c5830c2a89"
+      }
+    }
+  ]
+}
