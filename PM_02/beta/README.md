@@ -1,4 +1,4 @@
-# AUTOMATE PM-02 v3.0 beta 2路入戶總電力
+# AUTOMATE PM-02 v3.0 beta 2路入戶總電力(不需要安裝Taipower插件的版本)
 ## . 接入自家網路(WIFI)
 ### 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## . 接入自家網路(網線)
