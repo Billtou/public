@@ -34,12 +34,14 @@
 ## 6. 設定HA能源面板-裝置
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p944.JPG)
 
-## 7. 實體說明
+## 7. 實體說明(瀏覽器輸入ip位置即可顯示本頁面)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a1.JPG)
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a2.JPG)
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
 
+## 7. 切換聯網方式
+* 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引道接入自家Wifi即可。
 
 
