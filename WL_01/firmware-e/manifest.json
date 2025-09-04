@@ -3,6 +3,8 @@
   "version": "1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
+  "release_url": "https://github.com/Billtou/public/tree/main/WL_01",
+  "notes": "更新前請先確認已備份，避免資料遺失",  
   "builds": [
     {
       "chipFamily": "ESP32-S3",
