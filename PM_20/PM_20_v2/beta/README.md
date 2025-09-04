@@ -28,7 +28,7 @@
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p943.JPG)
 
 ## 5. 設定HA能源面板
-* 0設定  >  儀錶板  > 能源  依序填入必要entity即可。
+* 設定  >  儀錶板  > 能源  依序填入必要entity即可。
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
 
