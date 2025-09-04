@@ -40,5 +40,3 @@
 *奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)*
 
 * 目前台電一般民眾計費表
-
-![Mosquitto_broker](/PM_02/image/104933.png)
