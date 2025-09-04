@@ -45,4 +45,16 @@
 ## 7. 切換聯網方式
 * 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引導接入自家Wifi即可。
 
+### 備註:
+* 手動製作18個CT功耗表餵給HA能源面板中的個別裝置的方法。
+* 將 energy_template.yaml 複製到HA的 \config\packages 裡面，若沒有自行建立並將以下程序碼新增於configuration.yaml檔案中
+  
+      homeassistant:
+        packages: !include_dir_named packages
+        customize_domain:
+          automation:
+            initial_state: true
+        allowlist_external_dirs:
+          - /config
+
 
