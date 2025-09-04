@@ -1,5 +1,4 @@
-
-      # 三段式時間電價每度用電成本
+# 三段式時間電價每度用電成本
 template:
   - sensor:      
       - name: "count_kwh_cost_storefront_3"
