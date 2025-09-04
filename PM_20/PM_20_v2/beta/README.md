@@ -1,7 +1,7 @@
 # v3.0 beta 版新增內容(不需要安裝Taipower插件的版本)
 * 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
 
-![Mosquitto_broker](/PM_20/PM_20_v2/image/S__51159045-3.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/重置紐.jpg)
 # 接入自家網路(WIFI)
 * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 # 接入自家網路(網線)
