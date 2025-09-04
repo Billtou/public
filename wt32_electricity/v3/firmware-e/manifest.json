@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-e/automate-pm-02e.ota_v3.0.bin",
-        "md5": "40aaad94ffd87d7a5b7da9dbcf8814d3"
+        "path": "https://github.com/Billtou/public/raw/main/wt32_electricity/v3/firmware-e/electricity-meter.ota_e_3.0.bin",
+        "md5": "e31fcdea9981b6234887b0c6d168615f"
       }
     }
   ]
