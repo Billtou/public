@@ -34,10 +34,11 @@
 ## 6. 設定HA能源面板-裝置
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p944.JPG)
 
-
+## 7. 實體說明
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a1.JPG)
+
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a2.JPG)
-![Mosquitto_broker](/PM_20/PM_20_v2/image/a3.JPG)
+
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
 
 
