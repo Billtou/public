@@ -1,0 +1,15 @@
+{
+  "name": "AUTOMATE.LT-LITE",
+  "version": "2.3",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_PRO/firmware-w/automate-lt-pro.ota_w_2.1.bin",
+        "md5": "3e0275b3ed5e291d1c4e27486d7b21f1"
+      }
+    }
+  ]
+}
