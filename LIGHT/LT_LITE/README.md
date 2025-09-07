@@ -1,1 +1,1 @@
-readme
+此版本將取消tiapower插件以及在ha設置的ct_01~18_的功能
