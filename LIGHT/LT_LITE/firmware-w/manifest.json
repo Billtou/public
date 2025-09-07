@@ -7,7 +7,7 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_LITE/firmware-w/automate-lt-lite.ota_w_2.3.bin",
+        "path": "https://github.com/Billtou/public/raw/main/LIGHT/LT_LITE/firmware-w/automate-lt-lite.ota_w_2.01.bin",
         "md5": "3e0275b3ed5e291d1c4e27486d7b21f1",
       }
     }
