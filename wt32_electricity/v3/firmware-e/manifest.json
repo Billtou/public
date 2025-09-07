@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/wt32_electricity/v3/firmware-e/electricity-meter.ota_e_3.0.bin",
-        "md5": "c4b32d0373b85a5919ecbbc659f81115"
+        "md5": "e38e4a68d4dce701bdf39f6f8e809f2a"
       }
     }
   ]
