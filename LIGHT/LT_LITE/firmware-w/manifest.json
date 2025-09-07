@@ -9,6 +9,8 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_PRO/firmware-w/automate-lt-pro.ota_w_2.1.bin",
         "md5": "3e0275b3ed5e291d1c4e27486d7b21f1"
+        "release_url": "http://example.com/releases/10",
+        "summary": "Another update",
       }
     }
   ]
