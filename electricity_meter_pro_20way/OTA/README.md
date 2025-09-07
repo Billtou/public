@@ -1,7 +1,7 @@
 # 線上OTA檔案
 ### 2025/09/77 Update
 - 取代tiapower插件功能，自帶HA能源中的電網所需的entity。
-
+![Mosquitto_broker](/electricity_meter_pro_20way/p123.png)
 ### 2025/03/14 update
 - 2路加總與20路sensor時間同步為20秒一次更新。
 - electricitymeter-pro.ota_WIFI_v2025.3.14.bin
