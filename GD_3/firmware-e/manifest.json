@@ -1,13 +1,13 @@
 {
   "name": "AUTOMATE.GD-3(Ethernet)",
-  "version": "2.0",
+  "version": "3.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3-441e8c.ota_e_2.0.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3-441e8c.ota_e_3.0.bin",
         "md5": "2dcceb1a7754ccdfb32d83bb7652ead8"
       }
     }
