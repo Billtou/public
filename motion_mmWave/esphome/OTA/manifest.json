@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.4btea.bin",
-        "md5": "28708551b9ca1f12ed460755b77240de"
+        "path": "https://github.com/Billtou/public/blob/main/motion_mmWave/esphome/OTA/motionone.ota_3.0.bin",
+        "md5": "ef6dbad360150bc1b1951b353dc4d0a9"
       }
     }
   ]
