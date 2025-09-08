@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/motion_mmWave/esphome/OTA/motionone.ota_3.0.bin",
-        "md5": "ea6c032fbfe5d764ca3ff0433a3f70b5"
+        "md5": "147da14c52ca96c36774a94f28ef3ff9"
       }
     }
   ]
