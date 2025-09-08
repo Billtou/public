@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.Electricity-Meter",
-  "version": "3.0",
+  "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/wt32_electricity/v3/firmware-w/electricity-meter.ota_w_3.0.bin",
-        "md5": "1cad365e03a64610e5a5a1d102f30b64"
+        "md5": "42e6f18cd0ad1b62a90be69741a26da4"
       }
     }
   ]
