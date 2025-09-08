@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_2.0.bin",
-        "md5": "b284a58aab206ac99c974d5dcacc4b26"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.0.bin",
+        "md5": "64f8cdb64af99eabd20d796812289a36"
       }
     }
   ]
