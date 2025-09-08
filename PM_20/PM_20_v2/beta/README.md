@@ -1,5 +1,6 @@
-# V3.4 beta 版新增內容(不需要在HA 自建功耗表，全部能源面板所需的entity id 都由本版本堤供)
-
+# V3.4 beta 版新增內容
+- 不需要在HA 自建功耗表，全部能源面板所需的entity id 都由本版本堤供
+- 3.0 beta說明步驟3.與4.省略，由本版本直接取代
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-1.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-2.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-3.JPG)
