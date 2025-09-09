@@ -1,13 +1,13 @@
 {
   "name": "AUTOMATE.PM-20(WiFi)",
-  "version": "3.5 beta",
+  "version": "3.6 beta",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.5beta.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.6beta.bin",
         "md5": "c8d814ef5542fd0568bb8d61934877ac"
       }
     }
