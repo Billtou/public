@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WP_475/375/firmware-w/automate-wp-375.ota_w_3.0.bin",
-        "md5": "f876c549dd1ad7a0982e33835700ae70"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WP_475/475/firmware-w/automate-wp-475.ota_w_3.0.bin",
+        "md5": "af92d623474eac85a2519508f6de2a99"
       }
     }
   ]
