@@ -61,13 +61,13 @@
  * 在設備後台歸零的選單請選擇每月，然後依據上述程序 "5.設定HA能源面板-電網把單價改成新生成的計價單位id即可"
 
   
-      homeassistant:
-        packages: !include_dir_named packages
-        customize_domain:
-          automation:
-            initial_state: true
-        allowlist_external_dirs:
-          - /config
-  
+         homeassistant:
+           packages: !include_dir_named packages
+           customize_domain:
+             automation:
+               initial_state: true
+           allowlist_external_dirs:
+             - /config
+
 
 
