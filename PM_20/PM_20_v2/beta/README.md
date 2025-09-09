@@ -3,13 +3,6 @@
 # V3.4 beta 版新增內容
 * 不需要在HA 自建功耗表，全部能源面板所需的entity id 都由本版本堤供
 * 3.0 beta說明步驟3.與4.省略，由本版本直接取代
- 
-![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-1.JPG)
-
-![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-2.JPG)
-
-![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-3.JPG)
-
 # v3.0 beta 版新增內容(不需要安裝Taipower插件的版本)
 * 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
 
@@ -30,13 +23,8 @@
 ## 2.設備硬體安裝順序
 * (entity ID 名稱視個別略為不同請自行調整)
 * 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
-## 3.賦予本設備能自動雙月份歸零功能
-![Mosquitto_broker](/PM_20/PM_20_v2/image/S__49905668_2.JPG)
-## 4. 在HA建立18個迴路CT的功耗表(有幾個小CT就做幾個)
-* 設定 > 裝置與服務 > 輔助工具 > 新增輔助工具 > 功耗表 ，名稱為 ct_01_energy 輸入感測器為Beraker Energy 01 依此類推，有幾個迴路CT就做幾個自訂功耗表。
-* 做完後到 開發工具 > 狀態 > 在實體篩選器輸入sensor.ct_  應該要能看到剛剛建立的emtity才對。
-* 有經驗者可參考文末備註說明，手動作出18個迴路功號表，較為快速。
-![Mosquitto_broker](/PM_20/PM_20_v2/image/p946.JPG)
+
+
 ## 5. 設定HA能源面板架構-電網
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
 * 設定  >  儀錶板  > 能源  依序填入必要entity即可。
@@ -48,12 +36,12 @@
 
 ## 7. 實體說明
 * (瀏覽器輸入ip位置即可顯示本頁面)
-  
-![Mosquitto_broker](/PM_20/PM_20_v2/image/a1.JPG)
+   
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-1.JPG)
 
-![Mosquitto_broker](/PM_20/PM_20_v2/image/a2.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-2.JPG)
 
-![Mosquitto_broker](/PM_20/PM_20_v2/image/a4.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-3.JPG)
 
 ## 8. 設備自帶自動化計費週期歸零 
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
