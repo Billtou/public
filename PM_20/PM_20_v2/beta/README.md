@@ -25,14 +25,13 @@
 * (entity ID 名稱視個別略為不同請自行調整)
 * 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
-
 ## 5. 設定HA能源面板架構-電網
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
 * 設定  >  儀錶板  > 能源  依序填入必要entity即可。
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
 ## 6. 設定HA能源面板-個別裝置
 * 接入18個迴路，末端個別裝置(例如s31能耗插頭)必須指定其中一個迴路為上游以避免重複計算能耗
-![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機迴路.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/bk-02.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
 
 ## 7. 實體說明
