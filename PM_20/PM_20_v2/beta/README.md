@@ -1,3 +1,5 @@
+# V3.6 beta 版新增內容
+* 修正累計用電 kWh entity 無法清零問題。(按清零後須等待數個每隔20秒更新一次的過程才會全數歸零)
 # V3.5 beta 版新增內容
 * 修正 entity last_reset error 的問題
 # V3.4 beta 版新增內容
