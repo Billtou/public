@@ -1,3 +1,5 @@
+# V3.5 beta 版新增內容
+* 修正 entity last_reset error 的問題
 # V3.4 beta 版新增內容
 * 不需要在HA 自建功耗表，全部能源面板所需的entity id 都由本版本堤供
 * 3.0 beta說明步驟3.與4.省略，由本版本直接取代
