@@ -1,8 +1,12 @@
 # 線上OTA檔案
-### 2025/09/77 Update
+### 2025/09/7 Update
 - 取代tiapower插件功能，自帶HA能源中的電網所需的entity。
 - 本固件適配黑色20Pin端口的產品
-- 
+  
+  electricitymeter-pro.ota_e_3.0.bin 網線版本
+  
+  electricitymeter-pro.ota_w_3.0.bin  WIFI 版本
+  
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/p123.jpg)
 
 ### 2025/03/14 update
