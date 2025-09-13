@@ -7,8 +7,13 @@
 ## V 3.0 Update
 * 新增任一按鍵 短按=開關電燈， 長按5秒=重開機，長按10秒=重置(會清除wifi記憶)
 * 新增可設置持續wifi斷網秒數後自動重啟。
-  
+* 
+![Mosquitto_broker](/wall_switch/image/161734.jpg)
+
+![Mosquitto_broker](/wall_switch/image/165741.jpg)  
+
 ## 如何接線 零火開關 影片
+
 [![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=lUK7gXcIuBD8snV8)
 
 
@@ -29,9 +34,7 @@
 應用場景4: 閒置按鍵作為觸發場景的功能，建議解藕，透過HA的自動化觸發自訂義場景，建議解藕。 
 
 
-![Mosquitto_broker](/wall_switch/image/161734.jpg)
 
-![Mosquitto_broker](/wall_switch/image/165741.jpg)
 
 ![Mosquitto_broker](/wall_switch/image/121825.png)
 
