@@ -1,4 +1,4 @@
-# MOER Wall Switch 接入自家WIFI
+# Wall Switch 接入自家WIFI
 
 ## 設備上電等待1-2分鐘手機搜尋熱點wall-switch-cbu-x-xxxxxx 會跳出wifi引導頁面，輸入後按 "SAVE" 後約 5-10 秒請 "斷電重開機" 即可，連上網路後HA就會自動發現 
 ## 若沒跳出跳出wifi引導頁面，手機切換到瀏覽器，輸入192.168.4.1即可依上面步驟繼續。
