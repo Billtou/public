@@ -10,3 +10,6 @@
 
 ![Mosquitto_broker](/wall_switch/image/moer_switch_2.JPG)  
 ![Mosquitto_broker](/wall_switch/image/moer_switch_1.JPG)
+
+## 如何接線 零火開關 影片
+[![Watch the video](/wall_switch/image/161206.png)](https://youtu.be/nIwzP0SKw_I?si=lUK7gXcIuBD8snV8)
