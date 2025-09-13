@@ -31,9 +31,6 @@
 
 應用場景4: 閒置按鍵作為觸發場景的功能，建議解藕，透過HA的自動化觸發自訂義場景，建議解藕。 
 
-
-![Mosquitto_broker](/wall_switch/image/121825.png)
-
 ## 自動化提醒
 
 若模組接智能燈需解藕，後期透過HA自動化來做該關燈，注意觸發條件要選正確的觸發條件如下圖。
@@ -41,3 +38,7 @@
 ![Mosquitto_broker](/module_switch/image/213942.png)
 
 ![Mosquitto_broker](/module_switch/image/214028.png)
+
+## IP頁面功能說明
+
+![Mosquitto_broker](/wall_switch/image/moer_switch_6.JPG)
