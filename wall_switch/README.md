@@ -37,7 +37,7 @@
 
 
 
-![Mosquitto_broker](/wall_switch/image/121825.png)
+![Mosquitto_broker](/wall_switch/image/moer_switch_6.JPG)
 
 ## 自動化提醒
 
