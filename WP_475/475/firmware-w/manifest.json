@@ -1,5 +1,5 @@
 {
-  "name": "AUTOMATE.WP-475",
+  "name": "AUTOMATE.WP-475(wifi)",
   "version": "3.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
