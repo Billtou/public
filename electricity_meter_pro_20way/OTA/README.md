@@ -10,20 +10,20 @@
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/p123.jpg)
 
 
-## 2.設備硬體安裝順序
+## 1.設備硬體安裝順序
 * (entity ID 名稱視個別略為不同請自行調整)
 * 請先將電源接上並連接網路後，CT訊號線先接好插入設備接口，最後最後再依序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
-## 5. 設定HA能源面板架構-電網
+## 2. 設定HA能源面板架構-電網
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
 * 設定  >  儀錶板  > 能源  依序填入必要entity即可。
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
-## 6. 設定HA能源面板-個別裝置
+## 3. 設定HA能源面板-個別裝置
 * 接入18個迴路，末端個別裝置(例如s31能耗插頭)必須指定其中一個迴路為上游以避免重複計算能耗
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/bk-03.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
 
-## 7. 實體說明
+## 4. 實體說明
 * (瀏覽器輸入ip位置即可顯示本頁面)
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/pro-2.JPG)
