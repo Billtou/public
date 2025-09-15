@@ -11,9 +11,9 @@
 
 * 新增的實體說明
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/pro-1.JPG)
-
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/pro-2.JPG)
+
+![Mosquitto_broker](/electricity_meter_pro_20way/image/pro-1.JPG)
 
 ### 2025/03/14 update
 - 2路加總與20路sensor時間同步為20秒一次更新。
