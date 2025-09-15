@@ -1,0 +1,58 @@
+# Electricity Meter v3.0 使用說明
+
+## 接線方式示意圖
+![Mosquitto_broker](/wt32_electricity/image/213920.png)
+** 若不熟悉水電方面，建議諮詢專業水電師傅**
+
+首先打開家裡台電入戶電箱，會有很多的通斷器(俗稱"不累尬")通常體積最大上面數字最大的就是入戶總開關，(橫式排列通常在左側，新款直式排列在最上方)先把所有的線先接好並固定好設備最後再將兩個CT鉤環分別確實勾住即可(壓緊扣環確實扣住)。設備必續接網路線以及供電，紅線接L，白線接N。最後理一下線路盡量靠兩旁用束線帶固定即可。
+
+** 所有線路都連接完成後，最後最後才鉤CT鉤環 **
+
+![Mosquitto_broker](/wt32_electricity/image/103927.png)
+
+## HA裡面的運用介紹
+### 接入HA網線版
+網路線若是通的(網路口綠橘指示燈有亮)HA就會自動發現；設定 > 裝置與服務 > 會自動出現一個Electricity Meter XXXXXX 的 ESPHome接入點，按下設定指定空間位置即可接入HA。
+### 接入HA WIFI版
+上電手機靠近本設備找wifi熱點 Electricity Meter xxxxxx，指定自家wifi名稱與密碼(若沒跳出輸入自家wifi畫面，手機切換到瀏覽器輸入192.168.4.1即可)(要稍微等待一下wifi熱點才會出現)
+
+### 安裝 計算電費整合插件
+前置作業，先安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定  > 裝置與服務  > 新增整合  >   搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
+
+![Mosquitto_broker](/wt32_electricity/image/214920.png)
+
+### 修改entity 名稱 (改名稱就好不須改實體ID)
+
+進入TaiPower Bimonthly Energy Cost 插件會有2個實體，建議改成"電費單價" 以及 "累計費用" 方便辨識。
+
+![Mosquitto_broker](/wt32_electricity/image/112313.png)
+
+### 設定HA能源面板
+
+### 4. 導入HA裡面的entity運用介紹
+![Mosquitto_broker](/PM_02/image/p48.JPG)
+![Mosquitto_broker](/PM_02/image/p47.JPG)
+## 計費週期歸零
+
+## 設備自帶自動化計費週期歸零 
+一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
+![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
+
+
+可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
+** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
+** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
+
+*奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)*
+### 備註:
+ * 針對營業用電2段式或3段式計價模式請自行將 count_kwh_cost_storefront_2.yaml 或 count_kwh_cost_storefront_2.yaml 複製到HA的 \config\packages 裡面，若沒有請自行建立並將以下程序碼新增於configuration.yaml檔案中然後重新載入yaml或重開機生效。在設備後台歸零的選單請選擇每月，然後依據上述程序 5.設定HA能源面板-電網把單價改成新生成的計價單位id即可。
+
+## 附錄，做一個可以即時計算每小時電費的sensor
+
+          homeassistant:
+          packages: !include_dir_named packages
+          customize_domain:
+           automation:
+             initial_state: true
+          allowlist_external_dirs:
+           - /config
