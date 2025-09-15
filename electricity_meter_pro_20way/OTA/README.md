@@ -30,6 +30,13 @@
 
 ![Mosquitto_broker](/electricity_meter_pro_20way/image/pro-1.JPG)
 
+## 5. 設備自帶自動化計費週期歸零 
+一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
+![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
+
+可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
+** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
+* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
 ### 2025/03/14 update
 - 2路加總與20路sensor時間同步為20秒一次更新。
 - electricitymeter-pro.ota_WIFI_v2025.3.14.bin
