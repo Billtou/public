@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.GD-3(WiFi)",
-  "version": "2.0",
+  "version": "3.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "release_url": "https://github.com/Billtou/public/blob/main/GD_3/README.md",
