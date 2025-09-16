@@ -8,7 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01/firmware-w/automate-wl-01.ota_w_1.4.bin",
-        "md5": "40cb6a4b96967b7e8824379b0bcfb90c"
+        "md5": "40cb6a4b96967b7e8824379b0bcfb90c",
+        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/WL_01/README.md)"
       }
     }
   ]
