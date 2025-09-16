@@ -9,7 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01/firmware-e/automate-wl-01.ota_e_1.4.bin",
         "md5": "c6eead81a3d50e5e9e9346e262fdc1a1",
-        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/WL_01/README.md)\n\n### 2025-09-15 1.4 固件更新內容\n* Water Status 狀態顯示 : 默認首次刷機或版更為 auto，斷電重開機自動切換到自動模式。"  
+        "summary": "[詳情見說明網頁](https://github.com/Billtou/public/blob/main/WL_01/README.md)\n\n### 2025-09-15 1.4 固件更新內容\n* Water Status 狀態顯示 : 默認首次刷機或版更為 auto，斷電重開機自動切換到自動模式。"  
       }
     }
   ]
