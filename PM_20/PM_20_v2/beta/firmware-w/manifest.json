@@ -8,7 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.6beta.bin",
-        "md5": "aa523bc1d642822dea87d835c321300c"
+        "md5": "aa523bc1d642822dea87d835c321300c",
+        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
       }
     }
   ]
