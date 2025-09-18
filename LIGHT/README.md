@@ -1,3 +1,3 @@
 # Homekkit版本說明
 
-homekit.JPG
+![重置](/image/homekit.JPG)
