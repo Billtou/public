@@ -17,4 +17,6 @@
 ### autospace接法.JPG
 ![autospace接法](image/autospace接法.JPG)
 
-
+### Homekit 自適應燈光設置
+* 依據日出日落時間燈光會隨著太陽角度自動變換色溫以及亮度的自動化機制。
+![自適應](image/自適應.JPG)
