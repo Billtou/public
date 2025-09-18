@@ -31,4 +31,4 @@
 ### HA 自適應燈光設置
 請安裝HA的自適應燈光插件，並按說明設置即可。
 
-[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=basnijholt&repository=adaptive-lighting&category=integration)
+[![OPEN HACS REPOSITORY ON MY](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=basnijholt&repository=adaptive-lighting&category=integration)
