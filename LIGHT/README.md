@@ -27,3 +27,7 @@
 * 輸入 IP:8080 即可進入設置頁面
 
 ![自適應](image/自適應頁面1.JPG)
+
+### HA 自適應燈光設置
+請安裝HA的自適應燈光插件，並按說明設置即可。
+[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=basnijholt&repository=adaptive-lighting&category=integration)
