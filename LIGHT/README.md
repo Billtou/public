@@ -5,10 +5,10 @@
 ### HA版本
  * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-lt-Pro-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ### HK版本* 
- * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-lo-01-xxxxxx，會自動跳出指定自家wifi與密碼，再掃描QRcodec或輸入11188999接入Apple Home。
+ * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-lo-01-xxxxxx，會自動跳出指定自家wifi與密碼，再輸入11188999接入Apple Home。
  * HK版本 要設置自適應燈光參數，請路由器找尋該設備被分配的IP位置，在瀏覽器輸入  "網址:8080" 例如 192.168.8.20:8080 即可。
-   
-![QR-code](image/LO-01-qrcode.JPG)
+# 11188999   
+
 ### 燈具規劃
 ![一般接法](image/燈具規劃.JPG)
 ### 一般接法
