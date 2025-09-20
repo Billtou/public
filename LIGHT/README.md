@@ -8,7 +8,7 @@
  * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-lo-01-xxxxxx，會自動跳出指定自家wifi與密碼，再輸入11188999接入Apple Home。
  * HK版本 要設置自適應燈光參數，請路由器找尋該設備被分配的IP位置，在瀏覽器輸入  "網址:8080" 例如 192.168.8.20:8080 即可。
 # HomeKit code 11188999   
-![homekit貼紙](image/lightbulb_11188999.png)
+![homekit貼紙](image/lightbulb_11188999_33.png)
 ### 燈具規劃
 ![一般接法](image/燈具規劃.JPG)
 ### 一般接法
