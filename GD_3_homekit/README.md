@@ -7,7 +7,8 @@
 ## -  上電插上網線即可。
 ### 注意: 系統開機會先搜尋網線30秒，找不到網線才會跳出AP這時即可接入WIFI，若已接入wifi但要切換為網線連接，請接入網線後依上述 "重置設備方式" 清除wifi即可。
 # 1.3 Apple home掃描QR-Code接入蘋果家庭app 或輸入引導號碼 11188999 即可。
-![homekit_QR_code](GD_3_homekit/image/GD03.png)
+![homekit_QR_code](/GD_3_homekit/image/GD03.png)
+
 # 安裝位置示意圖
 ![081733](/GD_3/image/20250519_10.JPG)
 
