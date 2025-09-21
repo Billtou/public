@@ -34,10 +34,12 @@
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
 ** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
+* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
+  
+![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
+## 9. 切換聯網方式
+* 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引導接入自家Wifi即可。
 
-![Mosquitto_broker](/wt32_electricity/image/114753.png)
-
-*已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若是每月須重置(2、3段式計費)選'Every_Month'*
 ### 備註:
  * 針對營業用電2段式或3段式計價模式請自行將 count_kwh_cost_storefront_2.yaml 或 count_kwh_cost_storefront_2.yaml 複製到HA的 \config\packages 裡面，若沒有請自行建立並將以下程序碼新增於configuration.yaml檔案中然後重新載入yaml或重開機生效。在設備後台歸零的選單請選擇每月，然後依據上述程序 5.設定HA能源面板-電網把單價改成新生成的計價單位id即可。
 
