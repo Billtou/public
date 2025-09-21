@@ -1,0 +1,16 @@
+{
+  "name": "AUTOMATE.LT3(CCT)",
+  "version": "1.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_LITE/firmware-w/automate-lt-lite.ota_w_2.01.bin",
+        "md5": "8f19389e06b6e3b3b8bdf742d3cc2ac4",
+        "summary": "Another update"
+      }
+    }
+  ]
+}
