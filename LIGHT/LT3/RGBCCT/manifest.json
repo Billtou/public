@@ -7,7 +7,7 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_LITE/firmware-w/automate-lt-lite.ota_w_2.01.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT3/RGBCCT/manifest.json",
         "md5": "8f19389e06b6e3b3b8bdf742d3cc2ac4",
         "summary": "Another update"
       }
