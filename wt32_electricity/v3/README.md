@@ -1,4 +1,4 @@
-# Electricity Meter v3.0 使用說明
+# Electricity Meter v3.x 使用說明
 
 * 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
 ## . 接入自家網路(WIFI)
