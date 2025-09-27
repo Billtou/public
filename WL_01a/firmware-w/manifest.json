@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01/firmware-w/automate-wl-01.ota_w_1.4.1a.bin",
-        "md5": "0d3ae906c2fb6b2a5fa1fe7e35085b26",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01a/firmware-w/automate-wl-01.ota_w_1.4.1a.bin",
+        "md5": "7c95ebd639ccc9595923c02fe319ac30",
         "summary": "[詳情見說明網頁](https://github.com/Billtou/public/blob/main/WL_01/README.md)\n\n### 2025-09-15 1.4.1a 固件更新內容\n* 🐞 修正 1.4 buge。"
       }
     }
