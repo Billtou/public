@@ -7,7 +7,7 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01/firmware-e/automate-wl-01.ota_e_1.4.1a.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01a/firmware-e/automate-wl-01.ota_e_1.4.1a.bin",
         "md5": "278f4b8e9bf566317f5ff6afbc4ac3a8",
         "summary": "[詳情見說明網頁](https://github.com/Billtou/public/blob/main/WL_01/README.md)\n\n### 2025-09-15 1.4.1a 固件更新內容\n* 🐞 修正 1.4 bug。"
       }
