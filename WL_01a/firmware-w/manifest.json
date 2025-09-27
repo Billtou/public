@@ -1,5 +1,5 @@
 {
-  "name": "AUTOMATE.WL-01(Wifi)",
+  "name": "AUTOMATE.WL-01a(Wifi)",
   "version": "1.4.1a",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,   
