@@ -52,10 +52,9 @@
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
 ** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
-
-![Mosquitto_broker](/wt32_electricity/image/114753.png) 
-
-*PM-20已將奇數月改為"Odd_Months" 偶數月改為 "Even_Months"，若是每月須重置(2、3段式計費)選'Every_Month'*
+* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
+  
+![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
 
 ## 備註
 
