@@ -1,108 +1,75 @@
-# AUTOMATE PM-20d
-# 接入自家網路(WIFI)
-## -  上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
-# 接入自家網路(網線)
-## -  上電插上網線即可。
-# 匯流排式電箱介紹
-![Mosquitto_broker](/PM_20/image/image10.JPG)
-# 一般式電箱介紹
-![Mosquitto_broker](/PM_20/image/a_15.JPG)
-## 1 接線說明(ch1-L,N 與ch2-L,N各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上)
+# V3.6 beta 版新增內容
+* 修正累計用電 kWh entity 無法清零問題。(按清零後須等待數個每隔20秒更新一次的過程才會全數歸零)
+# V3.5 beta 版新增內容
+* 修正 entity last_reset error 的問題
+# V3.4 beta 版新增內容
+* 不需要在HA 自建功耗表，全部能源面板所需的entity id 都由本版本堤供
+* 3.0 beta說明步驟3.與4.省略，由本版本直接取代
+# v3.0 beta 版新增內容
+* 不需要安裝Taipower插件的版本
+* 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
 
-   ![Mosquitto_broker](/PM_20/image/a_16.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/重置紐.jpg)
+## 接入自家網路(WIFI)
+* 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
+## 接入自家網路(網線)
+* 上電插上網線即可。
+## 匯流排式電箱介紹
+![Mosquitto_broker](/PM_20/PM_20_v2/image/image10.JPG)
+## 一般式電箱介紹
+![Mosquitto_broker](/PM_20/PM_20_v2/image/a_15.JPG)
+## 1.接線說明
+* (ch1-L,N 與ch2-L各接在兩邊匯流排110V NFB 上，別裝在220V的NFB上，建議左邊接紅色110V，右邊裝黑色)
+
+   ![Mosquitto_broker](/PM_20/PM_20_v2/image/S__51159045-3.JPG)
    
-## 2.設備硬體安裝順序(entity ID 名稱視個別略為不同請自行調整)
+## 2.設備硬體安裝順序
+* (entity ID 名稱視個別略為不同請自行調整)
+* 請先將電源接上並連接網路後，CT訊號線先接好插入設備接口，最後最後再依序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
-# 請先將電源接上並連接網路後，CT線路先接好插入設備接口，最後再依順序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
+## 5. 設定HA能源面板架構-電網
+![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
+* 設定  >  儀錶板  > 能源  依序填入必要entity即可。(正確的id名稱請見下方7. 實體說明 篇)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
+## 6. 設定HA能源面板-個別裝置
+* 接入18個迴路，末端個別裝置(例如s31能耗插頭)必須指定其中一個迴路為上游以避免重複計算能耗
+![Mosquitto_broker](/PM_20/PM_20_v2/image/bk-03.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
 
-## 3.賦予本設備能自動雙月份歸零功能
+## 7. 實體說明
+* (瀏覽器輸入ip位置即可顯示本頁面)
+   
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-1.JPG)
 
-![Mosquitto_broker](/PM_20/image/S__49905668_2.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-2.JPG)
 
-## 4.接入HA步驟 (前置作業)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/3.04-3.JPG)
 
- * 在HA建立一個入戶總功耗表  設定 >  裝置與服務  >  輔助工具  >  新增輔助工具 >  功耗表 ； 名稱填入 taipower_energy (名字要一樣否則無法自動化歸零)
-
- * 輸入感測器填入(PM20為例) sensor.automate_pm_20_XXXXXX_2_way_energy_sum (entity ID視個略為別不同) 
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/20250519_44.JPG)
-
- * 安裝網友撰寫的能源插件 HACS > 搜尋 Taipower 並安裝它 (HA須重開機才會生效)，然後在 設定 > 裝置與服務 > 新增整合 > 搜尋 Taipower 填入作為計算的entity以及最近一次抄表日。
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/152326.png)
-
- * 修改entity 名稱 (改名稱就好不須改實體ID)
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/153126.png)
-
-## 5.接入HA的能源儀表板 建議方法1(entity ID視個別產品略為別不同)(請見底部update訊息)
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/120153.png)
-
-## 6.接入HA的能源儀表板 建議方法2(entity ID視個別產品略為別不同)
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/115839.png)
-
-## 7.計費週期歸零(搭配Taipower整合) 自帶自動化計費週期歸零
-
-* 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
-
+## 8. 設備自帶自動化計費週期歸零 
+一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
 ![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
 
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
-** 此功能還沒經過長期間的驗證，目前是bate版本，若有發現問題或錯誤請告知修改程序碼。
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
 * 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
   
 ![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
+## 9. 切換聯網方式
+* 先選擇"聯網方式"選單，再按"版本更新" log會出現0%~100%完成後因為連網方式變更IP也會跟著變動，若原本是網線變更為WIFI導致HA找不到設備，請手機搜尋再一次引導接入自家Wifi即可。
 
-## 備註
+### 備註:
+ * 針對營業用2段式或3段式計價模式請自行將 count_kwh_cost_storefront_2.yaml 或 count_kwh_cost_storefront_2.yaml
+ * 複製到HA的 \config\packages 裡面(若沒有用過packages請自行建立並將以下程序碼新增於configuration.yaml檔案中然後重新載入yaml或重開機生效。)然後重新載入yaml或重開機生效。
+ * 在設備後台歸零的選單請選擇每月，然後依據上述程序 "5.設定HA能源面板-電網把單價改成新生成的計價單位id即可"
 
- * 本方案為2個BL0910元件組成的20路方案，本身沒有記憶歷史耗電數據的功能，若需此功能可透過HA助手中的功耗表來累計與歸零(見步驟4接入HA步驟 (前置作業))。
+  
+         homeassistant:
+           packages: !include_dir_named packages
+           customize_domain:
+             automation:
+               initial_state: true
+           allowlist_external_dirs:
+             - /config
 
- * 內建的自動化歸零是搭配兩個月一次台電的計價機制，若以建議方法1導入能源面板，請用輔助工具個別建立01~18CT功耗表，然後將他導入HA的能源面板，需要歸零的話就歸零助手即可。
-
- * 若用輔助工具建立01~18CT功耗表ID名稱建議取為sensor.ct_01_energy ~ sensor.ct_18_energy，這樣就能搭配達到2個月一期的台電計價了。
- 
- * 若熟悉yaml也可以參考energy_template.yaml檔案自己手動方式建立。
-
-
-## 附錄A ，做一個可以即時計算每小時電費的sensor
-
-    template:
-      - sensor:
-          - name: hour_power_cost
-            unique_id: 1f3bfe9e-8042-46a5-9ce5-f1a9fd197ec4
-            state: "{{((states.sensor.wt32_electricity_2_way_power.state|float)/1000 *(states.sensor.sensor_wt32_electricity_2_way_energy_kwh_cost.state|float))|round(1)}}"
-            unit_of_measurement: "$"
-
-
-## 附錄B **.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
-
-* 目前台電一般民眾計費表
-
-![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
-
-
-## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
-
-參考來源 https://github.com/cnstudio/Taipower-Bimonthly-Energy-Cost-homeassistant/blob/main/Docs/old_manual_readme.md
-
-
-## energy_template.yaml檔案說明
-
-* 建議檔案放在 HA 資料夾中的\config\packages\
-
-## HA重開機會產生以下sensor entity
-
- sensor.taipower_energy  手動建立 "功耗表" 實體
- 
- sensor.ct_01 ~ 18_energy  手動建立10路CT "功耗表" 實體
- 
- sensor.count_kwh_cost  每度電累進電價單價
- 
- sensor.count_power_cost 計費區間累計電費
- 
- sensor.realtime_hour_cost 即時每小時用電費預估
 
 
