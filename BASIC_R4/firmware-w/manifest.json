@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/BASIC_R4/firmware-w/basic-r4.ota_1.1.bin",
-        "md5": "47382b85a31f872338dcaf1be5c6f468",
+        "md5": "d22e97fd36aed5ecab1af52017b34c6f",
         "summary": "v1.1 取消 Update Button [詳情見說明網頁](https://github.com/Billtou/public/blob/main/BASIC_R4/README.md)"
       }
     }
