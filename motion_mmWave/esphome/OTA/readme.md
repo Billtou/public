@@ -1,3 +1,6 @@
+# 2025-10-10 Update 
+- 檔名 motionone.ota_3.0.bin
+- 新增線上固件更新功能
 # 2025-7-10 Update
 - 檔名  motionone.ota_v2.1.bin
 - 修改預設靈敏度名稱從1、2、3改為低、中、高。方便認知與理解。
