@@ -1,0 +1,206 @@
+globals:
+  - id: connection_type
+    type: std::string
+    restore_value: no
+    initial_value: '"Disconnected"'
+
+#-----------http_request --------OTA
+button:
+  - platform: restart
+    id: restart_button
+    name: "Restart"
+  - platform: factory_reset
+    id: reset_all
+    name: "Restart with Factory Default Settings"
+    internal: true
+
+light:
+  - platform: status_led
+    name: "Status LED OFF"
+    id: green_led_off
+    pin: 21
+    entity_category: config
+    # disabled_by_default: False
+    # restore_mode: RESTORE_DEFAULT_OFF          
+   
+       
+switch:
+  - platform: gpio
+    name: "UP"
+    pin:
+      number: GPIO9
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_up
+    icon: mdi:menu-up-outline
+    restore_mode: ALWAYS_OFF 
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: relay_up
+
+  - platform: gpio
+    name: "DOWN"
+    pin:
+      number: GPIO10
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_down
+    icon: mdi:menu-down-outline
+    restore_mode: ALWAYS_OFF   
+    on_turn_on:
+      - switch.turn_on: laser_power_switch   
+      - delay: 500ms
+      - switch.turn_off: relay_down
+
+  - platform: gpio
+    name: "STOP"
+    pin:
+      number: GPIO11
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: relay_stop
+    icon: mdi:stop
+    restore_mode: ALWAYS_OFF     
+    on_turn_on:
+      - switch.turn_off: laser_power_switch 
+      - delay: 500ms
+      - switch.turn_off: relay_stop   
+      
+  - platform: gpio
+    name: "Laser Power"
+    pin:
+      number: GPIO5
+      inverted: True
+      # mode: INPUT_PULLUP  
+    id: laser_power_switch
+    icon: mdi:laser-pointer
+    restore_mode: ALWAYS_OFF 
+
+  - platform: template
+    name: "Emergency Stop"
+    id: emergency_stop
+    icon: mdi:car-brake-alert
+    optimistic: true
+    restore_mode: ALWAYS_OFF
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: emergency_stop   
+
+
+binary_sensor:
+  - platform: gpio
+    id: door_sensor
+    name: "Door Sensor"
+    pin:
+      number: 16
+      # inverted: true
+      mode: INPUT_PULLUP 
+    filters:
+      - delayed_on: 100ms
+      - delayed_off: 100ms          
+    on_release:
+      - switch.turn_off: laser_power_switch
+
+  - platform: gpio  #多功能按鍵
+    id: button_sensor
+    name: "Button Sensor"
+    pin:
+      number: 18
+      inverted: true
+      mode: INPUT_PULLUP            
+    internal: true
+
+    filters:
+      - delayed_on: 5ms
+      - delayed_off: 5ms
+    on_multi_click:
+      # 10 秒以上放開
+      - timing:
+          - ON for at least 10s
+          - OFF for at least 40ms
+        then:
+          - repeat:
+              count: 3
+              then:
+                - logger.log: "10 秒以上放開"
+                - light.turn_on: green_led_off
+                - delay: 300ms
+                - light.turn_off: green_led_off
+                - delay: 300ms
+
+          - delay: 2s 
+          - button.press: reset_all    
+      # 5~9 秒放開    
+      - timing:
+          - ON for at least 5s
+          - OFF for at least 40ms
+        then:
+          - repeat:
+              count: 3
+              then:
+                - logger.log: "5~9 秒放開"
+                - light.turn_on: green_led_off
+                - delay: 300ms
+                - light.turn_off: green_led_off
+                - delay: 300ms
+          - delay: 2s 
+          - button.press: restart_button              
+      # 短按：40ms ~ 250ms
+      - timing:
+          - ON for 40ms to 250ms
+          - OFF for at least 85ms
+        then:
+          - logger.log: " 短按:40ms ~ 250ms"
+          - switch.toggle: laser_power_switch
+    
+  - platform: gpio
+    id: laser_sensor_1
+    name: "Laser Sensor 1"
+    pin:
+      number: 19
+      inverted: true
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms
+
+  - platform: gpio
+    id: laser_sensor_2
+    name: "Laser Sensor 2"
+    pin:
+      number: 20
+      inverted: true
+      mode: INPUT_PULLUP
+    filters:
+      - delayed_on: 50ms
+      - delayed_off: 50ms  
+                 
+  - platform: template
+    id: laser_sensor_combined
+    lambda: |-
+      return id(laser_sensor_1).state || id(laser_sensor_2).state;
+    on_press:
+      - switch.turn_on: relay_stop
+      - switch.turn_on: emergency_stop
+
+  # - platform: status
+  #   name: "ESP Online"
+  #   id: esp_online_status
+
+cover:
+  - platform: template
+    device_class: garage
+    name: "Garage III"
+    id: template_cover1
+    lambda: |-
+      if (id(door_sensor).state) {
+        return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
+      }
+    open_action:
+      - switch.turn_on: relay_up
+    close_action:
+      - switch.turn_on: relay_down
+    stop_action:
+      - switch.turn_on: relay_stop    
