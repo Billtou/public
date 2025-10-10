@@ -1,0 +1,44 @@
+captive_portal:
+
+wifi:
+  ap: {}
+  on_connect:
+    then:
+      - lambda: |-
+          id(connection_type) = "WiFi";
+  on_disconnect:
+    then:
+      - lambda: |-
+          if (id(connection_type) == "WiFi") {
+            id(connection_type) = "Ethernet";  //# 假設 WiFi 斷線就是用 Ethernet
+          }
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"      
+      icon: "mdi:ip-outline"
+    ssid:
+      name: "SSID"
+      icon: "mdi:router-wireless"
+    mac_address:
+      name: "MAC"
+      icon: "mdi:lan"
+      
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    id: wifi_signal_db
+    update_interval: $wifi_signal_update_interval
+    internal: true
+    entity_category: "diagnostic"
+
+  - platform: copy
+    source_id: wifi_signal_db
+    icon: mdi:signal
+    name: "WiFi Signal"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "%"
+    entity_category: "diagnostic"      
+
