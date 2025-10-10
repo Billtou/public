@@ -14,6 +14,17 @@ text_sensor:+
     ip_address:
       id: eth_ip
       name: "Ethernet IP Address"
+      on_value:
+        then:
+          - lambda: |-
+              if (id(eth_ip).state != "0.0.0.0") {
+                id(connection_type) = "Ethernet";
+              } else {
+                if (id(connection_type) == "Ethernet") {
+                  id(connection_type) = "Disconnected";
+                }
+              }
     mac_address:
       name: Ethernet MAC
       icon: mdi:identifier
+
