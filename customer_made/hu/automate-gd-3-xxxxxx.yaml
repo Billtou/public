@@ -1,0 +1,30 @@
+substitutions:
+  name: automate-gd-3-xxxxxx
+  friendly_name: AUTOMATE GD-3 xxxxxx
+  project_name: "AUTOMATE.GD-3"
+  
+  project_version: "2.0" 
+  upper_devicename: "ESP32 3 relay and 3 sensor"  
+  wifi_signal_update_interval: "600s"
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
+  comment: ${upper_devicename}   
+  platformio_options:
+    board_build.flash_mode: dio   
+  name_add_mac_suffix: True
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+packages:
+  # basic_in: !include gd_3/wifi.yaml  #WIFI
+  basic_in: !include gd_3/eth.yaml   #ETH
+  code_in: !include gd_3/code.yaml  
+  boot_info: !include publice/boot_firmware_info.yaml
