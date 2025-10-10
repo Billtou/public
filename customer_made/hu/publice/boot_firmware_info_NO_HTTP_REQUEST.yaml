@@ -1,0 +1,62 @@
+esphome:
+  on_boot:
+    priority: -200
+    then:
+      - lambda: |-
+          id(project_version).publish_state("${project_version}");
+          id(build_date).publish_state(App.get_compilation_time());
+          id(device_model).publish_state("${project_name}");
+          id(esphome_version).publish_state(ESPHOME_VERSION);
+         
+ota:
+  - platform: esphome
+    id: ota_esphome
+  - platform: web_server
+    id: web_server_managed
+#   - platform: http_request
+#     id: ota_managed
+
+logger:
+    
+api:
+  reboot_timeout: 0s
+ 
+web_server:
+  port: 80
+  version: 3
+  sorting_groups:
+    - id: firmware_group
+      name: Firmware Info  
+
+text_sensor:
+  - platform: template
+    id: project_version
+    name: "Firmware - Version"
+    update_interval: never
+    web_server:
+      sorting_group_id: firmware_group
+      sorting_weight: 10
+
+  - platform: template
+    id: build_date
+    name: "Firmware - Build Date"
+    update_interval: never
+    web_server:
+      sorting_group_id: firmware_group
+      sorting_weight: 20
+
+  - platform: template
+    id: device_model
+    name: "Device Model"
+    update_interval: never
+    web_server:
+      sorting_group_id: firmware_group
+      sorting_weight: 30
+
+  - platform: template
+    id: esphome_version
+    name: "ESPHome Version"
+    update_interval: never
+    web_server:
+      sorting_group_id: firmware_group
+      sorting_weight: 40          
