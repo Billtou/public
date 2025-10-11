@@ -5,52 +5,52 @@ blueprint:
   input:
     source_temperature:
       name: Source - Temperature
-      required: true
       selector:
         entity: {}
+      default: ""
     esphome_temperature:
       name: ESPHome - Temperature
-      required: true
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
     source_humidity:
       name: Source - Humidity
-      required: false
       selector:
         entity: {}
+      default: ""
     esphome_humidity:
       name: ESPHome - Humidity
-      required: false
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
     source_co2:
       name: Source - Co2
-      required: false
       selector:
         entity: {}
+      default: ""
     esphome_co2:
       name: ESPHome - Co2
-      required: false
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
     source_pm25:
       name: Source - PM2.5
-      required: false
       selector:
         entity: {}
+      default: ""
     esphome_pm25:
       name: ESPHome - PM2.5
-      required: false
       selector:
         entity:
           domain: number
           integration: esphome
+      default: ""
 
 trigger:
   - platform: state
