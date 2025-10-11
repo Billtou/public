@@ -1,4 +1,4 @@
--blueprint:
+blueprint:
   name: ED-29 Mult Sensor to ESPHome 2.9inch Display (Dynamic Mapping)
   description: Map Home Assistant sensors to ESPHome number entities for ED-29 display
   domain: automation
