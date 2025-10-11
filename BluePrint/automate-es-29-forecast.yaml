@@ -1,5 +1,5 @@
 blueprint:
-  name: ED-29 Forecast to ESPHome 2.9inch Display
+  name: ED-29 Forecast to ESPHome 2.9inch Display (Dynamic Mapping)
   description: Map Home Assistant forecast entities to ESPHome entities for ED-29 display (supports number & text domains)
   domain: automation
   input:
@@ -9,7 +9,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_feels_like_temperature:
-      name: ESPHome - Feels Like Temperature
+      name: ED-29 ESPHome - Feels Like Temperature
       selector:
         entity:
           domain: number
@@ -22,7 +22,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_weather_condition:
-      name: ESPHome - Weather Condition
+      name: ED-29 ESPHome - Weather Condition
       selector:
         entity:
           domain: text
@@ -35,7 +35,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_weather_tw_condition:
-      name: ESPHome - Weather TW Condition
+      name: ED-29 ESPHome - Weather TW Condition
       selector:
         entity:
           domain: text
