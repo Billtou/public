@@ -9,7 +9,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_today_energy:
-      name: ESPHome - Today Energy Use
+      name: ED-29 ESPHome - Today Energy Use
       selector:
         entity:
           domain: number
@@ -22,7 +22,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_today_cost:
-      name: ESPHome - Today Energy Cost
+      name: ED-29 ESPHome - Today Energy Cost
       selector:
         entity:
           domain: number
@@ -36,7 +36,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_yesterday_energy:
-      name: ESPHome - Yesterday Energy Use
+      name: ED-29 ESPHome - Yesterday Energy Use
       selector:
         entity:
           domain: number
@@ -49,7 +49,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_yesterday_cost:
-      name: ESPHome - Yesterday Energy Cost
+      name: ED-29 ESPHome - Yesterday Energy Cost
       selector:
         entity:
           domain: number
@@ -61,7 +61,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_total_energy:
-      name: ESPHome - Total Energy Use
+      name: ED-29 ESPHome - Total Energy Use
       selector:
         entity:
           domain: number
@@ -74,7 +74,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_total_cost:
-      name: ESPHome - Total Energy Cost
+      name: ED-29 ESPHome - Total Energy Cost
       selector:
         entity:
           domain: number
@@ -87,7 +87,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_count_kwh_cost:
-      name: ESPHome - Count kWh Cost
+      name: ED-29 ESPHome - Count kWh Cost
       selector:
         entity:
           domain: number
@@ -100,7 +100,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_realtime_hour_cost:
-      name: ESPHome - Realtime Hour Cost
+      name: ED-29 ESPHome - Realtime Hour Cost
       selector:
         entity:
           domain: number
