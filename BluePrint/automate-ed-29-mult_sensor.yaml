@@ -1,59 +1,56 @@
 blueprint:
   name: ED-29 Mult Sensor to ESPHome 2.9inch Display (Dynamic Mapping)
-  description: Map Home Assistant sensors to ESPHome number entities for ED-29 display (optional inputs supported)
+  description: Map Home Assistant sensors to ESPHome number entities for ED-29 display
   domain: automation
   input:
     source_temperature:
       name: Source - Temperature
+      required: true
       selector:
         entity: {}
-      default: ""
     esphome_temperature:
       name: ESPHome - Temperature
+      required: true
       selector:
         entity:
           domain: number
           integration: esphome
-      default: ""
-
     source_humidity:
       name: Source - Humidity
+      required: false
       selector:
         entity: {}
-      default: ""
     esphome_humidity:
       name: ESPHome - Humidity
+      required: false
       selector:
         entity:
           domain: number
           integration: esphome
-      default: ""
-
     source_co2:
       name: Source - Co2
+      required: false
       selector:
         entity: {}
-      default: ""
     esphome_co2:
       name: ESPHome - Co2
+      required: false
       selector:
         entity:
           domain: number
           integration: esphome
-      default: ""
-
     source_pm25:
       name: Source - PM2.5
+      required: false
       selector:
         entity: {}
-      default: ""
     esphome_pm25:
       name: ESPHome - PM2.5
+      required: false
       selector:
         entity:
           domain: number
           integration: esphome
-      default: ""
 
 trigger:
   - platform: state
@@ -89,6 +86,12 @@ action:
               target:
                 entity_id: "{{ repeat.item.target }}"
               data:
-                value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
+                value: >-
+                  {% set v = states(repeat.item.source) | float(none) %}
+                  {% if v is number %}
+                    {{ v | round(2) }}
+                  {% else %}
+                    {{ states(repeat.item.target) | float }}
+                  {% endif %}
 
-mode: single
+mode: restart
