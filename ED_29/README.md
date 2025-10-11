@@ -21,7 +21,7 @@
 
 ## 能耗顯示螢幕 
 
-[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Billtou/public/blob/main/BluePrint/automate-ed-29-energy.yaml)
+[![Import Blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/Billtou/public/blob/main/BluePrint/automate-ed-29-energy.yaml)
 
 ![081733](/ED_29/image/enger_1.jpg)
 
