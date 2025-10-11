@@ -1,85 +1,72 @@
+
+
 blueprint:
-  name: ED-29 Multi Sensor → ESPHome 2.9" Display (Dynamic Mapping)
-  description: >
-    將 Home Assistant 感測器數值同步到 ESPHome 數字實體（number.*），
-    用於 ED-29 電子紙顯示更新。支援溫度、濕度、CO₂、PM2.5 自動映射。
+  name: ED-29 Forecast to ESPHome 2.9inch Display (Dynamic Mapping)
+  description: Map Home Assistant forecast entities to ESPHome entities for ED-29 display (supports number & text domains)
   domain: automation
-  author: 比爾
-  source_url: https://github.com/Billtou/public/blob/main/BluePrint/automate-es-29-forecast.yaml
   input:
-    source_temperature:
-      name: Source - Temperature
+    source_feels_like_temperature:
+      name: Source - Feels Like Temperature
       selector:
         entity: {}
       default: ""
-    esphome_temperature:
-      name: ESPHome - Temperature
+    esphome_feels_like_temperature:
+      name: ED-29 ESPHome - Feels Like Temperature
       selector:
         entity:
           domain: number
           integration: esphome
       default: ""
 
-    source_humidity:
-      name: Source - Humidity
+    source_weather_condition:
+      name: Source - Weather Condition
       selector:
         entity: {}
       default: ""
-    esphome_humidity:
-      name: ESPHome - Humidity
+    esphome_weather_condition:
+      name: ED-29 ESPHome - Weather Condition
       selector:
         entity:
-          domain: number
+          domain: text
           integration: esphome
       default: ""
 
-    source_co2:
-      name: Source - CO₂
+    source_weather_tw_condition:
+      name: Source - Weather TW Condition
       selector:
         entity: {}
       default: ""
-    esphome_co2:
-      name: ESPHome - CO₂
+    esphome_weather_tw_condition:
+      name: ED-29 ESPHome - Weather TW Condition
       selector:
         entity:
-          domain: number
-          integration: esphome
-      default: ""
-
-    source_pm25:
-      name: Source - PM2.5
-      selector:
-        entity: {}
-      default: ""
-    esphome_pm25:
-      name: ESPHome - PM2.5
-      selector:
-        entity:
-          domain: number
+          domain: text
           integration: esphome
       default: ""
 
 trigger:
   - platform: state
     entity_id:
-      - !input source_temperature
-      - !input source_humidity
-      - !input source_co2
-      - !input source_pm25
+      - !input source_feels_like_temperature
+      - !input source_weather_condition
+      - !input source_weather_tw_condition
     for: "00:00:01"
+
   - platform: homeassistant
     event: start
 
+  # 每 10 分鐘觸發一次
+  - platform: time_pattern
+    minutes: "/10"
+
 variables:
   mappings:
-    - source: !input source_temperature
-      target: !input esphome_temperature
-    - source: !input source_humidity
-      target: !input esphome_humidity
-    - source: !input source_co2
-      target: !input esphome_co2
-    - source: !input source_pm25
-      target: !input esphome_pm25
+    - source: !input source_feels_like_temperature
+      target: !input esphome_feels_like_temperature
+    - source: !input source_weather_condition
+      target: !input esphome_weather_condition
+    - source: !input source_weather_tw_condition
+      target: !input esphome_weather_tw_condition
 
 action:
   - repeat:
@@ -89,119 +76,27 @@ action:
             - condition: template
               value_template: "{{ repeat.item.source != '' and repeat.item.target != '' }}"
           then:
-            - service: number.set_value
-              target:
-                entity_id: "{{ repeat.item.target }}"
-              data:
-                value: >-
-                  {% set v = states(repeat.item.source) | float(none) %}
-                  {% if v is number %}
-                    {{ v | round(2) }}
-                  {% else %}
-                    {{ states(repeat.item.target) | float }}
-                  {% endif %}
+            - choose:
+                # 如果目標是 number
+                - conditions:
+                    - condition: template
+                      value_template: "{{ repeat.item.target.startswith('number.') }}"
+                  sequence:
+                    - service: number.set_value
+                      target:
+                        entity_id: "{{ repeat.item.target }}"
+                      data:
+                        value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
 
-mode: restart
+                # 如果目標是 text
+                - conditions:
+                    - condition: template
+                      value_template: "{{ repeat.item.target.startswith('text.') }}"
+                  sequence:
+                    - service: text.set_value
+                      target:
+                        entity_id: "{{ repeat.item.target }}"
+                      data:
+                        value: "{{ states(repeat.item.source) | string }}"
 
-
-
-# blueprint:
-#   name: ED-29 Forecast to ESPHome 2.9inch Display (Dynamic Mapping)
-#   description: Map Home Assistant forecast entities to ESPHome entities for ED-29 display (supports number & text domains)
-#   domain: automation
-#   input:
-#     source_feels_like_temperature:
-#       name: Source - Feels Like Temperature
-#       selector:
-#         entity: {}
-#       default: ""
-#     esphome_feels_like_temperature:
-#       name: ED-29 ESPHome - Feels Like Temperature
-#       selector:
-#         entity:
-#           domain: number
-#           integration: esphome
-#       default: ""
-
-#     source_weather_condition:
-#       name: Source - Weather Condition
-#       selector:
-#         entity: {}
-#       default: ""
-#     esphome_weather_condition:
-#       name: ED-29 ESPHome - Weather Condition
-#       selector:
-#         entity:
-#           domain: text
-#           integration: esphome
-#       default: ""
-
-#     source_weather_tw_condition:
-#       name: Source - Weather TW Condition
-#       selector:
-#         entity: {}
-#       default: ""
-#     esphome_weather_tw_condition:
-#       name: ED-29 ESPHome - Weather TW Condition
-#       selector:
-#         entity:
-#           domain: text
-#           integration: esphome
-#       default: ""
-
-# trigger:
-#   - platform: state
-#     entity_id:
-#       - !input source_feels_like_temperature
-#       - !input source_weather_condition
-#       - !input source_weather_tw_condition
-#     for: "00:00:01"
-
-#   - platform: homeassistant
-#     event: start
-
-#   # 每 10 分鐘觸發一次
-#   - platform: time_pattern
-#     minutes: "/10"
-
-# variables:
-#   mappings:
-#     - source: !input source_feels_like_temperature
-#       target: !input esphome_feels_like_temperature
-#     - source: !input source_weather_condition
-#       target: !input esphome_weather_condition
-#     - source: !input source_weather_tw_condition
-#       target: !input esphome_weather_tw_condition
-
-# action:
-#   - repeat:
-#       for_each: "{{ mappings }}"
-#       sequence:
-#         - if:
-#             - condition: template
-#               value_template: "{{ repeat.item.source != '' and repeat.item.target != '' }}"
-#           then:
-#             - choose:
-#                 # 如果目標是 number
-#                 - conditions:
-#                     - condition: template
-#                       value_template: "{{ repeat.item.target.startswith('number.') }}"
-#                   sequence:
-#                     - service: number.set_value
-#                       target:
-#                         entity_id: "{{ repeat.item.target }}"
-#                       data:
-#                         value: "{{ states(repeat.item.source) | float(-999999) | round(2) }}"
-
-#                 # 如果目標是 text
-#                 - conditions:
-#                     - condition: template
-#                       value_template: "{{ repeat.item.target.startswith('text.') }}"
-#                   sequence:
-#                     - service: text.set_value
-#                       target:
-#                         entity_id: "{{ repeat.item.target }}"
-#                       data:
-#                         value: "{{ states(repeat.item.source) | string }}"
-
-# mode: single
+mode: single
