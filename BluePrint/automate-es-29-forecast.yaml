@@ -5,8 +5,7 @@ blueprint:
     用於 ED-29 電子紙顯示更新。支援溫度、濕度、CO₂、PM2.5 自動映射。
   domain: automation
   author: 比爾
-  source_url: https://github.com/billdev-tw/ha-blueprints/blob/main/ed29_esphome_sync.yaml
-
+  source_url: https://github.com/Billtou/public/blob/main/BluePrint/automate-es-29-forecast.yaml
   input:
     source_temperature:
       name: Source - Temperature
