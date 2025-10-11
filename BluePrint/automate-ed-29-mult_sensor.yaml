@@ -1,4 +1,4 @@
-blueprint:
+-blueprint:
   name: ED-29 Mult Sensor to ESPHome 2.9inch Display (Dynamic Mapping)
   description: Map Home Assistant sensors to ESPHome number entities for ED-29 display
   domain: automation
@@ -9,7 +9,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_temperature:
-      name: ESPHome - Temperature
+      name: ED-29 ESPHome - Temperature
       selector:
         entity:
           domain: number
@@ -21,7 +21,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_humidity:
-      name: ESPHome - Humidity
+      name: ED-29 ESPHome - Humidity
       selector:
         entity:
           domain: number
@@ -33,7 +33,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_co2:
-      name: ESPHome - Co2
+      name: ED-29 ESPHome - Co2
       selector:
         entity:
           domain: number
@@ -45,7 +45,7 @@ blueprint:
         entity: {}
       default: ""
     esphome_pm25:
-      name: ESPHome - PM2.5
+      name: ED-29 ESPHome - PM2.5
       selector:
         entity:
           domain: number
