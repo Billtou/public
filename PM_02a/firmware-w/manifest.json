@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-w/automate-pm-02.ota_w_3.1.bin",
-        "md5": "b747337ae2ef3052a8128f504509702e"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.1.bin",
+        "md5": "a014b42176036275e7c33aa13045c0d6"
         "summary": "v3.x beta 2路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_02/beta/README.md)"
       }
     }
