@@ -18,4 +18,5 @@
   * Overload Recovery Timing 若 Auto Recovery ON， 跳閘後幾秒後再次通電。
   * Overload Trigger Timing 電流持續超過秒數後過載條件成立。 避免用電設備啟動時會有瞬間大電流導致誤判的機制。
   * Voltage Type - 默認偵測220V，若用電備為110V請更改。
+  * 請注意上圖接線說明裡交流互感器CT偵測的110V L線要與產品用電的L線同一條，偵測到的用電數據才是最準確的。
  
