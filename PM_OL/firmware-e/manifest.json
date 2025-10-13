@@ -1,6 +1,6 @@
 {
-  "name": "AUTOMATE.PM-20d(Ethernet)",
-  "version": "3.6 beta",
+  "name": "AUTOMATE.PM-OL(Ethernet)",
+  "version": "1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
