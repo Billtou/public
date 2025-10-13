@@ -1,0 +1,16 @@
+{
+  "name": "AUTOMATE.PM-20d(Ethernet)",
+  "version": "3.6 beta",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20d/firmware-e/automate-pm-20d.ota_e_3.6beta.bin",
+        "md5": "ad4b1e3c6162bffd32f480e1521741f0",
+        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20d/README.md)"
+      }
+    }
+  ]
+}
