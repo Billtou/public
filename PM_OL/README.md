@@ -1,6 +1,6 @@
 # PM-OL OverLoad 自動偵測過載保護
 ![Mosquitto_broker](/PM_3F/image/3F-2-1.JPG)
 ## 接入自家網路(WIFI)
-* 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
+* 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-ol-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## 接入自家網路(網線)
 * 上電插上網線即可。
