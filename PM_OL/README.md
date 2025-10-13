@@ -13,4 +13,9 @@
 - 依據以上的說明，首次安裝時請先按下紅色"切"按鈕，SW紅燈亮起，接上必要電線與參數設置完成後再次按下紅色按鈕(SW紅燈熄滅)開始使用。
 - ESPHome實體說明:
   * Default Relay State - 重開機或停電後來電指定繼電器為ON or OFF
-  * 
+  * Overload Protect - 是否開啟過載保護
+  * Overload Protect Auto Recovery 跳閘後是否自動恢復通電模式開關
+  * Overload Recovery Timing 若 Auto Recovery ON， 跳閘後幾秒後再次通電。
+  * Overload Trigger Timing 電流持續超過秒數後過載條件成立。 避免用電設備啟動時會有瞬間大電流導致誤判的機制。
+  * Voltage Type - 默認偵測220V，若用電備為110V請更改。
+ 
