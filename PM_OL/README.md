@@ -8,3 +8,5 @@
 * 上電插上網線即可。
 ## 接線方式
 ![接線](/PM_OL/image/overload.JPG)
+## ESPHone 實體說明
+![entity](/PM_OL/image/entity.JPG)
