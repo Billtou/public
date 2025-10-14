@@ -4,7 +4,7 @@
 * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-ol-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## 接入自家網路(網線)
 * 上電插上網線即可。
-## 接線方式
+## 接線方式(自備接觸繼電器)
 ![接線](/PM_OL/image/overload.JPG)
 ## ESPHone 實體說明
 ![entity](/PM_OL/image/entity_1.JPG)
