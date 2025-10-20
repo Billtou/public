@@ -11,7 +11,7 @@
 
 # 雷射防夾固定座安裝介紹影片(點選圖片看影片)
 
-[![Watch the video](/GD_3/image/0DC7FB78.jpg)](https://youtu.be/ib7bx3xiUsE)
+[![Watch the video](/GD_3/image/0DC7FB781.JPG)](https://youtu.be/ib7bx3xiUsE)
 
 # 接線端口功能介紹
 ![081733](/GD_3/image/S__133849093_1.JPG)
