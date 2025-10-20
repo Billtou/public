@@ -9,8 +9,7 @@
 # 安裝位置示意圖
 ![081733](/GD_3/image/20250519_10.JPG)
 
-# 雷射防夾固定座安裝介紹影片
-
+# 雷射防夾固定座安裝介紹影片(點選圖片看影片)
 
 [![Watch the video](/GD_3/image/0DC7FB78.jpg)](https://youtu.be/ib7bx3xiUsE)
 
