@@ -1,1 +1,16 @@
-manifest.json
+{
+  "name": "AUTOMATE.LT-CW",
+  "version": "1.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20d/firmware-w/automate-pm-20d.ota_w_3.6beta.bin",
+        "md5": "30dd87b4bc8ec97d49a934bf304d6344",
+        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20d/README.md)"
+      }
+    }
+  ]
+}
