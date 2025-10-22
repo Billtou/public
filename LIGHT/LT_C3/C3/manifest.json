@@ -5,10 +5,11 @@
   "new_install_prompt_erase": false,
   "builds": [
     {
-      "chipFamily": "ESP32-S3",
+      "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_PRO/firmware-w/automate-lt-pro.ota_w_2.1.bin",
-        "md5": "74318388dc2d8f2a33d45ce69b1d8ad2"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.6beta.bin",
+        "md5": "aa523bc1d642822dea87d835c321300c",
+        "summary": "v1.0 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
       }
     }
   ]
