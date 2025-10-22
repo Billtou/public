@@ -7,8 +7,8 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20d/firmware-w/automate-pm-20d.ota_w_3.6beta.bin",
-        "md5": "30dd87b4bc8ec97d49a934bf304d6344",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.0.bin",
+        "md5": "9ad2fd5a26971f1d9b2048bd509f1435",
         "summary": "v1.0 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
       }
     }
