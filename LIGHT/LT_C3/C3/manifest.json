@@ -1,1 +1,15 @@
-manifest.json
+{
+  "name": "AUTOMATE.LT-C3",
+  "version": "1.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_PRO/firmware-w/automate-lt-pro.ota_w_2.1.bin",
+        "md5": "74318388dc2d8f2a33d45ce69b1d8ad2"
+      }
+    }
+  ]
+}
