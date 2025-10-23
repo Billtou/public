@@ -1,15 +1,15 @@
 {
   "name": "AUTOMATE.LT-RGBCW",
-  "version": "1.1",
+  "version": "1.2",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.1.bin",
-        "md5": "97217562ff2e6a6c78f93d29bc968198",
-        "summary": "v1.1 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.2.bin",
+        "md5": "4a09b679d75f765c898c4f1640a49a7c",
+        "summary": "v1.2 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
       }
     }
   ]
