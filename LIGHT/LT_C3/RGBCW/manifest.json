@@ -9,7 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.2.bin",
         "md5": "4a09b679d75f765c898c4f1640a49a7c",
-        "summary": "v1.2 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
+        "summary": "v1.2 隱藏 UI 重置 button [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
       }
     }
   ]
