@@ -1,15 +1,15 @@
 {
   "name": "AUTOMATE.LT-CW",
-  "version": "1.2",
+  "version": "1.3",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.2.bin",
-        "md5": "bcb9e1c955941e83658a35296466aa4b",
-        "summary": "v1.2 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.3.bin",
+        "md5": "99adbec078add5a0baca476c3870ae71",
+        "summary": "v1.3 修正status led GPIO [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
     }
   ]
