@@ -1,15 +1,15 @@
 {
   "name": "AUTOMATE.LT-RGBCW",
-  "version": "1.2",
+  "version": "1.3",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.2.bin",
-        "md5": "4a09b679d75f765c898c4f1640a49a7c",
-        "summary": "v1.2 隱藏 UI 重置 button [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.3.bin",
+        "md5": "7bf2d55af3e7554eb419b339896e48ff",
+        "summary": "v1.3 修正status led GPIO [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
       }
     }
   ]
