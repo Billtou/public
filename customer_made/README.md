@@ -1,6 +1,8 @@
 # 客製化產品yaml保留檔
 
 #--eth------------------------
+
+
 ethernet:
   type: W5500
   clk_pin: GPIO14
