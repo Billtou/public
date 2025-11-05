@@ -1,1 +1,2 @@
+# AUTOMATE MB-3F (多路3相測耗電)
 README.md
