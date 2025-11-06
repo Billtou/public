@@ -1,6 +1,6 @@
 {
-  "name": "AUTOMATE.GD-3(WiFi)",
-  "version": "3.0",
+  "name": "AUTOMATE.MB_3F-4(WiFi)",
+  "version": "1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
