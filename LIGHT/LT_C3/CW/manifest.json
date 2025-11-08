@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.LT-CW",
-  "version": "1.3",
+  "version": "1.4",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
