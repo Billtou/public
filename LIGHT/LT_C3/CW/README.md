@@ -1,5 +1,6 @@
 ## 2025/11/08 v.1.4 Update
 * 修正 bug
+* DC switch time out 改以分鐘計
 
 ## 2025/10/24 v.1.3 Update
 * 修正status led gpio
