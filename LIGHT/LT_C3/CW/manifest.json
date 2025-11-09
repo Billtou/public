@@ -9,7 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.4.bin",
         "md5": "e2de55bc0b78858ea364b3c8f0e09250",
-        "summary": "v1.4 bug 修正 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
+        "summary": "v1.4 bug 修正 DC switch time out 改以分鐘計 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
     }
   ]
