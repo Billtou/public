@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.4.bin",
-        "md5": "5d7758046e84c00c7168df4b785c9be4",
+        "md5": "e2de55bc0b78858ea364b3c8f0e09250",
         "summary": "v1.4 bug 修正 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
     }
