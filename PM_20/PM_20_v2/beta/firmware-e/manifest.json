@@ -1,15 +1,15 @@
 {
   "name": "AUTOMATE.PM-20(Ethernet)",
-  "version": "3.6 beta",
+  "version": "3.7 beta",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.6beta.bin",
-        "md5": "c8c40c9260721d5f565beb7c95430feb",
-        "summary": "v3.x beta 20路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.7beta.bin",
+        "md5": "03fb612a72aa78bfff442019a763d890",
+        "summary": "v3.7beta 默認第一次啟用自動歸零開關打開。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
       }
     }
   ]
