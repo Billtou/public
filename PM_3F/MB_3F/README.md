@@ -8,5 +8,6 @@
 ![Mosquitto_broker](/PM_3F/image/3F-1.JPG)
 
 # 串接多路3相感測器的方法，最多能接32路
+* 接線只接A、B端點即可不需要接供電線，sensor本身試吃三相的電，主機有兩組485 A、B接線端子，內部線路都是同一組，這樣設計只是方便接多路sensor而已。
 ![Mosquitto_broker](/PM_3F/image/3F-3.JPG)
 ### 本產品有自動存儲耗電量的功能，在HA的entity有清零的button後期自行透過HA自動化歸零即可。
