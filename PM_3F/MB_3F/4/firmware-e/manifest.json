@@ -1,14 +1,14 @@
 {
   "name": "AUTOMATE.MB_3F-4(Ethernet)",
-  "version": "1.0",
+  "version": "1.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_3F/MB_3F/4/firmware-e/automate-mb-3f-4.ota_e_1.0.bin",
-        "md5": "35840496dba515f445ba9d8c5601a41e"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_3F/MB_3F/4/firmware-e/automate-mb-3f-4.ota_e_1.1.bin",
+        "md5": "40c85e9d3fe1dfa709ec2bab2cbce0f9"
       }
     }
   ]
