@@ -9,6 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_3F/MB_3F/4/firmware-e/automate-mb-3f-4.ota_e_1.1.bin",
         "md5": "40c85e9d3fe1dfa709ec2bab2cbce0f9"
+        "summary": "v1.1 修正重置鍵功能。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_3F/MB_3F/4)"
       }
     }
   ]
