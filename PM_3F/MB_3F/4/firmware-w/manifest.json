@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_3F/MB_3F/4/firmware-w/automate-mb-3f-4.ota_w_1.1.bin",
-        "md5": "5a24ba174cc5e0a7e50b4dcada79b557"
+        "md5": "72052589b58a29cd8cef2de7fb0f7b15"
         "summary": "v1.1 修正重置鍵功能。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_3F/MB_3F/4)"
       }
     }
