@@ -7,4 +7,6 @@
 * 主機供電100~240V 交流寬電壓(建議一定要用電表量過)，接線順序為 供電後接入CT端子先插上，最後最後才勾上CT卡扣。 切記切記。
 ![Mosquitto_broker](/PM_3F/image/3F-1.JPG)
 
+# 串接多路3相感測器的方法，最多能接32路
+![Mosquitto_broker](/PM_3F/image/3F-3.JPG)
 ### 本產品有自動存儲耗電量的功能，在HA的entity有清零的button後期自行透過HA自動化歸零即可。
