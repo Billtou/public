@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.1.bin",
-        "md5": "b84710610594446d44e6480087f3d9d8"
+        "md5": "a5def0c10b621768c069d672cc00eea6"
       }
     }
   ]
