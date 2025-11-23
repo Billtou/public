@@ -1,3 +1,6 @@
+# 重置 homekit and wifi
+- 面板小洞長按超過10秒重置 
+
 # 接入自家wifi
 ## - 上電靜待超過1-2分鐘，手機搜尋設備發出的AP熱點(autospace-pro 或 autospace-lite) 點選接入這個名稱的wifi後，指定自家wifi帳號與密碼後儲存即可。
 ## - 若需重置wifi，設備後面有個黑色按鍵，長按超過10秒即可。
