@@ -8,8 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.5.bin",
-        "md5": "1ec361ca0cdbabe9baf6197df8a67bbc",
-        "summary": "v1.5 提高wifi安全性 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
+        "md5": "1ec361ca0cdbabe9baf6197df8a67bbc"
       }
     }
   ]
