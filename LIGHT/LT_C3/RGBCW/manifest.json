@@ -7,9 +7,9 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.3.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBCW/automate-lt-rgbcw.ota_1.5.bin",
         "md5": "f9b27422d0fb92f902d94b4a1321b8cf",
-        "summary": "v1.3 修正status led GPIO [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
+        "summary": "提高wifi安全。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBCW)"
       }
     }
   ]
