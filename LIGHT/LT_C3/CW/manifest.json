@@ -7,9 +7,9 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.4.bin",
-        "md5": "e2de55bc0b78858ea364b3c8f0e09250",
-        "summary": "v1.4 bug 修正 DC switch time out 改以分鐘計 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.5.bin",
+        "md5": "1ec361ca0cdbabe9baf6197df8a67bbc",
+        "summary": "v1.5 提高wifi安全性 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
     }
   ]
