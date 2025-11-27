@@ -1,3 +1,7 @@
+## 2025/11/27 v3.2 Update說明
+* 取消找不到wifi就跳出AP熱點的功能，改由長按任一鍵超過10秒才跳出AP熱點。
+* 固件升級到ESPHome 2025.11，該版本關於wifi整體有做優化。藉此提升wifi連網的穩定性。
+* 新增 firmware info entity
 # 2025-11-22 Update 3.1
   - 1.升級ESPHome v2025.10.0
   - 2.增加 Firmware Info
