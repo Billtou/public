@@ -7,5 +7,5 @@
 ### 自適應燈光調參
 - 接入網路後手機掃描產品自適應調參QRCodec畫面如下，或在路由器中找到本產品被分配的IP 輸入 [IP]:8080
 ![a重置](LIGHT/image/lt-cw.JPG)
-
+LIGHT/image/lt-cw.JPG
 
