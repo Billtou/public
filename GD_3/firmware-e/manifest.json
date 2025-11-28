@@ -8,7 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3.ota_e_3.1.bin",
-        "md5": "c77c192ea1fb8f024f34ca6087bc2a95"
+        "md5": "c77c192ea1fb8f024f34ca6087bc2a95",
+        "summary": "v3.1 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
   ]
