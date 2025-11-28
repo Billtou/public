@@ -4,6 +4,9 @@
 ![a重置](image/lt-cw-1.JPG)
 
 ## 如何接線
+
+![a重置](image/lt-cw-2.JPG)
+
 ### 打開連網功能
 - 面板黑色按鍵長按超過10秒會重置會跳出連網熱點。 
 - 手機搜尋wifi AUTOMATE-LT-CW-xxxxxx 進入連網頁面
