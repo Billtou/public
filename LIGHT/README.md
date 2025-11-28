@@ -1,5 +1,5 @@
 ### 外觀介紹
-![a重置](image/lt-cw-1.JPG)
+![a重置](image/llt-cw-a.JPG)
 ### 如何接線
 ![a重置](image/lt-cw-2.JPG)
 ### 啟動連網模式
