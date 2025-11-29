@@ -1,8 +1,9 @@
 ### 外觀介紹
 ![a重置](image/lt-cw-a.JPG)
-### 如何接線
+### 如何接線與走線規劃建議
 ![a重置](image/lt-cw-b.JPG)
 ![a重置](image/lt-cw-c.JPG)
+![a重置](image/lt-cw-d.JPG)
 ### 啟動連網模式
 ![a重置](image/lt-cw-01.JPG)
 ### 接入自家網路(WIFI)
