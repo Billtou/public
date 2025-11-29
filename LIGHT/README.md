@@ -8,14 +8,7 @@
 ![a重置](image/lt-cw-01.JPG)
 ### 接入自家網路(WIFI)
  * 重置後手機靠近設備找wifi熱點 automate-lt-cw-xxxxxx，接入後等待數秒手機自動跳轉引導畫面選擇wifi名城與密碼存檔完成。(若沒自動切換可瀏覽器輸入192.168.4.1)。
-### 燈具佈局與規劃
-![一般接法](image/燈具規劃.JPG)
-### 一般接法
-![一般接法](image/一般接法.JPG)
-### 進階接法.JPG
-![進階接法](image/進階接法.JPG)
-### autospace接法.JPG
-![autospace接法](image/autospace接法.JPG)
+
 
 ### Homekit 自適應燈光設置
 * 依據日出日落時間燈光會隨著太陽角度自動轉換色溫、亮度的自動化機制。
