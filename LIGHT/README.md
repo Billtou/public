@@ -17,11 +17,11 @@
 
 ![自適應](image/自適應.JPG)
 ### Homekit版本自適應畫面說明
-* 輸入 IP:8080 即可進入設置頁面
+* 掃描產品二維條碼或輸入 IP:8080 即可進入設置頁面
 
 ![自適應](image/lt-cw.JPG)
 
-### HA 自適應燈光設置
+### ESPHome版本自適應燈光設置
 * 請安裝HA的自適應燈光插件，並按說明設置即可。
 
 [![OPEN HACS REPOSITORY ON MY](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=basnijholt&repository=adaptive-lighting&category=integration)
