@@ -1,4 +1,1 @@
-使用說明
-Home Assistant:
-
-HomeKit:
+版更說明
