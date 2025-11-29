@@ -1,3 +1,5 @@
+## 2025/11/29 v.1.7 Update
+* 增加24hr檢查一次Update
 ## 2025/11/29 v.1.6 Update
 * 關閉All Light Button
 ## 2025/11/25 v.1.5 Update
