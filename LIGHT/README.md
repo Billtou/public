@@ -1,6 +1,6 @@
 ### 外觀介紹
 ![a重置](image/lt-cw-a.JPG)
-### 如何接線與走線規劃建議
+### 接線與走線規劃建議
 ![a重置](image/lt-cw-b.JPG)
 ![a重置](image/lt-cw-c.JPG)
 ![a重置](image/lt-cw-e.JPG)
