@@ -1,4 +1,4 @@
-## 產品外觀介紹
+## 產品介紹
 ![a重置](image/lt-cw-a.JPG)
 ### 接線與走線規劃建議
 ![a重置](image/lt-cw-b.JPG)
