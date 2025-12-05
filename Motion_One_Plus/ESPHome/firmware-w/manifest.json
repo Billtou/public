@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.MOTION_ONE_PLUS(WiFi)",
-  "version": "1.0",
+  "version": "1.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/Motion_One_Plus/ESPHome/firmware-w/motionone-plus.ota_w_1.0.bin",
-        "md5": "2b329ac0542ff20ca6010aedb1bdfbc6",
+        "md5": "13e6dabbde82321106d13094b1233f65",
         "summary": "v1.0 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/Motion_One_Plus/ESPHome)"
       }
     }
