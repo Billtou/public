@@ -1,0 +1,16 @@
+{
+  "name": "AUTOMATE.MOTION_ONE_PLUS(WiFi)",
+  "version": "1.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.1.bin",
+        "md5": "473d238d1f901663fa7654a463c5b36d",
+        "summary": "v3.1 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
+      }
+    }
+  ]
+}
