@@ -19,3 +19,6 @@
 - 例如光照低於20人在感應偵測道有人才生效等。
 
 
+![a重置](image/motion_one_plus.JPG)
+
+![a重置](image/motion_one_plus_2.JPG)
