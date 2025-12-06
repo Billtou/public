@@ -1,7 +1,7 @@
 ## 使用說明
 ### 重置 wifi
 - 長按5秒重開10秒重置
-![a重置](image/motion_one_plus_3.JPG)
+![a重置](image/motion_one_plus_3.jpg)
 ### 接入網路
 - XXX
 ###接入 HA
