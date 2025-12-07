@@ -64,7 +64,7 @@ text_sensor:
   # - platform: homeassistant
   #   id: lvingroom_curtain_state_a
   #   entity_id: ${livingroom_curtain}
-  #   publish_initial_state: true
+  #   trigger_on_initial_state: true
   #   on_state:
   #     then:
   #       - lvgl.widget.update:
@@ -79,7 +79,7 @@ text_sensor:
   # - platform: homeassistant
   #   id: lvingroom_curtain_icon
   #   entity_id: ${livingroom_curtain}
-  #   publish_initial_state: true
+  #   trigger_on_initial_state: true
   #   on_state:
   #     then:
   #       - lvgl.widget.update:
