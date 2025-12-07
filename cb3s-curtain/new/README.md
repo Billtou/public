@@ -9,4 +9,5 @@
 - HA的整合插件頁面 > 新增整合 > 搜尋 tuya 輸入User Code (用戶 Code) 畫面出現二維條碼
 - SmartLife app 右上點選掃描條碼的 icon 掃描完成即可接入HA
 
+## 恢復出廠值
 ![Mosquitto_broker](tuya.JPG)
