@@ -30,6 +30,8 @@
 
 ![a重置](image/motion_one_plus_2.JPG)
 
+### Motion One(LD2410) vs Plus(LD2412) 偵測範圍說明(請見綠色線條)
 
+![a重置](image/motion_2412_laser.JPG)
 
 原廠雷達感應元件詳細說明  https://drive.google.com/drive/folders/17TAVgH5YI_6naA24dpjnJjm2v28alRPl?usp=sharing
