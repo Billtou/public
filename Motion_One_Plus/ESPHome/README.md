@@ -29,3 +29,7 @@
 ![a重置](image/motion_one_plus.JPG)
 
 ![a重置](image/motion_one_plus_2.JPG)
+
+
+
+原廠雷達感應元件詳細說明  https://drive.google.com/drive/folders/17TAVgH5YI_6naA24dpjnJjm2v28alRPl?usp=sharing
