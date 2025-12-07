@@ -6,10 +6,15 @@ psram:
   mode: octal
 
 i2c:
-  sda: 15
-  scl: 6
-  scan: true
-  frequency: 400kHz
+  - id: bus_a
+    sda: 15
+    scl: 6
+    scan: true
+    frequency: 400kHz
+  # - id: bus_b
+  #   sda: 7
+  #   scl: 19
+  #   scan: true
 
 spi:    #required only for libraries
 
@@ -18,7 +23,6 @@ spi:    #required only for libraries
 # --------------------------------------
 external_components:
   - source: github://sEbola76/gc9503v
-
   
 display:
   - platform: gc9503v
@@ -38,7 +42,8 @@ display:
       inverted: false
       allow_other_uses: true
     pclk_pin: 39
-    pclk_inverted: false
+    # pclk_inverted: false
+    pclk_frequency: 16000000
     hsync_pulse_width: 10
     hsync_front_porch: 8
     hsync_back_porch: 40
@@ -81,9 +86,14 @@ display:
       number: 48
       allow_other_uses: true
     color_order: RGB  
+    # backlight: backlight_output  # ⚡ 正確用法
+    # # backlight_pin: 
+    # #   output: backlight_output    
 
 touchscreen:
   - platform: ft63x6
+    i2c_id: bus_a
+    # address: 0x40
     interrupt_pin: 4
     id: my_touchscreen
     calibration:
@@ -179,19 +189,33 @@ time:
 # --------------------------------------
 # -   背光螢幕LED entity 勿動
 # --------------------------------------
-output:
-  - platform: ledc
-    pin: 5
-    id: backlight_led
-    frequency: 2000Hz
-    
+# output:
+#   - platform: ledc
+#     pin: 5
+#     id: backlight_led
+#     frequency: 20000Hz
 light:
   - platform: monochromatic
     output: backlight_led
     name: "Backlight"
     id: display_backlight
     restore_mode: ALWAYS_ON
-    gamma_correct: 1.0
+    # gamma_correct: 1.8
+
+output:
+  - platform: ledc
+    id: backlight_led
+    pin:
+      number: 5
+      # ignore_strapping_warning: true
+
+# light:
+#   - platform: monochromatic
+#     name: "Backlight"
+#     id: backlight_light
+#     output: backlight_output
+#     restore_mode: RESTORE_DEFAULT_ON
+
 
 # --------------------------------------
 # -   調整背光螢幕的亮度 UI entity 勿動
