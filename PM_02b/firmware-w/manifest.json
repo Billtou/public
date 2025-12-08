@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.PM-20b(Wifi)",
-  "version": "3.1",
+  "version": "1.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
