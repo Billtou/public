@@ -1,5 +1,5 @@
 {
-  "name": "AUTOMATE.PM-20a(Ethernet)",
+  "name": "AUTOMATE.PM-20a(Wifi)",
   "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
