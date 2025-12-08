@@ -1,0 +1,15 @@
+{
+  "name": "AUTOMATE.PM-20b(Ethernet)",
+  "version": "1.0",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-e/automate-pm-02b.ota_e_1.0.bin",
+        "md5": "6fd290aebf1af70ba686232729d6e24b"
+      }
+    }
+  ]
+}
