@@ -25,7 +25,7 @@ substitutions:
   count_power_entity: "sensor.entrance_powermeter_power_monitor_energy"
 
 packages:
-  basic_device_in: !include dashboard_one/base/esphome_basic_new.yaml
+  basic_device_in: !include dashboard_one/base/esphome_basic.yaml
   display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
   weather_forecast_in: !include dashboard_one/weather_forecast.yaml
   climate_in: !include dashboard_one/climates.yaml
