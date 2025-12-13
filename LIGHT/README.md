@@ -5,6 +5,8 @@
 ![a重置](image/lt-cw-c.JPG)
 ![a重置](image/lt-cw-e.JPG)
 ![a重置](image/lt-cw-d.JPG)
+![a重置](image/RGBCW_light.JPG)
+
 ### 燈具瓦數與交流轉直流變壓器換算方式
 
 ## 開始使用啟動連網模式
