@@ -1,5 +1,5 @@
 ## 裝潢期定位時
-- 若現場沒有網路或是智能環境架設需要模擬人感找出安裝的甜蜜點可以參考下列說明。
+- 若還沒有建立wifi或智能環境但需要模擬人感詹測範圍找出安裝的甜蜜點以利木工定位可參考下列說明。
 -  [原廠人感偵測器app介紹](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ## 使用說明
 ### 重置 wifi
