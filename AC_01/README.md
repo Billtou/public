@@ -3,8 +3,10 @@
 - [三菱重工](https://github.com/Billtou/public/tree/main/AC_01/Mitsubishi_Heavy)
 - [三菱電機](https://github.com/Billtou/public/tree/main/AC_01/Mitsubishi_Electric)
 - TaiSEIA
-  - [日立空調](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/hitachi/climate)
-  - [日立除濕機/空淨機](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/hitachi/dehumidifier)
-  - [國際牌空調](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/panasonic/climate)
-  - [國際除濕機/空淨機](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/panasonic/dehumidifier)
+  - 日立牌
+    - [空調](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/hitachi/climate)
+    - [除濕機/空淨機](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/hitachi/dehumidifier)
+  - 國際牌
+    - [空調](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/panasonic/climate)
+    - [除濕機/空淨機](https://github.com/Billtou/public/tree/main/AC_01/TaiSEIA/panasonic/dehumidifier)
 
