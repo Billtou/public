@@ -1,4 +1,4 @@
-## 目預計開發產品
+## 開發產品
 - [大金空調](https://github.com/Billtou/public/tree/main/AC_01/Daikin)
 - [三菱重工](https://github.com/Billtou/public/tree/main/AC_01/Mitsubishi_Heavy)
 - [三菱電機](https://github.com/Billtou/public/tree/main/AC_01/Mitsubishi_Electric)
