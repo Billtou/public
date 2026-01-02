@@ -7,8 +7,9 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.1.bin",
-        "md5": "f2ac32a5c7268b036f84158a09d7a4aa"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.3.bin",
+        "md5": "d9b7752dd028bd0749edf835f1e7288e",
+        "summary": "v3.3beta 更新10/1日調整電費計價。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02a)"
       }
     }
   ]
