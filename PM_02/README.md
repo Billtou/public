@@ -57,9 +57,9 @@
 
 ## 附錄B.手動建立所有相關實體方式(適用特殊計價方式或三階段電價或營業用電價等等)
 
-* 目前台電一般民眾計費表
+* 目前台電一般民眾計費表(2025/10/1)
 
-![Mosquitto_broker](/electricity_meter_pro_20way/image/104933.png)
+![Mosquitto_broker](/electricity_meter_pro_20way/image/10-1-power-price.JPG)
 
 
 ## 自製計費標準(依據Taipower-Bimonthly-Energy-Cost-homeassistant) 全手動方式產生的 sensor entity
