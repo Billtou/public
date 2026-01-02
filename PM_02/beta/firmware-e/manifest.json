@@ -9,7 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-e/automate-pm-02.ota_e_3.1.bin",
         "md5": "980f167a26078494312c77ffe1aef654",
-        "summary": "v3.x beta 2路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_02/beta/README.md)"
+        "summary": "v3.3beta 更新10/1日調整電費計價。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02/beta)"
       }
     }
   ]
