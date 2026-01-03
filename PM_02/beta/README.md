@@ -1,6 +1,6 @@
 ### 2026/1/3 v3.3 Update
 - 更新2025/10/1日實施的電價計費標準。
-- [前往明細表](https://github.com/Billtou/public/blob/main/PM_02a/README.md#%E7%9B%AE%E5%89%8D%E5%8F%B0%E9%9B%BB%E4%B8%80%E8%88%AC%E6%B0%91%E7%9C%BE%E8%A8%88%E8%B2%BB%E8%A1%A82025101)
+- [前往明細表](https://github.com/Billtou/public/blob/main/PM_02/beta/README.md#%E7%9B%AE%E5%89%8D%E5%8F%B0%E9%9B%BB%E4%B8%80%E8%88%AC%E6%B0%91%E7%9C%BE%E8%A8%88%E8%B2%BB%E8%A1%A82025101)
 
 # AUTOMATE PM-02 v3.0 beta 2路入戶總電力(不需要安裝Taipower插件的版本)
 * 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
