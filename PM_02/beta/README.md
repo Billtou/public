@@ -38,7 +38,9 @@
 
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
 ** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
+## 目前台電一般民眾計費表(2025/10/1)
 
+![Mosquitto_broker](/electricity_meter_pro_20way/image/10-1-power-price.JPG)
 ![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
 
 *奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用)*
