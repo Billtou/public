@@ -1,1 +1,1 @@
-PM-20 取消截對值 wifi or eth 固件
+PM-20 取消絕對值 wifi or eth 固件
