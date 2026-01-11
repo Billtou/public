@@ -1,14 +1,14 @@
 {
   "name": "AUTOMATE.PM-20(Ethernet)",
-  "version": "3.7 beta",
+  "version": "3.7.1 beta",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.7beta.bin",
-        "md5": "03fb612a72aa78bfff442019a763d890",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.7.1beta.bin",
+        "md5": "ac19502d49a1f37dfb94e1160ca0ecb0",
         "summary": "v3.7.1 beta 調整最新電費計價，提升效率取消web-service 3 版本改為 1。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
       }
     }
