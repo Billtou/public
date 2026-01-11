@@ -1,6 +1,6 @@
 {
   "name": "AUTOMATE.GD-3(Ethernet)",
-  "version": "3.0",
+  "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
