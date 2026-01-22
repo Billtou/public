@@ -40,7 +40,7 @@ logger:
 api:
   reboot_timeout: 0s
   port: 6053
-  password: ''
+  # password: ''
   on_client_connected: 
     then: 
       - if: 
