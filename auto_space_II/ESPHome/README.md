@@ -7,7 +7,7 @@ https://youtu.be/zv61mjetYfA
 ## Pro 接線示意圖(二代後面接口端子說明)
 
 
-![Mosquitto_broker](/auto_space/image/autospaceII.JPG)
+![Mosquitto_broker](/auto_space/image/autospaceII-1.JPG)
 ![Mosquitto_broker](/auto_space/image/163248.png)
 
 ## 接線方式
