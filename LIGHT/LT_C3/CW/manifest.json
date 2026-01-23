@@ -1,13 +1,13 @@
 {
   "name": "AUTOMATE.LT-CW",
-  "version": "1.7",
+  "version": "1.8",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.7.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.8.bin",
         "md5": "9dae75af3ba34f034a462352a6ddafef",
         "summary": "v1.7 新增24hr自動檢查更新。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
