@@ -52,6 +52,8 @@
 * 請先將電源接上並連接網路後，CT訊號線先接好插入設備接口，最後最後再依序將CT一一勾上電線並檢查鉤環卡扣是否正確扣住。
 
 ## 5. 設定HA能源面板架構-電網
+
+![Mosquitto_broker](/PM_20/PM_20_v2/image/pm-20-3.7.2-1.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
 * 設定  >  儀錶板  > 能源  依序填入必要entity即可。(正確的id名稱請見下方7. 實體說明 篇)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
