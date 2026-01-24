@@ -1,3 +1,25 @@
+#3.7.2 beta 版更新內容
+因應新版HomeAssistant能源面板對單位與屬性的要求修正如下:
+- BL0910芯片:
+- Temperature
+- device_class: "temperature"
+- unit_of_measurement: "°C"
+
+- Frequency
+- device_class: "frequency"      
+
+- Voltage
+- device_class: "voltage"  
+
+- 1-18路瓦數:
+- device_class: "power"
+- state_class: "measurement"  
+
+- 1-18路安培:
+- device_class: "current"
+- state_class: "measurement"
+
+
 # V3.7 beta 版更新內容
 * 默認第一次啟用自動歸零開關打開。
 # V3.6 beta 版新增內容
