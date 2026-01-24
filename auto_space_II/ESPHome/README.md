@@ -4,9 +4,9 @@
 https://youtu.be/zv61mjetYfA
 
 
+## 重置wifi記憶
+![Mosquitto_broker](/auto_space/image/autospace-reat-1.JPG)
 ## Pro 接線示意圖(二代後面接口端子說明)
-
-![Mosquitto_broker](/auto_space/image/autospace-reat.JPG)
 ![Mosquitto_broker](/auto_space/image/autospaceII-1.JPG)
 ![Mosquitto_broker](/auto_space/image/163248.png)
 
