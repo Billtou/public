@@ -18,7 +18,7 @@
 - 1-18路安培:
    - device_class: "current"
    - state_class: "measurement"
-
+- 因應HA能源新版本個別裝置新增 "裝置功耗" 請填入相對應的瓦數，請見說明https://github.com/Billtou/public/tree/main/PM_20/PM_20_v2/beta#6-%E8%A8%AD%E5%AE%9Aha%E8%83%BD%E6%BA%90%E9%9D%A2%E6%9D%BF-%E5%80%8B%E5%88%A5%E8%A3%9D%E7%BD%AE
 
 # V3.7 beta 版更新內容
 * 默認第一次啟用自動歸零開關打開。
