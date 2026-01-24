@@ -75,8 +75,8 @@
 ![Mosquitto_broker](/wt32_electricity/image/68D1224C2C0A.jpg)
 
 可以看出來我家可能是雙月的月初抄表的，所以在esphome裡面的設定內打開自動歸零模式並選擇雙月以及日期1即可。
-** 注意若家裡是雙月份月底抄表的，日期要選28號。 **
-* 搭配台電計價週期設定方式奇數月"Odd_Months" 偶數月 "Even_Months"，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
+** 注意若家裡是偶數月月底抄表的，日期要選28號。 **
+* 搭配台電計價週期設定方式奇數月"Odd_Months"(1、3、5、7、9、11月份)； 偶數月 "Even_Months"(2、4、6、8、10、12月份)，若每月要更新選 "Every_Month" (2、3階段計價模式適用見下方備註)
   
 ![Mosquitto_broker](/wt32_electricity/image/歸零選單.JPG)
 ## 9. 切換聯網方式
