@@ -56,11 +56,11 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/上游.JPG)
 * 設定  >  儀錶板  > 能源  依序填入必要entity即可。(正確的id名稱請見下方7. 實體說明 篇)
-![Mosquitto_broker](/PM_20/PM_20_v2/image/p941.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/pm-20-3.7.2-1.JPG)
 ## 6. 設定HA能源面板-個別裝置
 * 接入18個迴路，末端個別裝置(例如s31能耗插頭)必須指定其中一個迴路為上游以避免重複計算能耗
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/bk-03.JPG)
+![Mosquitto_broker](/PM_20/PM_20_v2/image/pm-20-3.7.2.JPG)
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/洗衣機能耗.JPG)
 
 ## 7. 實體說明
