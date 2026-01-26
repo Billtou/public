@@ -10,7 +10,8 @@
         "platform": "esphome",
         "path": "https://raw.githubusercontent.com/Billtou/public/main/mb_test/firmware-w/automate-mb-485fs3.ota_wifi.bin",
         "sha256": "46186ff8ecdaf63de1a944787bba7b180b5f1ea340a9d5c45d96e71702647e99",
-        "summary": "v1.1提升效率。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/mb_test)"
+        "size": 1242560,
+        "summary": "v1.1 提升效率。[詳情見說明](https://github.com/Billtou/public/tree/main/mb_test)"
       }
     }
   ]
