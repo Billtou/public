@@ -4,6 +4,7 @@
 
 ## 毫米波人在傳感器參數調整。
 - 下載app
+- ![Mosquitto_broker](/auto_space_II/image/as-2-hk-001.JPG)
   - 透過藍牙連接感測器，首次需輸入密碼 HiLink (畫面上有提示)。
   - 進入後可以先到右上進入Settings
 - 調整感測範圍
