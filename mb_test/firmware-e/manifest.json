@@ -7,9 +7,9 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-e/automate-pm-20.ota_e_3.7.1beta.bin",
-        "md5": "ac19502d49a1f37dfb94e1160ca0ecb0",
-        "summary": "v3.7.1 beta 調整最新電費計價，提升效率取消web-service 3 版本改為 1。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/mb_test/firmware-e/automate-mb-485fs3.ota_eth.bin",
+        "sha256": "ab206deb70666d9fa2ce0cebbdea68f87e1140d23043ab168ac94cc30838c10a",
+        "summary": "v1.1提升效率。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/mb_test)"
       }
     }
   ]
