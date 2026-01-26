@@ -1,7 +1,7 @@
 ## 重置wifi與homekit方法
 面板小孔長按超過10秒重置成功
 ## 安裝說明 
-
+ *待補*
 ## 毫米波人在傳感器參數調整。
 - 下載app
 - ![Mosquitto_broker](/auto_space_II/image/as-2-hk-001.JPG)
