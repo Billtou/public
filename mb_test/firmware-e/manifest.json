@@ -7,10 +7,8 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "platform": "esphome",
         "path": "https://raw.githubusercontent.com/Billtou/public/main/mb_test/firmware-e/automate-mb-485fs3.ota_eth.bin",
-        "sha256": "ab206deb70666d9fa2ce0cebbdea68f87e1140d23043ab168ac94cc30838c10a",
-        "size": "1242560",
+        "md5": "dbc846e45acf171c71dd1ddb5610ef6e",
         "summary": "v1.1 提升效率。[詳情見說明](https://github.com/Billtou/public/tree/main/mb_test)"
       }
     }
