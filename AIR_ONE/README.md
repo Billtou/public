@@ -1,5 +1,5 @@
 ## 外觀功能介紹
-![air-one外觀圖](image/air-one-04.JPG)
+![air-one外觀圖](image/air-one-05.JPG)
 
 ## 連接WiFi
 - 連接專屬的訊號線靜待設備開機
