@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-C3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/CW/automate-lt-cw.ota_1.8.bin",
-        "sha256": "938ee87d54e01709d31657dc712e4f2f",
+        "md5": "938ee87d54e01709d31657dc712e4f2f",
         "summary": "v1.8 DC switch on 倒數歸零。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/CW)"
       }
     }
