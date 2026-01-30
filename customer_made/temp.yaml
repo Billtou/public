@@ -1,12 +1,12 @@
 substitutions:
-  name: "aircube-ultra"
-  friendly_name: AirCube Ultra
+  name: "aircube-plus"
+  friendly_name: AirCube Plus
   upper_devicename: "ESP32S CM1106 PM2105 HDC1080 SGFP30 TTL223"
-  project_name: "Taiwan Smart Home Technology.DAIKIN Air Cube Ultra"
+  project_name: "Taiwan Smart Home Technology.DAIKIN Air Cube Plus"
   project_version: "2.0" 
-  temperature_offset: "-5"
-  humidity_offset: "12.6"  
-  temperature_update_interval: "60s"
+  temperature_offset: "0"
+  humidity_offset: "0"  
+  temperature_update_interval: "6s"
   wifi_signal_update_interval: "600s"
 
 esphome:
@@ -21,16 +21,7 @@ esphome:
 esp32:
   board: esp32dev
   framework:
-    type: esp-idf
-
-external_components:
-  - source: github://tsunglung/esphome-ze08-ch2o@master
-    components: [ ze08_ch2o ]
-
-
-ze08_ch2o:
-  id: ze08_ch2o_id
-  uart_id: ze08_ch2o_uart
+    type: arduino
 
 wifi:
   ap: {}
@@ -39,7 +30,10 @@ api:
   reboot_timeout: 0s
   
 ota:
- - platform: esphome
+  - platform: esphome
+    id: ota_esphome
+  - platform: web_server
+    id: web_server_managed
 
 captive_portal:
 
@@ -55,14 +49,10 @@ logger:
     component: ERROR
 
 uart:
-  - id: cm1106_uart
-    rx_pin: 16
-    tx_pin: 17
-    baud_rate: 9600
-  - id: ze08_ch2o_uart
-    tx_pin: 5
-    rx_pin: 18
-    baud_rate: 9600
+- id: cm1106_uart
+  rx_pin: 16
+  tx_pin: 17
+  baud_rate: 9600
 
 i2c:
   - id: pm25_bus
@@ -79,16 +69,8 @@ sensor:
   - platform: uptime
     name: Uptime  
 
-  - platform: ze08_ch2o
-    formaldehyde:
-      name: "CH2O"
-      id: ze08_ch2o_i
-      unit_of_measurement: ppb
-      accuracy_decimals: 0
-    mode: QA
-    update_interval: ${temperature_update_interval}
-
 # CO2 SENSOR
+
   - platform: cm1106
     uart_id: cm1106_uart
     id: co2sensor_cm1106
@@ -104,7 +86,7 @@ sensor:
 # PM2.5 SENSOR 
   - platform: pm2005
     i2c_id: pm25_bus
-    type: pm2105
+    type: pm2005
     id: pm25_pm20x5
     update_interval: ${temperature_update_interval}
     pm_2_5: 
@@ -115,7 +97,11 @@ sensor:
       state_class: measurement
       unit_of_measurement: "µg/m³"
       filters:
-        - lambda: "return std::max(0.0f, x - 4);"        
+        - lambda: "return std::max(0.0f, x - 4);"
+    pm_1_0:
+      name: "PM1.0"  
+      internal: true  
+      id: pm10sensor            
 # TVOC SENSOR
   - platform: sgp30
     i2c_id: th_bus
@@ -172,6 +158,13 @@ sensor:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "%"
     entity_category: "diagnostic"
+
+
+  - platform: aqi
+    name: "Air Quality Index"
+    pm_2_5: pm25sensor
+    pm_10_0: pm10sensor
+    calculation_type: AQI
 
 # AQI INDEX SENSOR
   - platform: copy
@@ -235,18 +228,31 @@ sensor:
     id: pm_2_5_aqi
 
 switch:
+# FOR TPUCH 
+  - platform: template
+    name: "Single"
+    icon: mdi:gesture-double-tap
+    id: "single_switch"
+    optimistic: true
+
+  - platform: template
+    name: "Double"
+    icon: mdi:gesture-double-tap
+    id: "double_switch"
+    optimistic: true
+
+  - platform: template
+    name: "Hold"
+    icon: mdi:gesture-double-tap
+    id: "hold_switch"
+    optimistic: true
+
 # LED SLEEP MODE SWITCH
   - platform: template
     name: "LED Sleep Mode"
     restore_mode: RESTORE_DEFAULT_OFF
     icon: mdi:sleep
     id: sleepmode
-    optimistic: true  
-# FOR TPUCH 
-  - platform: template
-    name: "Single"
-    icon: mdi:gesture-double-tap
-    id: "single_switch"
     optimistic: true
 
 # CO2 LED SWITCH         
@@ -373,12 +379,50 @@ number:
     entity_category: config  
 
 binary_sensor:
+  - platform: gpio
+    internal: true
+    name: Rojo
+    id: rojo
+    pin: 
+      number: 5
+      mode: INPUT_PULLDOWN
+    on_multi_click:
+      - timing:
+          - ON for 40ms to 400ms
+          - OFF for at least 400ms
+        then:
+          - switch.turn_on: button_led
+          - switch.turn_on: single_switch
+          - delay: 500ms
+          - switch.turn_off: single_switch
+          - switch.turn_off: button_led
+      - timing:
+          - ON for 40ms to 400ms
+          - OFF for 40ms to 400ms
+          - ON for 40ms to 400ms
+          - OFF for at least 400ms
+        then:
+          - switch.turn_on: button_led
+          - switch.turn_on: double_switch
+          - delay: 500ms
+          - switch.turn_off: double_switch
+          - switch.turn_off: button_led
+      - timing:
+          - ON for at least 500ms
+          - OFF for at least 40ms
+        then:
+          - switch.turn_on: button_led
+          - switch.turn_on: hold_switch
+          - delay: 500ms
+          - switch.turn_off: hold_switch
+          - switch.turn_off: button_led
+
   - platform: template
     internal: true
     id: tvocch2olambda
     lambda: |-
       if (id(sleepmode).state == false) {
-        if (id(ze08_ch2o_i).state > id(ch2othreshold).state || id(tvocsensor).state > id(tvocthreshold).state) {
+        if (id(tvocsensor).state > id(tvocthreshold).state) {
           return true;
         } else {
           return false;
@@ -446,16 +490,26 @@ binary_sensor:
       - delayed_off: 5ms
     on_multi_click:
       - timing:
+          - ON for at least 10s
+          - OFF for at least 40ms
+        then:
+          - logger.log: " 長按:10 秒以上放開"
+          - button.press: restart_button
+          - button.press: default_mode
+
+      - timing:
           - ON for at least 5s
           - OFF for at least 40ms
         then:
           - logger.log: " 長按:5~9 秒放開"
           - button.press: restart_button
+
     # 所有未符合上述 timing 的，都會落到這裡
     on_click:
       then:
         - logger.log: " 其他情況校正Co2"
         - button.press: co2sensor_zero
+
 
 button:
   - platform: restart
