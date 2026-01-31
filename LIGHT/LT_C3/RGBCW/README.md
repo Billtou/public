@@ -1,3 +1,5 @@
+## 2026/1/31 v1.8 Update
+* 最佳化LIGHT參數最佳化新硬體的驅動元件
 ## 2025/11/29 v.1.6 Update
 * 關閉All Light Button
 * 24hr檢查一次Update狀態
