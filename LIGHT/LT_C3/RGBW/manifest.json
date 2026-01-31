@@ -1,0 +1,16 @@
+{
+  "name": "AUTOMATE.LT-RGBW",
+  "version": "1.8",
+  "home_assistant_domain": "esphome",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/LIGHT/LT_C3/RGBW/automate-lt-rgbw.ota_1.8.bin",
+        "md5": "ca6991d54559f76e5dff2739f9814d6a",
+        "summary": "v1.8 最佳化新版本硬體參數。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/LIGHT/LT_C3/RGBW)"
+      }
+    }
+  ]
+}
