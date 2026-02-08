@@ -8,7 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/WP_475/475/firmware-w/automate-wp-475.ota_w_3.0.1.bin",
-        "md5": "5d2fd70a912a4098be8d10580efa9175"
+        "md5": "5d2fd70a912a4098be8d10580efa9175",
+        "summary": "v3.0.1 體感溫度增加字庫 "非常" 。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/WP_475)"
       }
     }
   ]
