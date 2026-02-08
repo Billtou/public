@@ -1,14 +1,14 @@
 {
   "name": "AUTOMATE.WP-475(wifi)",
-  "version": "3.0",
+  "version": "3.0.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WP_475/475/firmware-w/automate-wp-475.ota_w_3.0.bin",
-        "md5": "af92d623474eac85a2519508f6de2a99"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WP_475/475/firmware-w/automate-wp-475.ota_w_3.0.1.bin",
+        "md5": "5d2fd70a912a4098be8d10580efa9175"
       }
     }
   ]
