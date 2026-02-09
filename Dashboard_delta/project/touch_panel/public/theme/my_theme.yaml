@@ -1,0 +1,56 @@
+  # theme: 定義兩個常用的小部件格式，可以把theme看作是骨架style_definitions看作是皮膚
+    label:
+      text_font: font_Medium_big  # 設定標籤字體
+      scroll_on_focus: true  # 焦點時啟用滾動
+      shadow_width: 0  # 陰影寬度（無陰影）
+      pad_left: 5px  # 左邊距
+      pad_top: 5px  # 上邊距
+      pad_bottom: 5px  # 下邊距
+      pad_right: 5px  # 右邊距
+      bg_opa: TRANSP #背景透明
+      bg_color: 0xa4abb1 # 背景顏色
+      text_color: 0x838585  # 文字顏色  
+      checked:  # 選中狀態設定
+        bg_color: 0xf2f2f2  # 選中時背景顏色
+        text_color: 0x626a6f  # 選中時文字顏色  
+    button:
+      text_font: font_Medium_big  # 按鈕字體
+      scroll_on_focus: true  # 焦點時啟用滾動
+      bg_opa: 85%  #透明
+      radius: 15  # 圓角半徑
+      pad_left: 10px  # 左邊距
+      pad_top: 10px  # 上邊距
+      pad_bottom: 10px  # 下邊距
+      pad_right: 10px  # 右邊距
+      shadow_width: 0  # 陰影寬度（無陰影）
+      border_opa: TRANSP  # 邊框透明度（透明）
+      pad_all: 0  # 所有方向的內邊距
+      bg_color: 0x3b4041 # 背景顏色
+      text_color: 0xa4abb1  # 文字顏色
+      checked:  # 選中狀態設定
+        bg_color: 0xf2f2f2  # 選中時背景顏色
+        text_color: 0x626a6f  # 選中時文字顏色
+    slider:
+      bg_color: 0x3b4041 # 背景顏色
+      text_color: 0xa4abb1  # 文字顏色
+      checked:  # 選中狀態設定
+        bg_color: 0xf2f2f2  # 選中時背景顏色
+        text_color: 0x626a6f  # 選中時文字顏色    
+
+    dropdown:        
+      text_font: font_apple_Heavy_medium  # 按鈕字體 
+      scroll_on_focus: true  # 焦點時啟用滾動
+      bg_opa: 85%  #透明
+      radius: 15  # 圓角半徑
+      pad_left: 10px  # 左邊距
+      pad_top: 10px  # 上邊距
+      pad_bottom: 10px  # 下邊距
+      pad_right: 10px  # 右邊距
+      shadow_width: 0  # 陰影寬度（無陰影）
+      border_opa: TRANSP  # 邊框透明度（透明）
+      pad_all: 0  # 所有方向的內邊距
+      bg_color: 0x3b4041 # 背景顏色
+      text_color: 0xa4abb1  # 文字顏色
+      checked:  # 選中狀態設定
+        bg_color: 0xf2f2f2  # 選中時背景顏色
+        text_color: 0x626a6f  # 選中時文字顏色    
