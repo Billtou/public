@@ -1,5 +1,6 @@
 # Deshboard delta 使用說明
 #### ESPHome LVGL 說明請見Dashboard one
+ https://github.com/Billtou/public/tree/main/dashboard_one_tw
 ## delta熱交換 yaml檔案結構說明 (需搭max大的台達控制產品)
 * 將本產品導入自家wifi HA自動發現後導入之
 * 在HA裝置服務esphomes裡面打開"允許裝置執行HA動作"，"訂閱來自裝置的日誌"。
