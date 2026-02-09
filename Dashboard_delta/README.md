@@ -2,6 +2,7 @@
 #### ESPHome LVGL 說明請見Dashboard one
 ## delta熱交換 yaml檔案結構說明
 * 請在 HA 的 esphome 資料夾內建立以下檔案結構
+
 esphome
     | air-panel.yaml
     | <air_penel>
