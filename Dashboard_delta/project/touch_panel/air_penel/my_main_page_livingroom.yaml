@@ -1,0 +1,214 @@
+# 1. 把HA的entity拉進來 賦予id
+substitutions:
+    livingroom_light: "light.auto_space_bathroom_c3c8c0_relay_1"
+
+# 2.引用id建立對應的entity 並於狀態改變時更新lvgl UI 畫面
+binary_sensor:
+  - platform: homeassistant
+    id: livingroom_light_state
+    entity_id: ${livingroom_light}
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        # button / widget 狀態
+        - lvgl.label.update:
+            id: lvgl_label_livingroom_light
+            state:
+              checked: !lambda return x;
+
+        - lvgl.button.update:
+            id: lvgl_button_livingroom_light
+            state:
+              checked: !lambda return x;
+
+
+# 3.將分頁的lvgl UI 內容
+lvgl:
+  pages:  #定義多個頁面（類似畫面、Tab 或分頁）。  
+   - id: main_page_type_b    #這個頁面的 ID，稍後可以用來跳轉或引用。
+     bg_image_src: my_background_image
+     widgets:   #宣告 "小部件" widgets
+        - obj:       ##小部件下建立"容器" obj 的定義繼承 pages 的定義
+            styles: regular_page # align: CENTER  #把這個容器在螢幕上置中對齊。
+            layout:  # 版面配置
+              type: flex  #使用 Flex 排列方式，讓內部 widgets 自動依照順序排列。
+              flex_flow: COLUMN_WRAP  #主軸為縱向（從上而下），若內容寬度超過，則會換行（wrap）。
+              flex_align_cross: CENTER #在交叉軸（水平方向）居中對齊每一列。
+            widgets:   
+                #-------------------------------------------------------------------------------------
+                # 長方形 客廳冷氣狀態畫面，點選後進入冷氣控制頁面 id climate_page 
+                #-------------------------------------------------------------------------------------
+              - button:   
+                  styles: button_A  ## 調用 Button A styles定義
+                  id: lvgl_button_livingroom_light 
+                  checkable: true
+                  widgets:
+                    - label:    
+                        id: lvgl_label_livingroom_light                    
+                        checkable: true
+                        text_font: font_icon_big
+                        align: TOP_LEFT
+                        text: "\U000F0335"
+                        # y: -10
+                        text_color: 0xf5f8fa
+                        checked:  # 選中狀態設定
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        align: BOTTOM_RIGHT
+                        text: "客廳燈"     
+                  on_click:
+                      then:
+                      - homeassistant.service:
+                          service: light.toggle
+                          data:
+                              entity_id: ${livingroom_light}    
+                #-------------------------------------------------------------------------------------
+                # 方形 智能電燈示範畫面，可開關與調整亮度(顏色目前lvgl尚未支持)
+                #-------------------------------------------------------------------------------------                      
+              - button:   
+                  styles: button_B  ## 調用 Button B styles定義
+                  checkable: true
+                  # id: lvgl_button_livingroom_smart_light_state
+                  widgets:
+                    - label:   
+                        checkable: true
+                        text_font: font_icon_big
+                        # id: lvgl_widget_livingroom_smart_light_state
+                        align: TOP_LEFT
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色
+                    - label:
+                        align: BOTTOM_RIGHT
+                        checkable: true
+                        # id: lvgl_label_livingroom_smart_light_state
+                        text: "電燈1"
+                  # on_click:
+                    # - homeassistant.action:
+                    #     action: light.toggle
+                    #     data:
+                    #       entity_id: ${livingroom_smart_light}
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易窗簾開與關示範畫面
+                #-------------------------------------------------------------------------------------    
+              - button:   #### Button C
+                  styles: button_C
+                  checkable: true
+                  # id: lvgl_widget_lvingroom_curtain_current_state
+                  widgets:
+                    - label:    
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        x: 10
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        align: RIGHT_MID
+                        text: "電燈2"
+                  # on_click:
+                    # - homeassistant.action:
+                    #     action: light.toggle
+                    #     data:
+                    #       entity_id: ${livingroom_switch_light}
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易風扇開與關示範畫面
+                #-------------------------------------------------------------------------------------    
+              - button:   #### Button C
+                  styles: button_C
+                  checkable: true
+                  # id: lvgl_button_balcony_switch_fan_state
+                  widgets:
+                    - label:   
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        # id: lvgl_widget_balcony_switch_fan_state
+                        checkable: true
+                        x: 10
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                                
+                    - label:
+                        align: RIGHT_MID
+                        # id: lvgl_label_balcony_switch_fan_state
+                        checkable: true
+                        text: "電燈3"
+              #     on_click:
+              #       # - homeassistant.action:
+              #       #     action: fan.toggle
+              #       #     data:
+              #       #       entity_id: ${balcony_switch_fan}
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易窗簾開與關示範畫面
+                #-------------------------------------------------------------------------------------    
+              - button:   #### Button C
+                  styles: button_C_H
+                  checkable: true
+                  # id: lvgl_widget_lvingroom_curtain_current_state
+                  widgets:
+                    - label:    
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        x: 10
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                        
+                    - label:
+                        align: RIGHT_MID
+                        text: "電燈4"
+                  # on_click:
+                    # - homeassistant.action:
+                    #     action: light.toggle
+                    #     data:
+                    #       entity_id: ${livingroom_switch_light}
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易風扇開與關示範畫面
+                #-------------------------------------------------------------------------------------    
+              - button:   #### Button C
+                  styles: button_C_H
+                  checkable: true
+                  # id: lvgl_button_balcony_switch_fan_state
+                  widgets:
+                    - label:   
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        # id: lvgl_widget_balcony_switch_fan_state
+                        checkable: true
+                        x: 10
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                                
+                    - label:
+                        align: RIGHT_MID
+                        # id: lvgl_label_balcony_switch_fan_state
+                        checkable: true
+                        text: "電燈5"
+
+                #-------------------------------------------------------------------------------------
+                # 長條形 簡易風扇開與關示範畫面
+                #-------------------------------------------------------------------------------------    
+              - button:   #### Button C
+                  styles: button_C_H
+                  checkable: true
+                  # id: lvgl_button_balcony_switch_fan_state
+                  widgets:
+                    - label:   
+                        align: LEFT_MID
+                        text_font: font_icon_small
+                        # id: lvgl_widget_balcony_switch_fan_state
+                        checkable: true
+                        x: 10
+                        text: "\U000F0335"
+                        checked:  # 選中狀態設定
+                          bg_color: 0xf2f2f2  # 選中時背景顏色
+                          text_color: 0x3182b7  # 選中時文字顏色                                
+                    - label:
+                        align: RIGHT_MID
+                        # id: lvgl_label_balcony_switch_fan_state
+                        checkable: true
+                        text: "電燈6"                        
