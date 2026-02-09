@@ -1,7 +1,13 @@
 # Deshboard delta 使用說明
 #### ESPHome LVGL 說明請見Dashboard one
-## delta熱交換 yaml檔案結構說明
-* 請在 HA 的 esphome 資料夾內建立以下檔案結構
+## delta熱交換 yaml檔案結構說明 (需搭max大的台達控制產品)
+* 將本產品導入自家wifi HA自動發現後導入之
+* 在HA裝置服務esphomes裡面打開"允許裝置執行HA動作"，"訂閱來自裝置的日誌"。
+* HA 安裝 ESPHome Builder 應用程序
+* 在ESPHome Builder 裡面建立 new device 項目  名稱為 "Air Panel"
+* 稍待該項目紅色會變成白色的 ONLINE 第一階段就正式完成。
+ 
+* 完成 ONLINE 之後依序在 HA 的 esphome 資料夾內建立以下檔案結構並將相對的檔案複製其中。
 
         esphome
             | air-panel.yaml
@@ -36,7 +42,9 @@
                   | <theme>
                       | my_theme.yaml
 
+* 點選 UPDATE 選 Wirelessly 開始編譯，若其中出現紅色警告並終止時，可以將錯誤訊息貼ai幫忙分析原因並解決。
 *  my_main_page_delta.yaml 主控頁面說明
+*  替換 substitutions 自己的 entity id
         
                 
                 substitutions:
