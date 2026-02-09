@@ -1,0 +1,248 @@
+# --------------------------------------
+# -            Font  預設顯示字元       -
+# --------------------------------------
+font:
+  - file: 'fonts/SFProDisplay-Bold.ttf'
+    id: font_apple_Bold_big
+    size: 80
+    bpp: 8
+    glyphs:
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/SFProDisplay-Heavy.ttf'
+    id: font_apple_Heavy_medium
+    size: 35
+    bpp: 8
+    glyphs:
+      ['³+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz▼μ ']
+
+
+  - file: 'fonts/SFProDisplay-Regular.ttf'
+    id: font_apple_Regular_small
+    size: 14
+    bpp: 8
+    glyphs:
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/SFProDisplay-Regular.ttf'
+    id: font_apple_Regular
+    size: 30
+    bpp: 8
+    glyphs:
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_Medium_big
+    size: 30
+    bpp: 8
+    glyphs:
+      ['一二三四五六七八九十',
+        '月星期日!,."%-_:°/',
+        '0123456789 ',
+        'ABCDEFGHIJK',
+        'LMNOPQRSTUV', 
+        'WXYZabcdefg',
+        'hijklmnopqr',
+        'stuvwxyz', 
+        '溫度書房電燈客廳空調冷氣設定+目前自動暖風除濕離開關機螢幕亮燒屏模式扇延遲閉手送窗簾循環連網濾清潔狀態速量等級正常▼μ']
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_Medium_small
+    size: 25
+    bpp: 8
+    glyphs: 
+      ['一二三四五六七八九十',
+      '月星期日!,."%-_:°/<',
+        '0123456789 ',
+        'ABCDEFGHIJK',
+        'LMNOPQRSTUV', 
+        'WXYZabcdefg',
+        'hijklmnopqr',
+        'stuvwxyz溫度書房電燈關閉客廳窗簾循環扇空調目前濕自動冷氣除送風']       
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_Bold
+    size: 30
+    bpp: 8
+    glyphs: 
+      ['度一二三四五六日星期未知!,."%-_:°/',
+        '0123456789 ',
+        'ABCDEFGHIJK',
+        'LMNOPQRSTUV', 
+        'WXYZabcdefg',
+        'hijklmnopqr',
+        'stuvwxyz<']
+
+  - file: 'fonts/GenJyuuGothic-Medium.ttf'
+    id: font_Light
+    size: 25
+    bpp: 8
+    glyphs: 
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/GenJyuuGothic-Bold.ttf'
+    id: weather_forecast_24
+    size: 24
+    bpp: 8
+    glyphs: 
+      ['vaible未知下冰午多天局後或時晨晴暫暴有短積部陣陰雨雪雲雷霧風-unkow']
+
+  - file: 'fonts/SFProDisplay-Heavy.ttf'
+    id: weather_forecast_50
+    size: 50
+    bpp: 8
+    glyphs:
+      ['+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: icons_100
+    size: 90
+    bpp: 8
+    glyphs: [
+      "\U000F0594", # clear-night
+      "\U000F0590", # cloudy
+      "\U000F0F2F", # exceptional
+      "\U000F0591", # fog
+      "\U000F0592", # hail
+      "\U000F0593", # lightning
+      "\U000F067E", # lightning-rainy
+      "\U000F0595", # partlycloudy
+      "\U000F0596", # pouring
+      "\U000F0597", # rainy
+      "\U000F0598", # snowy
+      "\U000F067F", # snowy-rainy
+      "\U000F0599", # sunny
+      "\U000F059D", # windy
+      "\U000F059E", # windy-variant
+      "\U000F14E4", # sunny-off
+      "\U000F0FE2", # 交換icon 白底 Off
+      "\U000F0FE1", # 交換icon 黑底 on     
+      ]
+
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: font_icon_big
+    size: 80
+    bpp: 8
+    glyphs: [
+      "\U000f03c8", # water-temperature
+      "\U000f1402", # pump
+      "\U000f06e9", # light
+      "\U000F0335", # mdi-lightbulb
+      "\U000F0336", # mdi-lightbulb-outline      
+      "\U000f0210", # fan
+      "\U000f051b", # clock-on
+      "\U000f051e", # clock-off
+      "\U000f023a", # fish
+      "\U000f05a9", # wifi-on
+      "\U000f05aa", # wifi-off
+      "\U000F1846", # 窗簾 
+      "\U000F1B2A", # 廚房水龍頭
+    ]
+
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: font_icon_small
+    size: 45
+    bpp: 8
+    glyphs: [
+      "\U000f03c8", # water-temperature
+      "\U000f1402", # pump
+      "\U000f06e9", # light
+      "\U000F0335", # mdi-lightbulb
+      "\U000F0336", # mdi-lightbulb-outline      
+      "\U000f0210", # fan
+      "\U000f051b", # clock-on
+      "\U000f051e", # clock-off
+      "\U000f023a", # fish
+      "\U000F05A9", # wifi-on
+      "\U000f05aa", # wifi-off
+      "\U000F07D0", # 家
+      "\U000F04B9", # 沙發
+      "\U000F1B2A", # 廚房
+      "\U000F001B", # 冷氣
+      "\U000F0493", # 齒輪
+      "\U000F0241", # 閃電
+      "\U000F1846", # 窗簾
+      "\U000F0021", # 鬧鐘
+      "\U000F04B2", # 睡覺
+      "\U000F1056", # party-popper
+      "\U000F181F", # Door
+      "\U000F0FCE", # 場景
+      "\U000F06A9", # 自動化
+      "\U000F0CF2", # 亮度百分比
+      "\U000F00E1", # 亮度自動
+      "\U000F0F2A", # 雪花
+      "\U000F1110", # 燒屏
+      "\U000F0062", # 增加溫度
+      "\U000F004A", # 降低溫度
+      "\U000F083B", # 關閉螢幕
+      "\U000F1356", # 螢幕亮度
+      "\U000F0A1A", # 開關
+      "\U000F0717", # 雪花
+      "\U000F00AC", # Cover
+      "\U000F12D3", # 車庫門
+      "\U000F0438", # 電熱器
+      "\U000F05DA", # 書
+      "\U000F0F9B", # 台達 回風溫度 out
+      "\U000F0F9C", # 台達 外氣溫度 in     
+      "\U000F013B", # 甲醛icon
+      "\U000F0BAC", # PM2.5
+      "\U000F07E4", # co2
+      "\U000F050F", # 溫度
+      "\U000F058E", # 濕度
+      "\U000F1472", # 風量1
+      "\U000F1473", # 風量2
+      "\U000F1474", # 風量3
+      "\U000F0D43", # 濾網
+      "\U000F1795", # swap Home
+      "\U000F0FE1", # swap 黑底
+      "\U000F0FE2", # swap 白底
+      "\U000F1A3A", # 運轉時間
+    ]    
+    
+  - file: 'fonts/materialdesignicons-webfont.ttf'
+    id: font_icon_medium
+    size: 60
+    bpp: 8
+    glyphs: [
+      "\U000f03c8", # water-temperature
+      "\U000f1402", # pump
+      "\U000f06e9", # light
+      "\U000F0335", # mdi-lightbulb
+      "\U000F0336", # mdi-lightbulb-outline      
+      "\U000f0210", # fan
+      "\U000f051b", # clock-on
+      "\U000f051e", # clock-off
+      "\U000f023a", # fish
+      "\U000f05a9", # wifi-on
+      "\U000f05aa", # wifi-off
+      "\U000F07D0", # 家
+      "\U000F04B9", # 沙發
+      "\U000F1B2A", # 廚房
+      "\U000F001B", # 冷氣
+      "\U000F0493", # 齒輪
+      "\U000F0241", # 閃電
+      "\U000F1846", # 窗簾
+      "\U000F0021", # 鬧鐘
+      "\U000F04B2", # 睡覺
+      "\U000F1056", # party-popper
+      "\U000F181F", # Door
+      "\U000F0FCE", # 場景
+      "\U000F06A9", # 自動化
+      "\U000F0CF2", # 亮度百分比
+      "\U000F00E1", # 亮度自動
+      "\U000F0F2A", # 雪花
+      "\U000F1110", # 燒屏
+      "\U000F0062", # 增加溫度
+      "\U000F004A", # 降低溫度
+      "\U000F1158", # 衛生紙
+      "\U000F06B5", # 檯燈
+      "\U000F04A6", # 刀叉
+      "\U000F05DA", # 書
+      "\U000F011A", # 城堡
+      "\U000F0F9B", # 台達 回風溫度 out
+      "\U000F0F9C", # 台達 外氣溫度 in
+      "\U000F1472", # 風量1
+      "\U000F1473", # 風量2
+      "\U000F1474", # 風量3
+      "\U000F0D43", # 濾網      
+    ]    
+    
