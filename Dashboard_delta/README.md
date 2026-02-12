@@ -12,36 +12,37 @@
 
         esphome
             | air-panel.yaml
-            | <air_penel>
-                  | my_main_page_air.yaml 
-                  | my_main_page_delta.yaml
-                  | my_main_page_light.yaml
-                  | my_main_page_livingroom.yaml
-                  | my_top_layer.yaml
-            | <publice>
-                  |
-                  | <background>
-                      | image.yaml
-                      | background_1.png
-                      | background_2.png
-                      | background_3.png
-                      | boot_logo.png
-                      | ha_logo.svg
-                  | <basic>
-                      | basic_and_touchscreen.yaml
-                      | setup_page.yaml
-                  | <fonts>
-                      | fonts.yaml
-                      | GenJyuuGothic-Bold.ttf
-                      | GenJyuuGothic-Medium.ttf
-                      | materialdesignicons-webfont.ttf
-                      | SFProDisplay-BoldItalic.ttf
-                      | SFProDisplay-HeavyItalic.ttf
-                      | SFProDisplay-RegularItalic.ttf
-                  | <style>
-                      | my_style.yaml
-                  | <theme>
-                      | my_theme.yaml
+            | <project>    
+                 | <air_penel>
+                 |   my_main_page_air.yaml 
+                 |   my_main_page_delta.yaml
+                 |   my_main_page_light.yaml
+                 |   my_main_page_livingroom.yaml
+                 |   my_top_layer.yaml
+                 | <publice>
+                       |
+                       | <background>
+                       |   image.yaml
+                       |   background_1.png
+                       |   background_2.png
+                       |   background_3.png
+                       |   boot_logo.png
+                       |   ha_logo.svg
+                       | <basic>
+                       |   basic_and_touchscreen.yaml
+                       |   setup_page.yaml
+                       | <fonts>
+                       |   fonts.yaml
+                       |   GenJyuuGothic-Bold.ttf
+                       |   GenJyuuGothic-Medium.ttf
+                       |   materialdesignicons-webfont.ttf
+                       |   SFProDisplay-BoldItalic.ttf
+                       |   SFProDisplay-HeavyItalic.ttf
+                       |   SFProDisplay-RegularItalic.ttf
+                       | <style>
+                       |   my_style.yaml
+                       | <theme>
+                           my_theme.yaml
 
 * 點選 UPDATE 選 Wirelessly 開始編譯，若其中出現紅色警告並終止時，可以將錯誤訊息貼ai幫忙分析原因並解決。
 *  my_main_page_delta.yaml 主控頁面說明
