@@ -1,0 +1,169 @@
+
+lvgl:
+  pages:  #定義多個頁面（類似畫面、Tab 或分頁）。  
+    #-------------------------------------------------------------------------------------
+    # 一般設置畫面
+    #-------------------------------------------------------------------------------------                                
+   - id: setup_page   
+     bg_image_src: my_background_image
+     scrollbar_mode: "OFF"
+     layout:
+       type: flex
+       flex_flow: column_wrap     
+     widgets:
+        - obj:       ##螢幕亮度
+            styles: obj_A           
+            widgets:      
+              - label:   
+                  styles: label_1
+                  align: LEFT_MID
+                  text_font: font_icon_small
+                  text_color: 0xffffff
+                  x: 15
+                  text: "\U000F1110"    
+              - label:   
+                  styles: label_1
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 80
+                  text: "螢幕亮度"           
+              - label:
+                  styles: label_1
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: backlight_brightness_adjust_label
+                  align: RIGHT_MID
+                  text: "--%"
+                  long_mode: dot                                    
+              - slider:
+                  id: backlight_slide_brightness
+                  align: RIGHT_MID
+                  x: -90
+                  width: 140
+                  height: 20
+                  pad_all: 8
+                  value: !lambda return id(backlight_brightness).state;
+                  min_value: 5   #調太低喚起螢幕無法看到背光
+                  max_value: 100       
+                  indicator:
+                    bg_color: 0x003866
+                    bg_grad_color: 0x4adeff
+                    bg_grad_dir: HOR
+                    bg_opa: COVER
+                    height: 20   
+                  on_value:
+                    - lvgl.label.update:
+                        id: backlight_brightness_adjust_label
+                        text: 
+                          format: "%.0f%%"
+                          args: [ 'x' ]                                                                  
+                  on_release:
+                    then:
+                      - light.control:
+                          id: display_backlight
+                          brightness: !lambda return x / 100;
+                      - number.set:
+                          id: backlight_brightness
+                          value: !lambda return x;              
+
+
+        - obj:       ##延遲關閉
+            styles: obj_A
+            widgets:      
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_icon_small
+                  text_color: 0xffffff
+                  x: 15
+                  # y: 25
+                  text: "\U000F083B"   
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 85
+                  # y: 25
+                  text: "延遲關閉"      
+              - label:
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: backlight_brightness_timeout
+                  align: RIGHT_MID
+                  text: "--s"
+                  long_mode: dot                                       
+              - slider:
+                  id: lvgl_display_timeout
+                  align: RIGHT_MID
+                  x: -90
+                  # y: 10
+                  width: 140
+                  height: 20
+                  pad_all: 8
+                  min_value: 10
+                  max_value: 150       
+                  indicator:
+                    bg_color: 0x003866
+                    bg_grad_color: 0x4adeff
+                    bg_grad_dir: HOR
+                    bg_opa: COVER
+                    height: 20      
+                  on_value:
+                    - lvgl.label.update:
+                        id: backlight_brightness_timeout
+                        text: 
+                          format: "%.0fs"
+                          args: [ 'x' ]                                                             
+                  on_release:
+                    then:
+                      - number.set:
+                          id: display_timeout
+                          value: !lambda return x;   
+
+        - obj:       ##連網狀態
+            styles: obj_A
+            widgets:      
+              - label:
+                  styles: label_1
+                  text: "\U000f05a9"
+                  id: lbl_hastatus
+                  text_font: font_icon_small
+                  align: LEFT_MID
+                  x: 15
+                  text_align: right
+                  text_color: 0xFFFFFF   
+              - label:   
+                  styles: label_1                
+                  align: LEFT_MID
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: 85
+                  # y: 25
+                  text: "連網狀態" 
+              - label:
+                  checkable: true
+                  x: -10
+                  text_font: font_apple_Regular
+                  text_color: 0xffffff
+                  id: lvgl_label_wifi_signal_percentage
+                  align: RIGHT_MID
+                  text: "--%"
+                  long_mode: dot          
+
+        - obj:       ##連網狀態
+            styles: obj_A
+            widgets:      
+              - label:   
+                  styles: label_1                
+                  align: CENTER
+                  id: lvgl_label_ip_address
+                  text_font: font_Medium_big
+                  text_color: 0xffffff
+                  x: -10
+                  text: "--" 
