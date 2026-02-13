@@ -48,10 +48,10 @@
 *  my_main_page_delta.yaml 主控頁面說明
 *  替換 substitutions 自己的 entity id
 *  說明一下觸控板與HA的互動方式:
-     1. 先將HA的entity ID 導入進esphome 並賦予一個ID方便後續識別
+     1. 先將HA的entity ID 導入esphome 並賦予一個ID方便後續識別與使用。
      2. 在esphome裡面建立一個對應顯示或互動的entity，例如溫度的seneor在這裡就建一個text_sensor後期在觸控板顯示它。
-     3. switch、 button等需要反饋狀態的在esphome建立binary_sensor，後期依照反饋ON/OFF來改變觸控板的狀態達到互動模式。
-     4. 參考esphome有關LVGL資訊依樣畫葫蘆就行了[Graphics](https://esphome.io/components/lvgl/index.html) [Widgets](https://esphome.io/components/lvgl/widgets/) [Tips and Tricks](https://esphome.io/cookbook/lvgl/#remote-light-button)，
+     3. switch、 button等需要反饋狀態的在esphome建立binary_sensor，後期依照反饋ON/OFF來改變觸控板的狀態達到互動模式；例如按下LVGL Button 去改變HA的entity狀態，然後由binary_sensor的ON/OFF來反饋觸控板的顏色達到互動的效果。
+     5. 參考esphome有關LVGL資訊依樣畫葫蘆就行了[Graphics](https://esphome.io/components/lvgl/index.html) [Widgets](https://esphome.io/components/lvgl/widgets/) [Tips and Tricks](https://esphome.io/cookbook/lvgl/#remote-light-button)，
  
         
                 
