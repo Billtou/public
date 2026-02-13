@@ -1,3 +1,11 @@
+      - name: "Total Energy Use"
+        unique_id: 670ab181-e219-4b37-ae96-469415696451
+        unit_of_measurement: "kWh"
+        device_class: "energy"
+        state_class: total_increasing        
+        state: "{{ states('sensor.energy_18way_sum') }}"
+
+
 esphome:
   name: dashboard-one-c19338
   friendly_name: dashboard-one-c19338
