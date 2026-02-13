@@ -6,7 +6,8 @@
 - 進入app 點選 > 我 (右下位置) > 設置 (右上位置) > 帳號與安全 > 用戶 Code 紀錄備用 
   
 ## 接入HA (搭配電腦使用較方便)
-- HA 安裝 HACS ， 安裝 [LocalTuyaIR Remote Control](https://my.home-assistant.io/redirect/hacs_repository/?owner=clusterm&repository=localtuya_rc)
+- HA 安裝 HACS ， 安裝 [LocalTuya](https://my.home-assistant.io/redirect/hacs_repository/?owner=make-all&repository=tuya-local&category=integration)
+- [安裝local整合](https://my.home-assistant.io/redirect/config_flow_start/?domain=tuya_local)
 - HA的整合插件頁面 > 新增整合 > 搜尋 tuya 輸入User Code (用戶 Code) 畫面出現二維條碼
 - SmartLife app 右上點選掃描條碼的 icon 掃描完成即可接入HA
 
