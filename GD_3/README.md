@@ -8,7 +8,7 @@
 ## -  上電稍待1~2分鐘手機靠近設備找wifi熱點 automate_gd3-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 # 接入自家網路(網線)
 - 先依照上述方是接入自家wifi。
-- HA自動發現後到esphome設備內切換。
+- [HA自動發現後到esphome設備內切換](https://github.com/Billtou/public/blob/main/GD_3/README.md#%E5%88%87%E6%8F%9B%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F%E8%AA%AA%E6%98%8E)
 - 插上網線上電即可。
 
 # 安裝位置示意圖
