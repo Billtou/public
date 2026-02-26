@@ -14,6 +14,7 @@
 ## 恢復出廠值
 ![Mosquitto_broker](reset.JPG)
 ![Mosquitto_broker](wifi.JPG)
+![Mosquitto_broker](remote_control.JPG)
 
 ## 安裝軌道
 
