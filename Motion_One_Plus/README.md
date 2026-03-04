@@ -1,3 +1,3 @@
-ESPHome 請見本頁面。
+ESPHome版本使用說明。
 
-HomeKit 請見本頁面。
+HomeKit版本使用說明。
