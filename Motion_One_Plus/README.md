@@ -1,3 +1,3 @@
-ESPHome版本使用說明。
+[ESPHome版本使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/ESPHome)
 
 [HomeKit版本使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/homekit)
