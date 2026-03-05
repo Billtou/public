@@ -55,7 +55,7 @@
 ### 2. 蜂鳴器提示音
 *   **瑪利歐旋律**：偵測到人體進入。
 *   **短促兩聲**：人體離開。
-*   *(提示：可透過雙擊 Reset 鍵隨時靜音)*
+*   *(提示：可透過雙擊 Reset 鍵保持靜音)*
   
 ### 3. 原廠感測器調教
 *    [原廠人體感偵測器app介紹](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
