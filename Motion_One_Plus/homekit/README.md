@@ -60,6 +60,8 @@
 ### 3. 原廠感測器調教
 *    [原廠人體感偵測器app介紹](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 
-### 4. 感應式電燈自動化方案，plus版本可設置mmWave人來開燈人走關燈，ultra則建議設置PIR人來開燈mmWave負責人走關燈(最為快速方案)
+### 4. 自動化方案建議
+*   **plus版本**：設置mmWave人來開燈人走關燈。
+*   **ultra版本**：則建議設置PIR人來開燈mmWave負責人走關燈(最為快速方案)。
 ---
 © 2026 AUTOMATE 智慧系統.
