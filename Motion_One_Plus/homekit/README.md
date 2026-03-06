@@ -1,6 +1,6 @@
-# MotionOne Plus 人體存在感應器 (HomeKit 專用)
+# MotionOne Plus/Ultra 人體存在感應器 (HomeKit 專用)
 
-歡迎使用 **MotionOne Plus**！這是一款基於先進毫米波雷達技術 (LD2412) 的原生 Apple HomeKit 人體存在感應器，專為追求極致反應速度與偵測精準度的智慧家庭所設計。
+歡迎使用 **MotionOne Plus/Ultra **！這是一款基於先進毫米波雷達技術 (LD2412) 的原生 Apple HomeKit 人體存在感應器 (Ultra版本增加紅外線感測器)，專為追求極致反應速度與偵測精準度的智慧家庭所設計。
 
 ## 🚀 產品核心特性
 
@@ -59,5 +59,7 @@
   
 ### 3. 原廠感測器調教
 *    [原廠人體感偵測器app介紹](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
+
+### 4. 感應式電燈自動化方案，plus版本可設置mmWave人來開燈人走關燈，ultra則建議設置PIR人來開燈mmWave負責人走關燈(最為快速方案)
 ---
 © 2026 AUTOMATE 智慧系統.
