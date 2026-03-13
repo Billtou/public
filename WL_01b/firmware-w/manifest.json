@@ -1,13 +1,11 @@
 {
-  "name": "AUTOMATE.WL-01a(Ethernet)",
+  "name": "AUTOMATE.WL-01b",
   "version": "1.4.1b",
-  "home_assistant_domain": "esphome",
-  "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-w/automate-wl-01b.ota_w_1.41b.bin",
         "sha256": "a36f826ec60d3b38357aa973712c12d10a21fd1de1ba53626ecfe00543ee8417"
       }
     }
