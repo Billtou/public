@@ -1,13 +1,10 @@
 {
-  "name": "AUTOMATE.WL-01b",
+  "name": "AUTOMATE.WL-01b (ETH)",
   "version": "1.4.1b",
   "builds": [
     {
       "chipFamily": "ESP32-S3",
-      "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin",
-        "sha256": "54147c402a167ea662dba830e0cfba4fc9964565511d933fef90a6cf2224d0f7"
-      }
+      "ota": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin"
     }
   ]
 }
