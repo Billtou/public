@@ -4,7 +4,11 @@
   "builds": [
     {
       "chipFamily": "ESP32-S3",
-      "ota": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin"
+      "ota": {
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin",
+        "md5": "<ETH_BIN_MD5>",
+        "sha256": "<ETH_BIN_SHA256>"
+      }
     }
   ]
 }
