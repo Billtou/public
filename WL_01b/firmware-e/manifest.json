@@ -1,5 +1,5 @@
 {
-  "name": "AUTOMATE.WL-01a(Wifi)",
+  "name": "AUTOMATE.WL-01a(Ethernet)",
   "version": "1.4.1b",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
@@ -8,8 +8,7 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-e/automate-wl-01b.ota_e_1.41b.bin",
-        "sha256": "54147c402a167ea662dba830e0cfba4fc9964565511d933fef90a6cf2224d0f7",
-        "summary": "[詳情見說明網頁](https://github.com/Billtou/public/tree/main/WL_01b)\n\n### 2025-09-15 1.4.1a 固件更新內容\n* 🐞 修正 1.4 buge。"
+        "sha256": "54147c402a167ea662dba830e0cfba4fc9964565511d933fef90a6cf2224d0f7"
       }
     }
   ]
