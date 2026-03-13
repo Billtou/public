@@ -1,8 +1,6 @@
 {
-  "name": "AUTOMATE.WL-01a(Ethernet)",
+  "name": "AUTOMATE.WL-01b",
   "version": "1.4.1b",
-  "home_assistant_domain": "esphome",
-  "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
