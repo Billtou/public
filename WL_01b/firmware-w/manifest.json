@@ -4,21 +4,8 @@
   "builds": [
     {
       "chipFamily": "ESP32-S3",
-      "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-w/automate-wl-01b.ota_w_1.41b.bin",
-        "sha256": "a36f826ec60d3b38357aa973712c12d10a21fd1de1ba53626ecfe00543ee8417"
-      }
+      "ota": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-w/automate-wl-01b.ota_w_1.41b.bin"
     }
   ]
 }
 
-{
-  "version": "1.4.1b",
-  "name": "AUTOMATE.WL-01b (WIFI)",
-  "builds": [
-    {
-      "chipFamily": "ESP32-S3",
-      "ota": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-w/firmware.bin"
-    }
-  ]
-}
