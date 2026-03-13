@@ -11,3 +11,14 @@
     }
   ]
 }
+
+{
+  "version": "1.4.1b",
+  "name": "AUTOMATE.WL-01b (WIFI)",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "ota": "https://raw.githubusercontent.com/Billtou/public/main/WL_01b/firmware-w/firmware.bin"
+    }
+  ]
+}
