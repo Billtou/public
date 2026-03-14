@@ -7,17 +7,19 @@
 
 ## 目錄
 
-- [產品特性](#-產品核心特性)
-- [硬體一覽](#-硬體一覽)
-- [初次使用 Wi-Fi 設定](#-初次使用wi-fi-設定)
-- [HomeKit 配對](#-homekit-配對指南)
-- [LED 狀態說明](#-led-狀態指示燈)
-- [Reset 按鍵操作](#️-reset-按鍵完整操作)
-- [蜂鳴器音效](#-蜂鳴器提示音)
-- [OTA 韌體更新](#-韌體更新-ota)
+- [產品核心特性](#features)
+- [硬體一覽](#hardware)
+- [初次使用 Wi-Fi 設定](#wifi-setup)
+- [HomeKit 配對指南](#homekit-pairing)
+- [LED 狀態指示燈](#led-status)
+- [Reset 按鍵完整操作](#reset-button)
+- [蜂鳴器提示音](#buzzer)
+- [韌體更新 OTA](#ota)
+- [版本記錄](#changelog)
 
 ---
 
+<a id="features"></a>
 ## 🚀 產品核心特性
 
 | 特性 | 說明 |
@@ -32,6 +34,7 @@
 
 ---
 
+<a id="hardware"></a>
 ## 🔧 硬體一覽
 
 ```
@@ -59,6 +62,7 @@
 
 ---
 
+<a id="wifi-setup"></a>
 ## 🌐 初次使用 Wi-Fi 設定
 
 **LED 每秒閃一次** = 尚未設定 Wi-Fi
@@ -88,6 +92,7 @@ flowchart TD
 
 ---
 
+<a id="homekit-pairing"></a>
 ## 📱 HomeKit 配對指南
 
 **LED 雙閃（閃閃‧長滅）** = 已連 Wi-Fi，等待 HomeKit 配對
@@ -131,6 +136,7 @@ sequenceDiagram
 
 ---
 
+<a id="led-status"></a>
 ## 💡 LED 狀態指示燈
 
 ```mermaid
@@ -157,6 +163,7 @@ stateDiagram-v2
 
 ---
 
+<a id="reset-button"></a>
 ## 🛠️ Reset 按鍵完整操作
 
 ```mermaid
@@ -193,6 +200,7 @@ flowchart TD
 
 ---
 
+<a id="buzzer"></a>
 ## 🎵 蜂鳴器提示音
 
 | 場景 | 旋律 |
@@ -208,6 +216,7 @@ flowchart TD
 
 ---
 
+<a id="ota"></a>
 ## 🔄 韌體更新 (OTA)
 
 設備連網後，瀏覽器開啟更新頁面：
@@ -235,8 +244,6 @@ flowchart LR
     H -- 否 --> J([自動回滾原版本])
 ```
 
-**更新頁面功能：**
-
 | 功能 | 說明 |
 |------|------|
 | 版本比對 | 自動比對 GitHub 最新版本號 |
@@ -247,6 +254,7 @@ flowchart LR
 
 ---
 
+<a id="changelog"></a>
 ## 📋 版本記錄
 
 | 版本 | 主要變更 |
@@ -260,6 +268,7 @@ flowchart LR
 ---
 
 © 2026 AUTOMATE 智慧系統
+
 
 
 
