@@ -1,1 +1,1 @@
-這裡是存放MotionOne-Plus Homekit OTA的資料夾。
+update 2026/3/14 v1.2.0 發行版
