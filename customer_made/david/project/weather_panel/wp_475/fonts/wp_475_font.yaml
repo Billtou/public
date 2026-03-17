@@ -1,0 +1,255 @@
+
+font:
+  # - file: fonts_wp475/NotoSansTC-VariableFont_wght.ttfC:\esphome_final\project\publice\font
+  - file: 'project/publice/font/NotoSansTC-Light.ttf'
+    id: font_small_new
+    size: 16
+    glyphs: |-
+      /-0123456789 .:宜蘭縣頭城鎮礁溪鄉壯圍員山市大同五結三星羅東冬南澳蘇桃園區蘆竹觀音龜中壢新屋八德平楊梅龍潭復興豐湖口埔北關西芎林寶尖石橫峨眉峰苗栗份灣造橋後庄獅通霄公館銅鑼泰安苑裡義卓彰化伸港和美綠鹿秀水福花壇芬芳鹽村二心永靖社埤田尾斗塘州投仁愛國姓里草屯寮魚池名間信集谷雲麥崙高寺螺荊桐內臺土庫虎裘忠勢四古坑元長六嘉阿民雄腳崎太保番路朴子上布袋屏樹地門霧九如治瑪家麟洛武萬籌丹來潮坎頂邊佳春日琉球枋牡滿洲車恆濱海端成功河野延卑廟島達嶼金蓮吉壽榮鳳光瑞穗玉富澎白沙馬望七基隆樂正塔暖香松華文楠梓左營鼓苓雅前埕旗津小那夏甲仙杉茂濃茄萣岡燕巢瀾陀官鳥源芝淡汐止股雙重貢莊碇板深店坪鶯歌峽烏外后清神井原梧棲肚壁柳學下將軍麻豆善定康歸連江竿莒引寧烈坵
+
+  #forecast weekday     
+  - file: 'project/publice/font/GenJyuuGothic-Medium.ttf'
+    id: font_jyuugothic_Medium  # yes
+    size: 55
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
+      '月','-']
+
+  - file: 'project/publice/font/GenJyuuGothic-Bold.ttf'
+    id: font_NotoSansHK_Bold  # yes
+    size: 63
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
+      '月','-']
+
+
+  - file: 'project/publice/font/GenJyuuGothic-Medium.ttf'
+    id: font_jyuugothic_Bold #yes
+    size: 52
+    glyphs: 
+      ['一', '二', '三', '四', '五', '六', '日', '星', '期','未','知','-']
+
+  - file: 'project/publice/font/GenJyuuGothic-Bold.ttf'
+    id: font_jyuugothic_Light #yes
+    size: 24
+    glyphs: 
+      ['易署過危險偏南風東西北低高中量級舒適悶熱體非常', '感', '溫', '度','週','一', '二', '三', '四', '五', '六', '日','未','知','星', '期','立','春','雨','水','迎','端','月','至','+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'project/publice/font/GenJyuuGothic-Bold.ttf'
+    id: font_jyuugothic_Bold_2 #yes
+    size: 30
+    glyphs: 
+      ['稍寒意冷易暑過危險偏南東西北低高中量級舒適悶熱體下非常','冰','午','多','天','局','後','或','時','晨','晴','暫','暴','有','短','積','部','陣','陰','雨','雪','雲','雷','霧','風','+!,."%-_:°/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ']
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: font_jyuugothic_Bold_3 #yes
+    size: 40
+    glyphs: 
+      - "\U000F0765" # 底圖圓形
+
+  - file: 'project/publice/font/GenJyuuGothic-Light.ttf'
+    id: font_jyuugothic_Light_1 #yes
+    size: 20
+    glyphs: 
+      ['-','體', '感', '溫', '度',' ','立','春','雨','水','迎','端','月','驚','蟄','分','花','清','穀','桐','夏','滿','梅','芒','至','莆','大','暑','小','荔','秋','處','巧','白','鷺','桂','寒','露','霜','降','菊','冬','雪','陽','葭','臘','明','種']
+
+  - file: 'project/publice/font/GenJyuuGothic-Medium.ttf'
+    id: font_jyuugothic_Light_2 #yes
+    size: 20
+    glyphs: 
+      ['-','體', '感', '溫', '度',' ','立','春','雨','水','迎','端','月','驚','蟄','分','花','清','穀','桐','夏','滿','梅','芒','至','莆','大','暑','小','荔','秋','處','巧','白','鷺','桂','寒','露','霜','降','菊','冬','雪','陽','葭','臘','明','種']
+
+
+  #update time
+  - file: 'project/publice/font/Gotham-Rounded-Book.ttf'
+    id: font_smallest #yes update 字體
+    size: 16
+    glyphs:    
+      ['/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', ':','L','a','s','t','u','p','d','e','U','-']  
+
+  #forecast weekday     
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_medium_bold #yes
+    size: 23
+    glyphs: &font-glyphs    
+      ['!', ',', '.', '"', '%', '-', '_', ':', '°', '/',
+       '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ',
+       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+       'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+       's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+      
+  - file: 'project/publice/font/Gotham-Rounded-Book.ttf'
+    id: font_month #yes
+    size: 55
+    glyphs:    
+      ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+       'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+       's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
+       '3', '4', '5', '6', '7', '8', '9', ':','-',' ','!']  
+
+  #rooms data
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_small #yes
+    size: 30
+    glyphs:    
+      ['!', ',', '.', '"', '%', '-', '_', ':', '°', '/',
+       '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ',
+       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+       'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+       's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+  #forecast temperature
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_medium #yes
+    size: 32
+    glyphs:    
+      ['°', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9','%','-','u','n','k','o','w']
+
+  #Rooms name     
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_rooms_name #yes
+    size: 24
+    glyphs: 
+      ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+       'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+       's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
+       '3', '4', '5', '6', '7', '8', '9', ':',' ','%','-']  
+
+  #weekday 
+  # - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+  #   id: font_bold #yes
+  #   size: 45
+  #   glyphs: *font-glyphs
+
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_feel_like #yes
+    size: 65
+    glyphs: 
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','°','N','o','n','e','-','a']
+
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id:  font_today_temp #yes
+    size: 100
+    glyphs: *font-glyphs  
+   
+  - file: 'project/publice/font/Gotham-Rounded-Bold.ttf'
+    id: font_day_large #yes
+    size: 120
+    glyphs:
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9','-']
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_today #yes
+    size: 290
+    glyphs: &mdi-weather-glyphs
+      - "\U000F0590" # mdi-weather-cloudy
+      - "\U000F0F2F" # mdi-weather-cloudy-alert
+      - "\U000F0E6E" # mdi-weather-cloudy-arrow-right
+      - "\U000F0593" # mdi-weather-lightning
+      - "\U000F067E" # mdi-weather-lightning-rainy
+      - "\U000F0594" # mdi-weather-night
+      - "\U000F0F31" # mdi-weather-night-partly-cloudy      
+      - "\U000F0595" # mdi-weather-partly-cloudy
+      - "\U000F0F32" # mdi-weather-partly-lightning
+      - "\U000F0F33" # mdi-weather-partly-rainy
+      - "\U000F0596" # mdi-weather-pouring
+      - "\U000F0597" # mdi-weather-rainy
+      - "\U000F0599" # mdi-weather-sunny
+      - "\U000F0F37" # mdi-weather-sunny-alert
+      - "\U000F14E4" # mdi-weather-sunny-off
+      - "\U000F059A" # mdi-weather-sunset
+      - "\U000F059B" # mdi-weather-sunset-down
+      - "\U000F059C" # mdi-weather-sunset-up
+      - "\U000F059D" # mdi-weather-windy
+      - "\U000F059E" # mdi-weather-windy-variant
+      - "\U000F0783" # mdi-signal-off
+      - "\U000F08BF" # mdi-signal-cellular-outline bad
+      - "\U000F08BC" # mdi-signal-cellular-1
+      - "\U000F08BD" # mdi-signal-cellular-2
+      - "\U000F08BE" # mdi-signal-cellular-3 good
+      - "\U000F054B" # mdi:umbrella
+      - "\U000F04E6" # mdi:sync
+
+      
+    #forecast & signal icon      
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_forecast
+    size: 40
+    glyphs: *mdi-weather-glyphs
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_forecast_bg
+    size: 50
+    glyphs:     
+      - "\U000F0765" # 底圖圓形
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_forecast_bg_uv
+    size: 42
+    glyphs:     
+      - "\U000F0765" # 底圖圓形      
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_room
+    size: 30
+    glyphs:     
+      - "\U000F050F" # mdi-thermometer
+      - "\U000F058E" # mdi-water-percent
+      - "\U000F07E4" # mdi-molecule-co2   
+      - "\U000F0BAC" # mdi:molecule-pm25
+      - "\U000F0D43" # mdi:air-filter
+      - "\U000F0438" # mdi:radiator
+      - "\U000F054B" # mdi:umbrella
+      - "\U000F0690" # mdi:beaker-outline
+      - "\U000F17FF" # mdi:sun-wireless-outline
+      - "\U000F15FA" # mdi:windsock 
+      - "\U000F1A86" # mdi:water-thermometer-outline
+      - "\U000F0E03" # mdi:thermometer-chevron-up
+      - "\U000F0E02" # mdi:thermometer-chevron-down
+      - "\U000F0596" # mdi:weather-pouring
+      - "\U000F12A3" # mdi:battery-high
+      - "\U000F12A2" # mdi:battery-medium"
+      - "\U000F12A1" # mdi:battery-low
+      - "\U000F008E" # mdi:battery-outline
+      - "\U000F053F" # mdi:tshirt-crew-outline
+      - "\U000F0A7B" # mdi:tshirt-crew
+      - "\U000F0765" # 底圖圓形
+      - "\U000F17FE" # mdi:sun-wireless UV
+      - "\U000F054A" # 雨傘實心 Umbrella
+      - "\U000F1B0F" # 平均溫度
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_sun_and_moon
+    size: 55
+    glyphs:
+      - "\U000F0F61" # moon-first-quarter
+      - "\U000F0F62" # moon-full
+      - "\U000F0F63" # moon-last-quarter
+      - "\U000F0F64" # moon-new
+      - "\U000F0F65" # moon-waning-crescent
+      - "\U000F0F66" # moon-waning-gibbous
+      - "\U000F0F67" # moon-waxing-cresent
+      - "\U000F0F68" # moon-waxing-gibbous
+      - "\U000F054B" # mdi:umbrella
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: icon_big_moon
+    size: 68
+    glyphs:
+      - "\U000F0765" # mdi:circle
+
+  - file: 'project/publice/font/materialdesignicons-webfont.ttf'
+    id: sunset_down_up
+    size: 30
+    glyphs:
+      - "\U000F059B" # weather-sunset-down
+      - "\U000F059C" # weather-sunset-up
+      - "\U000F054B" # mdi:umbrella
+      - "\U000F059A" # mdi:weather-sunset
+      - "\U000F050E" # mdi:theme-light-dark
