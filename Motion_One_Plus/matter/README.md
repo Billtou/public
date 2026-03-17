@@ -1,4 +1,4 @@
-# MotionOne Plus — 毫米波人體存在感測器
+# MotionOne Plus — 毫米波人體存在感測器(matter協議版本)
 
 **MotionOne Plus** 搭載 24GHz FMCW 毫米波雷達 (LD2412)，能精準偵測**靜止人體存在**（不只是移動），支援 **Matter** 標準協議，可無縫接入 Apple Home、Google Home、Home Assistant 等主流智慧家庭平台。
 
