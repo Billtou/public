@@ -95,6 +95,8 @@ MotionOne Plus 透過 **Matter** 協議接入 Apple Home，**不需要額外的 
 5. 等待配對完成（約 30–60 秒）
 6. 裝置出現在 **整合 → Matter → 裝置**，狀態為 `binary_sensor.mmwave_occupancy`
 
+   ![081733](matter-qr-code.jpg)
+
 ### 推薦自動化範例（YAML）
 
 ```yaml
