@@ -1,0 +1,111 @@
+esphome:
+  name: automate-wp-475-basic
+  friendly_name: AUTOMATE WP-475 Basic
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  flash_size: 8MB
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+api:
+  reboot_timeout: 0s
+
+ota:
+  - platform: esphome
+  - platform: web_server
+
+web_server:
+  port: 80
+  version: 3
+
+wifi:
+  ap: {}
+
+captive_portal:
+
+external_components:
+  - source: github://tsunglung/esphome_epaper
+    components: [ display, waveshare_epaper ]  
+    
+
+packages:
+  wp_475_fonts_in: !include project/weather_panel/wp_475/fonts/wp_475_font.yaml
+
+
+light:
+  - platform: esp32_rmt_led_strip
+    rgb_order: GRB
+    pin: GPIO48
+    num_leds: 1
+    id: behind_led
+    chipset: ws2812
+    name: "Behind LED"
+    icon: mdi:led-outline
+
+psram:
+  mode: quad
+  speed: 80MHz      
+
+color:
+  - id: color_white
+    red: 100%
+    green: 100%
+    blue: 100%
+  - id: color_red
+    red: 100%
+    green: 0%
+    blue: 0%
+  - id: color_yellow
+    red: 100%
+    green: 100%
+    blue: 0%
+  - id: color_black
+    red: 0%
+    green: 0%
+    blue: 0%  
+
+button:
+  - platform: restart
+    name: "Restart 重開機"
+
+  - platform: factory_reset
+    id: reset_all
+    name: "Restart 重置設備"
+  - platform: template
+    name: 'Refresh Panel 更新頁面'
+    id: refresh_weather_panel
+    icon: mdi:sync
+    on_press:
+      then:
+        - component.update: my_display
+
+# Pins for Waveshare ePaper ESP Board
+spi:
+  clk_pin: GPIO2
+  mosi_pin: GPIO1
+
+# Now render everything on the ePaper screen.
+display:  
+  - platform: waveshare_epaper
+    cs_pin: GPIO42
+    dc_pin: GPIO41
+    busy_pin: 
+      number: GPIO39
+      inverted: true
+    reset_pin: GPIO40
+    reset_duration: 10ms
+    # model: 7.5in-gooddisplay
+    model: 7.5in-w21-gooddisplay
+    full_update_every: 10
+    update_interval: never
+    id: my_display
+    rotation: 0°   
+    lambda: |-
+      int width = it.get_width();
+      int height = it.get_height();
+      it.fill(id(color_white));  //全螢幕刷新成白色    
