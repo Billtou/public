@@ -62,7 +62,7 @@ MotionOne Plus 透過 **Matter** 協議接入 Apple Home，**不需要額外的 
 3. 對準裝置上的 **Matter QR Code** 掃描，或選擇「更多選項」手動輸入配對碼
 4. 依畫面指示命名裝置並加入房間
 5. 配對完成後，Apple Home 會顯示「**mmWave**」感測器
-
+![081733](image13.JPG)
 ### 自動化建議
 
 | 觸發條件 | 建議動作 |
