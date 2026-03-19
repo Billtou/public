@@ -9,6 +9,7 @@
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.3.bin",
         "md5": "0e9699a8d4302d4018daf1ef01558c74",
+        "sha256": "834adcba188be52154d77bab27ea44136c997d9e2208778da13f4d6b2412768d",        
         "summary": "v3.3beta 更新10/1日調整電費計價。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02a)"
       }
     }
