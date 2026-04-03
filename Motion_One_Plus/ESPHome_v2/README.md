@@ -14,7 +14,7 @@
 - 連網成功HA會自動發現導入即可
 ### 開始使用步驟
 
-![a重置](/ESPHome/image/motion.JPG)
+![a重置](/Motion_One_Plus/ESPHome/image/motion.JPG)
 
 - 接入wifi
 - 開啟後台ip網頁或接入HA於ESPHome中找到設備頁面
@@ -30,12 +30,12 @@
 - 例如光照低於20人在感應偵測到有人才生效等。
 - "距離閘道分辨率" 乘以 "最大距離閘道" 等於最遠偵測距離。 "距離閘道分辨率" 乘以 "最小距離閘道" 等於最近偵測距離，這兩個數據 "涵蓋的範圍" 就是雷達偵測有效距離。
 
-![a重置](image/motion_one_plus.JPG)
+![a重置](/Motion_One_Plus/ESPHome/image/motion_one_plus.JPG)
 
-![a重置](image/motion_one_plus_2.JPG)
+![a重置](/Motion_One_Plus/ESPHome/image/motion_one_plus_2.JPG)
 
 ### Motion One(LD2410) vs Plus(LD2412) 偵測範圍說明(請見綠色線條)
 
-![a重置](image/motion_2412_laser.JPG)
+![a重置](/Motion_One_Plus/ESPHome/image/motion_2412_laser.JPG)
 
 原廠雷達感應元件詳細說明  https://drive.google.com/drive/folders/17TAVgH5YI_6naA24dpjnJjm2v28alRPl?usp=sharing
