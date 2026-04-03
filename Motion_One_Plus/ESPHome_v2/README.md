@@ -6,7 +6,7 @@
 ### 重置 wifi
 - 按一下背景偵測，長按5秒重開，10秒重置進入連網模式
 
-![a重置](ESPHome/image/motion_one_plus_3.jpg)
+![a重置](Motion_One_Plus/ESPHome/image/motion_one_plus_3.jpg)
 
 ### 接入網路
 - 進入連網模式後手機搜尋產品發出的熱點 motionone-plus-xxxxxx 連接後靜待幾秒會跳出輸入wifi SSID 與密碼的畫面，或手動切換到瀏覽器輸入192.168.414即可。
