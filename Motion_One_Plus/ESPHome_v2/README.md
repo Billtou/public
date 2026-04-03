@@ -14,7 +14,7 @@
 - 連網成功HA會自動發現導入即可
 ### 開始使用步驟
 
-![a重置](image/motion.JPG)
+![a重置](/ESPHome/image/motion.JPG)
 
 - 接入wifi
 - 開啟後台ip網頁或接入HA於ESPHome中找到設備頁面
