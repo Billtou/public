@@ -1,4 +1,5 @@
-* 取消絕對值與線上更新，kWh能接受負數
+### 4/5 Update
+* 原生支持負值取樣
 ### 4/1 update
 * 原始chip_a chip_b RAW data
 ### 3/9 update 
