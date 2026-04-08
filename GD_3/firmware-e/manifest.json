@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.GD-3(Ethernet)",
-  "version": "3.2",
+  "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3.ota_e_3.2.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3.ota_e_3.1.bin",
         "md5": "636103f4ede38a052ae8a7074e1be198",
         "sha256": "de7e7d5469cb748098d9e324db6a45091ce7bde0fe205ea756cf4d65b6595ebd",
-        "summary": "v3.2 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
+        "summary": "v3.1 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
   ]
