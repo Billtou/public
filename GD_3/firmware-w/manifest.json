@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.GD-3(WiFi)",
-  "version": "3.2",
+  "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.2.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.1.bin",
         "md5": "6bb80f880ca0ac2d8ec53f65e28abb40",
         "sha256": "36bf89dae4f00d070c91ff329ae1c536e785f6f1a787db5811ad760d6c6a6ba9",
-        "summary": "v3.2 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
+        "summary": "v3.1 安全性與穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
   ]
