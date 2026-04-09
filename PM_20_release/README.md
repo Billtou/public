@@ -1,3 +1,7 @@
+# 3.7.4 release 版更新內容
+- 正式版取消beta更名TaiPower
+- 加入 bluetooth proxy
+- ESPHome 2026.3.3
 # 3.7.2 beta 版更新內容
 因應新版HomeAssistant能源面板對單位與屬性的要求修正如下:
 - BL0910芯片:
