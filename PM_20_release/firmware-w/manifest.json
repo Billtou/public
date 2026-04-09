@@ -1,15 +1,16 @@
 {
   "name": "AUTOMATE.PM-20(WiFi)",
-  "version": "3.7.2 beta",
+  "version": "3.7.4 release",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.7.2beta.bin",
-        "md5": "676eaecfe8ca70bbfbe9ddae035e1454",
-        "summary": "v3.7.2 beta 增加eentity屬性吻合新版HA要求。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_release/firmware-w/automate-pm-20.ota_w_3.7.4_release.bin",
+        "md5": "d65bd83977dcd7cbf4aebfef06bd5bfa",
+        "sha256": "095aacf644dd9e69d46b42efbb497062021e1de04a1559ea4c09eb74bb4b7271",
+        "summary": "v33.7.4 release 正式版。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_20_release)"
       }
     }
   ]
