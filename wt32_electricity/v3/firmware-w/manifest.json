@@ -8,8 +8,8 @@
       "chipFamily": "ESP32",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/wt32_electricity/v3/firmware-w/electricity-meter.ota_w_3.0.bin",
-        "md5": "9abb6b94655a7876aade1b949722e3f5",
-        "sha256": "3419deaec83e91998c1e99c8a4c04b4aa671df3cee1565ab200a457d5eac49f0",        
+        "md5": "af0ed7485e30cbb33e03e74f03e96e9b",
+        "sha256": "6cbf26b991df6d019c5a04327fdb47e504014fc0624393ad3aece24aa0f23a99",        
         "summary": "v3.x beta 2路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/wt32_electricity/v3/README.md)"
       }
     }
