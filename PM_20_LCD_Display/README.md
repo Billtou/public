@@ -1,3 +1,5 @@
+# 3.7.4 版更內容
+- 新增 TaiPower Last Reset Date 紀錄歸零的日期
 # 3.7.2 beta 版更新內容
 因應新版HomeAssistant能源面板對單位與屬性的要求修正如下:
 - BL0910芯片:
