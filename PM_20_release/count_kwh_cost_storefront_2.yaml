@@ -1,0 +1,32 @@
+# 二段式時間電價每度用電成本
+template:
+  - sensor:
+      - name: "count_kwh_cost_storefront_2"
+        unique_id: 6f06b6bf-8434-4812-8cd4-464296ed7e9b
+        state: >
+          {% set now_month = now().month %}
+          {% set now_weekday = now().isoweekday() %}
+          {% set now_hour = now().hour %}
+          {% set is_summer = now_month in [6,7,8,9] %}
+          {% set is_weekday = now_weekday in [1,2,3,4,5] %}
+          {% if is_summer %}
+            {% if is_weekday %}
+              {% if now_hour < 9 %} 1.96
+              {% else %} 5.01
+              {% endif %}
+            {% else %}
+              1.96
+            {% endif %}
+          {% else %}
+            {% if is_weekday %}
+              {% if now_hour < 6 %} 1.89
+              {% elif now_hour < 11 %} 4.78
+              {% elif now_hour < 14 %} 1.89
+              {% else %} 4.78
+              {% endif %}
+            {% else %}
+              1.89
+            {% endif %}
+          {% endif %}
+        unit_of_measurement: "TWD/kWh"
+        device_class: monetary  
