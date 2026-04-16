@@ -7,9 +7,10 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.7.2beta.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_release/firmware-w/automate-pm-20.ota_w_3.7.4_release.bin",
         "md5": "676eaecfe8ca70bbfbe9ddae035e1454",
-        "summary": "v3.7.2 beta 增加eentity屬性吻合新版HA要求。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
+        "sha256": "452b53129b23b7a2bc8ac28f3844f4673e4dfb0e1607dc7f10fb4fe1a83efff9",
+        "summary": "v3.7.2 beta 增加eentity屬性吻合新版HA要求。 [詳情見說明網頁](https://github.com/Billtou/public/edit/main/PM_20_release)"
       }
     }
   ]
