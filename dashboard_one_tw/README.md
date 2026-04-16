@@ -7,11 +7,11 @@
       basic_device_in: !include dashboard_one/base/esphome_basic_2026.yaml
       display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen_2026.yaml
   
-- 新增本地螢幕驅動資料庫資料夾，並將copy檔案
+- 新增本地螢幕驅動資料庫資料夾，下載gc9503v.rar並copy檔案在下列的資料夾中
   
       /esphome/external_components/gc9503v
 
-- 搜尋 bg_opa: COVER ， "255" 取代 "COVER
+- 主程式的yaml搜尋 bg_opa: COVER ， "255" 取代 "COVER
   
       bg_opa: 255
 
