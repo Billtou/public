@@ -76,7 +76,7 @@
 
 ![Mosquitto_broker](/PM_20_LCD_Display/image/S__75096072.jpg)
 
-![Mosquitto_broker](/PM_20_LCD_Display/image/S__75096072-1.jpg)
+![Mosquitto_broker](/PM_20_LCD_Display/image/S__75096072-1.JPG)
 
 ## 8. 設備自帶自動化計費週期歸零 
 一般家用計費期間約2個月為一個週期，可以看一下繳費通知單上有寫，下圖是我家的範例
