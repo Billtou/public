@@ -7,9 +7,9 @@
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-e/automate-pm-20d.ota_w_3.7.4.bin",
-        "md5": "0d8fa744fc3fa00a06e9d9313bec96c0",
-        "sha256": "796dfb3f1c906ced5832bf2b7c5ed385a1a3744c2cda10f36fcf50870fb1a637",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-e/automate-pm-20d.ota_e_3.7.4.bin",
+        "md5": "4e838413946d05e577fb2f332471b8df",
+        "sha256": "9c26ba2c716cc47208535bb3323c0be774d0659c5c9a53ad23d862dd94b20fb7",
         "summary": "穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_20_LCD_Display)"
       }
     }
