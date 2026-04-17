@@ -1,20 +1,6 @@
 # Dashboard one 中文版說明頁面
 #### 2026/4/16 Update
-- 因應esphome 2026.4版本對於螢幕的更新如下
-- esphome_basic_2026.yaml 取代舊的 esphome_basic.yaml 內容
-- touchscreen_2026.yaml 取代舊的 touchscreen.yaml 內容
-
-      basic_device_in: !include dashboard_one/base/esphome_basic_2026.yaml
-      display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen_2026.yaml
-  
-- 新增本地螢幕驅動資料庫資料夾，下載gc9503v.rar並copy檔案在下列的資料夾中
-  
-      /esphome/external_components/gc9503v
-
-- 主程式的yaml搜尋 bg_opa: COVER ， "255" 取代 "COVER
-  
-      bg_opa: 255
-
+- 請先不升級到最新版esphome，待驅動搞定再跟大家說
 #### 2026/1/22 Update 
 - 因應 esphome v2026.1 改版，請將 dashboard_one/base/esphome_basic.yaml 檔案中第43行 password: '' 刪除即可正常編譯。
 ## 首次連網說明 上電 手機搜尋ap熱點 接入熱點手機切換到瀏覽器輸入 192.168.4.1 指定自家wifi後 ha會自動發現。
