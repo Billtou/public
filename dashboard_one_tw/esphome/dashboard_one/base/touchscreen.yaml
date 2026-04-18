@@ -12,12 +12,79 @@ i2c:
     scan: true
     frequency: 400kHz
 
+spi: {}
+
+# ======================================================
+# GC9503V FIXED COMPONENT（關鍵修正）
+# ======================================================
+external_components:
+  - source:
+      type: git
+      url: https://github.com/Billtou/public
+      ref: main
+      path: dashboard_one_tw/my_components
+    components: [gc9503v]
+    
 display:
   - platform: gc9503v
     id: my_display
-    update_interval: never
-    auto_clear_enabled: false
-1
+    model: PANLEE
+
+    dimensions:
+      width: 480
+      height: 480
+
+    de_pin:
+      number: 40
+
+    hsync_pin:
+      number: 42
+
+    vsync_pin:
+      number: 41
+      allow_other_uses: true
+
+    pclk_pin: 39
+    
+    enable_pin:
+      number: 38
+      inverted: false
+
+    reset_pin:
+      number: 41
+      inverted: false
+      allow_other_uses: true
+
+    # ✅ 新版 gc9503v 必填（你缺的）
+    sclk_pin:
+      number: 45
+      allow_other_uses: true
+
+    mosi_pin:
+      number: 48
+      allow_other_uses: true
+
+    hsync_pulse_width: 10
+    hsync_front_porch: 8
+    hsync_back_porch: 40
+
+    vsync_pulse_width: 10
+    vsync_front_porch: 8
+    vsync_back_porch: 40
+
+    data_pins:
+      red: [18, 8, 3, 46, 10]
+      green: [14, 13, 12, 11, 16, 17]
+      blue: 
+        - number: 45
+          allow_other_uses: true
+        - number: 48
+          allow_other_uses: true
+        - 47
+        - 0
+        - 21
+
+    color_order: RGB
 
 # --------------------------------------
 # TOUCHSCREEN
