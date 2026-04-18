@@ -26,7 +26,7 @@ substitutions:
 
 packages:
   basic_device_in: !include dashboard_one/base/esphome_basic.yaml
-  display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen_2026.yaml
+  display_and_tou1chscreen_in: !include dashboard_one/base/touchscreen.yaml
   weather_forecast_in: !include dashboard_one/weather_forecast.yaml
   climate_in: !include dashboard_one/climates.yaml
   scenes_in: !include dashboard_one/sceness.yaml
