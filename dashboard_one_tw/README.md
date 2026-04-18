@@ -1,39 +1,7 @@
 # Dashboard one 中文版說明頁面
 #### 2026/4/16 Update
-- 請先不升級到最新版esphome 2026.4，待驅動搞定再跟大家說
-- 觸控螢幕驅動更新 
-- LVGL v8 -> v9 兩個 breaking changes 影響版面
-- 檔案 1：style_definitions.yaml
-- regular_page style — 新增 pad_all: 0
-- four_grids style — 換成 pad_all: 0（清除 pad_row/column）
-  
-      - id: regular_page
-        bg_opa: TRANSP
-        border_opa: TRANSP
-        width: 480
-        height: 405
-        scrollbar_mode: "OFF"
-        align: TOP_MID
-        pad_all: 0       # ← 新增：清除 LVGL v9 theme 的 pad_left/right=8 造成不對稱
-
-      - id: four_grids
-        width: 220
-        height: 215
-        border_opa: TRANSP
-        scrollbar_mode: "OFF"
-        align: TOP_MID
-        bg_opa: TRANSP
-        radius: 15
-        pad_all: 0       # ← 改：原本只有 pad_left/top/bottom/right:0，未清 pad_row/column
-
-- 檔案 2：dashboard-one-99e67c.yaml
-- 6 個 flex_flow: COLUMN_WRAP 都要加 flex_align_track: CENTER：
-  
-      layout:
-        type: flex
-        flex_flow: COLUMN_WRAP
-        flex_align_cross: CENTER
-        flex_align_track: CENTER    # ← 新增這行
+- 下載以下檔案取代舊觸控螢幕驅動 /dashboard_one_tw/esphome/dashboard_one/base/[touchscreen.yaml](https://github.com/Billtou/public/tree/main/dashboard_one_tw/esphome/dashboard_one/base)
+- 依據說明文檔調整因LVGL v8 -> v9 的版面變化
   
 #### 2026/1/22 Update 
 - 因應 esphome v2026.1 改版，請將 dashboard_one/base/esphome_basic.yaml 檔案中第43行 password: '' 刪除即可正常編譯。
