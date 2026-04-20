@@ -17,12 +17,18 @@ spi: {}
 # ======================================================
 # GC9503V FIXED COMPONENT（關鍵修正）
 # ======================================================
+# external_components:
+#   - source:
+#       type: git
+#       url: https://github.com/Billtou/public
+#       ref: main
+#       path: dashboard_one_tw/my_components
+#     components: [gc9503v]
+
 external_components:
   - source:
-      type: git
-      url: https://github.com/Billtou/public
-      ref: main
-      path: dashboard_one_tw/my_components
+      type: local
+      path: my_components
     components: [gc9503v]
     
 display:
