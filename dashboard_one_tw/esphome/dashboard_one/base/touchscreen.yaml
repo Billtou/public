@@ -25,7 +25,7 @@ spi: {}
 #       path: dashboard_one_tw/my_components
 #     components: [gc9503v]
 #
-#  將已修正的觸控屏的驅動放在本地端引用日後不受影響
+#  將已修正的觸控屏驅動放在本地端引用日後不受影響
 #  /esphome/
 #     |
 #     | /my_components/
