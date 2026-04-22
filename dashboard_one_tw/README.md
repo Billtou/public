@@ -1,5 +1,5 @@
 # Dashboard one 中文版說明頁面
-#### 2026/4/16 Update *重大版更*
+#### 2026/4/16 Update *重大版更  除非必要輕勿版更 等待更成熟的版本*  
 - 下載以下檔案取代舊觸控螢幕驅動 [touchscreen.yaml](https://github.com/Billtou/public/tree/main/dashboard_one_tw/esphome/dashboard_one/base)  [style_definitions.yaml](https://github.com/Billtou/public/tree/main/dashboard_one_tw/esphome/dashboard_one/lvgl)
 - 下載gc9503v.rar檔案接壓縮放在 /esphome/my_components/gc9503v 裡面
 - 依據說明文檔調整因LVGL v8 -> v9 的[版面變化說明檔](https://github.com/Billtou/public/blob/main/dashboard_one_tw/esphome_2026.4/migrate-lvgl-v8-to-v9.md)
