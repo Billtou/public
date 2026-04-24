@@ -1,15 +1,15 @@
 {
   "name": "AUTOMATE.GD-3(WiFi)",
-  "version": "3.7.4",
+  "version": "3.7.5",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-e/automate-pm-20d.ota_e_3.7.4.bin",
-        "md5": "4e838413946d05e577fb2f332471b8df",
-        "sha256": "9c26ba2c716cc47208535bb3323c0be774d0659c5c9a53ad23d862dd94b20fb7",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-e/automate-pm-20d.ota_e_3.7.5%20.bin",
+        "md5": "c99b1af33da1b676038cc4c3b236c419",
+        "sha256": "26f399cb2dfd3e76de70e35694d550b2fe11a0b6b287ecf52bc5dbd1e5508e1f",
         "summary": "穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_20_LCD_Display)"
       }
     }
