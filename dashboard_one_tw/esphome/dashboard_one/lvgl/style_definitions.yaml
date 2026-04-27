@@ -7,19 +7,19 @@
     height: 405             # 高度（例如預留 75px 給 footer）
     scrollbar_mode: "OFF"   # 不顯示捲動條
     align: TOP_MID          # 頁面在畫面上方置中對齊
-    pad_all: 0
     
   - id: four_grids
     width: 220
     height: 215
-    border_opa: TRANSP
-    scrollbar_mode: "OFF"
-    align: TOP_MID
-    bg_opa: TRANSP
-    radius: 15
-    pad_all: 0
-    pad_row: 8       # v9: 按鈕垂直間距（不可 > 13，否則 2×2 換行失敗）
-    pad_column: 7    # v9: 按鈕水平間距（不可 > 12）
+    border_opa: TRANSP      # 邊框透明
+    scrollbar_mode: "OFF"   # 不顯示捲動條
+    align: TOP_MID          # 頁面在畫面上方置中對齊
+    bg_opa: TRANSP  #透明
+    radius: 15  # 圓角半徑
+    pad_left: 0px  # 左邊距
+    pad_top: 0px  # 上邊距
+    pad_bottom: 0px  # 下邊距
+    pad_right: 0px  # 右邊距   
 
   - id: header_footer  # 樣式 ID（用於頁眉和頁腳）
     text_font: font_icon_small
@@ -55,15 +55,19 @@
     height: 72
     text_font: font_icon_small
 
+  - id: button_C_H
+    width: 220
+    height: 66
+    text_font: font_Medium_big
+    
   - id: button_D
     width: 104
     height: 101
-    pad_all: 0
-    margin_top: 0    # v9: 清除 theme 可能加的 margin，避免 flex 換行失敗
-    margin_bottom: 0
-    margin_left: 0
-    margin_right: 0
-    shadow_width: 0
+    pad_left: 0px  # 左邊距
+    pad_top: 0px  # 上邊距
+    pad_bottom: 0px  # 下邊距
+    pad_right: 0px  # 右邊距
+    shadow_width: 0  # 陰影寬度（無陰影）
 
   - id: button_E
     width: 100
