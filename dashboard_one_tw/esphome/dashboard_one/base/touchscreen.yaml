@@ -12,94 +12,76 @@ i2c:
     scan: true
     frequency: 400kHz
 
-spi: {}
+spi:    #required only for libraries
 
-# ======================================================
-# GC9503V FIXED COMPONENT（關鍵修正）
-# ======================================================
-# external_components:
-#   - source:
-#       type: git
-#       url: https://github.com/Billtou/public
-#       ref: main
-#       path: dashboard_one_tw/my_components
-#     components: [gc9503v]
-#
-#  將已修正的觸控屏驅動放在本地端引用日後不受影響
-#  /esphome/
-#     |
-#     | /my_components/
-#            |
-#            | /gc9503v/
-#                 |
-#                 |<驅動檔案放在這裡>
-
+# --------------------------------------
+# -            DISPLAY 屏幕驅動勿動
+# --------------------------------------
 external_components:
-  - source:
-      type: local
-      path: my_components
-    components: [gc9503v]
-    
+  - source: github://sEbola76/gc9503v    
+
+
 display:
   - platform: gc9503v
+    model: PANLEE  # 或 VIEWE
     id: my_display
-    model: PANLEE
-
     dimensions:
       width: 480
       height: 480
-
     de_pin:
       number: 40
-
+      inverted: False
     hsync_pin:
       number: 42
-
+      inverted: False
     vsync_pin:
       number: 41
+      inverted: false
       allow_other_uses: true
-
     pclk_pin: 39
-    
+    pclk_inverted: false
+    hsync_pulse_width: 10
+    hsync_front_porch: 8
+    hsync_back_porch: 40
+    vsync_pulse_width: 10
+    vsync_front_porch: 8
+    vsync_back_porch: 40
+    data_pins:
+      red:
+        - 18         # R1
+        - 8          # R2
+        - 3          # R3
+        - 46         # R4
+        - 10         # R5
+      green:
+        - 14         # G0
+        - 13         # G1
+        - 12         # G2
+        - 11         # G3
+        - 16         # G4
+        - 17         # G5 
+      blue:
+        - number: 45 # B1
+          allow_other_uses: true
+        - number: 48 # B2
+          allow_other_uses: true
+        - 47         # B3
+        - 0          # B4
+        - 21         # B5
     enable_pin:
       number: 38
       inverted: false
-
     reset_pin:
       number: 41
       inverted: false
       allow_other_uses: true
-
-    # ✅ 新版 gc9503v 必填（你缺的）
     sclk_pin:
       number: 45
       allow_other_uses: true
-
     mosi_pin:
       number: 48
       allow_other_uses: true
-
-    hsync_pulse_width: 10
-    hsync_front_porch: 8
-    hsync_back_porch: 40
-
-    vsync_pulse_width: 10
-    vsync_front_porch: 8
-    vsync_back_porch: 40
-
-    data_pins:
-      red: [18, 8, 3, 46, 10]
-      green: [14, 13, 12, 11, 16, 17]
-      blue: 
-        - number: 45
-          allow_other_uses: true
-        - number: 48
-          allow_other_uses: true
-        - 47
-        - 0
-        - 21
-
-    color_order: RGB
+    color_order: RGB  
 
 # --------------------------------------
 # TOUCHSCREEN
