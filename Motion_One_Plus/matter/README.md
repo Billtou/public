@@ -243,7 +243,7 @@ Matter 規範允許**同一台裝置同時加入多個生態**,最多 **5 個 Fa
 配對成功後,MotionOne 在區網提供 Web UI。打開瀏覽器,網址兩種擇一:
 
 - **直接 IP**:在生態 App 內查看裝置 IP(例 `http://192.168.1.123`)
-- **主機名稱**:`http://automate-motionone-XXXXXX.local`(XXXXXX 為機身 MAC 後 6 碼,標籤上有印)
+- **主機名稱**:`http://automate-motionone-XXXXXX.local`(XXXXXX 為機身 MAC 後 6 碼)
 
 > 手機與 MotionOne 必須在**同一個 Wi-Fi 網段**。
 
@@ -395,15 +395,8 @@ Matter 規範允許**同一台裝置同時加入多個生態**,最多 **5 個 Fa
 | 待機功耗 | < 0.5 W |
 | 工作溫度 | 0 °C – 50 °C |
 | 工作濕度 | 10% – 90% RH(無凝結)|
-| 尺寸 | TBD |
-| 重量 | TBD |
-| Matter VID / PID | `0xFFF1` / `0x8001` |
-| 認證 | NCC / FCC / CE(申請中)|
 
 ---
 
 > AUTOMATE · MotionOne · 韌體 v2.3.6(2026-05-01 上市)
-> 技術支援:[https://automate.com.tw](https://automate.com.tw)
 
-   
-   ![081733](matter-qr-code.jpg)
