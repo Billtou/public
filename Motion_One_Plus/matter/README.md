@@ -1,4 +1,4 @@
-# MotionOne · AUTOMATE 智能人體感測器
+# MotionOne · AUTOMATE 智能人體感測器 
 
 > 24 GHz 毫米波雷達 · Matter over Wi-Fi · 跨生態相容
 
