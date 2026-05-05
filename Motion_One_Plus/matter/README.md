@@ -3,7 +3,7 @@
 > 
 > 重點影片介紹> [重置進入連網模式]()
 > 
-> [原廠人體感偵測器app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
+> 毫米波參數調整> [原廠app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ---
 
 ## 📑 目錄
