@@ -3,9 +3,9 @@
 > 
 > 重點影片介紹> [重置進入連網模式]()
 >
-> 跨平臺接入智能生態> [接入Home Assistant 後轉入Apple Homelit](https://youtu.be/oOZLfkmxRx8)
+> 跨平臺接入智能生態> [接入 Home Assistant 後轉入 Apple Homekit](https://youtu.be/oOZLfkmxRx8)
 > 
-> 跨平臺接入智能生態> [重置進入連網模式]()
+> 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant ](https://youtu.be/dLEspzmaiJI)
 > 
 > 毫米波參數調整> [原廠app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ---
