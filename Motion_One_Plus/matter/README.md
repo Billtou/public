@@ -1,8 +1,8 @@
 # MotionOne · AUTOMATE 智能人體感測器
 > 24 GHz 毫米波雷達 · Matter over Wi-Fi · 跨生態相容
 > 
-> 重點影片介紹
-> [重置進入連網模式]()
+> 重點影片介紹> [重置進入連網模式]()
+> 
 > [原廠人體感偵測器app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ---
 
