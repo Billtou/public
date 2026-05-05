@@ -2,6 +2,10 @@
 > 24 GHz 毫米波雷達 · Matter over Wi-Fi · 跨生態相容
 > 
 > 重點影片介紹> [重置進入連網模式]()
+>
+> 跨平臺接入智能生態> [接入Home Assistant 後轉入Apple Homelit](https://youtu.be/oOZLfkmxRx8)
+> 
+> 跨平臺接入智能生態> [重置進入連網模式]()
 > 
 > 毫米波參數調整> [原廠app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ---
