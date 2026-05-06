@@ -1,13 +1,15 @@
 # MotionOne · AUTOMATE 智能人體感測器
 > 24 GHz 毫米波雷達 · Matter over Wi-Fi · 跨生態相容
 > 
-> 重點影片介紹> [重置進入連網模式]()
+> 重點影片介紹> [重置進入連網模式](https://youtu.be/fF8eUW6vTzo)
 >
 > 跨平臺接入智能生態> [接入 Home Assistant 後轉入 Apple Homekit](https://youtu.be/oOZLfkmxRx8)
 > 
 > 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant ](https://youtu.be/dLEspzmaiJI)
 > 
-> 毫米波參數調整> [原廠app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
+> 毫米波參數調整影片說明>[調整參數影片](https://youtu.be/CTYdZX-y3Jc)
+> 
+> 毫米波參數調整文字說明> [原廠app使用說明](https://github.com/Billtou/public/tree/main/Motion_One_Plus/HLKRadarTool)
 ---
 
 ## 📑 目錄
