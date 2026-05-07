@@ -7,7 +7,7 @@
 > 
 > 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant ](https://youtu.be/dLEspzmaiJI)
 >
-> Web UI 調整參數說明> [Web UI]([#](https://youtu.be/b8adlsMMleI))
+> Web UI 調整參數說明> [Web UI](https://youtu.be/b8adlsMMleI)
 ---
 
 ## 📑 目錄
