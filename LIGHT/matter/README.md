@@ -1,13 +1,13 @@
 # LTC3 · AUTOMATE 智能燈具系列
 > Matter over Wi-Fi · 跨生態相容 · 三款型號可選
 >
-> 重點影片介紹> [重置進入連網模式](#)
+> 重點影片介紹> [重置進入連網模式](https://youtu.be/fF8eUW6vTzo)
 >
-> 跨平臺接入智能生態> [接入 Home Assistant 後轉入 Apple Homekit](#)
+> 跨平臺接入智能生態> [接入 Home Assistant 後轉入 Apple Homekit](https://youtu.be/oOZLfkmxRx8)
+> 
+> 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant ](https://youtu.be/dLEspzmaiJI)
 >
-> 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant](#)
->
-> Web UI 工程模式說明> [硬體規格與色溫範圍設定](#)
+> Web UI 調整參數說明> [Web UI]([#](https://youtu.be/b8adlsMMleI))
 ---
 
 ## 📑 目錄
