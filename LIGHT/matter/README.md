@@ -1,4 +1,4 @@
-# LT · AUTOMATE 智能燈具系列
+# LTC3 · AUTOMATE 智能燈具系列
 > Matter over Wi-Fi · 跨生態相容 · 三款型號可選
 >
 > 重點影片介紹> [重置進入連網模式](#)
