@@ -90,7 +90,6 @@ AirCube 是 AUTOMATE 推出的智能室內空氣品質感測器,**直接接入 A
 
 ### 1.1 三款型號
 
-三款共用同一塊主板,差別在 UART2 上接的模組與多出的 Matter 端點:
 
 | 型號 | 名稱 | 額外感測 | Matter 額外端點 | 適合場景 |
 |---|---|---|---|---|
@@ -98,8 +97,8 @@ AirCube 是 AUTOMATE 推出的智能室內空氣品質感測器,**直接接入 A
 | **AirCube Pro** | 人在偵測版 | 24 GHz 雷達 LD2410 | EP4 OccupancySensor | 房間佔用 / 自動化燈控 / 冷氣節能 |
 | **AirCube Plus** | 觸控版 | TTP223 觸控感測 | EP4-EP6 OnOff(單擊/雙擊/長按)| 場景按鈕 / 一鍵情境切換 |
 
-> 三款都有共用感測器:HDC1080 溫濕度、CM1106 CO2、SGP30 TVOC、PM2105/PM2005 PM2.5(自動辨識)。
-> 變體可在 Web UI **工程模式**現場切換(章節 9.2)。
+> 三款都有共用感測器:HDC1080 溫濕度、CM1106 CO2、SGP30 TVOC、PM2105/PM2005 PM2.5。
+
 
 ### 1.2 規格速覽
 
@@ -109,15 +108,15 @@ AirCube 是 AUTOMATE 推出的智能室內空氣品質感測器,**直接接入 A
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | BLE | 5.0(僅配對用)|
 | 處理器 | ESP32(雙核 Xtensa LX6, 240 MHz, 4 MB Flash)|
-| 供電 | DC 5V / USB-C,建議 ≥ 1 A |
+| 供電 | DC 5V / 必須使用原廠豆腐頭 |
 | 工作環境 | 0–50 °C / 10–90% RH(無凝結) |
 | 顯示螢幕(可選)| 1.3" SH1106 OLED 128×64 mono |
 
 ### 1.3 包裝內容
 
 - AirCube 主機 × 1(視型號內含對應感測模組)
-- USB-C 電源線 × 1
-- 快速入門卡(含 Matter QR Code 與 11 碼配對碼)× 1
+- USB 電源線 × 1
+- 快速入門貼紙(含 Matter QR Code 與 11 碼配對碼)× 1
 
 ---
 
@@ -126,10 +125,8 @@ AirCube 是 AUTOMATE 推出的智能室內空氣品質感測器,**直接接入 A
 ### 2.1 外觀與接口
 
 - **狀態 LED 群**:依 LED 變體不同(章節 3),反映系統 + 空品狀態
-- **重置鈕**:長按 10 秒進入工廠重置(章節 13)
-- **USB-C**:供電(資料線無作用,單純取電)
-- **PM2.5 進氣口**:正面下方百葉,**請勿封閉**
-- **OLED 接口**:I2C(可選配,接 SH1106 模組)
+- **重置鈕**:背後有小孔長按 10 秒進入工廠重置(章節 13)
+- **USB**:供電(資料線無作用,單純取電)
 
 ### 2.2 配對碼資訊
 
@@ -152,7 +149,7 @@ XXXXXX 為機身 Wi-Fi MAC 後 6 碼。
 | 濕度 | HDC1080 | 0 ~ 100 %RH | I2C | 全部 |
 | CO2 | CM1106 NDIR | 400 ~ 5000 ppm | UART | 全部 |
 | TVOC | SGP30 MOX | 0 ~ 60000 ppb(顯示為 µg/m³) | I2C | 全部 |
-| PM2.5 | PM2105 / PM2005(自動辨識) | 0 ~ 999 µg/m³ | I2C | 全部 |
+| PM2.5 | PM2105 / PM2005 | 0 ~ 999 µg/m³ | I2C | 全部 |
 | **CH2O 甲醛** | ZE08-CH2O 電化學 | 0 ~ 6553 ppb | UART | **僅 Ultra** |
 | **人在偵測** | HLK-LD2410 24 GHz 雷達 | 0.75 ~ 6 m | UART | **僅 Pro** |
 | **觸控** | TTP223 電容感測 | 單擊 / 雙擊 / 長按 | GPIO | **僅 Plus** |
@@ -168,16 +165,16 @@ AirCube 主板支援兩種 LED 配置,在 Web UI 工程模式切換(章節 9.3):
 | 配置 | LED 數量 | 適用 |
 |---|---|---|
 | **標準版**(預設)| 4 顆 LED | 標準 PCB,有四顆獨立指示燈 |
-| **AirMac** | 1 顆 LED(GPIO 32)| AirMac 精簡 PCB,所有提示集中一顆 |
+| **AirMac** | 1 顆 LED| AirMac 精簡 PCB,所有提示集中一顆 |
 
 ### 3.2 標準版 — 4 LED 行為
 
 | LED | 觸發條件 |
 |---|---|
-| **CO2-LED**(GPIO 4)| CO2 > 設定門檻時亮起 |
-| **TVOC-LED**(GPIO 32)| TVOC **或** CH2O 任一超標時亮起(共用) |
-| **PM2.5-LED**(GPIO 33)| PM2.5 > 設定門檻時亮起 |
-| **Status-LED**(GPIO 25)| 系統狀態(WiFi / Matter 配對 / 工廠重置警告) |
+| **CO2-LED**| CO2 > 設定門檻時亮起 |
+| **TVOC-LED**| TVOC **或** CH2O 任一超標時亮起(共用) |
+| **PM2.5-LED**| PM2.5 > 設定門檻時亮起 |
+| **Status-LED**| 系統狀態(WiFi / Matter 配對 / 工廠重置警告) |
 
 > 開啟「指示燈睡眠模式」時,三顆超標 LED 強制熄滅(系統狀態 LED 不受影響)。
 
@@ -412,42 +409,16 @@ Matter 規範允許**同一台 AirCube 同時加入多個生態**,最多 **5 個
 
 ---
 
-## 9. Web UI:工程模式(硬體規格)
+## 9. Web UI:工程模式(後期維修用)
 
-> ⚠️ 此區為硬體變更類進階設定,部分變更後**會自動清除 Matter 配對並重啟**,需重新加入智能生態。一般使用者不需碰。
+> ⚠️ 此區為後期工程人員維護用不開放使用者登入。
 
-### 9.1 進入工程模式
-
-底部 nav bar → **工程模式** → 輸入帳號密碼解鎖(此分頁開啟期間有效)。
-
-### 9.2 產品變體切換
-
-如果你有同一塊 PCB 想轉換用途(例如把 Ultra 換成 Pro 拿去做別的房間),可在工程模式切變體 — **不用重燒韌體,單一 firmware 支援三變體**。
-
-| 變體 | UART2(GPIO 5/18)接的 |
-|---|---|
-| Ultra | ZE08-CH2O 甲醛模組 |
-| Pro | LD2410 24GHz 雷達模組 |
-| Plus | (UART2 不用,GPIO 5 接 TTP223 觸控) |
-
-> ⚠️ **切換變體會清除 Matter 配對**(端點結構改變,舊 commissioner 看到的 EP 圖會錯位),要重新加入所有智能生態。同時必須**確認硬體實際接的模組對得上選擇的變體**,否則該變體的 sensor 會 init 失敗。
-
-### 9.3 LED 提示變體切換
-
-兩種 LED 配置軟體切換,適配不同 PCB:
-
-| 變體 | LED 配置 |
-|---|---|
-| **標準版** | GPIO 4 / 32 / 33 各自一顆超標燈;GPIO 25 系統狀態 |
-| **AirMac** | GPIO 32 一顆 LED 全包(系統狀態 + 任一超標慢閃 + 正常恆亮) |
-
-> 切 LED 變體**不會清 Matter 配對**(只重啟以重配 GPIO),配件仍在生態裡。
 
 ---
 
 ## 10. 睡眠模式自動化(進階)
 
-AirCube 把「指示燈睡眠模式」**暴露為 Matter OnOff 開關**(EP-last),所有生態都能控制這顆開關 → 進階自動化:
+AirCube 把「指示燈睡眠模式」**暴露為 Matter OnOff 開關**,所有生態都能控制這顆開關 → 進階自動化:
 
 | 場景 | 自動化規則範例 |
 |---|---|
@@ -460,45 +431,14 @@ AirCube 把「指示燈睡眠模式」**暴露為 Matter OnOff 開關**(EP-last)
 
 ---
 
-## 11. TVOC 在 Apple Home 的限制與 Bridge 解法
+## 11. 甲醛 在 Apple Home 、 Home Assistant 的限制
 
-**Apple Home 對 Matter AirQualitySensor 的支援不完整** — 只展示:
+**Apple Home 、Home Assistant 對 Matter AirQualitySensor 的支援不完整** 
 
-- ✅ Carbon Dioxide(CO2)
-- ✅ PM2.5 Density
-- ✅ Air Quality(整體等級 enum)
-- ❌ **TVOC**(Apple 沒寫 Matter→HAP mapping)
-- ❌ **Formaldehyde / 甲醛**(同上)
+- ❌ **Formaldehyde / 甲醛**
 
-AirCube 韌體確實有送出 TVOC + CH2O 的 Matter cluster 資料(可在 HA 看到),只是 Apple Home UI 不展示。**這是 Apple 端限制,跟認證、感測器、韌體都無關**。
+AirCube 韌體確實有送出 CH2O 的 Matter cluster 資料但目前 matter 與 智能生態對於轉換協議還沒確定，導致他們不認識甲醛，目前以螢幕顯示方式呈現。
 
-### 解法:HA HomeKit Bridge
-
-如果你想在 Apple Home 看到 TVOC,標準做法是讓 HA 當中介:
-
-1. AirCube → Matter → HA(看到所有 entity)
-2. HA → HomeKit Bridge(內建 integration)→ Apple Home
-3. Apple Home 看到的是 HA 偽裝的「HAP 原生配件」,**繞過 Matter mapping 限制**
-
-設定步驟(HA 端):
-
-```yaml
-# configuration.yaml
-homekit:
-  - name: AirCube Bridge
-    port: 21063
-    filter:
-      include_entities:
-        - sensor.aircube_ultra_xxxxxx_carbon_dioxide
-        - sensor.aircube_ultra_xxxxxx_pm25_density
-        - sensor.aircube_ultra_xxxxxx_volatile_organic_compounds  # ← TVOC
-        - sensor.aircube_ultra_xxxxxx_temperature
-        - sensor.aircube_ultra_xxxxxx_humidity
-```
-
-把 `xxxxxx` 換成你 HA 實際的 entity ID 後綴,儲存後重啟 HA。HA log 會給 8 碼 HomeKit pairing code,iPhone 「家庭」App 加入該 pairing code 即可。
-
-> AirCube 韌體 TVOC 已宣告為 **µg/m³**(SGP30 ppb 在源頭 × 4.57 換算),HA + HomeKit 兩邊都用同一個原生單位,bridge 不需做任何單位轉換。
 
 ---
 
