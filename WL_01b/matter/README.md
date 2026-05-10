@@ -2,11 +2,11 @@
 
 > ESP32-S3 · Matter over Wi-Fi · Wi-Fi + 網線雙網路（網線優先） · 跨生態相容
 >
+> 重置進入連網模式 > [影片教學](https://youtu.be/fF8eUW6vTzo)
+>
 > 跨平臺接入智能生態 > [接入 Home Assistant 後轉入 Apple Homekit](https://youtu.be/oOZLfkmxRx8)
 >
 > 跨平臺接入智能生態 > [接入 Apple Homekit 後轉入 Home Assistant](https://youtu.be/dLEspzmaiJI)
->
-> 重置進入連網模式 > [影片教學](https://youtu.be/fF8eUW6vTzo)
 >
 > ESPHome 舊版本說明（已停止維護） > [WL-01 ESPHome 文件](https://github.com/Billtou/public/tree/main/WL_01b)
 
