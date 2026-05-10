@@ -8,7 +8,6 @@
 >
 > 重置進入連網模式 > [影片教學](https://youtu.be/fF8eUW6vTzo)
 >
-> ESPHome 舊版本說明（已停止維護） > [WL-01 ESPHome 文件](https://github.com/Billtou/public/tree/main/WL_01b)
 
 ---
 
