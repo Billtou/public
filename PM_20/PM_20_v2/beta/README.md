@@ -1,4 +1,4 @@
-# 3.8.0 beta 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
+# 3.8.0 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
 *「台電帳單對齊:雙月級距 + 跨季日數比例切割」
 
 *「精準計價:支援台電雙月抄表 + 跨季日數分配」
