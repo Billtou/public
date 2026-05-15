@@ -8,7 +8,10 @@
 > Web UI 調整參數說明> [Web UI](https://youtu.be/b8adlsMMleI)
 >
 > 安裝步驟123
+> 
 > ![homekit_QR_code](image/S__78520361_0-1.JPG)
+> ![homekit_QR_code](image/S__78520361_0-2.JPG)
+> ![homekit_QR_code](image/S__78520361_0-3.JPG)
 ---
 
 ## 📑 目錄
