@@ -6,6 +6,9 @@
 > 跨平臺接入智能生態> [接入 Apple Homekit 後轉入 Home Assistant ](https://youtu.be/dLEspzmaiJI)
 >
 > Web UI 調整參數說明> [Web UI](https://youtu.be/b8adlsMMleI)
+>
+> 安裝步驟123
+> ![homekit_QR_code](/image/S__78520361_0-1.JPG)
 ---
 
 ## 📑 目錄
