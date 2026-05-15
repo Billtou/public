@@ -61,11 +61,12 @@
 6. [Web UI:首頁(狀態顯示)](#6-web-ui首頁狀態顯示)
 7. [模式與風量](#7-模式與風量)
 8. [防霉守護(MoldGuard)](#8-防霉守護moldguard)
-9. [OTA 韌體更新](#9-ota-韌體更新)
-10. [工廠重置](#10-工廠重置)
-11. [故障排除](#11-故障排除)
-12. [安全使用](#12-安全使用)
-13. [規格表](#13-規格表)
+9. [進階:MQTT 橋接 Home Assistant](#9-進階mqtt-橋接-home-assistant)
+10. [OTA 韌體更新](#10-ota-韌體更新)
+11. [工廠重置](#11-工廠重置)
+12. [故障排除](#12-故障排除)
+13. [安全使用](#13-安全使用)
+14. [規格表](#14-規格表)
 
 </details>
 
@@ -81,7 +82,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 <tr>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">❄️ 多廠牌冷氣協定</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">大金  / 格力 / Panasonic / Hitachi / 三菱重工 / 三菱電機(出廠 profile 選擇)</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">大金 S21 / 大同泰相容 / Panasonic / Hitachi / 三菱重工 MHI(出廠 profile 選擇)</p>
 </td>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">📡 保留原廠遙控</p>
@@ -95,13 +96,19 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 </td>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">🍃 防霉守護</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">關機後自動送風 ,防潮防黴</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">關機後自動送風 3–5 分鐘,延長壓縮機壽命</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
+<p style="margin:0;font-weight:700;color:#1c3d5a">🏡 Apple Home + Home Assistant 雙生態</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">內建 MQTT 橋接,可同時接入 Apple Home 跟 Home Assistant,雙端控制即時同步(章節 9)</p>
 </td>
 </tr>
 </table>
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 <b>HomeKit 是 Apple 專屬生態</b>,只能接入 Apple Home(iPhone / iPad / Mac)。如需 Google Home / Home Assistant / Alexa 跨生態,請選 Matter 版產品。
+💡 <b>HomeKit 配對是 Apple 專屬</b>。如要在 Home Assistant 上同時控制,可透過內建 MQTT 橋接(章節 9)。如需 Google Home / Alexa 跨生態,請選 Matter 版產品。
 </blockquote>
 
 ### 1.1 規格速覽
@@ -113,17 +120,17 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
 | MCU 介面 | UART1 9600 8N1(原廠協定)|
 | Apple Home Service | HeaterCooler |
-| 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風(看機型支援) |
+| 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風 |
 | 風量 | 自動 / 弱 / 中 / 強(看機型支援)|
 | 工作環境 | -10–50 °C / 10–90% RH(無凝結)|
 
 ### 1.2 包裝內容
 
-- AirOne-AC 控制器模組 × 1(裝在冷氣 Wi-Fi 模組槽位)
+- AirOne-AC 控制器模組 × 1(已預先裝在冷氣 Wi-Fi 模組槽位)
 - 快速入門卡(含 HomeKit QR Code + 8 碼配對碼)× 1
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 請檢查自家冷氣是否支持模組改裝方案,<b>終端使用者不熟悉避免拆機</b>。
+💡 模組已在出廠時裝入冷氣本體,<b>終端使用者不需要拆機</b>。
 </blockquote>
 
 ---
@@ -132,19 +139,19 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 ### 2.1 安裝與接口
 
-模組接在冷氣 Wi-Fi 模組槽位,UART 跟原廠 MCU 通訊。
+冷氣本體接 AC 110V/220V,**無需額外接線**。模組接在冷氣 Wi-Fi 模組槽位,UART 跟原廠 MCU 通訊。
 
 - **內建 Wi-Fi 天線** — 無需外接
 - **原廠面板 / 遙控** — 獨立於本模組
-- **狀態 LED**(模組,白光)— 章節 3.1
-- **重置鍵**(模組小孔或按鍵)— 章節 3.2
+- **狀態 LED**(模組,藍光)— 章節 3.1
+- **重置鍵**(模組小孔)— 章節 3.2
 
 ### 2.2 配對碼資訊
 
 | 項目 | 數值 |
 |---|---|
 | HomeKit QR Code | 快速入門卡 / 機身底部標籤 |
-| 8 碼配對碼 | 格式 `XXX-XX-XXX`|
+| 8 碼配對碼 | 格式 `XXX-XX-XXX`(每片唯一)|
 | Manufacturer | `AUTOMATE` |
 | Model | `AirOne-HAP` |
 | 預設裝置名稱 | `AirOne-XXXXXX`(後 6 碼為 Wi-Fi MAC)|
@@ -313,17 +320,106 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 冷氣關機後,冷凝水留在蒸發器表面 → 黴菌孳生 → 健康風險 + 異味。
 
-**MoldGuard 機制**:每次「冷氣 / 除濕」模式關機後,自動切到「送風」模式跑 把蒸發器吹乾,然後再真正 OFF。
+**MoldGuard 機制**:每次「冷氣 / 除濕」模式關機後,自動切到「送風」模式跑 3–5 分鐘把蒸發器吹乾,然後再真正 OFF。
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 預設啟用。可在 Web UI 工程模式調整時長或關閉。整個過程 Apple Home 看到的是「關機中…」,3–5 分鐘後完全 OFF。
+💡 預設啟用。可在 Web UI 進階設定調整時長或關閉。整個過程 Apple Home 看到的是「關機中…」,3–5 分鐘後完全 OFF。
 </blockquote>
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. OTA 韌體更新</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. 進階:MQTT 橋接 Home Assistant</h2>
 
-### 9.1 更新流程
+HomeKit 配對是預設,接 Apple Home。如果家裡同時在用 **Home Assistant**,本模組可透過 **MQTT 橋接** 讓 HA 也能控制冷氣 — Apple Home 跟 HA 同時收到狀態更新,雙端控制即時同步。
+
+<table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
+<tr>
+<td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
+<p style="margin:0;font-weight:700;color:#1c3d5a">🍎 Apple Home(預設)</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">直連 iPhone「家庭」App,不需 broker</p>
+</td>
+<td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
+<p style="margin:0;font-weight:700;color:#1c3d5a">🏡 + Home Assistant(可選)</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">透過 MQTT 橋接,HA 自動發現裝置</p>
+</td>
+</tr>
+</table>
+
+### 9.1 設定前置
+
+<div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
+<p style="margin:0;font-weight:700;color:#1c3d5a">✅ HA 端準備</p>
+<ul style="margin:10px 0 0;color:#1a2533">
+<li>Home Assistant 已啟用 <b>MQTT integration</b>(Mosquitto Add-on 或外部 broker)</li>
+<li>取得 Broker IP / Port(預設 1883)/ Username / Password</li>
+<li>HA 跟 AirOne-AC 模組在<b>同一個 Wi-Fi 網段</b></li>
+</ul>
+</div>
+
+### 9.2 設定步驟
+
+<table style="width:100%;border-collapse:separate;border-spacing:0 8px;margin:16px 0">
+<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
+<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">1</span></td>
+<td>連線模組 Web UI(章節 6),滑到「MQTT / Home Assistant」卡</td></tr></table>
+</td></tr>
+<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
+<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">2</span></td>
+<td>填入 <b>Broker IP / Port / Username / Password</b></td></tr></table>
+</td></tr>
+<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
+<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">3</span></td>
+<td>點「<b>連線測試</b>」確認 broker 連得到(連線成功後綠色徽章亮起)</td></tr></table>
+</td></tr>
+<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
+<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#34C759;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">✓</span></td>
+<td>點「<b>儲存並啟用</b>」,HA 端自動偵測新裝置(透過 MQTT Discovery)</td></tr></table>
+</td></tr>
+</table>
+
+### 9.3 HA 端看到什麼
+
+啟用後 HA → 設定 → 裝置與服務 → MQTT 整合,會自動出現:
+
+| Entity | 類型 | 內容 |
+|---|---|---|
+| `climate.airone_xxxxxx` | climate | 冷氣(mode / target temp / fan / swing 全包)|
+| `sensor.airone_xxxxxx_room_temp` | sensor | 室溫 |
+| `sensor.airone_xxxxxx_status` | sensor | 連線狀態 / 韌體版本 |
+
+可拉進 HA Lovelace dashboard 或寫 automation。
+
+### 9.4 雙端同步
+
+Apple Home 跟 HA 同時控制時:
+- 從 Apple Home 改設定 → 1 秒內 HA entity 跟著更新
+- 從 HA 改設定 → 1 秒內 Apple Home 磚塊跟著更新
+- 兩端任一方掉線(WiFi / broker)→ 另一端繼續工作,不互相影響
+
+<blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
+💡 不想用 HA 就把 MQTT 卡留空。模組 standalone 也能跑,Apple Home 不受影響。
+</blockquote>
+
+### 9.5 自動化建議(HA 端)
+
+<table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
+<tr>
+<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
+<p style="margin:0;font-weight:700;color:#1c3d5a">🌐 跨平台情境</p>
+<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">HA Node-RED 或 automations 觸發冷氣,搭配其他非 HomeKit 裝置(如 Zigbee 溫濕度計、米家感測器)</p>
+</td>
+<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
+<p style="margin:0;font-weight:700;color:#1c3d5a">📊 長期記錄</p>
+<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">HA Recorder 紀錄歷史溫度 / 開機時間 / 模式切換</p>
+</td>
+</tr>
+</table>
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. OTA 韌體更新</h2>
+
+### 10.1 更新流程
 
 1. Web UI → 底部 **版更** Tab
 2. 系統自動檢查最新版本
@@ -332,7 +428,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 整個過程約 1–2 分鐘,期間 HomeKit 短暫離線(冷氣本體不受影響)。
 
-### 9.2 更新會保留 / 清除什麼
+### 10.2 更新會保留 / 清除什麼
 
 <table style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid #dde3ec;border-radius:14px;overflow:hidden">
 <tr style="background:#f7f9fc"><th align="left" style="padding:12px 16px;color:#1c3d5a;border-bottom:2px solid #ff6f48">項目</th><th style="padding:12px 16px;color:#1c3d5a;border-bottom:2px solid #ff6f48">保留</th></tr>
@@ -346,14 +442,14 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 工廠重置</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 工廠重置</h2>
 
-### 10.1 硬體重置
+### 11.1 硬體重置
 
 - 按住模組重置鍵 **10 秒以上**
 - 自動重啟,進入配對模式
 
-### 10.2 Web UI 重置
+### 11.2 Web UI 重置
 
 - 版更頁 → 「重新配對裝置」 → 「清除配對」紅色按鈕
 - 確認 → 自動重啟
@@ -364,9 +460,9 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 故障排除</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 故障排除</h2>
 
-### 11.1 配對相關
+### 12.1 配對相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -374,7 +470,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | 顯示「無法加入配件」 | 無 Home Hub / 配對碼錯 | 確認家中有 HomePod / Apple TV / iPad |
 | 配對成功但顯示「無回應」 | DNS / mDNS / 不同 SSID | 同一個 2.4 GHz SSID,關「Guest 隔離」 |
 
-### 11.2 運作相關
+### 12.2 運作相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -383,27 +479,40 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | 切到「除濕」但機台沒動作 | 機型不支援「除濕」mode | 確認原廠遙控有「除濕」鍵 |
 | 關機後 3–5 分鐘還在跑 | MoldGuard 在跑 | 預期行為,等其完成 |
 
-### 11.3 OTA 相關
+### 12.3 OTA 相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
 | 顯示「**無法取得版本**」 | 連不到 GitHub | 檢查網路 / DNS |
 | 「開始更新」一直 0% | 下載卡住 | 等 5 分鐘;不行重啟再試 |
 
+### 12.4 MQTT / HA 相關
+
+| 現象 | 原因 | 處理 |
+|---|---|---|
+| HA 沒自動發現裝置 | MQTT Discovery 沒開 / broker 認證錯 | HA 整合確認 `discovery_prefix: homeassistant`;確認 Username/Password |
+| 「連線測試」失敗 | broker IP 錯 / port 不通 / 防火牆擋 | ping broker IP、telnet `<IP> 1883` |
+| HA 看到 entity 但 unavailable | 模組離線 / WiFi 斷 | 確認模組 LED 正常;檢查 Wi-Fi |
+| Apple Home 改了但 HA 沒同步 | 模組沒 publish / broker 斷線 | Web UI 看「MQTT 狀態」徽章是否綠色;重啟模組 |
+
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 安全使用</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 安全使用</h2>
 
 <div style="background:#fff7f4;border:1px solid #ffd0c5;border-radius:14px;padding:18px;margin:16px 0">
 
 - ⚠️ AC 110V/220V 高壓側由冷氣原廠處理,模組本身低壓 5V
 - 🔌 接線 / 拆卸**先斷電**
+- 🛠 模組已預先裝入冷氣,**請勿自行拆換或改裝**
+- 🌡 工作環境溫度 -10–50 °C
+- 🌧 室內機可,**戶外機外殼安裝請防雨**
+- 📻 模組內含無線電路,改裝會違反電信法規
 
 </div>
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 規格表</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">14. 規格表</h2>
 
 | 項目 | 規格 |
 |---|---|
@@ -414,8 +523,9 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz)|
 | Flash | 4 MB |
 | Apple Home Service | HeaterCooler |
+| Home Assistant 整合 | MQTT 橋接(MQTT Discovery auto-config)|
 | MCU 介面 | UART 9600 8N1 |
-| 支援廠牌 | 大金 /  三菱電機 / Panasonic / Hitachi / 三菱重工 MHI |
+| 支援廠牌 | 大金 / 大同泰 / Panasonic / Hitachi / 三菱重工 MHI |
 | 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風 |
 | 目標溫度 | 16–30 °C |
 | 待機功耗(模組)| < 0.3 W |
