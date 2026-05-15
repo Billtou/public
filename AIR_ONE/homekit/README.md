@@ -113,17 +113,17 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
 | MCU 介面 | UART1 9600 8N1(原廠協定)|
 | Apple Home Service | HeaterCooler |
-| 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風 |
+| 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風(看機型支援) |
 | 風量 | 自動 / 弱 / 中 / 強(看機型支援)|
 | 工作環境 | -10–50 °C / 10–90% RH(無凝結)|
 
 ### 1.2 包裝內容
 
-- AirOne-AC 控制器模組 × 1(已預先裝在冷氣 Wi-Fi 模組槽位)
+- AirOne-AC 控制器模組 × 1(裝在冷氣 Wi-Fi 模組槽位)
 - 快速入門卡(含 HomeKit QR Code + 8 碼配對碼)× 1
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 模組已在出廠時裝入冷氣本體,<b>終端使用者不需要拆機</b>。
+💡 請檢查自家冷氣是否支持模組改裝方案,<b>終端使用者不熟悉避免拆機</b>。
 </blockquote>
 
 ---
