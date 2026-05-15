@@ -132,19 +132,19 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 ### 2.1 安裝與接口
 
-冷氣本體接 AC 110V/220V,**無需額外接線**。模組接在冷氣 Wi-Fi 模組槽位,UART 跟原廠 MCU 通訊。
+模組接在冷氣 Wi-Fi 模組槽位,UART 跟原廠 MCU 通訊。
 
 - **內建 Wi-Fi 天線** — 無需外接
 - **原廠面板 / 遙控** — 獨立於本模組
-- **狀態 LED**(模組,藍光)— 章節 3.1
-- **重置鍵**(模組小孔)— 章節 3.2
+- **狀態 LED**(模組,白光)— 章節 3.1
+- **重置鍵**(模組小孔或按鍵)— 章節 3.2
 
 ### 2.2 配對碼資訊
 
 | 項目 | 數值 |
 |---|---|
 | HomeKit QR Code | 快速入門卡 / 機身底部標籤 |
-| 8 碼配對碼 | 格式 `XXX-XX-XXX`(每片唯一)|
+| 8 碼配對碼 | 格式 `XXX-XX-XXX`|
 | Manufacturer | `AUTOMATE` |
 | Model | `AirOne-HAP` |
 | 預設裝置名稱 | `AirOne-XXXXXX`(後 6 碼為 Wi-Fi MAC)|
@@ -313,7 +313,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 冷氣關機後,冷凝水留在蒸發器表面 → 黴菌孳生 → 健康風險 + 異味。
 
-**MoldGuard 機制**:每次「冷氣 / 除濕」模式關機後,自動切到「送風」模式跑 3–5 分鐘把蒸發器吹乾,然後再真正 OFF。
+**MoldGuard 機制**:每次「冷氣 / 除濕」模式關機後,自動切到「送風」模式跑 把蒸發器吹乾,然後再真正 OFF。
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
 💡 預設啟用。可在 Web UI 工程模式調整時長或關閉。整個過程 Apple Home 看到的是「關機中…」,3–5 分鐘後完全 OFF。
@@ -398,10 +398,6 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 
 - ⚠️ AC 110V/220V 高壓側由冷氣原廠處理,模組本身低壓 5V
 - 🔌 接線 / 拆卸**先斷電**
-- 🛠 模組已預先裝入冷氣,**請勿自行拆換或改裝**
-- 🌡 工作環境溫度 -10–50 °C
-- 🌧 室內機可,**戶外機外殼安裝請防雨**
-- 📻 模組內含無線電路,改裝會違反電信法規
 
 </div>
 
@@ -419,7 +415,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 | Flash | 4 MB |
 | Apple Home Service | HeaterCooler |
 | MCU 介面 | UART 9600 8N1 |
-| 支援廠牌 | 大金 / 大同泰 / Panasonic / Hitachi / 三菱重工 MHI |
+| 支援廠牌 | 大金 /  三菱電機 / Panasonic / Hitachi / 三菱重工 MHI |
 | 模式 | 自動 / 冷氣 / 暖氣 / 除濕 / 送風 |
 | 目標溫度 | 16–30 °C |
 | 待機功耗(模組)| < 0.3 W |
