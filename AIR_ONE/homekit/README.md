@@ -351,7 +351,7 @@ HomeKit 配對是預設,接 Apple Home。如果家裡同時在用 **Home Assista
 <p style="margin:0;font-weight:700;color:#1c3d5a">✅ HA 端準備</p>
 <ul style="margin:10px 0 0;color:#1a2533">
 <li>Home Assistant 已啟用 <b>MQTT integration</b>(Mosquitto Add-on 或外部 broker)</li>
-<li>取得 Broker IP / Port(預設 1883)/ Username / Password</li>
+<li>取得 Broker IP(通常是HA的IP) / Port(預設 1883)/ Username(在HA建立一個使用者名稱) / Password(在HA建立一個使用者密碼)</li>
 <li>HA 跟 AirOne-AC 模組在<b>同一個 Wi-Fi 網段</b></li>
 </ul>
 </div>
@@ -384,8 +384,6 @@ HomeKit 配對是預設,接 Apple Home。如果家裡同時在用 **Home Assista
 | Entity | 類型 | 內容 |
 |---|---|---|
 | `climate.airone_xxxxxx` | climate | 冷氣(mode / target temp / fan / swing 全包)|
-| `sensor.airone_xxxxxx_room_temp` | sensor | 室溫 |
-| `sensor.airone_xxxxxx_status` | sensor | 連線狀態 / 韌體版本 |
 
 可拉進 HA Lovelace dashboard 或寫 automation。
 
