@@ -121,7 +121,6 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | BLE | 5.0(僅配對用)|
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
-| MCU 介面 | UART 9600 8N1(原 Tuya 協定,DP1/DP3/DP5)|
 | 風速段數(物理)| 7 段 |
 | 風速映射(Matter)| 0–100 %(滑桿)|
 | 擺頭 | 左右 yaw(RockLeftRight)|
