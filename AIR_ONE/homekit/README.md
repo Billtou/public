@@ -95,7 +95,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 </td>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">🍃 防霉守護</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">關機後自動送風 3–5 分鐘,延長壓縮機壽命</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">關機後自動送風 ,防潮防黴</p>
 </td>
 </tr>
 </table>
