@@ -31,7 +31,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirFan</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 吊扇 · Matter over Wi-Fi · 跨生態相容</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能風扇 · Matter over Wi-Fi · 跨生態相容</p>
 
 <!-- QR + 配對碼 並排;QR 內容 = 11 碼(可用任意 QR reader 掃進來複製) -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
@@ -128,25 +128,24 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 
 ### 1.2 包裝內容
 
-- AirFan Matter 控制器模組 × 1(已預先裝在吊扇 OEM 主板的 Wi-Fi socket)
+- AirFan Matter 控制器模組 × 1
 - 快速入門卡(含 Matter QR Code 與 11 碼配對碼)× 1
-- 原廠遙控器(隨吊扇出貨,非本產品內容物)
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 模組已在出廠時插入吊扇主板,終端使用者<b>不需要拆機</b>。
+💡 模組已在出廠時重置,終端使用者<b>直接導入智能生態即可</b>。
 </blockquote>
 
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">2. 硬體說明</h2>
 
-### 2.1 面板與接口
+### 2.1 改裝方式123
 
-吊扇本體一般接 AC 110V/220V,**無需額外接線**。模組透過 UART 與原廠 MCU 通訊,Wi-Fi 天線內建。
+依據圖片安裝打開機殼替換原有或插入端子接口鎖回即可。
 
-- **內建 Wi-Fi 天線**:無需外接
-- **遙控接收器**:OEM 板原有,獨立於 Matter 模組
-- **面板小孔配對鍵**:長按進入重置(章節 3.2)
+- 圖１
+- 圖2
+- 圖3
 
 ### 2.2 配對碼資訊
 
@@ -189,10 +188,7 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 
 ### 3.3 原廠遙控器
 
-原廠遙控器走 RF / IR 通路,**獨立於 Matter**:
-- 遙控不需配對、不受 Wi-Fi 斷線影響
-- 遙控觸發的開 / 關 / 改速 / 擺頭,Matter 端 1 秒內同步看到
-- 反之,Matter 端控制也會反映在風扇實體狀態,**遙控顯示 LCD(若有)亦會同步**
+原廠遙控器可以正常使用
 
 ---
 
