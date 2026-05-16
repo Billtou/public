@@ -58,13 +58,14 @@
 3. [指示燈與按鍵行為](#3-指示燈與按鍵行為)
 4. [接入 Apple Home(初次配對)](#4-接入-apple-home初次配對)
 5. [Apple Home 控制](#5-apple-home-控制)
-6. [Web UI:首頁(狀態顯示)](#6-web-ui首頁狀態顯示)
-7. [安裝注意事項](#7-安裝注意事項)
-8. [OTA 韌體更新](#8-ota-韌體更新)
-9. [工廠重置](#9-工廠重置)
-10. [故障排除](#10-故障排除)
-11. [安全使用](#11-安全使用)
-12. [規格表](#12-規格表)
+6. [Home Assistant 整合 (MQTT)](#6-home-assistant-整合-mqtt)
+7. [Web UI:首頁(狀態顯示)](#7-web-ui首頁狀態顯示)
+8. [安裝注意事項](#8-安裝注意事項)
+9. [OTA 韌體更新](#9-ota-韌體更新)
+10. [工廠重置](#10-工廠重置)
+11. [故障排除](#11-故障排除)
+12. [安全使用](#12-安全使用)
+13. [規格表](#13-規格表)
 
 </details>
 
@@ -100,7 +101,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 </table>
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 <b>HomeKit 是 Apple 專屬生態</b>,只能接入 Apple Home。如需 Google Home / Home Assistant / Alexa,請選 Matter 版產品。
+💡 <b>主要生態為 Apple Home</b>(HomeKit over Wi-Fi)。<b>同時支援 Home Assistant 經由內建 MQTT bridge 接入</b>(設定方法見 <a href="#6-home-assistant-整合-mqtt">第 6 章</a>),Apple Home 與 HA 可雙向同步使用。Google Home / Alexa 請選 Matter 版產品。
 </blockquote>
 
 ### 1.1 規格速覽
@@ -252,15 +253,82 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. Web UI:首頁(狀態顯示)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. Home Assistant 整合 (MQTT)</h2>
 
-### 6.1 連線方式
+本機內建 MQTT bridge,**Apple Home 與 Home Assistant 可同時使用**(雙生態,狀態雙向同步)。
+適合已有 Mosquitto / HA 環境的進階使用者。
+
+### 6.1 適用對象
+
+| 你是 | 用不用得到 |
+|---|---|
+| 只用 Apple Home,沒 HA | 跳過本章,Apple Home 功能完整不缺 |
+| 已有 Home Assistant + Mosquitto broker | 跟著本章設定,可在 HA 看到車庫門 entity |
+| 沒裝 Mosquitto | 先在 HA 裝 `Mosquitto broker` add-on,設帳密再回來 |
+
+### 6.2 設定步驟
+
+1. 用瀏覽器打開 **`http://<裝置-IP>/engineer`**(裝置 IP 從家庭 App → 點裝置 → 設定 → 看 IP)
+2. 頁面捲到 **「MQTT / Home Assistant」** 卡片
+3. 填入:
+   | 欄位 | 範例 | 說明 |
+   |---|---|---|
+   | Broker IP | `192.168.1.10` | Mosquitto 主機 IP |
+   | Port | `1883` | 預設 1883 |
+   | Username | `mqtt-user` | broker 帳號 |
+   | Password | `********` | broker 密碼 |
+4. 按 **「連線測試」** — 必須看到綠色「✓ 連線成功」才能繼續(防止填錯誤資料把 broker 卡死)
+5. 按 **「儲存並啟用」** — 裝置會自動連 broker 並推 HA discovery
+6. 開 Home Assistant → **設定 → 裝置與服務 → MQTT** → 應看到新裝置 **「automate-garage-XXXXXX」**(XXXXXX = MAC 後 6 碼)
+
+> 💡 **首次啟用後 5 秒內** HA 就能控制車庫門。如果一直看不到 entity,先檢查 broker IP / 帳密、HA 端 MQTT integration 是否正常運作。
+
+### 6.3 HA 看得到的功能
+
+| HA Entity | 類型 | 控制 |
+|---|---|---|
+| `cover.automate_garage_XXXXXX` | `cover`(device_class=`garage`)| 開 / 關 / 停 |
+
+HA 顯示的狀態:**Open / Closed / Opening / Closing / Stopped**(對應 Apple Home 的 5 種狀態)。
+按按鈕後 Apple Home 也會即時同步顯示(雙向同步)。
+
+### 6.4 MQTT Topic Schema(進階)
+
+```
+automate/garage/{mac6}/state          ← 裝置狀態 (JSON,retained)
+automate/garage/{mac6}/set            ← 控制指令 (payload: OPEN / CLOSE / STOP)
+automate/garage/{mac6}/availability   ← LWT (online / offline)
+homeassistant/cover/garage_{mac6}/config  ← HA Auto-Discovery (retained)
+```
+
+State payload 範例:
+```json
+{ "state": "closed" }
+```
+
+> 進階使用者可用 `mosquitto_sub` / Node-RED 等自製 dashboard,不一定要走 HA。
+
+### 6.5 停用 / 移除
+
+| 操作 | 結果 |
+|---|---|
+| **「停用」**按鈕 | 中斷 MQTT 連線,設定保留 — 之後可重新啟用 |
+| **「刪除設定」**按鈕 | 清掉 broker IP / 帳密,HA 端 entity 也會被移除(retained config 清空)|
+| **工廠重置** | 一併清掉 MQTT 設定(見 [第 10 章](#10-工廠重置))|
+
+> 💡 「停用」跟「刪除」都會主動通知 HA 把 entity 從清單拿掉(不只是顯示 unavailable),不會留下孤兒 entity。
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. Web UI:首頁(狀態顯示)</h2>
+
+### 7.1 連線方式
 
 配對成功後,Web UI 在區網:
 - **直接 IP**:家庭 App → 點裝置 → 設定 → 看 IP
 - **主機名稱**:`http://automate-garage-XXXXXX.local`
 
-### 6.2 裝置資訊
+### 7.2 裝置資訊
 
 | 欄位 | 內容 |
 |---|---|
@@ -271,7 +339,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | **製造日期** | `YYYY-MM`,出廠燒入 |
 | **使用說明** | 點藍色連結即跳到本份 README |
 
-### 6.3 即時狀態
+### 7.3 即時狀態
 
 | 欄位 | 顯示 |
 |---|---|
@@ -281,7 +349,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. 安裝注意事項</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. 安裝注意事項</h2>
 
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 
@@ -305,7 +373,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. OTA 韌體更新</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. OTA 韌體更新</h2>
 
 1. Web UI → 底部 **版更** Tab
 2. 系統自動檢查最新版本
@@ -325,14 +393,14 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. 工廠重置</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 工廠重置</h2>
 
-### 9.1 硬體重置
+### 10.1 硬體重置
 
 - 按住模組重置鍵 **10 秒以上**
 - 自動重啟,進入配對模式
 
-### 9.2 Web UI 重置
+### 10.2 Web UI 重置
 
 - 版更頁 → 「重新配對裝置」 → 「清除配對」紅色按鈕
 - 確認 → 自動重啟
@@ -343,9 +411,9 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 故障排除</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 故障排除</h2>
 
-### 10.1 配對相關
+### 11.1 配對相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -353,7 +421,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 配對中途斷開 | 路由器訊號弱 | 加 Wi-Fi 中繼,確保車庫訊號穩定 |
 | 配對成功但離線 | DNS / mDNS / 不同 SSID | 同一個 2.4 GHz SSID,關「Guest 隔離」 |
 
-### 10.2 運作相關
+### 11.2 運作相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -362,7 +430,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 門開到一半卡住 | 馬達 / 軌道機械問題 | 跟模組無關,聯絡車庫門廠商 |
 | 模組通電但 LED 完全不亮 | DC 電壓不足 / 接線錯 | 量 DC IN 電壓 5–24V |
 
-### 10.3 OTA 相關
+### 11.3 OTA 相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -371,7 +439,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 安全使用</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 安全使用</h2>
 
 <div style="background:#fff7f4;border:1px solid #ffd0c5;border-radius:14px;padding:18px;margin:16px 0">
 
@@ -387,7 +455,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 規格表</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 規格表</h2>
 
 | 項目 | 規格 |
 |---|---|
