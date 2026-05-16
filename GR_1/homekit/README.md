@@ -275,8 +275,8 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
    |---|---|---|
    | Broker IP | `192.168.1.10` | Mosquitto 主機 IP (一般填HA的IP)|
    | Port | `1883` | 預設 1883 |
-   | Username | `mqtt-user` | broker 帳號 |
-   | Password | `********` | broker 密碼 |
+   | Username | `mqtt-user` | broker 帳號 (在HA創立) |
+   | Password | `********` | broker 密碼 (在HA創立) |
 4. 按 **「連線測試」** — 必須看到綠色「✓ 連線成功」才能繼續(防止填錯誤資料把 broker 卡死)
 5. 按 **「儲存並啟用」** — 裝置會自動連 broker 並推 HA discovery
 6. 開 Home Assistant → **設定 → 裝置與服務 → MQTT** → 應看到新裝置 **「automate-garage-XXXXXX」**(XXXXXX = MAC 後 6 碼)
