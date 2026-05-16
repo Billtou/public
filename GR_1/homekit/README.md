@@ -273,7 +273,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 3. 填入:
    | 欄位 | 範例 | 說明 |
    |---|---|---|
-   | Broker IP | `192.168.1.10` | Mosquitto 主機 IP |
+   | Broker IP | `192.168.1.10` | Mosquitto 主機 IP (一般填HA的IP)|
    | Port | `1883` | 預設 1883 |
    | Username | `mqtt-user` | broker 帳號 |
    | Password | `********` | broker 密碼 |
