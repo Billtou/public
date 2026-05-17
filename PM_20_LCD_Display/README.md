@@ -1,3 +1,6 @@
+# 3.8 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
+*「台電帳單對齊:雙月級距 + 跨季日數比例切割」
+
 # 3.7.5 版更內容
 - 穩定性修正
 # 3.7.4 版更內容
