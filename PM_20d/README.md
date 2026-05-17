@@ -1,3 +1,4 @@
+# 3.8 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
 # PM-20 Display Version
 * 新增耗電量顯示輪播LED顯示螢幕，間隔10秒顯示累計耗電度數、本期累計電費、耗電瓦數以及每小電費預估。背光開關可按黑色按鈕切換
 ### V3.6 beta 版新增內容
