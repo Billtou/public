@@ -10,7 +10,7 @@
         "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.3.bin",
         "md5": "0d7b7418c3c68880b24959ba6aaf7dcd",
         "sha256": "5178cb1a9217b7d507c7c5212b278cfba2201b3c6bf2e7912927ea2953b92592",
-        "summary": "v3.3 功能性調整。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
+        "summary": "v3.3 功能性調整(無障礙物偵測可略過)。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
   ]
