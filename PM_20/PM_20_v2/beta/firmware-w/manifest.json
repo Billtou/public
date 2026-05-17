@@ -1,15 +1,16 @@
 {
-  "name": "AUTOMATE.PM-20(WiFi)",
-  "version": "3.7.2 beta",
+  "name": "AUTOMATE.PM-20(wifi)",
+  "version": "3.8 beta",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.7.2beta.bin",
-        "md5": "676eaecfe8ca70bbfbe9ddae035e1454",
-        "summary": "v3.7.2 beta 增加eentity屬性吻合新版HA要求。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/README.md)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20/PM_20_v2/beta/firmware-w/automate-pm-20.ota_w_3.8beta.bin",
+        "md5": "263220a3787658cca4f6977aedb25bdd",
+        "sha256": "476586daf8036814e45356e16f874322a6ac9baae2185b3d43882608094b4e65",
+        "summary": "v3.8 調整雙月抄表級距，**跨季日數比例切割。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)"
       }
     }
   ]
