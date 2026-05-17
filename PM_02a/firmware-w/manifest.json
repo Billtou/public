@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.PM-20a(Wifi)",
-  "version": "3.3",
+  "version": "3.4",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.3.bin",
-        "md5": "0e9699a8d4302d4018daf1ef01558c74",
-        "sha256": "85a3e98efe725b608a9edcb514e6c41099ccf273e08f86232e25058e5e1b44db",        
-        "summary": "v3.3beta 更新10/1日調整電費計價。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02a)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-w/automate-pm-02a.ota_w_3.4.bin",
+        "md5": "671d9161d533c74c510b4cd5102e0d15",
+        "sha256": "b66f49b7ab3dcad8a9ab382c7e74ba7f14923a579dadde4181a1c73111619c20",        
+        "summary": "v3.4 調整雙月抄表級距，**跨季日數比例切割。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02/beta)"
       }
     }
   ]
