@@ -1,3 +1,11 @@
+### 2026.5.17 3.4 update
+### 3.8 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
+*「台電帳單對齊:雙月級距 + 跨季日數比例切割」
+
+*「精準計價:支援台電雙月抄表 + 跨季日數分配」
+
+*「電費計算對齊台電 114/10 公告(雙月 + 跨季)」
+
 ### 2026/1/3 v3.3 Update
 - 更新2025/10/1日實施的電價計費標準。
 - [前往明細表](https://github.com/Billtou/public/blob/main/PM_02/beta/README.md#%E7%9B%AE%E5%89%8D%E5%8F%B0%E9%9B%BB%E4%B8%80%E8%88%AC%E6%B0%91%E7%9C%BE%E8%A8%88%E8%B2%BB%E8%A1%A82025101)
