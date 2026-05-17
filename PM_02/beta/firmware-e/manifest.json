@@ -10,7 +10,7 @@
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_02/beta/firmware-e/automate-pm-02.ota_e_3.4.bin",
         "md5": "3f66a2a5e49a2ef9c3a446837302843d",
         "sha256": "03c601337972c48ab9599202f88e603f276500033f9af9a92f1e1d8e9b39e39a",
-        "summary": "v3.4 調整雙月抄表級距，**跨季日數比例切割**。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/PM_02/beta)"
+        "summary": "v3.4 調整雙月抄表級距，**跨季日數比例切割**。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_02/beta/PM-02_v3.4_README.md)"
       }
     }
   ]
