@@ -1,4 +1,4 @@
-# AUTOMATE PM-20d v3.8.0 版本說明
+# AUTOMATE PM-20 v3.8.0 版本說明
 
 **發布日期**:2026-05-13
 **對應台電費率公告**:114 年 10 月電價公告(114/10/1 施行)
@@ -52,30 +52,6 @@ v3.8.0 後與台電帳單誤差通常 < 1%。
 
 從原本 1440 次/天的週期計算,降到 2–3 次/天。
 
-## 影響檔案
-
-- `project/power/auto_count.yaml`
-  - 新增 `globals`(`g_billing_total_days` / `g_billing_summer_days` / `g_billing_period_valid`)
-  - 新增 `script.recompute_billing_period_days`
-  - 重寫 `count_kwh_cost` lambda(邊際費率支援切割)
-  - 重寫 `count_power_cost` lambda(跨季按比例分配)
-  - 5 個 threshold `initial_value` × 2
-- `project/power/pm_20/pm_20_code.yaml`
-  - `sntp_time` 新增 `on_time_sync` 與 `on_time(00:00:30)`
-  - `taipower_energy.on_press` 結尾追加 `script.execute: recompute_billing_period_days`
-
-`pm_20d_basic.yaml` / `lcd_dispaly.yaml` / `http_request_eth_20d.yaml` 等其他檔案 **未變動**。
-
-## 部署備忘
-
-### 新燒錄裝置
-- 直接吃 240/660/1000/1400/2000 預設值。
-- 開機 SNTP 對時成功後,script 立即計算當期日數。
-
-### 已部署裝置(由 ≤ v3.7.5 升級)
-- 5 個 threshold 因 `optimistic: true` 會從 flash restore 舊值 120/330/500/700/1000。
-- **務必到 Home Assistant 介面手動把 5 個 threshold ×2**(或保留舊值將造成金額偏高約 1.5–2×)。
-
 ### 對時與歸零依賴
 - `taipower_reset_date` global 是「週期起日」資料源,格式 `YYYY-MM-DD`,在 `pm_20_code.yaml` 內已定義並 `restore_value: true`。
 - 若週期內 SNTP 無法對時(離線開機 + 無 RTC 備援),script 不會跑,`g_billing_period_valid = false`,sensor lambda 自動 fallback。
@@ -90,13 +66,5 @@ v3.8.0 後與台電帳單誤差通常 < 1%。
 | 新版(按日數比例切割) | 夏月 781.2 + 冬月 287.6 | **1068.8 TWD** |
 
 差異 21 TWD,新版更貼近台電實際帳單。
-
-## 未涵蓋
-
-以下項目目前 **不在** 計費邏輯內,如需請另行加入:
-
-- 燃料費調整(台電不時公告)
-- 節電獎勵 / 用電折扣
-- 銷項稅、公共電費分攤、轉供電費等帳單附加項
 
 純度數階梯電費部分已完整。
