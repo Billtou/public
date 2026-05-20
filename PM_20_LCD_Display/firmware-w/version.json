@@ -10,7 +10,7 @@
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-w/automate-pm-20d.ota_w_3.8.0.bin",
         "md5": "70676404d13b4a2c51c8f1f79e56fd38",
         "sha256": "bde8337c9287dc5d39e7b5eab9555700",
-        "summary": "3.8.0 對齊台電計費與跨季以日期計算。 [詳情見說明網頁](https://github.com/Billtou/public/edit/main/PM_20_LCD_Display)"
+        "summary": "3.8.0 對齊台電計費與跨季以日期計算。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)"
       }
     }
   ]
