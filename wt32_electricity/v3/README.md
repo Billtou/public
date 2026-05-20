@@ -1,5 +1,6 @@
 # Electricity Meter v3.x 使用說明
-
+* 2026-05-20 Update
+* 異動較大 [詳細請見](https://github.com/Billtou/public/blob/main/wt32_electricity/v3/electricity-meter_v3.1_%E7%89%88%E6%9C%AC%E8%AA%AA%E6%98%8E.md)
 * 本版本主要功能是自帶HA能源面板所需兩個必需entity，以及本期累計電費跟及時小時能耗成本。另外日後台電若電價調整，直接修改默認的計價參數即可。
 ## . 接入自家網路(WIFI)
 * 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
