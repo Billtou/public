@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.PM20d(WiFi)",
-  "version": "3.7.5",
+  "version": "3.8.0",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-w/automate-pm-20d.ota_w_3.7.5.bin",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-w/automate-pm-20d.ota_w_3.8.0.bin",
         "md5": "70676404d13b4a2c51c8f1f79e56fd38",
-        "sha256": "f312001c6e1b9fb0c9829641a060779b795d1e905f38f0ca5f78ae214fd21c94",
-        "summary": "穩定性修正。 [詳情見說明網頁](https://github.com/Billtou/public/edit/main/PM_20_LCD_Display)"
+        "sha256": "bde8337c9287dc5d39e7b5eab9555700",
+        "summary": "3.8.0 對齊台電計費與跨季以日期計算。 [詳情見說明網頁](https://github.com/Billtou/public/edit/main/PM_20_LCD_Display)"
       }
     }
   ]
