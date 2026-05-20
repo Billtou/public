@@ -8,8 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/PM_20_LCD_Display/firmware-w/automate-pm-20d.ota_w_3.8.0.bin",
-        "md5": "70676404d13b4a2c51c8f1f79e56fd38",
-        "sha256": "bde8337c9287dc5d39e7b5eab9555700",
+        "md5": "bde8337c9287dc5d39e7b5eab9555700",
+        "sha256": "4fb5b17cbf7cbd993c8ecbeed8aa3bbf560e248a0a861f52fa10810f3ee6df2e",
         "summary": "3.8.0 對齊台電計費與跨季以日期計算。 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)"
       }
     }
