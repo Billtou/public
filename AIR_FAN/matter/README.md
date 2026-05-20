@@ -31,7 +31,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirFan</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 吊扇 · Matter over Wi-Fi · 跨生態相容</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 吊扇模快 · Matter over Wi-Fi · 跨生態相容</p>
 
 <!-- QR + 配對碼 並排;QR 內容 = 11 碼(可用任意 QR reader 掃進來複製) -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
