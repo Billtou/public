@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.Electricity-Meter",
-  "version": "3.0",
+  "version": "3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/wt32_electricity/v3/firmware-e/electricity-meter.ota_e_3.0.bin",
-        "md5": "e2c5f4fb3a2ee08184b1f1e904e1b9c2",
-        "sha256": "b7953112d7e0002afe8e14aa9e2b038bda3f2fbeebb6b190da05689b50770798",        
-        "summary": "v3.x beta 2路入戶總電力(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/wt32_electricity/v3/README.md)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/wt32_electricity/v3/firmware-e/electricity-meter.ota_e_3.1.bin",
+        "md5": "f9b695ca3be613fe49665ead42944e8e",
+        "sha256": "eeaaa5b8730dcd6d04d26704daa11117b7d302b5ddf1d790c24b109dbc33e514",        
+        "summary": "v3.x 對齊台電計費方式(不需要安裝Taipower插件的版本) [詳情見說明網頁](https://github.com/Billtou/public/blob/main/wt32_electricity/v3/README.md)"
       }
     }
   ]
