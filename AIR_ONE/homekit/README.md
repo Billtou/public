@@ -82,7 +82,7 @@ AirOne-AC 是 AUTOMATE 推出的 HomeKit 智能冷氣控制器,**直接接入 Ap
 <tr>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">❄️ 多廠牌冷氣協定</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">大金 S21 / 大同泰相容 / Panasonic / Hitachi / 三菱重工 MHI(出廠 profile 選擇)</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">大金 S21 / 三菱電機 / Panasonic / Hitachi / 三菱重工 MHI(出廠 profile 選擇)</p>
 </td>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">📡 保留原廠遙控</p>
