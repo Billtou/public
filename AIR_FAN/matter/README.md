@@ -31,7 +31,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirFan</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 吊扇模快 · Matter over Wi-Fi · 跨生態相容</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 風扇模快 · Matter over Wi-Fi · 跨生態相容</p>
 
 <!-- QR + 配對碼 並排;QR 內容 = 11 碼(可用任意 QR reader 掃進來複製) -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
@@ -90,9 +90,9 @@
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">1. 產品簡介</h2>
 
-AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Apple Home / Google Home / Home Assistant / SmartThings / Alexa**,不需專屬 Hub。
+AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Apple Home / Google Home / Home Assistant / SmartThings / Alexa**,不需專屬 Hub。
 
-吊扇本體用原廠 OEM 控制板,我們替換掉原本的 Tuya 雲端 Wi-Fi 模組,改成 Matter 模組。這樣一來:
+風扇本體用原廠 OEM 控制板,我們替換掉原本的 Tuya 雲端 Wi-Fi 模組,改成 Matter 模組。這樣一來:
 
 <table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
 <tr><td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
@@ -138,12 +138,12 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 
 ### 1.2 包裝內容
 
-- AirFan Matter 控制器模組 × 1(已預先裝在吊扇 OEM 主板的 Wi-Fi socket)
+- AirFan Matter 控制器模組 × 1(已預先裝在風扇 OEM 主板的 Wi-Fi socket)
 - 快速入門卡(含 Matter QR Code 與 11 碼配對碼)× 1
-- 原廠遙控器(隨吊扇出貨,非本產品內容物)
+- 原廠遙控器(隨風扇出貨,非本產品內容物)
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 模組已在出廠時插入吊扇主板,終端使用者<b>不需要拆機</b>。
+💡 模組已在出廠時插入風扇主板,終端使用者<b>不需要拆機</b>。
 </blockquote>
 
 ---
@@ -192,7 +192,7 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 
 ### 2.2 面板與接口
 
-吊扇本體一般接 AC 110V/220V,**無需額外接線**。模組透過 UART 與原廠 MCU 通訊,Wi-Fi 天線內建。
+風扇本體一般接 AC 110V/220V,**無需額外接線**。模組透過 UART 與原廠 MCU 通訊,Wi-Fi 天線內建。
 
 - **內建 Wi-Fi 天線**:無需外接
 - **遙控接收器**:OEM 板原有,獨立於 Matter 模組
@@ -272,7 +272,7 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 吊扇控制器,**直接接入 Ap
 <table style="width:100%;border-collapse:separate;border-spacing:0 8px;margin:16px 0">
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
 <table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">1</span></td>
-<td>通電吊扇,等模組完成上電(約 5 秒)</td></tr></table>
+<td>通電風扇,等模組完成上電(約 5 秒)</td></tr></table>
 </td></tr>
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
 <table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">2</span></td>
