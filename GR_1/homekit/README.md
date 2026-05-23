@@ -1,4 +1,4 @@
-<!-- Garage README — Argon-style (Automate brand) -->
+﻿<!-- Garage README — Argon-style (Automate brand) -->
 <!-- HomeKit-direct garage door opener. NO multi-ecosystem section. -->
 
 <div align="center" style="padding:48px 24px 36px">
@@ -35,7 +35,7 @@
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
 <td align="center" style="border:none;padding:0 20px;vertical-align:middle">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=111-88-999&margin=8" width="160" height="160" alt="HomeKit 配對碼 QR" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/QR_CODE/qr-11188999-AUTM.png" width="160" height="160" alt="HomeKit 配對碼 QR" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
   <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">掃描 QR 取得 8 碼</p>
 </td>
 <td align="left" style="border:none;padding:0 20px;vertical-align:middle">
