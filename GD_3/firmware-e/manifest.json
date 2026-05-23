@@ -8,8 +8,8 @@
       "chipFamily": "ESP32-S3",
       "ota": {
         "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-e/automate-gd-3.ota_e_3.3.bin",
-        "md5": "9f25fb660f167e702d1e19d66513d124",
-        "sha256": "32b0bd3e87b12091d58e2ece7e92e362c202d556df4b37773bf9375562d7f23b",
+        "md5": "73a70a2fec399307d16f7c01a9a8e93a",
+        "sha256": "9d7b660cd49fde7b6c4ca7cb5519690c20e0f7c8a83a809977e628c428b39ceb",
         "summary": "v3.3 功能性調整(無障礙物偵測可略過)。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
