@@ -1,4 +1,4 @@
-# AirCover · AUTOMATE 智能捲簾 / 窗簾控制器
+﻿# AirCover · AUTOMATE 智能捲簾 / 窗簾控制器
 
 > Tuya MCU 升級套件 · Matter over Wi-Fi · 跨生態相容
 >
@@ -137,7 +137,7 @@ AirCover 是 AUTOMATE 推出的智能捲簾控制升級套件 — **替換 Tuya 
 | Matter QR Code | 機身底部標籤(也可掃描上方圖片) |
 | 11 碼手動配對碼 | `3642-630-6820` |
 | 預設裝置名稱 | `AirCover-XXXXXX`(XXXXXX = MAC 後 6 碼) |
-| 預設 Hostname | `automate-tuyacover-XXXXXX.local` |
+| 預設 Hostname | `automate-aircover-XXXXXX.local` |
 
 > 配對碼遺失時,可從 Web UI(章節 7)首頁查詢裝置 MAC,或從原廠快速入門卡查 QR Code。
 
@@ -218,7 +218,7 @@ AirCover 是 AUTOMATE 推出的智能捲簾控制升級套件 — **替換 Tuya 
 2. 開 Home Assistant App → 設定 → 裝置與服務 → Matter → **加入 Matter 裝置**
 3. 掃 QR 或輸入 `3642-630-6820`
 4. App 自動完成 commissioning
-5. 在「裝置」清單會看到 **automate-tuyacover-XXXXXX**,內含「窗簾」實體(cover entity)
+5. 在「裝置」清單會看到 **automate-aircover-XXXXXX**,內含「窗簾」實體(cover entity)
 
 ### 5.4 Google Home
 
@@ -276,7 +276,7 @@ Matter 規範允許**同一台裝置同時加入多個生態**,最多 **5 個 Fa
 ### 7.1 連線方式
 
 - **直接 IP**:在生態 App 內查看裝置 IP(例 `http://192.168.1.123`)
-- **主機名稱**:`http://automate-tuyacover-XXXXXX.local`(XXXXXX 為機身 MAC 後 6 碼)
+- **主機名稱**:`http://automate-aircover-XXXXXX.local`(XXXXXX 為機身 MAC 後 6 碼)
 
 > 手機 / 電腦與 AirCover 必須在**同一個 Wi-Fi 網段**。
 
