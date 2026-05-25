@@ -113,7 +113,7 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 </td></tr>
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">🌙 面板指示燈開關</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">原廠操作面板上的狀態 LED 較亮,睡覺時可從生態 App 一鍵關閉;對映 DP15</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">原廠操作面板上的狀態 LED 較亮,睡覺時可從生態 App 一鍵關閉;對映 </p>
 </td>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">🌐 內建 Web UI</p>
@@ -129,22 +129,16 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | BLE | 5.0(僅配對用)|
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
-| MCU 介面 | UART 9600 8N1(原 Tuya 協定,DP1/DP3/DP5/DP15)|
 | 風速段數(物理)| 7 段 |
 | 風速映射(Matter)| 0–100 %(滑桿)|
 | 擺頭 | 左右 yaw(RockLeftRight)|
-| 面板指示燈 | 原廠操作面板狀態 LED,獨立 OnOff endpoint(DP15)可關閉 |
+| 面板指示燈 | 原廠操作面板狀態 LED,獨立可關閉 |
 | 工作環境 | -10–50 °C / 10–90% RH(無凝結)|
 
 ### 1.2 包裝內容
 
-- AirFan Matter 控制器模組 × 1(已預先裝在風扇 OEM 主板的 Wi-Fi socket)
+- AirFan Matter 控制器模組 × 1
 - 快速入門卡(含 Matter QR Code 與 11 碼配對碼)× 1
-- 原廠遙控器(隨風扇出貨,非本產品內容物)
-
-<blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 模組已在出廠時插入風扇主板,終端使用者<b>不需要拆機</b>。
-</blockquote>
 
 ---
 
@@ -195,8 +189,8 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 風扇本體一般接 AC 110V/220V,**無需額外接線**。模組透過 UART 與原廠 MCU 通訊,Wi-Fi 天線內建。
 
 - **內建 Wi-Fi 天線**:無需外接
-- **遙控接收器**:OEM 板原有,獨立於 Matter 模組
-- **面板小孔配對鍵**:長按進入重置(章節 3.2)
+- **遙控接收器**:原有,獨立於 Matter 模組
+- **面板配對鍵**:長按面板開關鍵5秒，全部LED閃一下就進入重置(章節 3.2)
 
 ### 2.3 配對碼資訊
 
@@ -243,11 +237,11 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 原廠遙控器走 RF / IR 通路,**獨立於 Matter**:
 - 遙控不需配對、不受 Wi-Fi 斷線影響
 - 遙控觸發的開 / 關 / 改速 / 擺頭,Matter 端 1 秒內同步看到
-- 反之,Matter 端控制也會反映在風扇實體狀態,**遙控顯示 LCD(若有)亦會同步**
+- 反之,Matter 端控制也會反映在風扇實體狀態
 
 ### 3.4 面板指示燈(睡眠模式)
 
-原廠操作面板上有一顆**狀態指示燈**(電源 / 連線指示)。在臥室、深夜使用時,**亮度可能干擾睡眠**。本產品透過 Matter 把這顆指示燈也獨立暴露成 entity,使用者可以隨時關閉:
+原廠操作面板上有**狀態指示燈**(電源 / 連線指示)。在臥室、深夜使用時,**亮度可能干擾睡眠**。本產品透過 Matter 把這顆指示燈也獨立暴露成 entity,使用者可以隨時關閉:
 
 | 操作位置 | 操作方式 |
 |---|---|
@@ -427,9 +421,9 @@ Matter 規範允許**同一台 AirFan 同時加入多個生態**,最多 **5 個 
 | 7 | 100 % | 最強 |
 
 **滑桿任意中間值** → 我們會用「ceil」公式 `ceil(pct × 7 / 100)` 量化到最近的物理檔位。例如:
-- 拖到 **15 %** → DP3 = 2(實際 29 %)
-- 拖到 **50 %** → DP3 = 4(實際 57 %)
-- 拖到 **88 %** → DP3 = 7(實際 100 %)
+- 拖到 **15 %** → = 2(實際 29 %)
+- 拖到 **50 %** → = 4(實際 57 %)
+- 拖到 **88 %** → = 7(實際 100 %)
 
 Web UI 跟 Apple Home 會顯示你拖的數字(15 / 50 / 88),物理風扇實際跑到對應的整數檔(2 / 4 / 7)。**Tap-on 還原**:風扇從關狀態被 Apple Home 「點開」(自動送 100 %),會自動還原成上次使用的速度,不會每次都吹到最強。
 
