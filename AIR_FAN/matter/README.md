@@ -33,17 +33,17 @@
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirFan</h1>
 <p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能 DC 風扇模快 · Matter over Wi-Fi · 跨生態相容</p>
 
-<!-- QR + 配對碼 並排;QR 內容 = 11 碼(可用任意 QR reader 掃進來複製) -->
+<!-- Matter QR + 11 碼配對碼 並排 -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
 <td align="center" style="border:none;padding:0 20px;vertical-align:middle">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=3642-630-6820&margin=8" width="160" height="160" alt="11 碼配對碼 QR" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
-  <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">掃描 QR 取得 11 碼</p>
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/QR_CODE/matter_qrcode.png" width="160" height="160" alt="Matter 配對 QR Code" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
+  <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">Matter 配對 QR Code</p>
 </td>
 <td align="left" style="border:none;padding:0 20px;vertical-align:middle">
   <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">11 碼配對碼</p>
   <p style="margin:0;font-size:28px;font-weight:800;color:#ff6f48;font-family:'SF Mono',Consolas,monospace;letter-spacing:0.04em">3642-630-6820</p>
-  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">正式配對請掃描<b>機身底部</b>的 Matter QR Code<br>(此處 QR 僅供快速複製 11 碼)</p>
+  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">掃描左側 QR Code 即可自動配對<br>或在 App 中手動輸入 11 碼</p>
 </td>
 </tr>
 </table>
