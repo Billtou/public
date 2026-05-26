@@ -109,7 +109,7 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 </td>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">↔️ 擺頭(yaw)</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">Matter <code>RockSetting</code> 對映 DP5</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">Matter <code>RockSetting</code> </p>
 </td></tr>
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">🌙 面板指示燈開關</p>
