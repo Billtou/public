@@ -63,7 +63,7 @@
 </a>
 </p>
 <p align="center" style="margin:-24px 0 32px;font-size:12px;color:#5a6a7a">
-  ⬆️ HA → Apple Home · Apple Home → HA · Web UI 操作 ⬆️
+  ⬆️ HA → Apple Home · Apple Home → 產品接入與使用說明 ⬆️
 </p>
 
 ---
