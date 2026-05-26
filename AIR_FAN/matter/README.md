@@ -58,8 +58,8 @@
 <a href="https://youtu.be/dLEspzmaiJI" title="Apple Home → HA(點擊在 YouTube 開啟)">
   <img src="https://img.youtube.com/vi/dLEspzmaiJI/mqdefault.jpg" width="240" alt="Apple Home → HA" style="border-radius:12px;margin:6px">
 </a>
-<a href="https://youtu.be/b8adlsMMleI" title="Web UI(點擊在 YouTube 開啟)">
-  <img src="https://img.youtube.com/vi/b8adlsMMleI/mqdefault.jpg" width="240" alt="Web UI" style="border-radius:12px;margin:6px">
+<a href="https://youtube.com/shorts/anTRlMCh2eo?si=9iRLd2vgrKn2O8G8" title="Web UI(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/anTRlMCh2eo/mqdefault.jpg" width="240" alt="Web UI" style="border-radius:12px;margin:6px">
 </a>
 </p>
 <p align="center" style="margin:-24px 0 32px;font-size:12px;color:#5a6a7a">
