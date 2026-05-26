@@ -52,7 +52,7 @@
 
 <!-- 影片區:YouTube thumbnail 點擊播放(GitHub 不允許 iframe,thumbnail 是極限) -->
 <p align="center" style="margin:32px 0 40px">
-<a href="https://youtu.be/8U-UlebcAYE?t=345" title="產品介紹(點擊在 YouTube 開啟)">
+<a href="https://youtu.be/8U-UlebcAYE" title="產品介紹(點擊在 YouTube 開啟)">
   <img src="https://img.youtube.com/vi/8U-UlebcAYE/mqdefault.jpg" width="240" alt="產品介紹" style="border-radius:12px;margin:6px">
 </a>
 <a href="https://youtu.be/fF8eUW6vTzo" title="重置進入連網模式(點擊在 YouTube 開啟)">
