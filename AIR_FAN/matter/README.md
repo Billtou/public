@@ -96,8 +96,8 @@ AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Ap
 
 <table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
 <tr><td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">☁️ 不需 Tuya 帳號</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">完全脫離雲端</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">☁️ 不需雲端帳號</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">完全100%本地控制</p>
 </td>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
 <p style="margin:0;font-weight:700;color:#1c3d5a">📡 保留原廠遙控</p>
