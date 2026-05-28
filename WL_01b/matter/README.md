@@ -2,11 +2,11 @@
 
 > ESP32-S3 · Matter over Wi-Fi · Wi-Fi + 網線雙網路（網線優先） · 跨生態相容
 >
-> 重置進入連網模式 > [影片教學](https://youtu.be/fF8eUW6vTzo)
->
 > 跨平臺接入智能生態 > [接入 Home Assistant 後轉入 Apple Homekit](https://youtu.be/oOZLfkmxRx8)
 >
 > 跨平臺接入智能生態 > [接入 Apple Homekit 後轉入 Home Assistant](https://youtu.be/dLEspzmaiJI)
+>
+> 重置進入連網模式 > [影片教學](https://youtu.be/fF8eUW6vTzo)
 >
 > ESPHome 舊版本說明（已停止維護） > [WL-01 ESPHome 文件](https://github.com/Billtou/public/tree/main/WL_01b)
 
@@ -645,6 +645,14 @@ WL-01 在 Matter 端暴露 5 個 entity，分別對應不同功能：
 
 ---
 
-> AUTOMATE · WL-01 · 韌體 v0.1.19（2026-05-10 上線，新增 Matter 異常警報推播 EP5）
+> AUTOMATE · WL-01 · 韌體 **v0.2.0**（2026-05-10 上線）
+>
+> 自 v0.1.0 → v0.2.0 主要變更：
+> - 新增 EP5「異常警報」Contact Sensor → HomeKit 推播（§ 11.1）
+> - OLED 加入配對 QR / Web UI URL QR 翻頁（短按重置鍵切換）
+> - OLED 中英文字統一改用 GenJyuuGothic-Medium TTF + freetype mono 渲染（視覺向 ESPHome 舊版看齊）
+> - 主控台「參數設定」整合為單張卡片（時/分改下拉選擇、加水/停止按鈕改 pastel 風格）
+> - 工廠重置後自動進入 STOP 狀態 + OLED 自動顯示配對 QR
+> - 網線優先 + WiFi 備援的雙網路 default route 切換邏輯修正
 >
 > 問題回報 / 功能建議：[GitHub Issues](https://github.com/Billtou/public/issues)
