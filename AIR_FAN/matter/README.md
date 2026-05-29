@@ -52,6 +52,9 @@
 
 <!-- 影片區:YouTube thumbnail 點擊播放(GitHub 不允許 iframe,thumbnail 是極限) -->
 <p align="center" style="margin:32px 0 40px">
+<a href="https://youtube.com/shorts/eZZ03xyeUJM?si=JdEZprRADIEMRj8q" title="改裝說明(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/eZZ03xyeUJM/mqdefault.jpg" width="240" alt="改裝說明" style="border-radius:12px;margin:6px">
+</a>
 <a href="https://youtu.be/oOZLfkmxRx8" title="HA → Apple Home(點擊在 YouTube 開啟)">
   <img src="https://img.youtube.com/vi/oOZLfkmxRx8/mqdefault.jpg" width="240" alt="HA → Apple Home" style="border-radius:12px;margin:6px">
 </a>
@@ -63,7 +66,7 @@
 </a>
 </p>
 <p align="center" style="margin:-24px 0 32px;font-size:12px;color:#5a6a7a">
-  ⬆️ HA → Apple Home · Apple Home → 產品接入與使用說明 ⬆️
+  ⬆️ 改裝說明 · HA → Apple Home · Apple Home → HA · 產品接入與使用說明 ⬆️
 </p>
 
 ---
