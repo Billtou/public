@@ -134,7 +134,7 @@ AirCube 是 AUTOMATE 推出的智能室內空氣品質感測器,**直接接入 A
   <td style="padding:10px 16px;border-top:1px solid #eef1f6;color:#5a6a7a">新裝潢 / 新家具 / 化學氣味監控</td></tr>
 <tr><td style="padding:10px 16px;border-top:1px solid #eef1f6"><b>AirCube Pro</b></td>
   <td style="padding:10px 16px;border-top:1px solid #eef1f6">人在偵測版</td>
-  <td style="padding:10px 16px;border-top:1px solid #eef1f6">24 GHz 雷達 LD2410</td>
+  <td style="padding:10px 16px;border-top:1px solid #eef1f6">24 GHz 雷達 LD2410 2412</td>
   <td style="padding:10px 16px;border-top:1px solid #eef1f6">EP4 OccupancySensor</td>
   <td style="padding:10px 16px;border-top:1px solid #eef1f6;color:#5a6a7a">房間佔用 / 自動化燈控 / 冷氣節能</td></tr>
 <tr><td style="padding:10px 16px;border-top:1px solid #eef1f6"><b>AirCube Plus</b></td>
