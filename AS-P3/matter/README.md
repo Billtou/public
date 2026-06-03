@@ -50,6 +50,11 @@
 
 </div>
 
+<!-- 接線示意圖(Pro 機型主圖) -->
+<p align="center" style="margin:32px 0">
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/AS-P3/matter/image/Pro_line.JPG" width="720" alt="AS-P3 Pro 接線示意圖" style="border-radius:14px;border:1px solid #e5e7eb;max-width:100%;box-shadow:0 4px 12px rgba(0,0,0,0.06)">
+</p>
+
 ---
 
 <details>
