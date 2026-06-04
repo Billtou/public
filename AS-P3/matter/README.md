@@ -41,7 +41,7 @@
   <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">Matter 官方配對 QR</p>
 </td>
 <td align="left" style="border:none;padding:0 20px;vertical-align:middle">
-  <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">11 碼配對碼</p>
+  <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">11 碼配對碼(直接進入智能生態APP掃條碼)</p>
   <p style="margin:0;font-size:28px;font-weight:800;color:#ff6f48;font-family:'SF Mono',Consolas,monospace;letter-spacing:0.04em">3642-630-6820</p>
   <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">可直接掃描左側 QR 配對,<br>或手動輸入 11 碼</p>
 </td>
