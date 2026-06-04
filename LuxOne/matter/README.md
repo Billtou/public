@@ -31,7 +31,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">LuxOne</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">環境照度感測器 · Matter over Wi-Fi · 跨生態相容</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">環境照度感測器 · Matter over Wi-Fi · 跨生態相容 手機進入智能生態app直接新增</p>
 
 <!-- QR + 配對碼 並排 -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
