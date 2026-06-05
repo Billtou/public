@@ -1,4 +1,4 @@
-# WP-475 · AUTOMATE 智能氣象面板
+# WP-375/WP-475 · AUTOMATE 智能氣象面板
 
 > 7.5" 4 色電子紙 · Matter over Wi-Fi · 跨生態相容
 >
