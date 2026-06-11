@@ -1,16 +1,16 @@
 {
   "name": "AUTOMATE.GD-3(WiFi)",
-  "version": "3.3",
+  "version": "3.4",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.3.bin",
-        "md5": "11f25ca588aa03c91248038f23537bf2",
-        "sha256": "16e75766f771c6db7f49374870050946e1270b5124c52bcf5e23f74c90dfbf9b",
-        "summary": "v3.3 功能性調整(無障礙物偵測可略過)。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/GD_3/firmware-w/automate-gd-3.ota_w_3.4.bin",
+        "md5": "49bfa77590ba9a7cc2b2d26125ddeb07",
+        "sha256": "752abe7280e7ea58d78b8a7d5321d090ffc3a5af38384bc474590090889151f2",
+        "summary": "v3.4 修復面板實體上、停、下code錯置問題(無面板按鍵可略過)。 [詳情見說明網頁](https://github.com/Billtou/public/tree/main/GD_3)"
       }
     }
   ]
