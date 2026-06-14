@@ -77,6 +77,7 @@
 <details>
 <summary><b>📑 目錄</b></summary>
 
+0. [接線說明](#0-接線說明)
 1. [產品簡介](#1-產品簡介)
 2. [硬體說明](#2-硬體說明)
 3. [LED 行為與 AC 開關](#3-led-行為與-ac-開關)
@@ -91,6 +92,16 @@
 12. [規格表](#12-規格表)
 
 </details>
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">0. 接線說明</h2>
+
+安裝前請先參考各機型的接線圖與接線方式:
+
+👉 **[接線說明與接線圖(LIGHT)](https://github.com/Billtou/public/tree/main/LIGHT)**
+
+⚠️ AC 高壓側請務必**先斷電**,並由合格電工依機型標示電壓(110V)安裝;接錯可能造成觸電或燒毀。
 
 ---
 
