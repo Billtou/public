@@ -537,13 +537,7 @@ DeltaPanel 接入 Wi-Fi 後，在瀏覽器打開 `http://<IP>` 即可進入。
 
 ## 12. 韌體更新 (OTA)
 
-### 12.1 自動檢查
-
-DeltaPanel 啟動後會背景定期檢查
-[Billtou/public/PANEL/DELTA/matter/firmware-w](https://github.com/Billtou/public/tree/main/PANEL/DELTA/matter/firmware-w)
-上的 `version.json`，若雲端版本較新，**Web 管理介面**會顯示「有新版可更新」。
-
-### 12.2 手動更新
+### 12.1 手動更新
 
 1. 進 `http://<IP>/update`
 2. 顯示 **目前版本** vs **最新版本**
