@@ -457,20 +457,7 @@ App 會顯示 **「正在搜尋…」→「設定 Wi-Fi…」→「測試 Matter
 
 ## 9. Wi-Fi 設定
 
-### 9.1 首次設定（SoftAP 模式）
-
-未配對的 DeltaPanel 會自動開啟 **SoftAP 熱點**：
-
-| 項目 | 值 |
-| --- | --- |
-| SSID | `DeltaPanel-XXXXXX`（末 6 碼為 MAC）|
-| 密碼 | 無（open）|
-| 設定頁 URL | `http://192.168.4.1/` |
-
-連上後在瀏覽器打開設定頁 → 選您的家用 Wi-Fi → 輸入密碼 → 儲存。
-DeltaPanel 自動切換 STA 模式，SoftAP 關閉。
-
-### 9.2 Matter 配對流程已包含 Wi-Fi 設定
+### 9.1 Matter 配對流程已包含 Wi-Fi 設定
 
 若使用 Apple Home / Google Home **直接掃面板 QR 配對**，Wi-Fi 設定會由 App 自動帶入，
 不需手動 SoftAP 設定。
