@@ -43,13 +43,17 @@
 <p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">台達三件套智能觸控面板 · Matter over Wi-Fi · 跨生態相容</p>
 <p style="font-size:14px;color:#8a96a3;margin:8px 0 0">🔥 中央暖風機　🌬 全熱交換器　💨 管道送風機 — 一片面板，三種主機</p>
 
-<!-- 11 碼配對碼(QR 每支產品不同,請掃面板上的 QR;11 碼為品牌通用)-->
+<!-- Matter QR + 11 碼配對碼 並排 -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
-<td align="center" style="border:none;padding:0 24px;vertical-align:middle">
+<td align="center" style="border:none;padding:0 20px;vertical-align:middle">
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/QR_CODE/matter_qrcode.png" width="160" height="160" alt="Matter 配對 QR Code" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
+  <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">Matter 配對 QR Code</p>
+</td>
+<td align="left" style="border:none;padding:0 20px;vertical-align:middle">
   <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">11 碼配對碼</p>
   <p style="margin:0;font-size:28px;font-weight:800;color:#ff6f48;font-family:'SF Mono',Consolas,monospace;letter-spacing:0.04em">3642-630-6820</p>
-  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">於面板「使用說明」頁掃 <b>Matter QR</b> 即可自動配對<br>或在 App 中手動輸入此 11 碼</p>
+  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">掃描左側 QR Code 即可自動配對<br>或在 App 中手動輸入 11 碼<br><span style="color:#b0b8c0">面板「使用說明」頁亦顯示專屬 QR</span></p>
 </td>
 </tr>
 </table>
