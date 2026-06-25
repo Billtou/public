@@ -246,7 +246,7 @@
 ## 5. 快速開始
 
 ```text
-1. 拆封 → 接 DC 12V 電源 → LCD 亮起
+1. 拆封 → 接電源 → LCD 亮起
 2. 滑到「使用說明」分頁 → 掃 QR 看完整本說明
 3. 開 Apple Home / Google Home / Home Assistant App
 4. 加入新設備 → 掃面板上的 Matter QR / 手動輸入配對碼
