@@ -49,7 +49,7 @@
 <tr>
 <td width="60%">
 
-快速入門: 首上電apple home，home assistant 手機app掃描二維碼即可， 每次上電會出現調參2維碼30秒方便手機調參。home assistant使用者請先進入設定>應用程式>Matter Server>設定  將Enable test-net DCL usage.  打開
+<span style="color:#FF3B30">快速入門: 首上電apple home，home assistant 手機app掃描二維碼即可， 每次上電會出現調參2維碼30秒方便手機調參。home assistant使用者請先進入設定>應用程式>Matter Server>設定  將Enable test-net DCL usage.  打開</span>
 
 
 WeatherPanel 系列是 AUTOMATE 推出的智能氣象面板,搭載 **7.5" 電子紙顯示**,抓取**中央氣象署(CWA)開放資料平台**的官方氣象預報並渲染成精美版面。零按鈕、低耗電、室內室外都看得清,放桌上 / 掛牆上都合適。
