@@ -72,6 +72,9 @@
 
 ## 1. 產品簡介
 
+🔴 **快速入門: home assistant使用者請先進入設定>應用程式>Matter Server>設定  將Enable test-net DCL usage.  打開**
+
+
 AirCover 是 AUTOMATE 推出的智能捲簾控制升級套件 — **替換 Tuya 捲簾 / 窗簾控制器原廠的 CB3S Wi-Fi 模組**,讓本來只能用 Tuya/Smart Life App 控制的傳統 Tuya 捲簾,**直接加入 Matter 智能家庭生態**,不需專屬 Hub 也不必雲端帳號。
 
 主要特性:
