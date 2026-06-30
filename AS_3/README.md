@@ -5,6 +5,8 @@
 
 毫米波 + 紅外線雙感測 · 自動燈光 · 自動除濕 · 溫濕度光照偵測 · 接入 Home Assistant
 
+<img src="https://raw.githubusercontent.com/Billtou/public/main/AS_3/image/Pro_line.JPG" alt="AUTOMATE AS-P3" width="460">
+
 </div>
 
 ---
