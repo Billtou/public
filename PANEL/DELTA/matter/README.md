@@ -62,6 +62,18 @@
 
 ---
 
+<div align="center">
+
+### ▶ 產品介紹影片
+
+<a href="https://youtu.be/iRZuwcazl7s" title="AUTOMATE DeltaPanel 產品介紹影片"><img src="https://img.youtube.com/vi/iRZuwcazl7s/hqdefault.jpg" width="480" alt="AUTOMATE DeltaPanel 產品介紹影片"></a>
+
+<sub>▶ 點擊圖片觀看 YouTube 影片介紹</sub>
+
+</div>
+
+---
+
 ## 目錄
 
 <table>
