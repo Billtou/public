@@ -42,13 +42,17 @@
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">米多力除濕機 智能面板</h1>
 <p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">Apple HomeKit · Wi-Fi · 4 吋觸控 · 吊隱除濕機專用控制面板</p>
 
-<!-- HomeKit 設定碼 -->
+<!-- HomeKit QR + 設定碼 並排 -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
-<td align="center" style="border:none;padding:0 24px;vertical-align:middle">
+<td align="center" style="border:none;padding:0 20px;vertical-align:middle">
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/QR_CODE/qr-11188999-AUTM.png" width="150" height="181" alt="HomeKit 配對 QR Code" style="border:1px solid #dde3ec;border-radius:12px;background:#fff">
+  <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">HomeKit 配對 QR Code</p>
+</td>
+<td align="left" style="border:none;padding:0 20px;vertical-align:middle">
   <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">HomeKit 設定碼</p>
   <p style="margin:0;font-size:30px;font-weight:800;color:#ff6f48;font-family:'SF Mono',Consolas,monospace;letter-spacing:0.06em">111-88-999</p>
-  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">於面板「使用說明」頁掃 <b>HomeKit QR Code</b> 即可加入 Apple 家庭<br>或在家庭 App 中手動輸入此 8 碼設定碼</p>
+  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">掃描左側 QR Code 加入 Apple 家庭<br>或在家庭 App 手動輸入此 8 碼設定碼<br><span style="color:#b0b8c0">面板「使用說明」頁亦顯示 QR</span></p>
 </td>
 </tr>
 </table>
