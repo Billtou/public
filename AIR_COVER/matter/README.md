@@ -1,4 +1,4 @@
-﻿﻿# AirCover · AUTOMATE 智能捲簾 / 窗簾控制器
+# AirCover · AUTOMATE 智能捲簾 / 窗簾控制器
 
 > Tuya MCU 升級套件 · Matter over Wi-Fi · 跨生態相容
 >
@@ -492,4 +492,4 @@ iOS Home App 拉桿、HA `cover.set_cover_position` 都支援 0–100% 任意值
 
 ---
 
-> AUTOMATE · AirCover · 韌體 v0.1.1(2026-05-22 首版)
+> AUTOMATE · AirCover · 韌體 v0.1.4
