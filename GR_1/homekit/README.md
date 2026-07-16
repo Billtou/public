@@ -268,7 +268,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 沒有建立 mqtt 使用者 | HA > 設定 > 人員 > 使用者 > 增加使用者 > 名稱填入 mqtt-user > 密碼填入 mqtt-pass > 儲存|
 ### 6.2 設定步驟
 
-1. 用瀏覽器打開 **`http://<裝置-IP>/engineer`**(裝置 IP 從家庭 App → 點裝置 → 設定 → 看 IP)
+1. 用瀏覽器打開 **`http://<裝置-IP>`**(裝置 IP 從路由器尋找)
 2. 到工程模式頁面 **「MQTT / Home Assistant」** 卡片
 3. 填入:
    | 欄位 | 範例 | 說明 |
