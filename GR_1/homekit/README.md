@@ -265,7 +265,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 只用 Apple Home,沒 HA | 跳過本章,Apple Home 功能完整不缺 |
 | 已有 Home Assistant + Mosquitto broker | 跟著本章設定,可在 HA 看到車庫門 entity |
 | 沒裝 Mosquitto | 先在 HA 裝 `Mosquitto broker` [add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto),設帳密再回來 |
-| HA > 設定 > 人員 > 使用者 > 增加使用者 > 名稱填入 mqtt-user > 密碼填入 mqtt-pass|
+| 沒有建立 mqtt 使用者 | HA > 設定 > 人員 > 使用者 > 增加使用者 > 名稱填入 mqtt-user > 密碼填入 mqtt-pass > 儲存|
 ### 6.2 設定步驟
 
 1. 用瀏覽器打開 **`http://<裝置-IP>/engineer`**(裝置 IP 從家庭 App → 點裝置 → 設定 → 看 IP)
