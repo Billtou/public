@@ -78,23 +78,23 @@
 <table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
 <tr>
 <td width="20%" style="background:#fff;padding:16px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🔥 暖風機</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">🔥 台達-浴室暖風機</p>
 <p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">暖房 / 涼風 / 乾燥 / 換氣 · 室溫</p>
 </td>
 <td width="20%" style="background:#fff;padding:16px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🌬️ 全熱交換器</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">🌬️ 台達-全熱交換器</p>
 <p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">低/中/高速 · 自訂風量 · 外氣/回風溫度</p>
 </td>
 <td width="20%" style="background:#fff;padding:16px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">💨 管道風機</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">💨 台達-管道風機(新風)</p>
 <p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">風量 0–100% 無段調整</p>
 </td>
 <td width="20%" style="background:#fff;padding:16px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🏔️ 阿拉斯加暖風機</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">🏔️ 阿拉斯加-浴室暖風機</p>
 <p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">暖房 / 涼風 / 乾燥 / 換氣</p>
 </td>
 <td width="20%" style="background:#fff;padding:16px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">💧 米多力除濕機</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">💧 米多力-吊隱式除濕機</p>
 <p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">目標濕度 · 清淨 · 換氣 · 室溫 · 漏水</p>
 </td>
 </tr>
