@@ -110,7 +110,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 |---|---|
 | 通訊協定 | HomeKit (HAP) over Wi-Fi |
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
-| 處理器 | ESP32-C6(RISC-V 32-bit, 160 MHz, 8 MB Flash)|
+| 處理器 | ESP32-C3(32-bit, 160 MHz, 4 MB Flash)|
 | 控制接口 | 乾接點 relay 輸出 + 限位 / 感測輸入 |
 | Apple Home Service | GarageDoorOpener |
 | 工作環境 | -10–60 °C / 10–90% RH(無凝結)|
