@@ -130,15 +130,15 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 <p style="margin:0;font-weight:700;color:#1c3d5a">⚡ 端子說明</p>
 <ul style="margin:10px 0 0;color:#1a2533">
-<li><b>DC IN</b>:5–24V DC(由車庫門控制板供應,或用 USB 5V)</li>
+<li><b>DC IN</b>:12V DC(由車庫門控制板供應)</li>
 <li><b>RELAY OUT</b>:乾接點(NO),接車庫門馬達的「按鈕觸發」迴路</li>
-<li><b>SENSOR IN</b>(選用):門已關 / 已開的限位開關訊號</li>
+<li><b>SENSOR IN</b>(非格來得適用):門已關 / 已開的限位開關訊號</li>
 <li><b>內建 Wi-Fi 天線</b></li>
 </ul>
 </div>
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-⚠️ <b>必須由合格電工安裝。</b>車庫門馬達是 AC 110V/220V 高壓側,觸電風險。模組本身低壓 5–24V DC。
+⚠️ <b>必須由合格電工安裝。</b>車庫門馬達是 AC 110V/220V 高壓側,觸電風險。模組本身低壓 12V DC。
 </blockquote>
 
 ### 2.2 配對碼資訊
@@ -146,7 +146,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 項目 | 數值 |
 |---|---|
 | HomeKit QR Code | 快速入門卡 / 機身底部標籤 |
-| 8 碼配對碼 | 格式 `XXX-XX-XXX`(每片唯一)|
+| 8 碼配對碼 | 格式 `111-88-999`|
 | Manufacturer | `AUTOMATE` |
 | Model | `Garage-GR1` |
 | 預設裝置名稱 | `Garage-XXXXXX`(後 6 碼為 Wi-Fi MAC)|
@@ -170,7 +170,6 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 按法 | 時間 | 結果 |
 |---|---|---|
 | 短按 | < 0.6 秒 | 忽略 |
-| 單擊 | 0.6 – 5 秒 | 觸發 relay(模擬遙控按鈕,開 / 關門切換)|
 | 長按 | 5 – 10 秒 | 重置警告(LED 急閃)|
 | 長按 | ≥ 10 秒 | **工廠重置** |
 
@@ -196,7 +195,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 <table style="width:100%;border-collapse:separate;border-spacing:0 8px;margin:16px 0">
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
 <table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">1</span></td>
-<td>通電模組,等完成上電(約 5 秒,LED 慢閃配對模式)</td></tr></table>
+<td>通電模組,等完成上電(約 5 秒,LED 慢閃配對模式)手機搜尋wifi AP 熱點，接入自家wifi SSID 與 PASSWORD</td></tr></table>
 </td></tr>
 <tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
 <table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">2</span></td>
