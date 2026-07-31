@@ -50,6 +50,52 @@
 
 ---
 
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:32px;font-size:28px">🔌 接線圖(依主機板型號)</h2>
+
+<blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
+⚠️ <b>先斷電、由合格電工安裝。</b>車庫門馬達為 AC 高壓側;模組本身 12V DC 低壓側。請依<b>你的主機板型號</b>對照下圖接線。
+</blockquote>
+
+<table align="center" style="width:100%;border-collapse:separate;border-spacing:10px">
+<tr>
+<td width="50%" align="center" style="background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e7eb">
+<img src="https://raw.githubusercontent.com/Billtou/public/main/GR_1/homekit/image/GR1-cable1.JPG" width="420" alt="格來得 v3.0 接線圖" style="border-radius:10px;max-width:100%">
+<p style="margin:10px 0 2px;font-weight:700;color:#1c3d5a">① 新款 格來得 v3.0(G3600 v3.0)</p>
+<p style="margin:0;font-size:13px;color:#5a6a7a">A 款排線直插 EXPOS 兩端口,免接乾接點</p>
+</td>
+<td width="50%" align="center" style="background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e7eb">
+<img src="https://raw.githubusercontent.com/Billtou/public/main/GR_1/homekit/image/GR1-cable2.JPG" width="420" alt="格來得 G3600 非3.0 接線圖" style="border-radius:10px;max-width:100%">
+<p style="margin:10px 0 2px;font-weight:700;color:#1c3d5a">② 前一代 格來得(G3600 非3.0)</p>
+<p style="margin:0;font-size:13px;color:#5a6a7a">B 款排線一端插 EXPOS,其餘接乾接點</p>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center" style="background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e7eb">
+<img src="https://raw.githubusercontent.com/Billtou/public/main/GR_1/homekit/image/GR1-cable3.JPG" width="420" alt="格來得 G3000 接線圖" style="border-radius:10px;max-width:100%">
+<p style="margin:10px 0 2px;font-weight:700;color:#1c3d5a">③ 舊款 格來得(G3000)</p>
+<p style="margin:0;font-size:13px;color:#5a6a7a">B 款排線一條插端口,其餘接乾接點</p>
+</td>
+<td width="50%" align="center" style="background:#fff;padding:12px;border-radius:14px;border:1px solid #e5e7eb">
+<img src="https://raw.githubusercontent.com/Billtou/public/main/GR_1/homekit/image/GR1-cable_NOT.JPG" width="420" alt="一般快速門(非格來得)接線圖" style="border-radius:10px;max-width:100%">
+<p style="margin:10px 0 2px;font-weight:700;color:#1c3d5a">④ 一般快速門(非格來得)</p>
+<p style="margin:0;font-size:13px;color:#5a6a7a">12V + 乾接點;⚠️ 無狀態回授,須外接門磁</p>
+</td>
+</tr>
+</table>
+
+<div style="background:#f7f9fc;border-radius:14px;padding:16px 18px;margin:16px 0;border:1px solid #dde3ec">
+<p style="margin:0 0 8px;font-weight:700;color:#1c3d5a">乾接點線色對照</p>
+<table style="border-collapse:collapse">
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>開 OPEN</b></td><td style="padding:4px 0;color:#27ae60">綠色</td></tr>
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>停 STOP</b></td><td style="padding:4px 0;color:#e67e22">橘色</td></tr>
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>關 CLOSE</b></td><td style="padding:4px 0;color:#2980b9">藍色</td></tr>
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>共線 COM</b></td><td style="padding:4px 0;color:#1c3d5a">黑色</td></tr>
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>12V 正極</b>(非格來得)</td><td style="padding:4px 0;color:#e74c3c">紅色</td></tr>
+</table>
+</div>
+
+---
+
 <details>
 <summary><b>📑 目錄</b></summary>
 
@@ -111,7 +157,7 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 | 通訊協定 | HomeKit (HAP) over Wi-Fi |
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | 處理器 | ESP32-C3(32-bit, 160 MHz, 4 MB Flash)|
-| 控制接口 | 乾接點 relay 輸出 + 限位 / 感測輸入 |
+| 控制接口 | 乾接點三線控制(開 / 停 / 關)+ 狀態回授 |
 | Apple Home Service | GarageDoorOpener |
 | 工作環境 | -10–60 °C / 10–90% RH(無凝結)|
 
@@ -131,8 +177,8 @@ Garage 是 AUTOMATE 推出的 HomeKit 智能車庫門控制器,**直接接入 Ap
 <p style="margin:0;font-weight:700;color:#1c3d5a">⚡ 端子說明</p>
 <ul style="margin:10px 0 0;color:#1a2533">
 <li><b>DC IN</b>:12V DC(由車庫門控制板供應)</li>
-<li><b>RELAY OUT</b>:乾接點(NO),接車庫門馬達的「按鈕觸發」迴路</li>
-<li><b>SENSOR IN</b>(非格來得適用):門已關 / 已開的限位開關訊號</li>
+<li><b>控制輸出</b>:乾接點三線 —— 開 OPEN(綠)/ 停 STOP(橘)/ 關 CLOSE(藍),共用 COM(黑)</li>
+<li><b>狀態回授</b>:格來得主機板經排線提供運轉 / 到底訊號,Apple Home 自動顯示開 / 關 / 行走;一般快速門無回授,需外接門磁</li>
 <li><b>內建 Wi-Fi 天線</b></li>
 </ul>
 </div>
@@ -352,12 +398,12 @@ State payload 範例:
 
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 
-**接乾接點到車庫門控制板**:
+**接線到車庫門主機板**(依主機板型號,詳見文件最上方〈🔌 接線圖〉):
 
-1. 確認車庫門控制板有「**遠端按鈕**」端子(乾接點)
-2. 將模組排線依據說明圖片接到該端子(乾接點)
-3. 模組 **DC IN** 可從控制板上的 12V取電
-4. 非格來得需要搭配門磁，Apple Home 才能正確顯示「已開 / 已關」狀態
+1. **格來得 v3.0(G3600 v3.0)**:A 款排線直插主機板 EXPOS 兩端口即可
+2. **格來得 G3600 非3.0 / G3000**:B 款排線一端插 EXPOS,其餘乾接點依線色接 —— 開(綠)/ 停(橘)/ 關(藍)/ 共線(黑)
+3. **一般快速門(非格來得)**:12V(紅)取電 + 乾接點 開/停/關/共線;⚠️ 無狀態回授,須外接門磁才能顯示開 / 關
+4. 模組 **DC IN** 由主機板 12V 供電
 
 </div>
 
@@ -460,9 +506,9 @@ State payload 範例:
 | 處理器 | ESP32-C3(32-bit, 160 MHz)|
 | Flash | 4 MB |
 | Apple Home Service | GarageDoorOpener |
-| DC 輸入 | 5–24V DC |
-| Relay 輸出 | NO 乾接點,5A 最大負載 |
-| 感測輸入 | 1× 限位開關(乾接點)|
+| DC 輸入 | 5–24V DC(實務由主機板 12V 供電)|
+| 控制輸出 | 乾接點三線:開 / 停 / 關 + 共線 COM |
+| 狀態回授 | 格來得經排線自動回授;非格來得需外接門磁 |
 | 待機功耗(模組)| < 0.4 W |
 | 工作溫度 | -10 °C – 60 °C |
 | 工作濕度 | 10% – 90% RH(無凝結)|
