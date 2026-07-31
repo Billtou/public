@@ -90,7 +90,7 @@
 <tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>停 STOP</b></td><td style="padding:4px 0;color:#e67e22">橘色</td></tr>
 <tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>關 CLOSE</b></td><td style="padding:4px 0;color:#2980b9">藍色</td></tr>
 <tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>共線 COM</b></td><td style="padding:4px 0;color:#1c3d5a">黑色</td></tr>
-<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>12V 正極</b>(非格來得)</td><td style="padding:4px 0;color:#e74c3c">紅色</td></tr>
+<tr><td style="padding:4px 14px 4px 0;color:#1a2533"><b>12V 正極</b>(非格來得試用)</td><td style="padding:4px 0;color:#e74c3c">紅色</td></tr>
 </table>
 </div>
 
