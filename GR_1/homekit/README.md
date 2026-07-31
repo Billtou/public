@@ -352,17 +352,12 @@ State payload 範例:
 
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 
-**接 relay 到車庫門控制板**:
+**接乾接點到車庫門控制板**:
 
-1. 確認車庫門控制板有「**遠端按鈕**」端子(通常標記為 PB / TRIGGER / S1)
-2. 將模組 **RELAY OUT NO + COM** 接到該端子(乾接點,等同遙控按鈕)
-3. 模組 **DC IN** 可從控制板上的 12V/24V 取電
-
-**接限位開關**(選用,做雙向狀態回報):
-
-1. 在門框上 / 下緣裝**乾簧管 + 磁鐵**,門完全關時導通
-2. 接到 **SENSOR IN + GND**
-3. Apple Home 才能正確顯示「已開 / 已關」狀態
+1. 確認車庫門控制板有「**遠端按鈕**」端子(乾接點)
+2. 將模組排線依據說明圖片接到該端子(乾接點)
+3. 模組 **DC IN** 可從控制板上的 12V取電
+4. 非格來得需要搭配門磁，Apple Home 才能正確顯示「已開 / 已關」狀態
 
 </div>
 
@@ -462,8 +457,8 @@ State payload 範例:
 | 品牌 | AUTOMATE |
 | 通訊協定 | HomeKit (HAP) over Wi-Fi |
 | Wi-Fi | 2.4 GHz 802.11 b/g/n |
-| 處理器 | ESP32-C6(RISC-V 32-bit, 160 MHz)|
-| Flash | 8 MB |
+| 處理器 | ESP32-C3(32-bit, 160 MHz)|
+| Flash | 4 MB |
 | Apple Home Service | GarageDoorOpener |
 | DC 輸入 | 5–24V DC |
 | Relay 輸出 | NO 乾接點,5A 最大負載 |
