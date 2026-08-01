@@ -1,0 +1,13 @@
+{
+    "builds":  [
+                   {
+                       "chipFamily":  "ESP32",
+                       "ota":  {
+                                   "path":  "airpro.bin",
+                                   "md5":  "9c9828908542a9a4200c9a8edb518bc4"
+                               }
+                   }
+               ],
+    "name":  "AirPro",
+    "version":  "1.3"
+}
