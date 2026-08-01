@@ -4,10 +4,10 @@
                        "chipFamily":  "ESP32",
                        "ota":  {
                                    "path":  "airpro.bin",
-                                   "md5":  "9c9828908542a9a4200c9a8edb518bc4"
+                                   "md5":  "f61a3a952a21517a7e925c1b48afaa7e"
                                }
                    }
                ],
     "name":  "AirPro",
-    "version":  "1.3"
+    "version":  "1.4"
 }
