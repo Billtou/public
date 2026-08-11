@@ -1,5 +1,5 @@
-<!-- AIR-485 除濕機控制器 README — Automate brand -->
-<!-- HomeKit-direct dehumidifier controller (RS-485 / 55 protocol). NO engineer-mode / OEM section. -->
+<!-- AIR-485 多功能 RS-485 控制器 README — Automate brand -->
+<!-- HomeKit-direct multifunction RS-485 controller. Delta trio (bath heater / ERV / duct fan) + Midoli dehumidifier. NO engineer-mode / OEM / register-monitor section. -->
 
 <div align="center" style="padding:48px 24px 36px">
 
@@ -29,8 +29,8 @@
   </g>
 </svg>
 
-<h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AIR-485 除濕機控制器</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">吊隱除濕機智能控制 · HomeKit over Wi-Fi · RS-485 近控</p>
+<h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AIR-485 多功能控制器</h1>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">台達暖風機 · 全熱交換 · 管道風機 · 米多力除濕機 · HomeKit over Wi-Fi · RS-485 近控</p>
 
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
@@ -54,12 +54,12 @@
 <summary><b>📑 目錄</b></summary>
 
 1. [產品簡介](#1-產品簡介)
-2. [硬體說明](#2-硬體說明)
-3. [指示燈與按鍵行為](#3-指示燈與按鍵行為)
-4. [接入 Apple Home(初次配對)](#4-接入-apple-home初次配對)
-5. [Apple Home 控制](#5-apple-home-控制)
-6. [運轉模式的關係](#6-運轉模式的關係)
-7. [Web UI:首頁(狀態顯示)](#7-web-ui首頁狀態顯示)
+2. [支援機種](#2-支援機種)
+3. [硬體說明](#3-硬體說明)
+4. [指示燈、蜂鳴器與按鍵行為](#4-指示燈蜂鳴器與按鍵行為)
+5. [接入 Apple Home(初次配對)](#5-接入-apple-home初次配對)
+6. [各機種的 Apple Home 控制](#6-各機種的-apple-home-控制)
+7. [Web UI:首頁(狀態與維護)](#7-web-ui首頁狀態與維護)
 8. [OTA 韌體更新](#8-ota-韌體更新)
 9. [工廠重置](#9-工廠重置)
 10. [故障排除](#10-故障排除)
@@ -72,41 +72,35 @@
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">1. 產品簡介</h2>
 
-AIR-485 除濕機控制器是 AUTOMATE 推出的 HomeKit 智能面板,把**吊隱式除濕機**透過 RS-485 接入 **Apple Home**,不需專屬 Hub 或雲端帳號。
+AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空氣設備透過 RS-485 接入 **Apple Home**,不需專屬 Hub 或雲端帳號。
 
-控制器透過 RS-485(米多力 / 貫捷「55 通訊協議」)近控機體,把機體回報的狀態原封不動同步到 Apple Home 與內建 Web UI。
+一台控制器**依出廠設定**對應一台機種,近控機體、把機體回報的狀態原封不動同步到 Apple Home 與內建 Web UI。目前支援:
 
 <table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
 <tr>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">💧 除濕(目標濕度)</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">設定目標濕度,機體自動維持;風量弱 / 中 / 強</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">🔥 台達暖風機</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">浴室暖風乾燥機:暖房 / 涼風 / 換氣 / 乾燥 + 照明 · 室溫顯示</p>
 </td>
 <td width="50%" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🌬️ 空氣清淨</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">獨立清淨運轉,可與除濕同時進行</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">♻️ 台達全熱交換器</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">新風換氣:風量調節 · 氣流模式 · 外氣 / 回風溫度</p>
 </td>
 </tr>
 <tr>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🔁 換氣送風</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">單獨送風換氣模式</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">🌀 台達管道風機</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">開關 · 無段風速 · 濾網更換提醒</p>
 </td>
 <td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🌡️ 室溫顯示</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">機體感測室溫直接在 Apple Home 顯示</p>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🚨 水滿 / 漏水警報</p>
-<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">機體水滿時,Apple Home 跳出紅色重要警報並推播通知</p>
+<p style="margin:0;font-weight:700;color:#1c3d5a">💧 米多力除濕機</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">吊隱除濕:目標濕度 · 清淨 · 換氣 · 室溫 · 水滿警報</p>
 </td>
 </tr>
 </table>
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 <b>機體是唯一資料來源</b>。控制器只反饋機體回報的狀態、不做任何軟體加工。近控器(壁掛)與 Apple Home 兩端控制,狀態約 1 秒內互相同步。
+💡 <b>機體是唯一資料來源</b>。控制器只反饋機體回報的狀態、不做任何軟體加工。原廠壁掛近控器(若有)與 Apple Home 兩端控制,狀態約 1 秒內互相同步。
 </blockquote>
 
 ### 1.1 規格速覽
@@ -116,80 +110,93 @@ AIR-485 除濕機控制器是 AUTOMATE 推出的 HomeKit 智能面板,把**吊�
 | 通訊協定 | HomeKit (HAP) over Wi-Fi |
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
-| 機體介面 | RS-485 半雙工「55 通訊協議」9600 8N1 |
-| Apple Home 配件 | 除濕機 / 清淨 / 換氣 / 室溫 / 漏水 |
-| 除濕目標濕度 | 連續 或 0–90 %RH |
-| 風量 | 弱 / 中 / 強 |
+| 機體介面 | RS-485 半雙工 9600 8N1(台達 Modbus RTU / 米多力「55 通訊協議」)|
+| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 米多力除濕機 |
+| 生態 | Apple Home(HomeKit),支援跨生態多管理者(Multi-Admin)|
+
+> ⓘ 本產品為 **HomeKit** 直連,只接入 Apple 家庭;不支援 Google Home / Amazon Alexa(那需 Matter 版本)。進階使用者可透過 Home Assistant 的 HomeKit Controller 接入。
 
 ### 1.2 包裝內容
 
-- AIR-485 除濕機控制器 × 1
+- AIR-485 控制器 × 1
 - 快速入門卡(含 HomeKit QR Code + 配對碼)× 1
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">2. 硬體說明</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">2. 支援機種</h2>
 
-### 2.1 安裝與接口
+每片控制器出廠時已對應一台機種,對應機身標籤。配對後 Apple Home 顯示的配件依機種而不同(見章節 6)。
 
-- **RS-485 接機體** — A / B 兩線接除濕機通訊埠(自動流向,無需 DE/RE)
-- **狀態 LED**(藍光)— 章節 3.1
-- **重置鍵**(小孔)— 章節 3.2
+| 機種 | 機體協定 | Apple Home 呈現重點 |
+|---|---|---|
+| 🔥 台達暖風機 | Modbus RTU | 暖房 / 涼風 / 換氣 / 乾燥(互斥)+ 主燈 / 夜燈 / 韻律風 / 感應換氣 + 室溫 |
+| ♻️ 台達全熱交換器 | Modbus RTU | 風量(多段)+ 氣流模式 + 外氣 / 回風溫度 |
+| 🌀 台達管道風機 | Modbus RTU | 開關 + 風速(%)+ 濾網更換提醒 / 歸零 |
+| 💧 米多力除濕機 | 55 通訊協議 | 除濕(目標濕度)+ 清淨 + 換氣 + 室溫 + 漏水警報 |
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">3. 硬體說明</h2>
+
+### 3.1 安裝與接口
+
+- **RS-485 接機體** — A / B 兩線接機體通訊埠(自動流向,無需 DE/RE)
+- **狀態 LED** — 章節 4.1
+- **蜂鳴器** — 章節 4.2
+- **重置鍵**(小孔)— 章節 4.3
 - **內建 Wi-Fi 天線** — 無需外接
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-⚠️ RS-485 的 A / B 兩線不可接反,接反不會損壞但無法通訊(Web UI 會顯示「485 離線」)。
+⚠️ RS-485 的 A / B 兩線不可接反,接反不會損壞但無法通訊(Web UI 會顯示機體「離線」)。
 </blockquote>
 
-### 2.2 配對碼資訊
+### 3.2 識別資訊
 
 | 項目 | 數值 |
 |---|---|
 | HomeKit QR Code | 快速入門卡 / 機身標籤 |
-| 配對碼 | 格式 `XXX-XX-XXX`(每片唯一)|
+| 配對碼 | `111-88-999`(全產品共用)|
 | Manufacturer | `AUTOMATE` |
-| 預設裝置名稱 | `AIR-485 Dehumidifier` |
 | 設定 / 救援熱點 | `AIR-485-XXXXXX`(後 6 碼為 Wi-Fi MAC)|
 | 主機名稱 | `air485-ahp-XXXXXX.local` |
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">3. 指示燈與按鍵行為</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">4. 指示燈、蜂鳴器與按鍵行為</h2>
 
-### 3.1 狀態 LED
+### 4.1 狀態 LED
 
-單色藍燈,依優先序顯示連線狀態:
+單色燈,依優先序顯示連線狀態:
 
 | 條件 | LED | 意義 |
 |---|---|---|
 | 重置警告(長按 5–10s)| **急閃** 5 次/秒 | 「再按到 10 秒會工廠重置」 |
 | Wi-Fi 未連線 | **慢閃** 1 次/秒 | 配網模式 / Wi-Fi 重連中 |
 | HomeKit 未配對 | **雙閃** 每次閃兩下 | Wi-Fi 通了但還沒加入 Apple Home |
-| 正常運轉 | **恆亮** | Wi-Fi + HomeKit 都正常 |
+| 正常運轉 | **恆滅** | Wi-Fi + HomeKit 都正常(不亮 = 一切就緒)|
 
-### 3.2 重置按鈕
+### 4.2 蜂鳴器
+
+- **開機**:上升「嗶」三聲 = 控制器已啟動
+- **重置警告**(長按 5–10s):一短音
+- **工廠重置**(長按 ≥10s):兩短音確認
+
+### 4.3 重置按鈕
 
 | 按法 | 時間 | 結果 |
 |---|---|---|
-| 快速雙擊 | 0.08 – 0.6 秒 | 切換提示音(蜂鳴器)開 / 關 |
-| 長按 | 5 – 10 秒 | 重置警告(LED 急閃)|
+| 長按 | 5 – 10 秒 | 重置警告(LED 急閃 + 一短音)|
 | 長按 | ≥ 10 秒 | **工廠重置**(清 Wi-Fi + HomeKit 配對,自動重啟)|
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 長按未滿 10 秒放手 = 取消,不會重置。
+💡 長按未滿 10 秒放手 = 取消,不會重置。工廠重置**不會**改變機種設定。
 </blockquote>
-
-### 3.3 壁掛近控器
-
-除濕機原廠壁掛近控器獨立運作:
-- 近控器操作的狀態變化,Apple Home 約 1 秒內同步看到
-- Apple Home 的操作,機體與近控器也會同步
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">4. 接入 Apple Home(初次配對)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. 接入 Apple Home(初次配對)</h2>
 
-### 4.1 配對前確認
+### 5.1 配對前確認
 
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 <p style="margin:0;font-weight:700;color:#1c3d5a">✅ 開始前請確認</p>
@@ -200,206 +207,122 @@ AIR-485 除濕機控制器是 AUTOMATE 推出的 HomeKit 智能面板,把**吊�
 </ul>
 </div>
 
-### 4.2 配對流程
+### 5.2 配對流程
 
-<table style="width:100%;border-collapse:separate;border-spacing:0 8px;margin:16px 0">
-<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
-<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">1</span></td>
-<td>通電控制器,等上電完成(約 5 秒,LED 慢閃 = 配對模式)</td></tr></table>
-</td></tr>
-<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
-<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">2</span></td>
-<td>iPhone 開「<b>家庭</b>」App → 右上 <b>+</b> → <b>加入或掃描配件</b></td></tr></table>
-</td></tr>
-<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
-<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">3</span></td>
-<td>對準 QR Code 掃描;或選「沒有代碼」→ 手動輸入配對碼 <code>111-88-999</code></td></tr></table>
-</td></tr>
-<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
-<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#1c3d5a;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">4</span></td>
-<td>iPhone 自動把 Wi-Fi 憑證傳給控制器</td></tr></table>
-</td></tr>
-<tr><td style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)" valign="top">
-<table><tr><td valign="top" style="padding-right:14px"><span style="display:inline-flex;align-items:center;justify-content:center;background:#34C759;color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700">✓</span></td>
-<td>配對完成 → 出現「<b>AIR-485 Dehumidifier</b>」及旗下的除濕 / 清淨 / 換氣 / 室溫 / 漏水配件</td></tr></table>
-</td></tr>
-</table>
+1. 通電控制器,等上電完成(約 5 秒,LED 慢閃 = 配對模式,開機會「嗶」三聲)
+2. iPhone 開「**家庭**」App → 右上 **+** → **加入或掃描配件**
+3. 對準 QR Code 掃描;或選「沒有代碼」→ 手動輸入配對碼 `111-88-999`
+4. iPhone 自動把 Wi-Fi 憑證傳給控制器
+5. ✓ 配對完成 → 出現該機種對應的配件(見章節 6)
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
 📶 若 iPhone 掃不到裝置,可手動連接控制器發出的設定熱點 <b>AIR-485-XXXXXX</b>(開放,免密碼),依頁面指示輸入家中 Wi-Fi 後,再回「家庭」App 掃描配對碼。
 </blockquote>
 
+### 5.3 跨生態接入(Multi-Admin)
+
+配對後,可在「家庭」App 的配件設定中選「**加入其他家庭中樞**」/ 分享,讓多位家庭成員或多個 Apple ID 同時控制;亦可透過 Home Assistant 的 HomeKit Controller 接入自動化。
+
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. Apple Home 控制</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 各機種的 Apple Home 控制</h2>
 
-配對後,Apple Home 會出現 5 個配件(同一台裝置底下):
+配對後出現的配件依出廠機種而定,全部收在同一台裝置底下。
+
+### 6.1 🔥 台達暖風機
 
 | 配件 | 類型 | 控制 / 顯示 |
 |---|---|---|
-| **除濕機** | 除濕機 | 開關、**目標濕度**、風量(弱 / 中 / 強)、目前濕度 |
-| **清淨** | 空氣清淨機 | 開 / 關 |
-| **換氣** | 風扇 | 開 / 關(送風換氣)|
-| **室溫** | 溫度感測器 | 顯示機體感測室溫 |
-| **漏水** | 漏水感測器 | 水滿 / 漏水時亮紅色重要警報 |
+| 暖房 / 涼風 / 換氣 / 乾燥 | 開關 ×4 | 四種運轉模式(**互斥**,由機體強制)|
+| 主燈 / 夜燈 / 韻律風 / 感應換氣 | 開關 | 依機型配置逐項顯示 |
+| 室溫 | 溫度感測器 | 機體感測室溫(唯讀)|
 
-<blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 除濕機配件已鎖定為「除濕」用途,Apple Home 不會出現「加濕 / 自動」選項。風量三個配件共用同一個機體風量設定,調整任一個都會同步。
-</blockquote>
+### 6.2 ♻️ 台達全熱交換器
 
-### 5.1 自動化建議
+| 配件 | 類型 | 控制 / 顯示 |
+|---|---|---|
+| 風量 | 風扇 | 開關 + 多段風量 |
+| 氣流模式 | 開關 | 熱交換 / 旁通 / 內循環(依機型)|
+| 外氣 / 回風溫度 | 溫度感測器 | 唯讀(依機型)|
 
-<table style="width:100%;border-collapse:separate;border-spacing:8px;margin:16px 0">
-<tr>
-<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
-<p style="margin:0;font-weight:700;color:#1c3d5a">💧 濕度 > 70% → 開除濕</p>
-<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">回家前先除濕</p>
-</td>
-<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🚨 偵測到水滿 → 推播 + 關機</p>
-<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">避免溢水</p>
-</td>
-</tr>
-<tr>
-<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🌙 就寢 → 切清淨低風量</p>
-<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">安靜運轉</p>
-</td>
-<td style="background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e7eb">
-<p style="margin:0;font-weight:700;color:#1c3d5a">🏠 離家 → 全部關閉</p>
-<p style="margin:6px 0 0;font-size:13px;color:#5a6a7a">節能</p>
-</td>
-</tr>
-</table>
+### 6.3 🌀 台達管道風機
+
+| 配件 | 類型 | 控制 / 顯示 |
+|---|---|---|
+| 風機 | 風扇 | 開關 + 風速(%)|
+| 濾網 | 濾網維護 | 到達使用時數時提示「需更換」,更換後可歸零 |
+
+### 6.4 💧 米多力除濕機
+
+| 配件 | 類型 | 控制 / 顯示 |
+|---|---|---|
+| 除濕機 | 除濕機 | 開關、**目標濕度**、風量(弱 / 中 / 強)、目前濕度 |
+| 清淨 | 空氣清淨機 | 開 / 關(可與除濕同時)|
+| 換氣 | 風扇 | 單獨送風換氣 |
+| 室溫 | 溫度感測器 | 機體感測室溫 |
+| 漏水 | 漏水感測器 | 水滿時 Apple Home 跳紅色重要警報 |
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 運轉模式的關係</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. Web UI:首頁(狀態與維護)</h2>
 
-除濕機有三種運轉:**除濕**、**清淨**、**換氣(送風)**。它們的搭配規則如下:
+控制器內建網頁,同網段用瀏覽器連 `http://air485-ahp-XXXXXX.local`(或路由器分配的 IP)即可打開**首頁**:
 
-| 開啟 | 影響 |
-|---|---|
-| **除濕** | 可與「清淨」同時運轉;會關閉「換氣」 |
-| **清淨** | 可與「除濕」同時運轉;會關閉「換氣」 |
-| **換氣(送風)** | 與「除濕」「清淨」互斥 — 開換氣會關掉另外兩者 |
+- **裝置資訊** — 韌體版本、可用記憶體、運行時間、連線狀態、HomeKit 配對狀態、製造日期
+- **機體狀態** — 目前控制的機種、機體上線 / 離線
+- **濾網 / 維護**(有濾網的機種)— 濾網通知時數設定、**濾網清零**、管道風機風速校準
 
-- **除濕 + 清淨** 可以同時開(邊除濕邊清淨)。
-- **換氣是獨立的送風模式**,開換氣時機體只做送風,因此會關閉除濕與清淨。
-- 三種運轉**全部關閉**後,機體自動關機(電源 OFF)。
-
----
-
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. Web UI:首頁(狀態顯示)</h2>
-
-### 7.1 連線方式
-
-配對成功後,Web UI 在同一區網:
-- **直接 IP**:家庭 App → 點裝置 → 設定 → 看 IP(例 `http://192.168.1.123`)
-- **主機名稱**:`http://air485-ahp-XXXXXX.local`
-
-### 7.2 裝置資訊
-
-| 欄位 | 內容 |
-|---|---|
-| **韌體版本** | 例 `v0.1.0` |
-| **可用記憶體 / 運行時間** | 系統健康度 |
-| **連線狀態** | Wi-Fi 正常 / 離線、IP |
-| **485 連線** | 與機體通訊是否正常 |
-| **製造日期** | `YYYYMMDD`,出廠燒入 |
-| **使用說明** | 點連結即開啟本份說明 |
-
-### 7.3 控制項
-
-| 元件 | 行為 |
-|---|---|
-| **電源** | 切換機體開 / 關 |
-| **目標濕度** | 設定除濕目標(連續 / 0–90 %RH)|
-| **風量** | 弱 / 中 / 強 |
-| **除濕 / 清淨 / 換氣** | 各自切換(依章節 6 規則連動)|
-| **即時狀態** | 目前濕度 / 室溫 / 壓縮機 / 水滿 / 除霜 / 各項感測異常 |
+> 首頁為日常查看與維護用途;變更家中 Wi-Fi 請走章節 9 工廠重置後重新配對。
 
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. OTA 韌體更新</h2>
 
-### 8.1 更新流程
+控制器支援 Wi-Fi 線上更新(OTA):
 
-1. Web UI → **韌體更新 /update** 頁
-2. 系統自動檢查最新版本
-3. 有新版本時點「**開始更新**」→ 確認 → 自動下載
-4. 下載完成自動重啟,頁面回到首頁
+1. 開瀏覽器連控制器 → 進「**版更**」頁
+2. 按「**檢查更新**」— 有新版會顯示版本號
+3. 按「**更新**」— 下載並自動重啟,期間請勿斷電
+4. 重啟後版本號更新即完成
 
-整個過程約 1–2 分鐘,期間 HomeKit 短暫離線(除濕機本體不受影響)。
-
-### 8.2 更新會保留 / 清除什麼
-
-<table style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid #dde3ec;border-radius:14px;overflow:hidden">
-<tr style="background:#f7f9fc"><th align="left" style="padding:12px 16px;color:#1c3d5a;border-bottom:2px solid #ff6f48">項目</th><th style="padding:12px 16px;color:#1c3d5a;border-bottom:2px solid #ff6f48">保留</th></tr>
-<tr><td style="padding:10px 16px;border-top:1px solid #eef1f6">HomeKit 配對</td><td align="center" style="padding:10px 16px;border-top:1px solid #eef1f6;color:#27ae60">✅ 保留</td></tr>
-<tr><td style="padding:10px 16px;border-top:1px solid #eef1f6">Wi-Fi 帳密</td><td align="center" style="padding:10px 16px;border-top:1px solid #eef1f6;color:#27ae60">✅ 保留</td></tr>
-<tr><td style="padding:10px 16px;border-top:1px solid #eef1f6">韌體版本</td><td align="center" style="padding:10px 16px;border-top:1px solid #eef1f6;color:#e74c3c">❌ 換新版</td></tr>
-</table>
+<blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
+💡 更新失敗會自動回滾到前一版,不會變磚;Wi-Fi 與 HomeKit 配對在 OTA 後保留。
+</blockquote>
 
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. 工廠重置</h2>
 
-### 9.1 硬體重置
+需要換 Wi-Fi、轉移家庭或排除配對問題時:
 
-- 按住控制器重置鍵 **10 秒以上**(LED 先急閃警告)
-- 自動重啟,進入配對模式
+- **長按重置鍵 ≥ 10 秒**(LED 急閃 + 蜂鳴警告 → 兩短音確認)→ 清除 Wi-Fi 與 HomeKit 配對並自動重啟。
 
-### 9.2 Web UI 重置
+重置後控制器回到配對模式(LED 慢閃),依章節 5 重新加入 Apple Home。
 
-- 韌體更新頁 → 「**重新配對裝置**」→「清除配對」紅色按鈕
-- 確認 → 自動重啟
-
-<blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
-💡 重置只清除 <b>HomeKit 配對</b> 與 <b>Wi-Fi 連線設定</b>,裝置進入待配對狀態,需重新加入 Apple Home。
+<blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
+⚠️ 工廠重置**只**清 Wi-Fi + HomeKit 配對,<b>不會</b>改變機種設定,也不影響機體本身。
 </blockquote>
 
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 故障排除</h2>
 
-### 10.1 配對相關
-
-| 現象 | 原因 | 處理 |
-|---|---|---|
-| 家庭 App 找不到裝置 | 距離太遠 / Wi-Fi 是 5 GHz | 靠近裝置、走 2.4 GHz |
-| 顯示「無法加入配件」 | 無 Home 中樞 / 配對碼錯 | 確認家中有 HomePod / Apple TV / iPad |
-| 配對成功但顯示「無回應」 | mDNS / 不同 SSID | 手機與裝置同一個 2.4 GHz SSID,關「訪客隔離」 |
-
-### 10.2 運作相關
-
-| 現象 | 原因 | 處理 |
-|---|---|---|
-| Web UI 顯示「485 離線」 | RS-485 沒接好 / A·B 接反 / 機體沒電 | 檢查接線與機體電源 |
-| Apple Home 操作但機體沒動 | 485 通訊異常 | 確認機體電源;重啟控制器 |
-| 近控器可動,Apple Home 沒同步 | 485 通訊異常 | 重啟控制器 / 等約 1 秒同步 |
-| 漏水警報一直亮 | 機體回報水滿 | 倒水 / 檢查排水;警報會自動解除 |
-
-### 10.3 OTA 相關
-
-| 現象 | 原因 | 處理 |
-|---|---|---|
-| 顯示「**無法取得版本**」 | 連不到 GitHub | 檢查網路 / DNS |
-| 「開始更新」一直 0% | 下載卡住 | 等 5 分鐘;不行重啟再試 |
+| 現象 | 可能原因 / 處理 |
+|---|---|
+| Web UI 顯示機體「離線」 | RS-485 A / B 接反或未接、機體未通電 → 確認接線與機體電源後重啟控制器 |
+| Apple Home 顯示「無回應」 | Wi-Fi 中斷或中樞離線 → 確認路由器與 HomeKit 家居中樞正常;控制器會自動重連 |
+| iPhone 掃不到裝置 | 改連設定熱點 `AIR-485-XXXXXX` 手動設定 Wi-Fi(章節 5.2 提示)|
+| LED 一直慢閃 | Wi-Fi 未連上 → 確認 2.4 GHz 可用、密碼正確 |
+| 忘記家中 Wi-Fi / 要換路由器 | 長按重置鍵 ≥10 秒工廠重置後重新配對 |
 
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 安全使用</h2>
 
-<div style="background:#fff7f4;border:1px solid #ffd0c5;border-radius:14px;padding:18px;margin:16px 0">
-
-- ⚠️ 除濕機高壓側由原廠處理,控制器本身為低壓 RS-485 訊號
-- 🔌 接線 / 拆卸**先斷電**
-- 🛠 請勿自行拆換或改裝控制器
-- 🌡 工作環境溫度 -10 – 50 °C
-- 📻 控制器內含無線電路,改裝會違反電信法規
-
-</div>
+- 本控制器為弱電裝置,安裝與機體強電接線請由合格人員施作。
+- RS-485 僅接機體通訊埠,勿接市電。
+- 勿自行拆解機體;控制器故障請洽經銷商。
+- 室內乾燥環境使用,避免潮濕、油煙直吹。
 
 ---
 
@@ -407,21 +330,18 @@ AIR-485 除濕機控制器是 AUTOMATE 推出的 HomeKit 智能面板,把**吊�
 
 | 項目 | 規格 |
 |---|---|
-| 產品名稱 | AIR-485 除濕機控制器 |
-| 品牌 | AUTOMATE |
-| 通訊協定 | HomeKit (HAP) over Wi-Fi |
-| Wi-Fi | 2.4 GHz 802.11 b/g/n |
+| 型號 | AIR-485 |
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz)|
-| Flash | 4 MB |
-| 機體介面 | RS-485「55 通訊協議」9600 8N1 半雙工 |
-| Apple Home 配件 | 除濕機 / 空氣清淨機 / 風扇 / 溫度感測器 / 漏水感測器 |
-| 除濕目標濕度 | 連續 或 0–90 %RH |
-| 風量 | 弱 / 中 / 強 |
-| 待機功耗(控制器)| < 0.3 W |
-| 工作溫度 | -10 °C – 50 °C |
+| 快閃記憶體 | 4 MB |
+| 無線 | Wi-Fi 2.4 GHz 802.11 b/g/n |
+| 機體介面 | RS-485 半雙工 9600 8N1(Modbus RTU / 55 通訊協議)|
+| 智能生態 | Apple HomeKit(HAP over Wi-Fi)|
+| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 米多力除濕機 |
+| 韌體更新 | Wi-Fi OTA(自動回滾)|
+| 製造商 | AUTOMATE |
 
 ---
 
-<div align="center" style="padding:32px 20px;background:#f7f9fc;border-radius:16px;margin-top:48px;color:#5a6a7a">
-<p style="margin:0;font-size:14px"><b style="color:#1c3d5a">AUTOMATE</b> · AIR-485 除濕機控制器 · HomeKit</p>
+<div align="center" style="padding:24px;color:#8a96a3;font-size:13px">
+© AUTOMATE · AIR-485 多功能控制器 · HomeKit over Wi-Fi
 </div>
