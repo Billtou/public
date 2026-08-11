@@ -58,7 +58,7 @@
 3. [硬體說明](#3-硬體說明)
 4. [指示燈、蜂鳴器與按鍵行為](#4-指示燈蜂鳴器與按鍵行為)
 5. [接入 Apple Home(初次配對)](#5-接入-apple-home初次配對)
-6. [各機種的 Apple Home 控制](#6-各機種的-apple-home-控制)
+6. [各機種的 Apple Home 控制與 HA MQTT 實體](#6-各機種的-apple-home-控制與-ha-mqtt-實體)
 7. [Web UI:首頁(狀態與維護)](#7-web-ui首頁狀態與維護)
 8. [OTA 韌體更新](#8-ota-韌體更新)
 9. [工廠重置](#9-工廠重置)
@@ -112,9 +112,10 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
 | 機體介面 | RS-485 半雙工 9600 8N1(台達 Modbus RTU / 米多力「55 通訊協議」)|
 | 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 米多力除濕機 |
-| 生態 | Apple Home(HomeKit),支援跨生態多管理者(Multi-Admin)|
+| 生態 | Apple Home(HomeKit)+ Home Assistant(MQTT Auto Discovery)|
+| 多管理者 | 支援跨生態多管理者(HomeKit Multi-Admin)|
 
-> ⓘ 本產品為 **HomeKit** 直連,只接入 Apple 家庭;不支援 Google Home / Amazon Alexa(那需 Matter 版本)。進階使用者可透過 Home Assistant 的 HomeKit Controller 接入。
+> ⓘ 本產品主生態為 **HomeKit**(接入 Apple 家庭);同時內建 **MQTT Auto Discovery**,設定 MQTT Broker 後可原生接入 **Home Assistant**(各機種對應實體見章節 6)。原生不支援 Google Home / Amazon Alexa(那需 Matter 版本)。
 
 ### 1.2 包裝內容
 
@@ -225,42 +226,49 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 各機種的 Apple Home 控制</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 各機種的 Apple Home 控制與 HA MQTT 實體</h2>
 
-配對後出現的配件依出廠機種而定,全部收在同一台裝置底下。
+配對後出現的 Apple Home 配件依出廠機種而定,全部收在同一台裝置底下。若已設定 MQTT Broker,本控制器另以 **MQTT Auto Discovery** 在 **Home Assistant** 自動生成對應實體(entity)。以下並列兩邊對應。
+
+<blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
+💡 HA 實體與 Apple Home 配件控制的是同一台機體,狀態雙向同步。標「—」= 該功能不上 MQTT(僅 Apple Home 提供)。
+</blockquote>
 
 ### 6.1 🔥 台達暖風機
 
-| 配件 | 類型 | 控制 / 顯示 |
+| 功能 | Apple Home 配件 | HA(MQTT)實體 |
 |---|---|---|
-| 暖房 / 涼風 / 換氣 / 乾燥 | 開關 ×4 | 四種運轉模式(**互斥**,由機體強制)|
-| 主燈 / 夜燈 / 韻律風 / 感應換氣 | 開關 | 依機型配置逐項顯示 |
-| 室溫 | 溫度感測器 | 機體感測室溫(唯讀)|
+| 暖房 / 涼風 / 換氣 / 乾燥(互斥)| 開關 ×4 | `switch` ×4 |
+| 主燈 / 夜燈 / 韻律風 / 感應換氣 | 開關(依機型)| — |
+| 室溫 | 溫度感測器 | `sensor`(溫度)|
 
 ### 6.2 ♻️ 台達全熱交換器
 
-| 配件 | 類型 | 控制 / 顯示 |
+| 功能 | Apple Home 配件 | HA(MQTT)實體 |
 |---|---|---|
-| 風量 | 風扇 | 開關 + 多段風量 |
-| 氣流模式 | 開關 | 熱交換 / 旁通 / 內循環(依機型)|
-| 外氣 / 回風溫度 | 溫度感測器 | 唯讀(依機型)|
+| 風量(開關 + 多段)| 風扇 | `fan` |
+| 氣流模式(熱交換 / 旁通 / 內循環)| 開關(依機型)| — |
+| 外氣 / 回風溫度 | 溫度感測器(依機型)| `sensor`(溫度)×2 |
 
 ### 6.3 🌀 台達管道風機
 
-| 配件 | 類型 | 控制 / 顯示 |
+| 功能 | Apple Home 配件 | HA(MQTT)實體 |
 |---|---|---|
-| 風機 | 風扇 | 開關 + 風速(%)|
-| 濾網 | 濾網維護 | 到達使用時數時提示「需更換」,更換後可歸零 |
+| 開關 + 風速(%)| 風扇 | `fan`(含風速百分比)|
+| 濾網「需更換」提示 | 濾網維護 | `binary_sensor`(problem)|
+| 濾網歸零 | HomeKit 原生「重置濾網」| `button`(濾網清零)|
+
+> ⓘ 濾網相關實體僅在「有濾網」機型顯示。
 
 ### 6.4 💧 米多力除濕機
 
-| 配件 | 類型 | 控制 / 顯示 |
+| 功能 | Apple Home 配件 | HA(MQTT)實體 |
 |---|---|---|
-| 除濕機 | 除濕機 | 開關、**目標濕度**、風量(弱 / 中 / 強)、目前濕度 |
-| 清淨 | 空氣清淨機 | 開 / 關(可與除濕同時)|
-| 換氣 | 風扇 | 單獨送風換氣 |
-| 室溫 | 溫度感測器 | 機體感測室溫 |
-| 漏水 | 漏水感測器 | 水滿時 Apple Home 跳紅色重要警報 |
+| 除濕(目標濕度、風量弱/中/強、目前濕度)| 除濕機 | `humidifier` |
+| 清淨(可與除濕同時)| 空氣清淨機 | `fan` |
+| 換氣(單獨送風)| 風扇 | `switch` |
+| 室溫 | 溫度感測器 | `sensor`(溫度)|
+| 漏水 / 水滿 | 漏水感測器 | `binary_sensor` |
 
 ---
 
