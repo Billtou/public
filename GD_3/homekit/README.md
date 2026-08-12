@@ -58,13 +58,14 @@
 3. [指示燈與按鍵行為](#3-指示燈與按鍵行為)
 4. [接入 Apple Home(初次配對)](#4-接入-apple-home初次配對)
 5. [Apple Home 控制](#5-apple-home-控制)
-6. [Web UI:首頁(狀態顯示)](#6-web-ui首頁狀態顯示)
-7. [安裝注意事項](#7-安裝注意事項)
-8. [OTA 韌體更新](#8-ota-韌體更新)
-9. [工廠重置](#9-工廠重置)
-10. [故障排除](#10-故障排除)
-11. [安全使用](#11-安全使用)
-12. [規格表](#12-規格表)
+6. [Home Assistant 整合 (MQTT)](#6-home-assistant-整合-mqtt)
+7. [Web UI:首頁(狀態顯示與開門時間)](#7-web-ui首頁狀態顯示與開門時間)
+8. [安裝注意事項](#8-安裝注意事項)
+9. [OTA 韌體更新](#9-ota-韌體更新)
+10. [工廠重置](#10-工廠重置)
+11. [故障排除](#11-故障排除)
+12. [安全使用](#12-安全使用)
+13. [規格表](#13-規格表)
 
 </details>
 
@@ -110,7 +111,7 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 </table>
 
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-💡 <b>HomeKit 是 Apple 專屬生態</b>,只能接入 Apple Home。如需 Google Home / Alexa,請選 Matter 版產品。Home Assistant 透過內建 MQTT bridge 可整合(進階使用者選用)。
+💡 <b>主要生態為 Apple Home</b>(HomeKit)。<b>同時支援 Home Assistant 經由內建 MQTT bridge 接入</b>(設定方法見 <a href="#6-home-assistant-整合-mqtt">第 6 章</a>),Apple Home 與 HA 可雙向同步使用。Google Home / Alexa 請選 Matter 版產品。
 </blockquote>
 
 ### 1.1 規格速覽
@@ -150,6 +151,9 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 </ul>
 </div>
 
+<p align="center"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3_homekit/image/S__133849093_1.JPG" width="640" alt="接線端口功能介紹" style="border-radius:12px;border:1px solid #dde3ec"></p>
+<p align="center" style="font-size:13px;color:#8a96a3">接線端口功能介紹</p>
+
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
 ⚠️ <b>必須由合格電工安裝。</b>鐵卷門馬達是 AC 110V/220V 高壓側,觸電風險。模組本身低壓 5–24V DC。
 </blockquote>
@@ -182,9 +186,9 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 | 按法 | 時間 | 結果 |
 |---|---|---|
-| 短按 | < 5 秒 | **雷射光柵手動測試**(強制電源 ON 10 秒,維修檢查用)|
-| 長按 | 5 – 10 秒 | 重置警告(LED 急閃)→ 放開即重啟 |
-| 長按 | ≥ 10 秒 | **工廠重置**(清除 HomeKit 配對 + Wi-Fi 憑證)|
+| 短按 | < 5 秒 | **雷射光柵手動測試 開/關切換**(開=常亮方便對位,再短按關閉恢復自動防護;與 Web UI 首頁按鈕同功能)|
+| 長按 | 5 – 10 秒 | 重置警告(LED 急閃)→ 放開即取消 |
+| 長按 | ≥ 10 秒 | **工廠重置**(清除 HomeKit 配對 + Wi-Fi 憑證 + MQTT 設定)|
 
 > 鐵卷門的開 / 停 / 關有獨立的 3 顆面板按鍵(UP / STOP / DOWN),不是多功能按鍵的職責。
 
@@ -238,8 +242,10 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 |---|---|
 | 磚塊點擊 | 切換開 / 關門(target 取反)|
 | 詳細頁 | 顯示當前狀態:**已開 / 開門中 / 已關 / 關門中 / 已停止** |
-| Pause Switch(linked)| 撥到 ON → 立即停止(中停),1 秒後 auto-revert |
-| ObstructionDetected | 雷射偵測到障礙物時顯示警示文字 |
+| 開門過程 | 按開後顯示「開門中」,經過設定的**開門時間**(見 [第 7 章](#7-web-ui首頁狀態顯示與開門時間))後轉「已開啟」|
+| 關門過程 | 顯示「關門中」,門到底(磁簧感應)才轉「已關閉」|
+| Pause Switch(linked)| 點一下 → 立即停止(中停),開關自動彈回;停止後門視為「已開啟」|
+| ObstructionDetected | 雷射偵測到障礙物時顯示警示;裝置同時**自動反向開門** |
 | Siri | 「嘿 Siri,開車庫門」/「關車庫門」 |
 
 ### 5.1 自動化建議
@@ -271,17 +277,95 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 ⚠️ <b>安全提醒</b>:鐵卷門自動化涉及大門開關,Apple HomeKit 規定這類動作必須有「Home Hub 在家偵測」雙重確認。地理柵欄 + 時間條件建議二擇一,避免誤觸。
 </blockquote>
 
+### 5.2 防夾自動化說明
+
+按下關門後雷射自動通電偵測,直到門磁感應反饋關閉為止。期間若有異物遮擋:
+
+1. 立即**停止關門**,約 3 秒後**自動反向開門**(把門打開,方便移除障礙物)
+2. Apple Home 出現**障礙物警示**
+3. 障礙物存在期間,關門指令會被擋下(防止夾傷)
+4. 移除障礙物後再按關閉即可;若關門中又被遮擋,會再次自動反向,直到通道淨空
+
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. Web UI:首頁(狀態顯示)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. Home Assistant 整合 (MQTT)</h2>
 
-### 6.1 連線方式
+本機內建 MQTT bridge,**Apple Home 與 Home Assistant 可同時使用**(雙生態,狀態雙向同步)。
+適合已有 Mosquitto / HA 環境的進階使用者。
+
+### 6.1 適用對象
+
+| 你是 | 用不用得到 |
+|---|---|
+| 只用 Apple Home,沒 HA | 跳過本章,Apple Home 功能完整不缺 |
+| 已有 Home Assistant + Mosquitto broker | 跟著本章設定,可在 HA 看到鐵卷門 entity |
+| 沒裝 Mosquitto | 先在 HA 裝 `Mosquitto broker` [add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto),設帳密再回來 |
+| 沒有建立 mqtt 使用者 | HA > 設定 > 人員 > 使用者 > 增加使用者 > 名稱填 mqtt-user > 密碼填 mqtt-pass > 儲存 |
+
+### 6.2 設定步驟
+
+1. 用瀏覽器打開 **`http://<裝置-IP>`**(裝置 IP 從路由器尋找)
+2. 到工程模式頁面「**MQTT / Home Assistant**」卡片
+3. 填入:
+
+   | 欄位 | 範例 | 說明 |
+   |---|---|---|
+   | Broker IP | `192.168.1.10` | Mosquitto 主機 IP(一般填 HA 的 IP)|
+   | Port | `1883` | 預設 1883 |
+   | Username | `mqtt-user` | broker 帳號(在 HA 建立)|
+   | Password | `********` | broker 密碼(在 HA 建立)|
+
+4. 按「**連線測試**」— 必須看到綠色「✓ 連線成功」才能繼續(防止填錯資料把 broker 卡死)
+5. 按「**儲存並啟用**」— 裝置會自動連 broker 並推 HA discovery
+6. 開 Home Assistant → **設定 → 裝置與服務 → MQTT** → 應看到新裝置(Garage-GD3)
+
+> 💡 **首次啟用後 5 秒內** HA 就能控制鐵卷門。如果一直看不到 entity,先檢查 broker IP / 帳密、HA 端 MQTT integration 是否正常運作。
+
+### 6.3 HA 看得到的功能
+
+| HA Entity | 類型 | 內容 |
+|---|---|---|
+| 鐵卷門 | `cover`(device_class=`garage`)| 開 / 關 / 停;狀態 Open / Opening / Closed / Closing / Stopped |
+| 障礙物 | `binary_sensor`(device_class=`safety`)| 雷射偵測到障礙物時 ON(紅色警示),可做 HA 通知自動化 |
+
+按 HA 的按鈕後 Apple Home 也會即時同步顯示(雙向同步),反之亦然。
+
+### 6.4 MQTT Topic Schema(進階)
+
+```
+automate/gd3/{mac6}/state          ← 裝置狀態 (JSON,retained)
+automate/gd3/{mac6}/set            ← 控制指令 (payload: OPEN / CLOSE / STOP)
+automate/gd3/{mac6}/availability   ← LWT (online / offline)
+homeassistant/cover/gd3_{mac6}/config           ← HA Auto-Discovery (retained)
+homeassistant/binary_sensor/gd3_{mac6}_obstruction/config
+```
+
+State payload 範例:
+```json
+{ "state": "closed", "obstruction": false }
+```
+
+> 進階使用者可用 `mosquitto_sub` / Node-RED 等自製 dashboard,不一定要走 HA。
+
+### 6.5 停用 / 移除
+
+| 操作 | 結果 |
+|---|---|
+| **「停用」**按鈕 | 中斷 MQTT 連線,設定保留 — 之後可重新啟用 |
+| **「刪除設定」**按鈕 | 清掉 broker IP / 帳密,HA 端 entity 也會被移除(retained config 清空,不留孤兒 entity)|
+| **工廠重置** | 一併清掉 MQTT 設定(見 [第 10 章](#10-工廠重置))|
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. Web UI:首頁(狀態顯示與開門時間)</h2>
+
+### 7.1 連線方式
 
 配對成功後,Web UI 在區網:
 - **直接 IP**:家庭 App → 點裝置 → 設定 → 看 IP
 - **主機名稱**:`http://automate-gd3-XXXXXX.local`
 
-### 6.2 裝置資訊
+### 7.2 裝置資訊
 
 | 欄位 | 內容 |
 |---|---|
@@ -292,7 +376,7 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 | **製造日期** | `YYYY-MM`,出廠燒入 |
 | **使用說明** | 點藍色連結即跳到本份 README |
 
-### 6.3 即時狀態
+### 7.3 即時狀態
 
 | 欄位 | 顯示 |
 |---|---|
@@ -300,19 +384,28 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 | 磁簧 | 0(門關上)/ 1(門離開下極限)|
 | 雷射 1 / 2 | 0(暢通)/ 1(被擋住或未通電)|
 | 電源 / 障礙 | `電源 ON / 暢通` 或 `電源 OFF / ⚠️ 有障礙` |
-| 手動測試雷射 | 按鈕強制供電 10 秒,維修用 |
+| 開啟雷射 / 關閉雷射 | **開/關切換**按鈕:開=常亮方便安裝對位,再按關閉恢復自動防護(與設備短按鍵同功能)|
 
-### 6.4 開門行程設定
+> ⚠️ 雷射手動開啟(測試模式)期間,光柵訊號只顯示**不會**觸發防夾;測完請記得關閉。
 
-首頁有可調的「開門行程」欄位(預設 25 秒)。因為**沒有上極限 sensor**,系統靠這個時間推算「OPENING → 已開啟」,讓 Apple Home 顯示準確。
+### 7.4 開門時間設定
 
-用碼錶量門完全打開所需秒數 + 1~2 秒安全餘量,儲存後立即生效並寫入 NVS(重啟保留)。
+首頁「**開門行程**」卡片(0 ~ 120 秒,預設 **10 秒**)。因為**沒有上極限 sensor**,開門時系統以此時間**模擬實際開門過程**:按開後顯示「開門中」,滿設定秒數後轉「已開啟」,讓 Apple Home 顯示貼近真實。
 
-> 關門到位由 GPIO 16 磁簧直接驅動,不需要時間估計。
+用碼錶量門完全打開所需秒數 + 1~2 秒安全餘量,按「儲存並套用」立即生效並寫入 NVS(重啟、韌體更新都保留)。
+
+> 💡 按開門後 UI 已顯示「已開啟」但門其實還在動 → 秒數調大;門早到頂了 UI 還在「開門中」→ 調小。
+> 關門到位由磁簧直接驅動,不需要時間估計。
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. 安裝注意事項</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. 安裝注意事項</h2>
+
+### 8.1 安裝位置示意圖
+
+<p align="center"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3/image/20250519_10.JPG" width="640" alt="安裝位置示意圖" style="border-radius:12px;border:1px solid #dde3ec"></p>
+
+### 8.2 接線
 
 <div style="background:#f7f9fc;border-radius:14px;padding:18px;margin:16px 0;border:1px solid #dde3ec">
 
@@ -343,13 +436,30 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 </div>
 
+### 8.3 實裝範例
+
+<table align="center" style="border-collapse:collapse;border:none;margin:16px auto">
+<tr>
+<td align="center" style="border:none;padding:8px"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3/image/20250519_3.JPG" width="360" alt="接快速門" style="border-radius:12px;border:1px solid #dde3ec"><p style="margin:6px 0 0;font-size:13px;color:#8a96a3">接快速門</p></td>
+<td align="center" style="border:none;padding:8px"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3/image/20250519_5.JPG" width="360" alt="傳統鐵卷門" style="border-radius:12px;border:1px solid #dde3ec"><p style="margin:6px 0 0;font-size:13px;color:#8a96a3">傳統鐵卷門(需斷電施作)</p></td>
+</tr>
+<tr>
+<td align="center" style="border:none;padding:8px"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3_homekit/image/S__133849093_2.JPG" width="360" alt="遙控器改裝" style="border-radius:12px;border:1px solid #dde3ec"><p style="margin:6px 0 0;font-size:13px;color:#8a96a3">遙控器改裝</p></td>
+<td align="center" style="border:none;padding:8px"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3/image/gr-laser.JPG" width="360" alt="雷射防夾感應器" style="border-radius:12px;border:1px solid #dde3ec"><p style="margin:6px 0 0;font-size:13px;color:#8a96a3">雷射(防夾)感應器</p></td>
+</tr>
+</table>
+
+<p align="center"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3/image/image1345.JPG" width="640" alt="雷射感應器接線" style="border-radius:12px;border:1px solid #dde3ec"></p>
+
 <blockquote style="border-left:4px solid #ff6f48;background:#fff7f4;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#5a3520">
-⚠️ 雷射光柵是安全機制,請務必跨門口安裝兩條 — 單條失效時還有另一條備援。
+⚠️ 雷射光柵是安全機制,請務必跨門口安裝兩條 — 單條失效時還有另一條備援。<br>
+⚠️ 雷射感應器通電時<b>紅綠燈都會亮</b>,反之訊號會不正常(通電狀態下可按感應器上的切換鍵切換)。<br>
+💡 設備提供兩組雷射訊號端口,原則上只要並聯訊號線,防夾感應器數量可以超過 2 台。
 </blockquote>
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. OTA 韌體更新</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. OTA 韌體更新</h2>
 
 1. Web UI → 底部 **版更** Tab(或直接開 `http://<裝置-ip>/update`)
 2. 系統自動檢查最新版本
@@ -370,14 +480,17 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. 工廠重置</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 工廠重置</h2>
 
-### 9.1 硬體重置
+### 10.1 硬體重置
 
-- 按住模組多功能按鍵 **10 秒以上**
+- 按住模組多功能按鍵 **10 秒以上**(5 秒起 LED 急閃警告,放開可取消)
 - 自動清除 HomeKit 配對 + Wi-Fi 憑證 + MQTT 設定 → 重啟進配對模式
 
-### 9.2 Web UI 重置
+<p align="center"><img src="https://raw.githubusercontent.com/Billtou/public/main/GD_3_homekit/image/image13.JPG" width="480" alt="多功能按鍵位置" style="border-radius:12px;border:1px solid #dde3ec"></p>
+<p align="center" style="font-size:13px;color:#8a96a3">多功能按鍵位置</p>
+
+### 10.2 Web UI 重置
 
 - 版更頁 → 「重新配對裝置」 → 「清除配對」紅色按鈕
 - 確認 → 自動重啟
@@ -388,9 +501,9 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 故障排除</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 故障排除</h2>
 
-### 10.1 配對相關
+### 11.1 配對相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -398,24 +511,25 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 | 配對中途斷開 | 路由器訊號弱 | 加 Wi-Fi 中繼,或改用 Ethernet |
 | 配對成功但離線 | DNS / mDNS / 不同 SSID | 同一個 2.4 GHz SSID,關「Guest 隔離」 |
 
-### 10.2 運作相關
+### 11.2 運作相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
 | Apple Home 點開關但門沒動 | Relay 接線錯 / 控制板端子標示反 | 用首頁三顆實體按鈕驗證,再對應修正接線 |
 | 門狀態永遠是「已開啟」 | 磁簧沒接好 / 距離太遠 | 檢查磁簧 + 磁鐵距離 < 1 cm |
-| 關門中一直被誤判障礙 | 雷射對位不正 / 環境光干擾 | 重對發射 + 接收;首頁「手動測試雷射」驗證 |
-| 開門 25 秒後 UI 跳「已開啟」但門還在動 | 行程時間估計太短 | 首頁「開門行程」調大幾秒 |
+| 關門中一直被誤判障礙 | 雷射對位不正 / 環境光干擾 | 重對發射 + 接收;首頁「開啟雷射」常亮驗證 |
+| UI 跳「已開啟」但門還在動 | 開門時間設太短 | 首頁「開門行程」調大幾秒(見 [7.4](#7-web-ui首頁狀態顯示與開門時間))|
+| 關門指令沒反應且顯示障礙物 | 光柵被遮擋(防夾保護)| 移除障礙物後再按關閉 |
 | 模組通電但 LED 完全不亮 | DC 電壓不足 / 接線錯 | 量 DC IN 電壓 5–24V |
 
-### 10.3 網路相關
+### 11.3 網路相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
 | 插了網線但走 Wi-Fi | 開機時網線沒通 | 確認網線連通燈亮 → 重啟模組 |
 | 跑 SoftAP「Garage-GD3-XXXXXX」 | NVS 沒 Wi-Fi 憑證 | 連 SoftAP → http://192.168.4.1/ 填表 |
 
-### 10.4 OTA 相關
+### 11.4 OTA 相關
 
 | 現象 | 原因 | 處理 |
 |---|---|---|
@@ -424,7 +538,7 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 安全使用</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 安全使用</h2>
 
 <div style="background:#fff7f4;border:1px solid #ffd0c5;border-radius:14px;padding:18px;margin:16px 0">
 
@@ -441,7 +555,7 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 規格表</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 規格表</h2>
 
 | 項目 | 規格 |
 |---|---|
@@ -464,6 +578,6 @@ GD-3 是 AUTOMATE 推出的 HomeKit 智能鐵卷門控制器,**直接接入 Appl
 ---
 
 <div align="center" style="padding:32px 20px;background:#f7f9fc;border-radius:16px;margin-top:48px;color:#5a6a7a">
-<p style="margin:0;font-size:14px"><b style="color:#1c3d5a">AUTOMATE</b> · GD-3 · 韌體 v0.0.3</p>
+<p style="margin:0;font-size:14px"><b style="color:#1c3d5a">AUTOMATE</b> · GD-3 · 韌體 v0.1.4</p>
 <p style="margin:6px 0 0;font-size:13px">2026-05 上市</p>
 </div>
