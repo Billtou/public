@@ -30,7 +30,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AIR-485 多功能控制器</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">台達暖風機 · 全熱交換 · 管道風機 · 米多力除濕機 · HomeKit over Wi-Fi · RS-485 近控</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">台達暖風機 · 全熱 · 管道 · 阿拉斯加 · 米多力 · HomeKit over Wi-Fi · RS-485 近控</p>
 
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
 <tr>
@@ -97,6 +97,12 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 <p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">吊隱除濕:目標濕度 · 清淨 · 換氣 · 室溫 · 水滿警報</p>
 </td>
 </tr>
+<tr>
+<td colspan="2" style="background:#fff;padding:18px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
+<p style="margin:0;font-weight:700;color:#1c3d5a">❄️ 阿拉斯加暖風乾燥機</p>
+<p style="margin:6px 0 0;font-size:14px;color:#5a6a7a">浴室暖風乾燥:暖房 / 涼風 / 乾燥 / 換氣(互斥)</p>
+</td>
+</tr>
 </table>
 
 <blockquote style="border-left:4px solid #007AFF;background:#eff7ff;padding:14px 18px;margin:16px 0;border-radius:0 12px 12px 0;color:#1c3d5a">
@@ -111,7 +117,7 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 | Wi-Fi | 2.4 GHz 802.11 b/g/n(不支援 5 GHz)|
 | 處理器 | ESP32-C3(RISC-V 32-bit, 160 MHz, 4 MB Flash)|
 | 機體介面 | RS-485 半雙工 9600 8N1(台達 Modbus RTU / 米多力「55 通訊協議」)|
-| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 米多力除濕機 |
+| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 阿拉斯加暖風乾燥機 / 米多力除濕機 |
 | 生態 | Apple Home(HomeKit)+ Home Assistant(MQTT Auto Discovery)|
 | 多管理者 | 支援跨生態多管理者(HomeKit Multi-Admin)|
 
@@ -133,6 +139,7 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 | 🔥 台達暖風機 | Modbus RTU | 暖房 / 涼風 / 換氣 / 乾燥(互斥)+ 主燈 / 夜燈 / 韻律風 / 感應換氣 + 室溫 |
 | ♻️ 台達全熱交換器 | Modbus RTU | 風量(多段)+ 氣流模式 + 外氣 / 回風溫度 |
 | 🌀 台達管道風機 | Modbus RTU | 開關 + 風速(%)+ 濾網更換提醒 / 歸零 |
+| ❄️ 阿拉斯加暖風乾燥機 | Modbus RTU | 暖房 / 涼風 / 乾燥 / 換氣(互斥)|
 | 💧 米多力除濕機 | 55 通訊協議 | 除濕(目標濕度)+ 清淨 + 換氣 + 室溫 + 漏水警報 |
 
 ---
@@ -270,6 +277,12 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 | 室溫 | 溫度感測器 | `sensor`(溫度)|
 | 漏水 / 水滿 | 漏水感測器 | `binary_sensor` |
 
+### 6.5 ❄️ 阿拉斯加暖風乾燥機
+
+| 功能 | Apple Home 配件 | HA(MQTT)實體 |
+|---|---|---|
+| 暖房 / 涼風 / 乾燥 / 換氣(互斥)| 開關 ×4 | `switch` ×4 |
+
 ---
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. Web UI:首頁(狀態與維護)</h2>
@@ -344,7 +357,7 @@ AIR-485 是 AUTOMATE 推出的**多功能 RS-485 智能控制器**,把家用空�
 | 無線 | Wi-Fi 2.4 GHz 802.11 b/g/n |
 | 機體介面 | RS-485 半雙工 9600 8N1(Modbus RTU / 55 通訊協議)|
 | 智能生態 | Apple HomeKit(HAP over Wi-Fi)|
-| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 米多力除濕機 |
+| 支援機種 | 台達暖風機 / 台達全熱交換器 / 台達管道風機 / 阿拉斯加暖風乾燥機 / 米多力除濕機 |
 | 韌體更新 | Wi-Fi OTA(自動回滾)|
 | 製造商 | AUTOMATE |
 
