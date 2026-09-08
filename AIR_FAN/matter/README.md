@@ -93,7 +93,7 @@
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">1. 產品簡介</h2>
 
-🔴 **快速入門: home assistant使用者請先進入設定>應用程式>Matter Server>設定  將Enable test-net DCL usage.  打開**
+🔴 **快速入門: home assistant使用者請先進入設定>應用程式>Matter Server>設定  將Enable test-net DCL usage.  打開** 先接入HA 再分享給HK
 
 
 AirFan 是 AUTOMATE 推出的 Matter 智能 DC 風扇控制器,**直接接入 Apple Home / Google Home / Home Assistant / SmartThings / Alexa**,不需專屬 Hub。
