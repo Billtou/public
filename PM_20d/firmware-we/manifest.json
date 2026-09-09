@@ -1,0 +1,17 @@
+{
+    "name":  "AUTOMATE.PM-20d(Eth+WiFi)",
+    "version":  "3.9",
+    "home_assistant_domain":  "esphome",
+    "new_install_prompt_erase":  false,
+    "builds":  [
+                   {
+                       "chipFamily":  "ESP32-S3",
+                       "ota":  {
+                                   "path":  "https://raw.githubusercontent.com/Billtou/public/main/PM_20d/firmware-we/automate-pm-20d.ota_we_3.9.bin",
+                                   "md5":  "14c6945de1b9c191c8f5c8a219fe1251",
+                                   "sha256":  "7366d136a671bdcb73ebf77ae1675906d7f1ce0b53ad66f44d2cc983adff6b73",
+                                   "summary":  "v3.9 Ethernet+WiFi unified build (auto-failover)"
+                               }
+                   }
+               ]
+}
