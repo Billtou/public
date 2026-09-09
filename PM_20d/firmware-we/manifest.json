@@ -8,8 +8,8 @@
                        "chipFamily":  "ESP32-S3",
                        "ota":  {
                                    "path":  "https://raw.githubusercontent.com/Billtou/public/main/PM_20d/firmware-we/automate-pm-20d.ota_we_3.9.bin",
-                                   "md5":  "ba9b3b70ffd65af4662e0d3681068065",
-                                   "sha256":  "be15891d677148fd2d5a7285d667d65030ef82fa6fa866a719630fcdbb96d5ec",
+                                   "md5":  "9a0322e46a240af4c62b09807cee45db",
+                                   "sha256":  "059ea89f8dcc26561f2c567999dd97ffa1c6ebf46089af6578ed8936d137fbfd",
                                    "summary":  "v3.9 Ethernet+WiFi unified build (auto-failover)"
                                }
                    }
