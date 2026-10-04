@@ -46,6 +46,7 @@
 <details>
 <summary><b>📑 目錄</b></summary>
 
+0. [簡要使用說明](#0-簡要使用說明)
 1. [產品簡介](#1-產品簡介)
 2. [初次設定:連上 Wi-Fi](#2-初次設定連上-wi-fi)
 3. [加入 Apple 家庭](#3-加入-apple-家庭)
@@ -59,6 +60,43 @@
 11. [規格表](#11-規格表)
 
 </details>
+
+---
+
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">0. 簡要使用說明</h2>
+
+三個步驟就能開始用。每一步的細節在後面的章節。
+
+<table>
+<tr>
+<td align="center" width="33%"><img src="image/quickstart-1.png" alt="步驟 1:手機引導接入自家 Wi-Fi" width="260"></td>
+<td align="center" width="33%"><img src="image/quickstart-2.png" alt="步驟 2:進入面板 IP 網頁" width="260"></td>
+<td align="center" width="33%"><img src="image/quickstart-3.png" alt="步驟 3:接入 Home Assistant" width="260"></td>
+</tr>
+<tr>
+<td align="center"><b>① 接上自家 Wi-Fi</b></td>
+<td align="center"><b>② 進入面板 IP 網頁</b></td>
+<td align="center"><b>③ 連結 Home Assistant</b></td>
+</tr>
+</table>
+
+**① 接上自家 Wi-Fi**
+
+面板第一次開機會顯示「尚未連接網路」。用手機連上畫面上寫的面板熱點(`automate-smartlink-XXXXXX`),照引導選自家 Wi-Fi 並輸入密碼。僅支援 2.4G。詳見 [2. 初次設定:連上 Wi-Fi](#2-初次設定連上-wi-fi)。
+
+**② 進入面板 IP 網頁**
+
+連上 Wi-Fi 後,在面板點齒輪 → 「設定」分頁,「面板後台」QR 碼下方就是面板的 IP。手機掃 QR 碼,或在瀏覽器輸入這個 IP,就能打開面板網頁。詳見 [4. 進入面板網頁設定](#4-進入面板網頁設定)。
+
+**③ 連結 Home Assistant**
+
+- **A. 前置作業**:在 HA 首頁左下角點選自己的帳號 → 「安全性」→ 「永久有效存取權杖」→ 新增,名稱填 `smartlink`,把產生的權杖複製起來備用。
+- **B. 填進面板**:面板 IP 網頁 → 「HA導入」頁 → 輸入 HA 的 IP 並貼上權杖 → 「連線測試」→ 「儲存並連線」。
+- **C. 挑選裝置**:在「Entity 挑選」勾選要放到面板上的實體。
+
+詳見 [5. 接入 Home Assistant(權杖授權)](#5-接入-home-assistant權杖授權) 與 [6. 把 HA 裝置加進面板](#6-把-ha-裝置加進面板)。
+
+要加入 Apple 家庭請看 [3. 加入 Apple 家庭](#3-加入-apple-家庭)。
 
 ---
 
