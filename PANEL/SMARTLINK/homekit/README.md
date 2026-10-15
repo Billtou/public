@@ -80,6 +80,28 @@
 </tr>
 </table>
 
+**🎬 操作影片**
+
+<!-- 影片區:YouTube thumbnail 點擊播放(GitHub 不允許 iframe,thumbnail 是極限) -->
+<table>
+<tr>
+<td align="center" width="50%">
+<a href="https://youtu.be/wZPx3Y0H2e8" title="操作影片(上)(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/wZPx3Y0H2e8/mqdefault.jpg" width="320" alt="操作影片(上)" style="border-radius:12px;margin:6px">
+</a>
+</td>
+<td align="center" width="50%">
+<a href="https://youtu.be/M3nI6NdlsGQ" title="操作影片(續)(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/M3nI6NdlsGQ/mqdefault.jpg" width="320" alt="操作影片(續)" style="border-radius:12px;margin:6px">
+</a>
+</td>
+</tr>
+<tr>
+<td align="center"><b>▶ 操作影片(上)</b></td>
+<td align="center"><b>▶ 操作影片(續)</b></td>
+</tr>
+</table>
+
 **① 接上自家 Wi-Fi**
 
 面板第一次開機會顯示「尚未連接網路」。用手機連上畫面上寫的面板熱點(`automate-smartlink-XXXXXX`),照引導選自家 Wi-Fi 並輸入密碼。僅支援 2.4G。詳見 [2. 初次設定:連上 Wi-Fi](#2-初次設定連上-wi-fi)。
