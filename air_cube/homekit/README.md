@@ -1,10 +1,66 @@
-# AirCube · AUTOMATE 智能空氣品質感測器(HomeKit 版)
-> Apple HomeKit over Wi-Fi · 原生接入 Apple Home · CO2 濃度異常推播 · MQTT 接入 Home Assistant · 三款型號可選 · 1.3" OLED 顯示
->
-> **重點影片介紹**:[重置進入連網模式](https://youtu.be/fF8eUW6vTzo)
->
-> **Web UI 調整參數說明**:[Web UI](https://youtu.be/b8adlsMMleI)
----
+<!-- AirCube HomeKit README — Argon-style(同 air_cube/matter 版面;2026-10-27 套版)-->
+
+<div align="center" style="padding:48px 24px 36px">
+
+<!-- AUTOMATE Logo (inline SVG,height 64px) -->
+<svg width="320" height="55" viewBox="0 0 1412.26 241.88" xmlns="http://www.w3.org/2000/svg" aria-label="AUTOMATE">
+  <g fill="none" stroke-miterlimit="10">
+    <g stroke="#ff6f48" stroke-width="8">
+      <circle cx="21.02" cy="86.69" r="17.02"/>
+      <polyline points="77.94 240.38 77.94 155.97 31.96 100.72"/>
+      <circle cx="72.84" cy="21.02" r="17.02"/>
+      <polyline points="101.21 240.38 101.21 145.93 72.92 117.64 72.92 38.03"/>
+      <circle cx="124.98" cy="73.74" r="17.02"/>
+      <line x1="124.98" y1="240.38" x2="124.98" y2="90.75"/>
+      <circle cx="178.3" cy="94.21" r="17.02"/>
+      <polyline points="147.26 240.38 147.26 191.36 178.56 160.07 178.56 111.23"/>
+    </g>
+    <g><line stroke="#33506d" stroke-width="3" x1="207.25" y1="240.38" x2="1411.2" y2="240.38"/></g>
+  </g>
+  <g fill="#33506d" stroke-width="0">
+    <path d="M426.04,209.58c-20.58,0-36.67-6.59-48.27-19.77-11.6-13.18-17.4-32.08-17.4-56.69V39.98h33.77v92.18c0,15.72,2.83,27.12,8.49,34.18,5.66,7.07,13.53,10.6,23.62,10.6s18.16-3.53,23.83-10.6c5.66-7.06,8.49-18.46,8.49-34.18V39.98h32.94v93.14c0,24.62-5.8,43.51-17.4,56.69-11.6,13.18-27.62,19.77-48.06,19.77Z"/>
+    <path d="M552.37,206.72V71.42h-41.04v-31.44h111.76v31.44h-41.04v135.3h-29.68Z"/>
+    <path d="M718.05,209.58c-11.9,0-22.87-2.14-32.9-6.43-10.04-4.29-18.78-10.32-26.23-18.1-7.45-7.78-13.22-16.91-17.31-27.39-4.09-10.48-6.13-21.91-6.13-34.3s2.04-24.02,6.13-34.42c4.08-10.4,9.85-19.49,17.31-27.27,7.45-7.78,16.16-13.82,26.13-18.1,9.96-4.29,20.89-6.43,32.79-6.43s22.82,2.11,32.79,6.31c9.96,4.21,18.67,10.21,26.12,17.98,7.45,7.78,13.22,16.91,17.31,27.39,4.08,10.48,6.13,22,6.13,34.54s-2.04,23.86-6.13,34.42c-4.09,10.56-9.86,19.73-17.31,27.51-7.45,7.78-16.16,13.78-26.12,17.98-9.97,4.21-20.82,6.31-32.58,6.31ZM717.83,176.95c6.74,0,12.93-1.31,18.6-3.93,5.66-2.62,10.64-6.35,14.94-11.2,4.3-4.84,7.63-10.48,10-16.91,2.36-6.43,3.55-13.61,3.55-21.56s-1.18-15.13-3.55-21.56c-2.37-6.43-5.7-12.07-10-16.91-4.3-4.84-9.28-8.57-14.94-11.19-5.66-2.62-11.86-3.93-18.6-3.93s-12.98,1.31-18.71,3.93c-5.73,2.62-10.72,6.35-14.94,11.19-4.23,4.85-7.53,10.48-9.89,16.91-2.37,6.43-3.55,13.62-3.55,21.56s1.18,15.12,3.55,21.56c2.36,6.43,5.66,12.07,9.89,16.91,4.23,4.84,9.21,8.57,14.94,11.2,5.73,2.62,11.97,3.93,18.71,3.93Z"/>
+    <path d="M813,206.72l20.27-166.74h40.42l32.87,125.81h0l32.73-125.81h40.49l20.34,166.74h-31.96l-8.86-136.97h0l-37.53,138.33h-31.44l-35.59-138.33h0l-11.07,136.97h-30.67Z"/>
+    <path d="M1215.57,206.72V71.42h-41.04v-31.44h111.76v31.44h-41.04v135.3h-29.68Z"/>
+    <path d="M1312.96,206.72V39.98h96.92v30.97h-67.42v104.81h69.8v30.97h-99.3ZM1340.26,132.23v-30.25h61.74v30.25h-61.74Z"/>
+    <path d="M1017.77,207.4l51.06-166.74h41.71l51.06,166.74h-31.15l-47.09-147.21h11.91l-47.09,147.21h-30.41ZM1046.54,171.67l7.51-29.3,64.54-10.65,7.63,27.36-79.68,12.59Z"/>
+    <path d="M206.19,206.72l51.06-166.74h41.71l51.06,166.74h-31.15l-47.09-147.21h11.91l-47.09,147.21h-30.41ZM234.95,170.99l7.51-29.3,64.54-10.65,7.63,27.36-79.68,12.59Z"/>
+  </g>
+</svg>
+
+<h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirCube</h1>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能空氣品質感測器 · Apple HomeKit over Wi-Fi · CO2 異常推播 · 三款型號 · 1.3" OLED 顯示</p>
+
+<!-- QR + 配對碼 並排 -->
+<table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
+<tr>
+<td align="center" style="border:none;padding:0 20px;vertical-align:middle">
+  <img src="https://raw.githubusercontent.com/Billtou/public/main/QR_CODE/qr-11188999-AUTM.png" width="160" height="160" alt="HomeKit 配對 QR Code" style="border:1px solid #dde3ec;border-radius:12px;background:#fff;padding:8px">
+  <p style="margin:8px 0 0;font-size:11px;color:#8a96a3">HomeKit 配對 QR</p>
+</td>
+<td align="left" style="border:none;padding:0 20px;vertical-align:middle">
+  <p style="margin:0 0 8px;color:#5a6a7a;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">8 碼配對碼</p>
+  <p style="margin:0;font-size:28px;font-weight:800;color:#ff6f48;font-family:'SF Mono',Consolas,monospace;letter-spacing:0.04em">111-88-999</p>
+  <p style="margin:14px 0 0;font-size:12px;color:#8a96a3;line-height:1.5">可直接掃描左側 QR 配對,<br>或手動輸入 8 碼</p>
+</td>
+</tr>
+</table>
+
+</div>
+
+<!-- 影片區:YouTube thumbnail 點擊播放 -->
+<p align="center" style="margin:32px 0 12px">
+<a href="https://youtu.be/fF8eUW6vTzo" title="重置進入連網模式(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/fF8eUW6vTzo/mqdefault.jpg" width="220" alt="重置進入連網模式" style="border-radius:12px;margin:6px">
+</a>
+<a href="https://youtu.be/b8adlsMMleI" title="Web UI 操作(點擊在 YouTube 開啟)">
+  <img src="https://img.youtube.com/vi/b8adlsMMleI/mqdefault.jpg" width="220" alt="Web UI 操作" style="border-radius:12px;margin:6px">
+</a>
+</p>
+<p align="center" style="margin:-12px 0 32px;font-size:12px;color:#5a6a7a">
+  ⬆️ 重置進入連網模式 · Web UI 操作 ⬆️
+</p>
 
 > 📌 **這是 HomeKit(HAP)版本**。裝置以 Apple 原生 HomeKit 協定直接接入 Apple Home,
 > **無需 Matter、無需 Hub**,並支援 CO2「偵測到二氧化碳」異常推播與自動化。
@@ -13,7 +69,8 @@
 
 ---
 
-## 📑 目錄
+<details>
+<summary><b>📑 目錄</b></summary>
 
 1. [產品簡介](#1-產品簡介)
    - 1.1 [三款型號](#11-三款型號)
@@ -73,9 +130,11 @@
 
 15. [規格表](#15-規格表)
 
+</details>
+
 ---
 
-## 1. 產品簡介
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">1. 產品簡介</h2>
 
 AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**以 Apple 原生 HomeKit 協定直接接入 Apple Home**,不需專屬 Hub、不需 Matter。除了完整空品數據,還能在 **CO2 濃度異常時主動推播通知並觸發自動化**;要接入 Home Assistant 則透過內建 MQTT 橋接。
 
@@ -111,7 +170,7 @@ AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**�
 
 ---
 
-## 2. 硬體說明
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">2. 硬體說明</h2>
 
 ### 2.1 外觀與接口
 
@@ -147,7 +206,7 @@ XXXXXX 為機身 Wi-Fi MAC 後 6 碼。
 
 ---
 
-## 3. LED 狀態指示
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">3. LED 狀態指示</h2>
 
 ### 3.1 兩種 LED 配置
 
@@ -196,7 +255,7 @@ AirCube 主板支援兩種 LED 配置:
 
 ---
 
-## 4. 按鍵操作
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">4. 按鍵操作</h2>
 
 | 操作 | 功能 |
 |---|---|
@@ -208,7 +267,7 @@ AirCube 主板支援兩種 LED 配置:
 
 ---
 
-## 5. OLED 顯示螢幕(可選配)
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. OLED 顯示螢幕(可選配)</h2>
 
 外接 1.3" SH1106 OLED 128×64(I2C 介面接 PM2.5 cable 上的 Y-splitter)後,自動偵測並啟用 4 頁輪播,每頁 5 秒。**沒接 OLED 的單機也能正常運作,韌體會跳過螢幕邏輯**。
 
@@ -251,7 +310,7 @@ AirCube 主板支援兩種 LED 配置:
 
 ---
 
-## 6. 接入 Apple Home(初次配對)
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 接入 Apple Home(初次配對)</h2>
 
 ### 6.1 配對前確認
 
@@ -283,7 +342,7 @@ AirCube 主板支援兩種 LED 配置:
 
 ---
 
-## 7. 接入 Home Assistant(MQTT)
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. 接入 Home Assistant(MQTT)</h2>
 
 ### 7.1 機制說明
 
@@ -309,7 +368,7 @@ HomeKit 版**不走 Matter**,接入 Home Assistant 是透過裝置內建的 **MQ
 
 ---
 
-## 8. CO2 異常推播與自動化
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. CO2 異常推播與自動化</h2>
 
 HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示濃度(ppm),還有一個「**偵測到二氧化碳**」狀態:當 CO2 **超過設定門檻**(Web UI 首頁「CO2 超標門檻」,預設 1000 ppm)即觸發。
 
@@ -323,7 +382,7 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 
 ---
 
-## 9. Web UI:首頁(日常設定)
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. Web UI:首頁(日常設定)</h2>
 
 ### 9.1 連線方式
 
@@ -390,7 +449,7 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 
 ---
 
-## 10. 甲醛在 Apple Home 的顯示(Ultra)
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 甲醛在 Apple Home 的顯示(Ultra)</h2>
 
 HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無法直接顯示甲醛。AirCube Ultra 的做法是**借用「二氧化氮(NO2)」欄位**呈現甲醛濃度(µg/m³):
 
@@ -402,7 +461,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-## 11. OTA 韌體更新
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. OTA 韌體更新</h2>
 
 ### 11.1 更新流程
 
@@ -429,7 +488,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-## 12. 工廠重置
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 工廠重置</h2>
 
 ### 12.1 硬體重置
 
@@ -458,7 +517,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-## 13. 故障排除
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 故障排除</h2>
 
 ### 配對相關
 
@@ -491,7 +550,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-## 14. 安全使用
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">14. 安全使用</h2>
 
 - 請勿拆殼 / 改裝 — 內含無線電路,改裝會違反電信法規
 - 請勿用水或溶劑清潔 PM2.5 進氣口,可能損壞雷射粒子感測器
@@ -502,7 +561,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-## 15. 規格表
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">15. 規格表</h2>
 
 | 項目 | 規格 |
 |---|---|
