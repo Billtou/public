@@ -30,7 +30,7 @@
 </svg>
 
 <h1 style="font-size:42px;font-weight:800;margin:24px 0 6px 0;letter-spacing:-0.025em;color:#1c3d5a">AirCube</h1>
-<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能空氣品質感測器 · Apple HomeKit over Wi-Fi · CO2 異常推播 · 三款型號 · 1.3" OLED 顯示</p>
+<p style="font-size:17px;color:#5a6a7a;margin:0;font-weight:500">智能空氣品質感測器 · Apple HomeKit over Wi-Fi · CO2 異常推播 · 三款型號</p>
 
 <!-- QR + 配對碼 並排 -->
 <table align="center" style="margin:28px auto 0;border-collapse:collapse;border:none">
@@ -64,7 +64,7 @@
 
 > 📌 **這是 HomeKit(HAP)版本**。裝置以 Apple 原生 HomeKit 協定直接接入 Apple Home,
 > **無需 Matter、無需 Hub**,並支援 CO2「偵測到二氧化碳」異常推播與自動化。
-> 若要接入 Home Assistant,本版透過 **MQTT** 橋接(章節 7),不走 Matter。
+> 若要接入 Home Assistant,本版透過 **MQTT** 橋接(章節 6),不走 Matter。
 > (另有 Matter 版本,見 `air_cube/matter`。)
 
 ---
@@ -73,62 +73,58 @@
 <summary><b>📑 目錄</b></summary>
 
 1. [產品簡介](#1-產品簡介)
-   - 1.1 [三款型號](#11-三款型號)
-   - 1.2 [規格速覽](#12-規格速覽)
-   - 1.3 [包裝內容](#13-包裝內容)
+   - 1.1 [三款型號](#10-三款型號)
+   - 1.2 [規格速覽](#11-規格速覽)
+   - 1.3 [包裝內容](#12-包裝內容)
 
 2. [硬體說明](#2-硬體說明)
-   - 2.1 [外觀與接口](#21-外觀與接口)
-   - 2.2 [配對碼資訊](#22-配對碼資訊)
-   - 2.3 [內建感測器列表](#23-內建感測器列表)
+   - 2.1 [外觀與接口](#20-外觀與接口)
+   - 2.2 [配對碼資訊](#21-配對碼資訊)
+   - 2.3 [內建感測器列表](#22-內建感測器列表)
 
 3. [LED 狀態指示](#3-led-狀態指示)
-   - 3.1 [兩種 LED 配置](#31-兩種-led-配置)
-   - 3.2 [標準版 — 4 LED 行為](#32-標準版--4-led-行為)
-   - 3.3 [AirMac — 單顆 LED 行為](#33-airmac--單顆-led-行為)
-   - 3.4 [快速判斷對照表](#34-快速判斷對照表)
+   - 3.1 [兩種 LED 配置](#30-兩種-led-配置)
+   - 3.2 [標準版 — 4 LED 行為](#31-標準版--4-led-行為)
+   - 3.3 [AirMac — 單顆 LED 行為](#32-airmac--單顆-led-行為)
+   - 3.4 [快速判斷對照表](#33-快速判斷對照表)
 
 4. [按鍵操作](#4-按鍵操作)
 
-5. [OLED 顯示螢幕(可選配)](#5-oled-顯示螢幕可選配)
-   - 5.1 [4 頁輪播內容](#51-4-頁輪播內容)
-   - 5.2 [AQI 色彩等級對照](#52-aqi-色彩等級對照)
+5. [接入 Apple Home(初次配對)](#5-接入-apple-home初次配對)
+   - 5.1 [配對前確認](#60-配對前確認)
+   - 5.2 [Apple Home 配對步驟](#61-apple-home-配對步驟)
+   - 5.3 [配對後看到的配件](#62-配對後看到的配件)
 
-6. [接入 Apple Home(初次配對)](#6-接入-apple-home初次配對)
-   - 6.1 [配對前確認](#61-配對前確認)
-   - 6.2 [Apple Home 配對步驟](#62-apple-home-配對步驟)
-   - 6.3 [配對後看到的配件](#63-配對後看到的配件)
+6. [接入 Home Assistant(MQTT)](#6-接入-home-assistantmqtt)
+   - 6.1 [機制說明](#70-機制說明)
+   - 6.2 [設定步驟](#71-設定步驟)
+   - 6.3 [HA 會探索到的實體](#72-ha-會探索到的實體)
 
-7. [接入 Home Assistant(MQTT)](#7-接入-home-assistantmqtt)
-   - 7.1 [機制說明](#71-機制說明)
-   - 7.2 [設定步驟](#72-設定步驟)
-   - 7.3 [HA 會探索到的實體](#73-ha-會探索到的實體)
+7. [CO2 異常推播與自動化](#7-co2-異常推播與自動化)
 
-8. [CO2 異常推播與自動化](#8-co2-異常推播與自動化)
+8. [Web UI:首頁(日常設定)](#8-web-ui首頁日常設定)
+   - 8.1 [連線方式](#90-連線方式)
+   - 8.2 [即時狀態與門檻設定](#91-即時狀態與門檻設定)
+   - 8.3 [溫濕度偏移校正](#92-溫濕度偏移校正)
+   - 8.4 [CO2 與 TVOC 歸零校正](#93-co2-與-tvoc-歸零校正)
+   - 8.5 [指示燈睡眠模式](#94-指示燈睡眠模式)
 
-9. [Web UI:首頁(日常設定)](#9-web-ui首頁日常設定)
-   - 9.1 [連線方式](#91-連線方式)
-   - 9.2 [即時狀態與門檻設定](#92-即時狀態與門檻設定)
-   - 9.3 [溫濕度偏移校正](#93-溫濕度偏移校正)
-   - 9.4 [CO2 與 TVOC 歸零校正](#94-co2-與-tvoc-歸零校正)
-   - 9.5 [指示燈睡眠模式](#95-指示燈睡眠模式)
+9. [甲醛在 Apple Home 的顯示(Ultra)](#9-甲醛在-apple-home-的顯示ultra)
 
-10. [甲醛在 Apple Home 的顯示(Ultra)](#10-甲醛在-apple-home-的顯示ultra)
+10. [OTA 韌體更新](#10-ota-韌體更新)
+    - 10.1 [更新流程](#101-更新流程)
+    - 10.2 [更新會保留 / 清除什麼](#102-更新會保留--清除什麼)
 
-11. [OTA 韌體更新](#11-ota-韌體更新)
-    - 11.1 [更新流程](#111-更新流程)
-    - 11.2 [更新會保留 / 清除什麼](#112-更新會保留--清除什麼)
+11. [工廠重置](#11-工廠重置)
+    - 11.1 [硬體重置](#111-硬體重置)
+    - 11.2 [Web UI 重置](#112-web-ui-重置)
+    - 11.3 [重置會清除什麼](#113-重置會清除什麼)
 
-12. [工廠重置](#12-工廠重置)
-    - 12.1 [硬體重置](#121-硬體重置)
-    - 12.2 [Web UI 重置](#122-web-ui-重置)
-    - 12.3 [重置會清除什麼](#123-重置會清除什麼)
+12. [故障排除](#12-故障排除)
 
-13. [故障排除](#13-故障排除)
+13. [安全使用](#13-安全使用)
 
-14. [安全使用](#14-安全使用)
-
-15. [規格表](#15-規格表)
+14. [規格表](#14-規格表)
 
 </details>
 
@@ -142,12 +138,12 @@ AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**�
 
 | 型號 | 名稱 | 額外感測 | HomeKit 額外服務 | 適合場景 |
 |---|---|---|---|---|
-| **AirCube Ultra** | 全配甲醛版 | 甲醛 ZE08-CH2O | 甲醛(以「二氧化氮」欄位顯示,見章節 10) | 新裝潢 / 新家具 / 化學氣味監控 |
+| **AirCube Ultra** | 全配甲醛版 | 甲醛 ZE08-CH2O | 甲醛(以「二氧化氮」欄位顯示,見章節 9) | 新裝潢 / 新家具 / 化學氣味監控 |
 | **AirCube Pro** | 人在偵測版 | 24 GHz 雷達 LD2410 | OccupancySensor(佔用感測) | 房間佔用 / 自動化燈控 / 冷氣節能 |
 | **AirCube Plus** | 觸控版 | TTP223 觸控感測 | StatelessProgrammableSwitch(單擊/雙擊/長按) | 場景按鈕 / 一鍵情境切換 |
 
 > 三款都有共用感測器:HDC1080 溫濕度、CM1106 CO2、SGP30 TVOC、PM2105/PM2005 PM2.5。
-> CO2 在所有型號都是**獨立的「二氧化碳偵測器」**,可做濃度異常推播與自動化(章節 8)。
+> CO2 在所有型號都是**獨立的「二氧化碳偵測器」**,可做濃度異常推播與自動化(章節 7)。
 
 ### 1.2 規格速覽
 
@@ -160,7 +156,6 @@ AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**�
 | 處理器 | ESP32(雙核 Xtensa LX6, 240 MHz, 4 MB Flash)|
 | 供電 | DC 5V / 必須使用原廠豆腐頭 |
 | 工作環境 | 0–50 °C / 10–90% RH(無凝結) |
-| 顯示螢幕(可選)| 1.3" SH1106 OLED 128×64 mono |
 
 ### 1.3 包裝內容
 
@@ -175,7 +170,7 @@ AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**�
 ### 2.1 外觀與接口
 
 - **狀態 LED 群**:依 LED 變體不同(章節 3),反映系統 + 空品狀態
-- **重置鈕**:背後有小孔長按 10 秒進入工廠重置(章節 12)
+- **重置鈕**:背後有小孔長按 10 秒進入工廠重置(章節 11)
 - **USB**:供電(資料線無作用,單純取電)
 
 ### 2.2 配對碼資訊
@@ -189,7 +184,7 @@ AirCube(HomeKit 版)是 AUTOMATE 推出的智能室內空氣品質感測器,**�
 
 XXXXXX 為機身 Wi-Fi MAC 後 6 碼。
 
-> AirCube HomeKit 版採 AUTOMATE 品牌統一 HomeKit 配對碼 `111-88-999`,與其他 HomeKit 產品一致。配對碼遺失時可在機身底部標籤或 Web UI(章節 9)首頁查看。
+> AirCube HomeKit 版採 AUTOMATE 品牌統一 HomeKit 配對碼 `111-88-999`,與其他 HomeKit 產品一致。配對碼遺失時可在機身底部標籤或 Web UI(章節 8)首頁查看。
 
 ### 2.3 內建感測器列表
 
@@ -249,7 +244,7 @@ AirCube 主板支援兩種 LED 配置:
 | 慢閃 | 沒設定過 / 重置後 | 用 iPhone「家庭」App 配對加入 |
 | 雙閃 | 配對流程進行中 | 等 30 秒;超過 1 分鐘還在雙閃 → App 重新加入 |
 | 恆亮(AirMac) | 已上線 + 空品正常 | 無需處理 |
-| 慢閃 ~2 秒(AirMac) | 有空品項超標 | 看 OLED / Web UI 確認哪一項 |
+| 慢閃 ~2 秒(AirMac) | 有空品項超標 | 看 Web UI 確認哪一項 |
 | 全暗(標準版常態) | 已上線 + 空品正常 | 無需處理 |
 | 5 Hz 快閃 | 你正在長按重置鈕 | 想取消重置就放開;想重置就按到 10 秒 |
 
@@ -263,62 +258,17 @@ AirCube 主板支援兩種 LED 配置:
 | **長按 5–10 秒**(警告期) | LED 5 Hz 快閃,放手取消 |
 | **長按 ≥ 10 秒** | **工廠重置觸發**(清 HomeKit 配對),用戶設定保留 |
 
-> CO2 / TVOC 校正、門檻設定等動作,**只能透過 Web UI** 操作,避免實體鈕誤觸。詳見章節 9。
+> CO2 / TVOC 校正、門檻設定等動作,**只能透過 Web UI** 操作,避免實體鈕誤觸。詳見章節 8。
 
----
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. 接入 Apple Home(初次配對)</h2>
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. OLED 顯示螢幕(可選配)</h2>
-
-外接 1.3" SH1106 OLED 128×64(I2C 介面接 PM2.5 cable 上的 Y-splitter)後,自動偵測並啟用 4 頁輪播,每頁 5 秒。**沒接 OLED 的單機也能正常運作,韌體會跳過螢幕邏輯**。
-
-### 5.1 4 頁輪播內容
-
-```
-頁 1 — 溫濕度          頁 2 — CO2 + PM2.5/AQI    頁 3 — TVOC + 變體區     頁 4 — 系統狀態
-┌──────────────┐      ┌──────────────────┐      ┌──────────────┐         ┌──────────────┐
-│ Temperature  │      │ Co2  AQI:GREEN   │      │ TVOC         │         │   AirMac     │
-│              │      │                  │      │              │         │   ──────     │
-│  27.5°C      │      │   542 ppm        │      │  85 ug       │         │ 10.0.1.152   │
-│              │      │                  │      │              │         │              │
-│ Humidity     │      │ PM2.5     12 ug  │      │ CH2O / 人在  │         │  15:30:01    │
-│ 56.2 %       │      │   GREEN          │      │ 16 ppb 等    │         │  2026/5/8    │
-└──────────────┘      └──────────────────┘      └──────────────┘         └──────────────┘
-```
-
-頁 3 的下半區自動依**產品變體**切換內容:
-
-| 變體 | 頁 3 下半 |
-|---|---|
-| Ultra | `CH2O / 16 ppb` |
-| Pro | `Occupancy / OCCUPIED` 或 `EMPTY` |
-| Plus | `Touch / Single 12s`(最近觸發類型 + 經過時間)|
-
-> 開啟「指示燈睡眠模式」時,OLED 整片熄滅(display off,GDDRAM 保留),關閉模式自動點亮。
-
-### 5.2 AQI 色彩等級對照
-
-頁 2 下半的 AQI 文字採用 **EPA 標準色名**(black-and-white OLED 沒色彩,但色名語意足夠):
-
-| PM2.5 (µg/m³) | OLED 顯示 | 真實顏色 | 對應行動 |
-|---|---|---|---|
-| 0 ~ 12 | **GREEN** | 🟢 綠 | 空品優良 |
-| 12 ~ 35 | **YELLOW** | 🟡 黃 | 普通,敏感族群留意 |
-| 35 ~ 55 | **ORANGE** | 🟠 橘 | 不健康(敏感族群) |
-| 55 ~ 150 | **RED** | 🔴 紅 | 不健康,建議關窗 |
-| 150 ~ 250 | **PURPLE** | 🟣 紫 | 非常不健康 |
-| 250+ | **MAROON** | 🟫 暗紅 | 危險,室外勿活動 |
-
----
-
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 接入 Apple Home(初次配對)</h2>
-
-### 6.1 配對前確認
+### 5.1 配對前確認
 
 - [ ] 路由器 **Wi-Fi 2.4 GHz** 可用(AirCube 不支援 5 GHz)
 - [ ] iPhone / iPad 已登入 iCloud 並啟用「家庭」
 - [ ] 建議家中有一台 **家庭中樞**(HomePod / Apple TV),自動化與遠端存取才會生效
 
-### 6.2 Apple Home 配對步驟
+### 5.2 Apple Home 配對步驟
 
 1. 通電 AirCube,等 LED 進入慢閃(等待 Wi-Fi)
 2. iPhone 開「家庭」App → 右上角 **+** → **加入配件**
@@ -327,14 +277,14 @@ AirCube 主板支援兩種 LED 配置:
 5. 選擇房間、命名 → 完成
 6. LED 轉恆亮 / 全暗即代表上線
 
-### 6.3 配對後看到的配件
+### 5.3 配對後看到的配件
 
 配對完成後,Apple「家庭」會出現以下配件(依型號):
 
 | 配件 | 全型號 | 說明 |
 |---|---|---|
 | 空氣品質感測器 | ✅ | PM2.5、TVOC(Ultra 另含甲醛,以「二氧化氮」呈現) |
-| **二氧化碳偵測器** | ✅ | CO2 濃度 + 「偵測到二氧化碳」異常狀態(可推播/自動化,章節 8) |
+| **二氧化碳偵測器** | ✅ | CO2 濃度 + 「偵測到二氧化碳」異常狀態(可推播/自動化,章節 7) |
 | 溫度感測器 | ✅ | |
 | 濕度感測器 | ✅ | |
 | 佔用感測器 | 僅 Pro | 有人 / 無人 |
@@ -342,23 +292,23 @@ AirCube 主板支援兩種 LED 配置:
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. 接入 Home Assistant(MQTT)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">6. 接入 Home Assistant(MQTT)</h2>
 
-### 7.1 機制說明
+### 6.1 機制說明
 
 HomeKit 版**不走 Matter**,接入 Home Assistant 是透過裝置內建的 **MQTT 用戶端 + Home Assistant Discovery**。連上你的 MQTT Broker 後,HA 會自動探索出各個感測器實體。**HA 端沒有 Apple 那些限制,所有數值(含 CO2、甲醛)都能直接拿來做任何自動化**。
 
 > 需要一台 MQTT Broker(例如 HA 的 Mosquitto add-on)。
 
-### 7.2 設定步驟
+### 6.2 設定步驟
 
-1. 配對並上線後,進 AirCube 的 **Web UI 工程頁**(章節 9 的連線方式)
+1. 配對並上線後,進 AirCube 的 **Web UI 工程頁**(章節 8 的連線方式)
 2. 找到「**MQTT / Home Assistant**」卡片
 3. 填入 Broker IP、Port(預設 1883)、Username、Password
 4. 按「**連線測試**」→ 成功後按「**儲存並啟用**」
 5. 到 Home Assistant → 設定 → 裝置與服務 → **MQTT**,即可看到自動探索的 AirCube 裝置與實體
 
-### 7.3 HA 會探索到的實體
+### 6.3 HA 會探索到的實體
 
 | 實體 | 全型號 | 額外 |
 |---|---|---|
@@ -368,7 +318,7 @@ HomeKit 版**不走 Matter**,接入 Home Assistant 是透過裝置內建的 **MQ
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. CO2 異常推播與自動化</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">7. CO2 異常推播與自動化</h2>
 
 HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示濃度(ppm),還有一個「**偵測到二氧化碳**」狀態:當 CO2 **超過設定門檻**(Web UI 首頁「CO2 超標門檻」,預設 1000 ppm)即觸發。
 
@@ -382,9 +332,9 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. Web UI:首頁(日常設定)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">8. Web UI:首頁(日常設定)</h2>
 
-### 9.1 連線方式
+### 8.1 連線方式
 
 配對成功後,AirCube 在區網提供 Web UI。打開瀏覽器,網址兩種擇一:
 
@@ -396,7 +346,7 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 
 > 手機與 AirCube 必須在**同一個 Wi-Fi 網段**。
 
-### 9.2 即時狀態與門檻設定
+### 8.2 即時狀態與門檻設定
 
 | 區塊 | 內容 |
 |---|---|
@@ -404,7 +354,7 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 | **即時狀態** | 溫度、濕度、CO2、TVOC、PM2.5(+ 變體相關項) |
 | **門檻設定** | 4 個滑桿(CO2 / PM2.5 / TVOC / CH2O,僅 Ultra)|
 
-**門檻說明**:超過設定值時對應 LED 亮起(睡眠模式關閉時不亮);其中 **CO2 超標門檻同時是「二氧化碳偵測器」的推播觸發點**(章節 8)。
+**門檻說明**:超過設定值時對應 LED 亮起(睡眠模式關閉時不亮);其中 **CO2 超標門檻同時是「二氧化碳偵測器」的推播觸發點**(章節 7)。
 
 | 門檻 | 預設值 | 範圍 |
 |---|---|---|
@@ -413,11 +363,11 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 | **TVOC 超標** | **2000 µg/m³** | **0 – 3000 µg/m³** |
 | CH2O 超標(Ultra) | 500 ppb | 0 – 2000 ppb |
 
-### 9.3 溫濕度偏移校正
+### 8.3 溫濕度偏移校正
 
 如果你的 AirCube 跟其他溫度計差幾度,可調 ±20 °C / ±50 %RH 偏移。**偏移直接加在原始讀值上**,即時生效不需重啟。
 
-### 9.4 CO2 與 TVOC 歸零校正
+### 8.4 CO2 與 TVOC 歸零校正
 
 > **建議:每 6 個月做一次,或感覺數值偏移時**
 
@@ -438,10 +388,9 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 > 歸零後,Web UI「校正狀態」會顯示「N 秒前 · TVOC 零點 X µg/m³」。
 > 若顯示「尚未校正」,通常是裝置時鐘還沒同步(剛開機)—— 等連網幾秒 SNTP 對時後再按一次即可。
 
-### 9.5 指示燈睡眠模式
+### 8.5 指示燈睡眠模式
 
 預設**關閉**。開啟後:
-- **OLED 螢幕**完全熄滅
 - **超標 LED**(標準版三顆 / AirMac 慢閃)強制 OFF
 - **系統狀態 LED**(WiFi / 配對 / factory reset 警告)不受影響
 
@@ -449,7 +398,7 @@ HomeKit 版把 CO2 做成獨立的「**二氧化碳偵測器**」,除了顯示�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. 甲醛在 Apple Home 的顯示(Ultra)</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">9. 甲醛在 Apple Home 的顯示(Ultra)</h2>
 
 HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無法直接顯示甲醛。AirCube Ultra 的做法是**借用「二氧化氮(NO2)」欄位**呈現甲醛濃度(µg/m³):
 
@@ -461,9 +410,9 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. OTA 韌體更新</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">10. OTA 韌體更新</h2>
 
-### 11.1 更新流程
+### 10.1 更新流程
 
 1. 連線 Web UI → 底部 **版更** Tab
 2. 系統自動向官方檢查最新版本(HomeKit 頻道)
@@ -475,7 +424,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 > HomeKit 版只會抓 HomeKit 頻道的韌體(`air_cube/homekit/firmware-w`),不會誤抓到 Matter 版本。
 
-### 11.2 更新會保留 / 清除什麼
+### 10.2 更新會保留 / 清除什麼
 
 | 項目 | 是否保留 |
 |---|---|
@@ -488,20 +437,20 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 工廠重置</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">11. 工廠重置</h2>
 
-### 12.1 硬體重置
+### 11.1 硬體重置
 
 - 按住重置鈕 **10 秒以上**
 - LED 從快閃變熄滅 → 鬆開 → 自動重啟
 - 重啟後 LED 慢閃,等待重新配對
 
-### 12.2 Web UI 重置
+### 11.2 Web UI 重置
 
 - 版更頁 → 「裝置資料清除」card → 「**清除 NVS(出廠重置)**」
 - 確認對話框 → 自動重啟
 
-### 12.3 重置會清除什麼
+### 11.3 重置會清除什麼
 
 | 項目 | 是否清除 |
 |---|---|
@@ -517,7 +466,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 故障排除</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">12. 故障排除</h2>
 
 ### 配對相關
 
@@ -537,7 +486,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 | PM2.5 偶爾跳 "—" | I2C 讀取 timeout(沒插好 / 電供不穩) | 檢查 PM2.5 模組 cable 是否鬆動 |
 | TVOC 一直 0 µg/m³ | SGP30 暖機需 15 秒~數分鐘 | 通電靜置 30 分鐘以上;斷電重開要重新暖機 |
 | CH2O 數值偏高(Ultra) | ZE08 預熱 ~3 分鐘 | 通電後等 5 分鐘讀數才穩定 |
-| 甲醛在「家庭」找不到(Ultra) | HomeKit 沒有甲醛特徵值 | 看空氣品質配件的「二氧化氮」欄位(章節 10) |
+| 甲醛在「家庭」找不到(Ultra) | HomeKit 沒有甲醛特徵值 | 看空氣品質配件的「二氧化氮」欄位(章節 9) |
 
 ### Web UI / MQTT / OTA 相關
 
@@ -550,7 +499,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">14. 安全使用</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">13. 安全使用</h2>
 
 - 請勿拆殼 / 改裝 — 內含無線電路,改裝會違反電信法規
 - 請勿用水或溶劑清潔 PM2.5 進氣口,可能損壞雷射粒子感測器
@@ -561,7 +510,7 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 
 ---
 
-<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">15. 規格表</h2>
+<h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">14. 規格表</h2>
 
 | 項目 | 規格 |
 |---|---|
@@ -580,7 +529,6 @@ HomeKit 協定**沒有「甲醛」這個特徵值**,所以 Apple「家庭」無�
 | 甲醛(Ultra) | ZE08-CH2O 電化學(±5%) |
 | 人在感應(Pro) | HLK-LD2410 24GHz 雷達(0.75–6 m) |
 | 觸控(Plus) | TTP223 電容(單擊/雙擊/長按) |
-| 顯示螢幕 | 1.3" SH1106 OLED 128×64 mono(可選配) |
 | LED 數量 | 4 顆(標準版)/ 1 顆(AirMac) |
 | 供電 | DC 5V / USB(建議 ≥ 1 A) |
 | 待機功耗 | < 1 W |
