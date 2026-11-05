@@ -7,9 +7,9 @@
     {
       "chipFamily": "ESP32-C3",
       "ota": {
-        "path": "https://raw.githubusercontent.com/Billtou/public/main/Motion_One_Plus/ESPHome_v2/firmware-w/motionone-plus2-firmware_w_1.0.ota.bin",
-        "md5": "7bd41c613d75601f3fbfe4876b24ba1d",
-        "sha256": "9633296165cbaaec0a910a2042078cd096f9117a6f2caba31bdd1697e46c37df",
+        "path": "https://raw.githubusercontent.com/Billtou/public/main/Motion_One_Plus/ESPHome_v3/firmware-w/motionone-plus2-firmware_w_1.0.ota.bin",
+        "md5": "dda66fc82b88ad184175104a5697fdf6",
+        "sha256": "472e0839b54a58ef38127b0fd6ea668106d8146f892b849f1a8a584af83ae7b9",
         "summary": "v1.3 [詳情見說明網頁](https://github.com/Billtou/public/blob/main/Motion_One_Plus/ESPHome_v2/README.md)"
       }
     }
