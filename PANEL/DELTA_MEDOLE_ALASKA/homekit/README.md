@@ -241,14 +241,21 @@
 
 <h2 style="color:#1c3d5a;border-bottom:3px solid #ff6f48;padding-bottom:8px;margin-top:48px;font-size:28px">5. 面板操作</h2>
 
-面板螢幕本身就是完整的控制介面,**不需要手機也能用**。底部四個圖示切換頁面:
+面板螢幕本身就是完整的控制介面,**不需要手機也能用**。底部圖示切換頁面,右下角顯示目前時間:
 
 | 圖示 | 頁面 | 內容 |
 |---|---|---|
-| 機型圖示 | **主畫面** | 開關 / 模式 / 強弱 / 定時 / 溫濕度 |
-| ⚙️ | **設定** | 螢幕亮度、螢幕睡眠、連網狀態、濾網時數、狀態、畫面刷新 |
-| ▣ | **配對** | HomeKit QR Code、使用說明 QR、重置連網、重開機 |
-| A/B | **機型切換** | 安裝人員用(需密碼)|
+| 機型圖示(最左)| **主畫面** | 開關 / 模式 / 風量 / 定時 / 溫濕度(依機型)|
+| ⚙️ | **設定** | 上方有 **桌布 / 設定 / QR** 三個分頁(見下表)|
+| 🤖 | **空品** | AirCube 空品數值與空品自動化設定。**連結 AirCube 之後才會出現**(暖風機 / 全熱交換器 / 管道風機 / 阿拉斯加暖風機)|
+
+**⚙️ 設定頁的三個分頁**
+
+| 分頁 | 內容 |
+|---|---|
+| **桌布** | 桌布選擇、磚塊透明度 / 灰度、螢幕亮度、螢幕睡眠時間(可設為恆亮)|
+| **設定** | 連網狀態(Wi-Fi 訊號 %)、設備狀態、濾網時數、韌體版本、連結 AirCube / AirCube 調參(支援的機型)|
+| **QR** | 使用說明 QR、HomeKit 配對 QR 與配對碼、面板後台 QR 與 IP、長按 10 秒重置連網、重開機、風量學習(台達全熱交換器)|
 
 ### 5.1 濾網提醒
 
@@ -515,6 +522,6 @@ homeassistant/{component}/{entity}_{mac6}/config   ← HA Auto-Discovery (retain
 ---
 
 <div align="center" style="padding:32px 20px;background:#f7f9fc;border-radius:16px;margin-top:48px;color:#5a6a7a">
-<p style="margin:0;font-size:14px"><b style="color:#1c3d5a">AUTOMATE</b> · 智能控制面板 Automate Control Panel · 韌體 v0.1.1</p>
-<p style="margin:6px 0 0;font-size:13px">2026-07</p>
+<p style="margin:0;font-size:14px"><b style="color:#1c3d5a">AUTOMATE</b> · 智能控制面板 Automate Control Panel · 韌體 v0.2.132</p>
+<p style="margin:6px 0 0;font-size:13px">2026-11</p>
 </div>
