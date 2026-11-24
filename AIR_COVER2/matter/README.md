@@ -511,4 +511,4 @@ iOS Home App 拉桿、HA `cover.set_cover_position` 都支援 0–100% 任意值
 
 ---
 
-> AUTOMATE · AirCover2 · 韌體 v1.2.32
+> AUTOMATE · AirCover2 · 韌體 v1.2.36
