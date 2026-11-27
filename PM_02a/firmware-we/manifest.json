@@ -1,16 +1,16 @@
 {
     "name":  "AUTOMATE.PM-02a(Eth+WiFi)",
-    "version":  "3.5",
+    "version":  "3.6",
     "home_assistant_domain":  "esphome",
     "new_install_prompt_erase":  false,
     "builds":  [
                    {
                        "chipFamily":  "ESP32-S3",
                        "ota":  {
-                                   "path":  "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-we/automate-pm-02a.ota_we_3.5.bin",
-                                   "md5":  "29e7647992251e9dbd1bd42ec5f1930c",
-                                   "sha256":  "9852c553592c59fbf97bcea952d6704914d55aef0228e6570058148374d9366b",
-                                   "summary":  "v3.5 Ethernet+WiFi unified build (auto-failover)"
+                                   "path":  "https://raw.githubusercontent.com/Billtou/public/main/PM_02a/firmware-we/automate-pm-02a.ota_we_3.6.bin",
+                                   "md5":  "dd7fcb817db10bb13052a0f9a96baf4d",
+                                   "sha256":  "72928e74c73ceec604e66c8568c4872d6d793201526a27b0ee02acccfeabcb8f",
+                                   "summary":  "v3.6 Ethernet+WiFi unified build (auto-failover)"
                                }
                    }
                ]
