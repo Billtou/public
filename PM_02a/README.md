@@ -1,16 +1,29 @@
+### 2026/11/27 v3.6 Update
+- **網線 / WiFi 自動雙切**：單一韌體同時支援網線與 WiFi，不再分 OTA 資料夾。
+  - 網線優先：插上網線即自動關閉 WiFi（含熱點）。
+  - 網線拔除 / 斷線：自動開啟 WiFi 連回原本設定的 SSID；30 秒內連不上才會跳出熱點 `automate-pm-02a-xxxxxx` 供重新配網。
+  - 停電復電：WiFi 路由器晚點才恢復也沒關係，設備會持續重試並自動連回，熱點隨之關閉。
+- 移除 HA 內 `Firmware Type`（WiFi/Ethernet）選單與 `Firmware Update` 按鈕，OTA 統一讀取 `firmware-we`。
+- 修正 `Ch1/Ch2 Energy Daily` 未連 HA 時不會每日歸零、累積不清的問題；手動 Reset 按鈕現在也會一併清除 Daily。
+- 實體按鈕：長按 5 秒放開＝重開機；長按 10 秒（LED 熄滅後）放開＝出廠重置（含清除 WiFi 設定）。
+- **新增保存最近 3 次計費週期紀錄**：每次歸零（手動按 `TaiPower Count Manual Reset` 或自動歸零）時，自動把該期的總度數、累計電費與歸零日期封存，HA 會多出 9 個實體：
+  - `(Taipower) Prev1 kWh` / `Prev1 Cost` / `Prev1 Reset Date`（最近一期）
+  - `(Taipower) Prev2 ...`（前兩期）、`(Taipower) Prev3 ...`（前三期）
+  - 紀錄存在設備 flash 內，斷電不會遺失；新裝置或剛出廠重置時顯示 `—` / 0，要等第二次歸零起才有完整一期可封存。
+
 ### 2026/1/3 v3.3 Update
 - 更新2025/10/1日實施的電價計費標準。
 - [前往明細表](https://github.com/Billtou/public/blob/main/PM_02a/README.md#%E7%9B%AE%E5%89%8D%E5%8F%B0%E9%9B%BB%E4%B8%80%E8%88%AC%E6%B0%91%E7%9C%BE%E8%A8%88%E8%B2%BB%E8%A1%A82025101)
 
 # AUTOMATE PM-02 2路入戶總電力
 ## 接入自家網路(WIFI)
-### 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
+### 不插網線上電，稍待約 30 秒手機靠近設備找wifi熱點 automate-pm-02a-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## 接入自家網路(網線)
-### 上電插上網線即可。
+### 上電插上網線即可，插上網線時 WiFi 與熱點會自動關閉（v3.6 起同一韌體自動雙切，拔掉網線會自動切回 WiFi）。
 
 # 安裝線路與順序
 ### 1. 斷電施作
-### 2. 接上L，N線上電連接網線或WIFI (若要切換連線方式，可在OTA資料夾找到對應的檔案)
+### 2. 接上L，N線上電連接網線或WIFI (v3.6 起同一韌體自動雙切，不需更換韌體)
 ### 3. 所有線路都連接完成接入HA之後，最後最後才鉤CT鉤環 (順序不對會有高頻聲音)
 ![Mosquitto_broker](/PM_02/image/pm_02_11.JPG)
 *若不熟悉水電方面，建議諮詢專業水電師傅*
