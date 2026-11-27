@@ -1,3 +1,17 @@
+### 2026/11/27 v4.0 Update
+- **網線 / WiFi 自動雙切**：單一韌體同時支援網線與 WiFi，不再分 firmware-e / firmware-w。
+  - 網線優先：插上網線即自動關閉 WiFi（含熱點）。
+  - 網線拔除 / 斷線：自動開啟 WiFi 連回原本設定的 SSID；30 秒內連不上才會跳出熱點 `automate-pm-20d-xxxxxx` 供重新配網。
+  - 停電復電：WiFi 路由器晚點才恢復也沒關係，設備會持續重試並自動連回，熱點隨之關閉。
+- **狀態 LED**：斷網（網線與 WiFi 皆未連）每秒閃一次；連線後常亮。
+- **實體按鈕**：長按 5 秒起 LED 快閃，此時放開＝重開機；長按滿 10 秒 LED 熄滅，此時放開＝出廠重置（含清除 WiFi 設定與所有計費設定）。
+- 修正「自動歸零模式」未連 HA 時每日 00:00 不會觸發的問題（改用設備自身 SNTP 時間）。
+- **新增保存最近 3 次計費週期紀錄**：每次歸零（手動按 `TaiPower Count Manual Reset` 或自動歸零）時，自動把該期的總度數、累計電費與歸零日期封存，HA 會多出 9 個實體：
+  - `(Taipower) Prev1 kWh` / `Prev1 Cost` / `Prev1 Reset Date`（最近一期）
+  - `(Taipower) Prev2 ...`（前兩期）、`(Taipower) Prev3 ...`（前三期）
+  - 紀錄存在設備 flash 內，斷電不會遺失；新裝置或剛出廠重置時顯示 `—` / 0，要等第二次歸零起才有完整一期可封存。
+- OTA 統一讀取 `firmware-we`。
+
 # 3.8 版更新內容 [詳細](https://github.com/Billtou/public/blob/main/PM_20/PM_20_v2/beta/3_8_0_update_readme.md)
 *「台電帳單對齊:雙月級距 + 跨季日數比例切割」
 
@@ -19,9 +33,9 @@
 
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/重置紐.jpg)
 ## 接入自家網路(WIFI)
-* 上電稍待1~2分鐘手機靠近設備找wifi熱點 automate-pm-20-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
+* 不插網線上電，稍待約 30 秒手機靠近設備找wifi熱點 automate-pm-20d-xxxxxx，接入後手機切換到瀏覽器輸入192.168.4.1即可指定自家wifi與密碼，HA會自動找到設備。
 ## 接入自家網路(網線)
-* 上電插上網線即可。
+* 上電插上網線即可，插上網線時 WiFi 與熱點會自動關閉（v4.0 起同一韌體自動雙切，拔掉網線會自動切回 WiFi）。
 ## 匯流排式電箱介紹
 ![Mosquitto_broker](/PM_20/PM_20_v2/image/image10.JPG)
 ## 一般式電箱介紹
